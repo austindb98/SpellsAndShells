@@ -257,6 +257,10 @@ MonoBehaviour:
   spell1Icon: {fileID: 603453370}
   spell2Icon: {fileID: 731419444}
   spell3Icon: {fileID: 2033040222}
+  skillActivated: {fileID: -3464725495389590780, guid: d19c985ca35efa54eb49961f9ccc28ba,
+    type: 3}
+  skillInactive: {fileID: -5879333923217616717, guid: d19c985ca35efa54eb49961f9ccc28ba,
+    type: 3}
 --- !u!1 &191865029
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +382,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 51123007f93e04645986869678ea3ea7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f285998c5c17a4147a4e6192f2b7ad9e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1145,7 +1149,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3464725495389590780, guid: d19c985ca35efa54eb49961f9ccc28ba,
+  m_Sprite: {fileID: -5879333923217616717, guid: d19c985ca35efa54eb49961f9ccc28ba,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1294,7 +1298,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 51123007f93e04645986869678ea3ea7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 609aee2a6b660a3439e84c31732e3c6f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
