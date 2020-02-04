@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HudController : MonoBehaviour
 {
-    static readonly bool Debug = true;
+    static readonly bool Debug = false;
     static readonly float MaxMana = 180;
     static readonly float MaxHealth = 180;
     
@@ -27,6 +27,8 @@ public class HudController : MonoBehaviour
     public Sprite skillActivated;
     public Sprite skillInactive;
     public float shootCooldownTime = .75f;
+    public BasePlayer player;
+    public Sprite[] skillIcons = new Sprite[7];
 
     private float healthAmt;
     private float manaAmt;
@@ -34,6 +36,7 @@ public class HudController : MonoBehaviour
     private float shootCooldownTimer;
     private float debugSkillTimer;
     private float debugShootTimer;
+    
 
     public enum Slot
     {
@@ -42,37 +45,40 @@ public class HudController : MonoBehaviour
     
     void Start()
     {
-        SetHealth(MaxHealth);
+        SetHealth(player.MaxHealth);
+        SetMana(player.MaxMana);
         SetSlot(Slot.Slot1, skillActivated);
-        
+        UpdateSkill(spell1Icon, player.skill1);
+        UpdateSkill(spell2Icon, player.skill2);
+        UpdateSkill(spell3Icon, player.skill3);
     }
 
     public void SetMana(float uiAmt)
     {
         manaAmt = uiAmt;
-        if (manaAmt > MaxMana)
+        if (manaAmt > player.MaxMana)
         {
-            manaAmt = MaxMana;
+            manaAmt = player.MaxMana;
         }
         else if (manaAmt < 0)
         {
             manaAmt = 0;
         }
-        mana.localScale = new Vector3(manaAmt / MaxMana, 1, 1);
+        mana.localScale = new Vector3(manaAmt / player.MaxMana, 1, 1);
     }
 
     public void SetHealth(float uiAmt)
     {
         healthAmt = uiAmt;
-        if (healthAmt > MaxHealth)
+        if (healthAmt > player.MaxHealth)
         {
-            healthAmt = MaxHealth;
+            healthAmt = player.MaxHealth;
         }
         else if (healthAmt < 0)
         {
             healthAmt = 0;
         }
-        health.localScale = new Vector3(healthAmt / MaxHealth, 1, 1);
+        health.localScale = new Vector3(healthAmt / player.MaxHealth, 1, 1);
     }
 
     public void PreviousSlot()
@@ -172,6 +178,15 @@ public class HudController : MonoBehaviour
             debugShootTimer = 0;
         }
     }
+
+    private void UpdateSkill(Image icon, BasePlayer.Skill skill)
+    {
+        if (skill == BasePlayer.Skill.Null)
+        {
+            return;
+        }
+        icon.sprite = skillIcons[(int)skill - 1];
+    }
     
     void Update()
     {
@@ -185,5 +200,17 @@ public class HudController : MonoBehaviour
             shootCooldownTimer += Time.deltaTime;
             bulletOverlay.localScale = new Vector3(1, 1 - (shootCooldownTimer / shootCooldownTime), 1);
         }
+
+        if (player.health != healthAmt)
+        {
+            SetHealth(player.health);
+        }
+
+        if (player.mana != manaAmt)
+        {
+            SetMana(player.mana);
+        }
+
+        
     }
 }

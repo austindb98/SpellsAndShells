@@ -1,3 +1,11 @@
 ART
 Magier.png - fusto (https://opengameart.org/users/fusto)
 Ice_Elemental.png - Wolfgang Wozniak (https://opengameart.org/users/ouren)
+TheLastElementA.png - SCay (https://opengameart.org/users/scay)
+beer.png - Robotkocka (https://robotkocka.itch.io/)
+explode3.bmp - Daniel Cook (https://lostgarden.home.blog/)
+forcefield.png - Hunter (https://www.pixilart.com/squidsink22)
+
+SOUND
+menuchange.wav - victorium183 (https://freesound.org/people/victorium183/)
+minimalist-sci-fi-ui-error.flac - plasterbrain (https://freesound.org/people/plasterbrain/)
