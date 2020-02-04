@@ -114,123 +114,6 @@ public class SkillsController : MonoBehaviour
         }
     }
 
-    public void OnButtonText()
-    {
-        Debug.Log("button clicked!");
-    }
-
-
-
-    public void IncrementEarth()
-    {
-        OnIncrement(EarthI);
-    }
-
-    public void DecrementEarth()
-    {
-        if (player.skillpoints[IceI] != 0 || player.skillpoints[ForcefieldI] != 0 || player.skillpoints[RingOfFireI] != 0)
-        {
-            menuError.Play();
-            return;
-        }
-        OnDecrement(EarthI);
-    }
-
-    public void IncrementIce()
-    {
-        if (player.skillpoints[EarthI] == 0 || player.skillpoints[WaterI] == 0)
-        {
-            menuError.Play();
-            return;
-        }
-        OnIncrement(IceI);
-    }
-
-    public void IncrementWater()
-    {
-        OnIncrement(WaterI);
-    }
-
-    public void IncrementForcefield()
-    {
-        if (player.skillpoints[EarthI] == 0 || player.skillpoints[WindI] == 0)
-        {
-            menuError.Play();
-            return;
-        }
-        OnIncrement(ForcefieldI);
-    }
-
-    public void IncrementRingOfFire()
-    {
-        if (player.skillpoints[EarthI] == 0 || player.skillpoints[FireI] == 0)
-        {
-            menuError.Play();
-            return;
-        }
-        OnIncrement(RingOfFireI);
-    }
-
-    public void IncrementDrink()
-    {
-        if (player.skillpoints[WaterI] == 0 || player.skillpoints[FireI] == 0)
-        {
-            menuError.Play();
-            return;
-        }
-        OnIncrement(DrinkI);
-    }
-
-    public void IncrementWind()
-    {
-        OnIncrement(WindI);
-    }
-
-    public void IncrementFirestorm()
-    {
-        if (player.skillpoints[WindI] == 0 || player.skillpoints[FireI] == 0)
-        {
-            menuError.Play();
-            return;
-        }
-        OnIncrement(FirestormI);
-    }
-
-    public void IncrementFire()
-    {
-        OnIncrement(FireI);
-    }
-
-    public void IncrementWhirlwind()
-    {
-        if (player.skillpoints[WindI] == 0 || player.skillpoints[ChaosI] == 0)
-        {
-            menuError.Play();
-            return;
-        }
-        OnIncrement(WhirlwindI);
-    }
-
-    public void IncrementLightning()
-    {
-        if (player.skillpoints[FireI] == 0 || player.skillpoints[LightI] == 0)
-        {
-            menuError.Play();
-            return;
-        }
-        OnIncrement(LightningI);
-    }
-
-    public void IncrementChaos()
-    {
-        OnIncrement(ChaosI);
-    }
-
-    public void IncrementLight()
-    {
-        OnIncrement(LightI);
-    }
-
     public void OnIncrement(uint skillIndex)
     {
         if (player.skillpoints[0] == 0)
@@ -258,6 +141,8 @@ public class SkillsController : MonoBehaviour
         SetSkillText();
         SetSkillCounter(skillIndex - 1);
     }
+
+
 
     private void UnlockSkills()
     {
@@ -317,6 +202,223 @@ public class SkillsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
+    /*
+     * Below are the button handlers for incrementing and decrementing skill points.
+     * No need to look below unless the (+) or (-) button logic is flawed.
+     * They all call OnIncrement and OnDecrement methods above
+     */
+
+
+
+    public void IncrementEarth()
+    {
+        OnIncrement(EarthI);
+    }
+
+    public void DecrementEarth()
+    {
+        if (player.skillpoints[IceI] != 0 || player.skillpoints[ForcefieldI] != 0 || player.skillpoints[RingOfFireI] != 0)
+        {
+            menuError.Play();
+            return;
+        }
+        OnDecrement(EarthI);
+    }
+
+    public void IncrementIce()
+    {
+        if (player.skillpoints[EarthI] == 0 || player.skillpoints[WaterI] == 0)
+        {
+            menuError.Play();
+            return;
+        }
+        OnIncrement(IceI);
+        UnlockSkills();
+    }
+
+    public void DecrementIce()
+    {
+        OnDecrement(IceI);
+    }
+
+    public void IncrementWater()
+    {
+        OnIncrement(WaterI);
+    }
+
+    public void DecrementWater()
+    {
+        if (player.skillpoints[IceI] != 0 || player.skillpoints[DrinkI] != 0)
+        {
+            menuError.Play();
+            return;
+        }
+        OnDecrement(WaterI);
+    }
+
+    public void IncrementForcefield()
+    {
+        if (player.skillpoints[EarthI] == 0 || player.skillpoints[WindI] == 0)
+        {
+            menuError.Play();
+            return;
+        }
+        OnIncrement(ForcefieldI);
+        UnlockSkills();
+    }
+
+    public void DecrementForcefield()
+    {
+        OnDecrement(ForcefieldI);
+    }
+
+    public void IncrementRingOfFire()
+    {
+        if (player.skillpoints[EarthI] == 0 || player.skillpoints[FireI] == 0)
+        {
+            menuError.Play();
+            return;
+        }
+        OnIncrement(RingOfFireI);
+        UnlockSkills();
+    }
+
+    public void DecrementRingOfFire()
+    {
+        
+        OnDecrement(RingOfFireI);
+    }
+
+    public void IncrementDrink()
+    {
+        if (player.skillpoints[WaterI] == 0 || player.skillpoints[FireI] == 0)
+        {
+            menuError.Play();
+            return;
+        }
+        OnIncrement(DrinkI);
+        UnlockSkills();
+    }
+
+    public void DecrementDrink()
+    {
+        OnDecrement(DrinkI);
+    }
+
+    public void IncrementWind()
+    {
+        OnIncrement(WindI);
+    }
+
+    public void DecrementWind()
+    {
+        if (player.skillpoints[ForcefieldI] != 0 || player.skillpoints[FirestormI] != 0 || player.skillpoints[WhirlwindI] != 0)
+        {
+            menuError.Play();
+            return;
+        }
+        OnDecrement(WindI);
+    }
+
+
+    public void IncrementFirestorm()
+    {
+        if (player.skillpoints[WindI] == 0 || player.skillpoints[FireI] == 0)
+        {
+            menuError.Play();
+            return;
+        }
+        OnIncrement(FirestormI);
+        UnlockSkills();
+    }
+
+    public void DecrementFirestorm()
+    {
+        OnDecrement(FirestormI);
+    }
+
+    public void IncrementFire()
+    {
+        OnIncrement(FireI);
+    }
+
+    public void DecrementFire()
+    {
+        if (player.skillpoints[DrinkI] != 0 || player.skillpoints[FirestormI] != 0 || player.skillpoints[LightningI] != 0)
+        {
+            menuError.Play();
+            return;
+        }
+        OnDecrement(FireI);
+    }
+
+    public void IncrementWhirlwind()
+    {
+        if (player.skillpoints[WindI] == 0 || player.skillpoints[ChaosI] == 0)
+        {
+            menuError.Play();
+            return;
+        }
+        OnIncrement(WhirlwindI);
+        UnlockSkills();
+    }
+
+    public void DecrementWhirlwind()
+    {
+        
+        OnDecrement(WhirlwindI);
+    }
+
+    public void IncrementLightning()
+    {
+        if (player.skillpoints[FireI] == 0 || player.skillpoints[LightI] == 0)
+        {
+            menuError.Play();
+            return;
+        }
+        OnIncrement(LightningI);
+        UnlockSkills();
+    }
+
+    public void DecrementLightning()
+    {
+
+        OnDecrement(LightningI);
+    }
+
+    public void IncrementChaos()
+    {
+        OnIncrement(ChaosI);
+    }
+
+    public void DecrementChaos()
+    {
+        if (player.skillpoints[WhirlwindI] != 0)
+        {
+            menuError.Play();
+            return;
+        }
+        OnDecrement(ChaosI);
+    }
+
+
+    public void IncrementLight()
+    {
+        OnIncrement(LightI);
+    }
+
+    public void DecrementLight()
+    {
+        if (player.skillpoints[LightningI] != 0)
+        {
+            menuError.Play();
+            return;
+        }
+        OnDecrement(LightI);
+    }
+
+   
 }
