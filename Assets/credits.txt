@@ -5,7 +5,12 @@ TheLastElementA.png - SCay (https://opengameart.org/users/scay)
 beer.png - Robotkocka (https://robotkocka.itch.io/)
 explode3.bmp - Daniel Cook (https://lostgarden.home.blog/)
 forcefield.png - Hunter (https://www.pixilart.com/squidsink22)
+Pot.png - Pita (https://pita.itch.io/rpg-dungeon-tileset)
+dungeon tiles (Buch).png - Buch (https://opengameart.org/content/dungeon-tileset)
+
 
 SOUND
 menuchange.wav - victorium183 (https://freesound.org/people/victorium183/)
 minimalist-sci-fi-ui-error.flac - plasterbrain (https://freesound.org/people/plasterbrain/)
+PotBreak.wav - ??? (https://www.youtube.com/watch?v=A5zwcsVsVz0)
+ShotgunShoot.wav - ??? (https://www.youtube.com/watch?v=A5zwcsVsVz0)
