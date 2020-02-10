@@ -7,7 +7,7 @@ public class BasePlayer : MonoBehaviour
 
     public enum Skill
     {
-        Null, Ice, Forcefield, RingofFire, Drink, Firestorm, Whirlwind, Lightning
+        Wind, Ice, Fire
     }
 
 
@@ -21,11 +21,7 @@ public class BasePlayer : MonoBehaviour
     public float health;
     public float mana;
 
-    public Skill skill1;
-    public Skill skill2;
-    public Skill skill3;
-
-    public uint[] skillpoints = new uint[14];
+    public uint[] skillpoints = new uint[4];
 
     void Start()
     {

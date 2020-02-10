@@ -48,9 +48,6 @@ public class HudController : MonoBehaviour
         SetHealth(player.MaxHealth);
         SetMana(player.MaxMana);
         SetSlot(Slot.Slot1, skillActivated);
-        UpdateSkill(spell1Icon, player.skill1);
-        UpdateSkill(spell2Icon, player.skill2);
-        UpdateSkill(spell3Icon, player.skill3);
     }
 
     public void SetMana(float uiAmt)
@@ -179,14 +176,7 @@ public class HudController : MonoBehaviour
         }
     }
 
-    private void UpdateSkill(Image icon, BasePlayer.Skill skill)
-    {
-        if (skill == BasePlayer.Skill.Null)
-        {
-            return;
-        }
-        icon.sprite = skillIcons[(int)skill - 1];
-    }
+
     
     void Update()
     {
