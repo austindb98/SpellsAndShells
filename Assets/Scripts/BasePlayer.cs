@@ -21,6 +21,9 @@ public class BasePlayer : MonoBehaviour
     public float health;
     public float mana;
 
+    // Use to tell if shot has cooled down, will be true if it has cooled fully
+    public bool shotReady;
+
     public uint[] skillpoints = new uint[4];
 
     void Start()

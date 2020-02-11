@@ -27,6 +27,7 @@ public class SkillsController : MonoBehaviour
     public Text windCounter;
     public Text iceCounter;
     public Text fireCounter;
+    public Text unassignedCounter;
 
     private uint UnassignedPoints {
         get{ return player.skillpoints[0]; }
@@ -98,6 +99,7 @@ public class SkillsController : MonoBehaviour
     private void SetUnassignedBar()
     {
         unassigned.localScale = new Vector3(UnassignedPoints / MaxPoints, 1, 1);
+        unassignedCounter.text = "" + UnassignedPoints;
     }
 
     private bool PlayErrorFalse(bool predicate)
