@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Pot
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -13,10 +16,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Walls
+  - Entities
+  - Ground
+  - Obstacles
   - 
   - 
   - 
@@ -40,4 +43,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 1601586293
+    locked: 0
+  - name: Player
+    uniqueID: 3022479965
+    locked: 0
+  - name: Obstacles
+    uniqueID: 4106597459
+    locked: 0
+  - name: Walls
+    uniqueID: 4124109401
     locked: 0
