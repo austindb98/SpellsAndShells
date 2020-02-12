@@ -16,11 +16,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Walls
+  - Entities
+  - Ground
+  - Obstacles
+  - Projectiles
   - 
   - 
   - 
@@ -55,4 +55,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2266969117
+    locked: 0
+  - name: Enemies
+    uniqueID: 373782565
     locked: 0
