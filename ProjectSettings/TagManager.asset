@@ -20,7 +20,7 @@ TagManager:
   - Entities
   - Ground
   - Obstacles
-  - 
+  - Projectiles
   - 
   - 
   - 
@@ -55,4 +55,7 @@ TagManager:
     locked: 0
   - name: Walls
     uniqueID: 4124109401
+    locked: 0
+  - name: Enemies
+    uniqueID: 373782565
     locked: 0

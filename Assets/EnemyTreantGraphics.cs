@@ -6,20 +6,12 @@ using Pathfinding;
 
 public class EnemyTreantGraphics : MonoBehaviour
 {
-    private float speed = 2f;
-    private float movementTimer = 0f;
-    private Vector2 moveVelocity;
-    private SpriteRenderer sr;
     private Animator an;
-    private Rigidbody2D rb;
-
     public AIPath aiPath;
 
     void Start()
     {
-        sr = gameObject.GetComponent<SpriteRenderer>(); 
         an = gameObject.GetComponent<Animator>();
-        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
