@@ -89,7 +89,7 @@ public class EnemyArcherBoyGraphics : MonoBehaviour
     private bool CheckLineOfSight() {
         if(Vector3.Distance(player.transform.position, transform.position) < maxArcherRange) {
             Vector3 rayDirection = player.transform.position - transform.position;
-            int raycastMask = ~((1 << 8) & (1 << 9) & (1 << 11));
+            int raycastMask = ~((1 << 8) & (1 << 0) & (1 << 11));
             RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, maxArcherRange, raycastMask);
 
             if (hit)

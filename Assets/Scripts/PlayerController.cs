@@ -52,8 +52,8 @@ public class PlayerController : BasePlayer {
 
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-        rb2d.velocity = new Vector2(moveHorizontal, moveVertical) * speed * Time.deltaTime;
-        //transform.Translate(new Vector2(moveHorizontal, moveVertical) * speed * Time.deltaTime);
+        //rb2d.velocity = new Vector2(moveHorizontal, moveVertical) * speed * Time.deltaTime;
+        transform.Translate(new Vector2(moveHorizontal, moveVertical) * speed * Time.deltaTime);
 
         if(Input.GetMouseButtonDown(0)) {
             Debug.Log("Boom");
