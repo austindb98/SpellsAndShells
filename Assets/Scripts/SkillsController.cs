@@ -55,11 +55,10 @@ public class SkillsController : MonoBehaviour
     {
         menuChange = GetComponent<AudioSource>();
         menuError = GetComponents<AudioSource>()[1];
-
         SetBars();
     }
 
-   
+
 
 
 
@@ -194,6 +193,7 @@ public class SkillsController : MonoBehaviour
     public void OnButtonClose()
     {
         gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BasePlayer : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class BasePlayer : MonoBehaviour
 
 
 
-    static readonly bool Debug = true;
+    static readonly bool debug = false;
     static readonly float DebugSpeed = 30f;
 
     public float MaxHealth;
@@ -26,11 +27,20 @@ public class BasePlayer : MonoBehaviour
 
     public uint[] skillpoints = new uint[4];
 
-    void Start()
+    protected void Start()
     {
         health = MaxHealth;
         mana = MaxMana;
-        if (Debug)
+        if (SaveManager.currentSave != null)
+        {
+            skillpoints[0] = SaveManager.currentSave.unassigned;
+            skillpoints[1] = SaveManager.currentSave.wind;
+            skillpoints[2] = SaveManager.currentSave.ice;
+            skillpoints[3] = SaveManager.currentSave.fire;
+        }
+        
+        Debug.Log("unassigned from save:" + skillpoints[0]);
+        if (debug)
         {
             health = MaxHealth * .5f;
             mana = MaxMana * .75f;
@@ -54,7 +64,7 @@ public class BasePlayer : MonoBehaviour
     
     void Update()
     {
-        if (Debug)
+        if (debug)
         {
             DebugUpdate();
         }

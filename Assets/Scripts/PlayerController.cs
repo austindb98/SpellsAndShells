@@ -22,12 +22,19 @@ public class PlayerController : BasePlayer {
     private Vector2 mousePos;
 
     void Start() {
+        base.Start();
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         interactsWithBullets = wallLayer | obstacleLayer;
     }
 
+    
+
     void Update() {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 position = new Vector2(transform.position.x, transform.position.y);
         Vector2 diff = (mousePos - position);
