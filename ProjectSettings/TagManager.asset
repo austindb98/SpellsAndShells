@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
-  - Pot
   - Wall
+  - Pot
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -44,17 +44,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Ground
-    uniqueID: 1601586293
+  - name: Background
+    uniqueID: 4088565333
+    locked: 0
+  - name: Middleground
+    uniqueID: 3270919103
     locked: 0
   - name: Player
-    uniqueID: 3022479965
+    uniqueID: 2004420239
     locked: 0
-  - name: Obstacles
-    uniqueID: 4106597459
-    locked: 0
-  - name: Walls
-    uniqueID: 4124109401
+  - name: Foreground
+    uniqueID: 2266969117
     locked: 0
   - name: Enemies
     uniqueID: 373782565
