@@ -29,7 +29,7 @@ public class ParallaxXBackground : MonoBehaviour
         {
             xPos *= -1;
         }
-        pos.x = hWidth + xPos;
+        pos.x = hWidth + xPos + 300;
         pos.y = transform.position.y;
         transform.position = pos;
     }
