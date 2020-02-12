@@ -48,7 +48,7 @@ public class EnemyArcherBoyGraphics : MonoBehaviour
                 an.SetBool("isShooting", true);
             }
         }
-        else if(CheckLineOfSight()) {    // target is in LoS. prep shot if not already doing so
+        else if(CheckLineOfSight()) {    // target is in LoS. prep shot
             isPreppingShot = true;
             aiPath.canMove = false;
             an.SetBool("isWalking", false);
