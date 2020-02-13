@@ -12,6 +12,9 @@ public class PlayerController : BasePlayer {
     public ParticleSystem shotgunBlast;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2d;
+    private bool isHit = false;
+    private float hitTimer = 0f;
+    private float hitTime = 0.7f;
 
     public GameObject soundManager;
     public LayerMask wallLayer, obstacleLayer;
@@ -28,12 +31,23 @@ public class PlayerController : BasePlayer {
         interactsWithBullets = wallLayer | obstacleLayer;
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collider) {
+        isHit = true;
+        speed = 0.8f;
+    }
 
     void Update() {
         if (Time.timeScale == 0)
         {
             return;
+        }
+        if(isHit) {
+            hitTimer += Time.deltaTime;
+            if(hitTimer > hitTime) {
+                isHit = false;
+                hitTimer = 0f;
+                speed = 10f;
+            }
         }
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 position = new Vector2(transform.position.x, transform.position.y);
