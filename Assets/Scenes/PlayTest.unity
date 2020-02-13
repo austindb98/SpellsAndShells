@@ -8774,8 +8774,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.022376096, y: -0.033903122}
-  m_Size: {x: 0.12430816, y: 0.23726204}
+  m_Offset: {x: 0.0067131757, y: -0.053652048}
+  m_Size: {x: 0.17742601, y: 0.19776419}
   m_Direction: 0
 --- !u!1 &240848465 stripped
 GameObject:
@@ -9062,12 +9062,12 @@ PrefabInstance:
     - target: {fileID: 4559263024202970261, guid: 3bf8baedf1f0bc942891315a9d2e7fd6,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 0.25
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4559263024202970261, guid: 3bf8baedf1f0bc942891315a9d2e7fd6,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 60
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4559263024202970261, guid: 3bf8baedf1f0bc942891315a9d2e7fd6,
         type: 3}
@@ -9077,7 +9077,7 @@ PrefabInstance:
     - target: {fileID: 4559263024202970261, guid: 3bf8baedf1f0bc942891315a9d2e7fd6,
         type: 3}
       propertyPath: lengthInSec
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4559263024202970261, guid: 3bf8baedf1f0bc942891315a9d2e7fd6,
         type: 3}
@@ -18405,7 +18405,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394994150}
   serializedVersion: 6
-  lengthInSec: 0.2
+  lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -18480,7 +18480,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.25
+      scalar: 0.15
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -18533,7 +18533,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 60
+      scalar: 150
       minScalar: 5
       maxCurve:
         serializedVersion: 2
