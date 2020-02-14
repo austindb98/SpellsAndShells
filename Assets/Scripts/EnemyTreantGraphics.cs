@@ -12,6 +12,7 @@ public class EnemyTreantGraphics : MonoBehaviour
     private bool isKnockback = false;
     private float knockbackTimer = 0f;
     private float knockbackTime = 0.8f;
+    private PlayerController playerController;
 
     public GameObject player;
     public AIPath aiPath;
@@ -21,6 +22,7 @@ public class EnemyTreantGraphics : MonoBehaviour
         an = gameObject.GetComponent<Animator>();
         playerCollider = player.GetComponent<Collider2D>();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
+        playerController = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -62,6 +64,8 @@ public class EnemyTreantGraphics : MonoBehaviour
             isKnockback = true;
             aiPath.canMove = false;
             an.SetBool("isTreantWalking", false);
+
+            playerController.takeDamage(20f);
         }
     }
 
