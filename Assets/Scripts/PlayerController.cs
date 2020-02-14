@@ -8,7 +8,7 @@ public class PlayerController : BasePlayer {
 
     public float speed;
     public double angle;
-    public Sprite frontLeft, frontRight, frontDown, back;
+    public Sprite frontLeft, diagUpLeft, back, diagUpRight, frontRight, diagDownRight, frontDown, diagDownLeft;
     public ParticleSystem shotgunBlast;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2d;
@@ -28,7 +28,7 @@ public class PlayerController : BasePlayer {
         interactsWithBullets = wallLayer | obstacleLayer;
     }
 
-    
+
 
     void Update() {
         if (Time.timeScale == 0)
@@ -40,22 +40,40 @@ public class PlayerController : BasePlayer {
         Vector2 diff = (mousePos - position);
         angle = Math.Atan(diff.y / diff.x) * 180/Math.PI;
 
-        if((angle >= -45 && angle < 45) && diff.x > 0) {
+        if((angle >= -22.5 && angle < 22.5) && diff.x > 0) {
             spriteRenderer.sprite = frontRight;
             shotgunBlast.transform.rotation = new Quaternion(90,0,90,0);
             shotgunBlast.transform.position = new Vector2(transform.position.x + 1.25f, transform.position.y - 0.8f);
-        } else if((angle >= -45 && angle < 45) && diff.x < 0) {
+        } else if((angle >= 22.5 && angle < 67.5) && diff.x > 0) {
+            spriteRenderer.sprite = diagUpRight;
+            shotgunBlast.transform.rotation = new Quaternion(-90,-42,-90,0);
+            shotgunBlast.transform.position = new Vector2(transform.position.x + 1.5f, transform.position.y + .1f);
+        } else if((angle >= 67.5 || angle < -67.5) && diff.y > 0) {
+            spriteRenderer.sprite = back;
+            shotgunBlast.transform.rotation = new Quaternion(0,-90,-90,0);
+            shotgunBlast.transform.position = new Vector2(transform.position.x + .53f, transform.position.y + -.f);
+        } else if((angle >= -67.5 && angle < -22.5) && diff.x < 0) {
+            spriteRenderer.sprite = diagUpLeft;
+            shotgunBlast.transform.rotation = new Quaternion(90,-42,-90,0);
+            shotgunBlast.transform.position = new Vector2(transform.position.x - 1.5f, transform.position.y + .1f);
+        } else if((angle >= -22.5 && angle < 22.5) && diff.x < 0) {
             spriteRenderer.sprite = frontLeft;
             shotgunBlast.transform.rotation = new Quaternion(90,0,-90,0);
             shotgunBlast.transform.position = new Vector2(transform.position.x - 1.25f, transform.position.y - 0.8f);
-        } else if((angle >= 45 || angle < -45) && diff.y < 0) {
+        } else if((angle >= 22.5 && angle < 67.5) && diff.x < 0) {
+            spriteRenderer.sprite = diagDownLeft;
+            shotgunBlast.transform.rotation = new Quaternion(90,40,-90,0);
+            shotgunBlast.transform.position = new Vector2(transform.position.x - 1.27f, transform.position.y - 1.4f);
+        } else if((angle >= 67.5 || angle < -67.5) && diff.y < 0) {
             spriteRenderer.sprite = frontDown;
             shotgunBlast.transform.rotation = new Quaternion(0,-90,90,0);
             shotgunBlast.transform.position = new Vector2(transform.position.x - 0.4f, transform.position.y - 0.55f);
-        } else if((angle >= 45 || angle < -45) && diff.y > 0) {
-            spriteRenderer.sprite = back;
-            shotgunBlast.transform.rotation = new Quaternion(0,-90,-90,0);
+        } else if((angle >= -67.5 && angle < -22.5) && diff.x > 0) {
+            spriteRenderer.sprite = diagDownRight;
+            shotgunBlast.transform.rotation = new Quaternion(-90,40,-90,0);
+            shotgunBlast.transform.position = new Vector2(transform.position.x + 1.27f, transform.position.y - 1.4f);
         }
+
 
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
@@ -91,10 +109,10 @@ public class PlayerController : BasePlayer {
             {
                 appliedAngle = mouseAngle - pelletAngleVariance * (i / 2);
             }
-            
+
             pelletDirections[i] = new Vector2(Mathf.Cos(appliedAngle), Mathf.Sin(appliedAngle));
-            
-            RaycastHit2D raycastResult = 
+
+            RaycastHit2D raycastResult =
                 Physics2D.Raycast(this.transform.position, pelletDirections[i], Mathf.Infinity, interactsWithBullets);
             if(raycastResult.collider != null)
             {
@@ -112,8 +130,8 @@ public class PlayerController : BasePlayer {
             {
                 Debug.DrawRay(this.transform.position, pelletDirections[i] * 100, Color.yellow, 0.1f);
             }
-            
+
         }
-        
+
     }
 }
