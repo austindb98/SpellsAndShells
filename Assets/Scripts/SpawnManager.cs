@@ -18,6 +18,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         rnd = new System.Random();
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -32,8 +33,8 @@ public class SpawnManager : MonoBehaviour
             spawnAngle = rnd.Next(0, 360);
 
             Vector3 spawnVec = new Vector3(Mathf.Cos(spawnAngle), Mathf.Sin(spawnAngle), 0) * spawnRadius;
-            Instantiate(treant, transform.position + spawnVec, Quaternion.Euler( 0f, 0f, 0f ));
-            AIDestinationSetter destinationSetter = treant.GetComponent<AIDestinationSetter>();
+            GameObject thisTreant = Instantiate(treant, transform.position + spawnVec, Quaternion.Euler( 0f, 0f, 0f ));
+            AIDestinationSetter destinationSetter = thisTreant.GetComponent<AIDestinationSetter>();
             destinationSetter.target = player.transform;
         }
     }
