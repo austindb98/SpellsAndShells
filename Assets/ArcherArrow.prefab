@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1398909096796971147}
   - component: {fileID: 1398909096796971148}
   - component: {fileID: 1678432882041747288}
+  - component: {fileID: 6600276218276969074}
   m_Layer: 12
   m_Name: ArcherArrow
   m_TagString: Untagged
@@ -119,3 +120,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.049999997, y: 0.19}
   m_Direction: 0
+--- !u!114 &6600276218276969074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398909096796971149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76d51a2021f28543953139c904a97a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

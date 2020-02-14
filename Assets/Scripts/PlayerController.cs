@@ -130,4 +130,8 @@ public class PlayerController : BasePlayer {
         }
         
     }
+
+    public void takeDamage(float damage) {
+        
+    }
 }
