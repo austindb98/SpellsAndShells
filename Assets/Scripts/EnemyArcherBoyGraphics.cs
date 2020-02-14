@@ -13,6 +13,7 @@ public class EnemyArcherBoyGraphics : MonoBehaviour
     private float shotPrepTime = 1f;        // time needed for shot cooldown
     private float shotPrepTimer;            // cooldown timer for shooting arrow
     private bool isPreppingShot = false;    // indicates if shot is being prepped
+    private int raycastLayerMask;
 
     private Animator an;
     public AIPath aiPath;
@@ -22,6 +23,9 @@ public class EnemyArcherBoyGraphics : MonoBehaviour
     void Start()
     {
         an = gameObject.GetComponent<Animator>();
+        raycastLayerMask =  ((1 << LayerMask.NameToLayer("Obstacles")) |
+                             (1 << LayerMask.NameToLayer("Walls")) |
+                             (1 << LayerMask.NameToLayer("Player")));
     }
 
     // Update is called once per frame
@@ -80,17 +84,19 @@ public class EnemyArcherBoyGraphics : MonoBehaviour
         Vector3 dir = player.transform.position - transform.position;
         float angle = Mathf.Atan2( dir.y, dir.x )  * Mathf.Rad2Deg - 90;
         Quaternion q = Quaternion.Euler( 0f, 0f, angle );
+        Vector3 unitVec = player.transform.position - transform.position;
+        unitVec.Normalize();
 
         GameObject thisArrow = Instantiate(arrow, transform.position, q);
-        thisArrow.GetComponent<Rigidbody2D>().velocity = 2.5f * (player.transform.position - transform.position);
+        thisArrow.GetComponent<Rigidbody2D>().velocity = 30f * unitVec;
+        thisArrow.GetComponent<ArrowController>().player = player;
     }
 
     // returns whether the player is in LoS of the ArcherBoy
     private bool CheckLineOfSight() {
         if(Vector3.Distance(player.transform.position, transform.position) < maxArcherRange) {
             Vector3 rayDirection = player.transform.position - transform.position;
-            int raycastMask = ~((1 << 8) & (1 << 9) & (1 << 11));
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, maxArcherRange, raycastMask);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, maxArcherRange, raycastLayerMask);
 
             if (hit)
                 return hit.transform == player.transform;
