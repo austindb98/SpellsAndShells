@@ -8825,13 +8825,13 @@ MonoBehaviour:
   speed: 450
   angle: 0
   frontLeft: {fileID: 21300000, guid: 9f32e561148f4eb4abf8b92c3adb1c75, type: 3}
-  diagUpLeft: {fileID: 21300000, guid: ffccacf0454f48a0d9ebaf01865afd65, type: 3}
+  diagUpLeft: {fileID: 21300000, guid: a20d863480763d648888b5d3cc7bab2b, type: 3}
   back: {fileID: 21300000, guid: 42bea026130287e499accff8e2ff9855, type: 3}
-  diagUpRight: {fileID: 21300000, guid: 8763b2f0d954022229f1de7e2a212bc4, type: 3}
+  diagUpRight: {fileID: 21300000, guid: d4e4b4a6a5293644495e7fbe04d0da2b, type: 3}
   frontRight: {fileID: 21300000, guid: 2da5a8da0c68b394cb999ad0e6ac3580, type: 3}
-  diagDownRight: {fileID: 21300000, guid: b0acde8a0227ad6d6bf9f96e05af1b9c, type: 3}
+  diagDownRight: {fileID: 21300000, guid: 9d86501317588c247a0ff65d6bba07e2, type: 3}
   frontDown: {fileID: 21300000, guid: 71b72bf5461202645abb4c89bc31b9ac, type: 3}
-  diagDownLeft: {fileID: 21300000, guid: b654cedc2d47fe50f8af5af1d8015870, type: 3}
+  diagDownLeft: {fileID: 21300000, guid: 43f0b2c1f57f36b4b84e840194960023, type: 3}
   shotgunBlast: {fileID: 126342380}
   soundManager: {fileID: 240848465}
   wallLayer:

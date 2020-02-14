@@ -65,7 +65,7 @@ public class PlayerController : BasePlayer {
         } else if((angle >= 67.5 || angle < -67.5) && diff.y > 0) {
             spriteRenderer.sprite = back;
             shotgunBlast.transform.rotation = new Quaternion(0,-90,-90,0);
-            shotgunBlast.transform.position = new Vector2(transform.position.x + .53f, transform.position.y + -.f);
+            shotgunBlast.transform.position = new Vector2(transform.position.x + .53f, transform.position.y + -.1f);
         } else if((angle >= -67.5 && angle < -22.5) && diff.x < 0) {
             spriteRenderer.sprite = diagUpLeft;
             shotgunBlast.transform.rotation = new Quaternion(90,-42,-90,0);
