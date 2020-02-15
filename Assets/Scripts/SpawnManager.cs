@@ -6,8 +6,8 @@ using Pathfinding;
 public class SpawnManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float spawnMinRadius = 3f;
-    private float spawnMaxRadius = 5f;
+    private float spawnMinRadius = 1f;
+    private float spawnMaxRadius = 2f;
     private float spawnTimer = 0f;
     private float avgSpawnRate = 6f;
     private System.Random rnd;
@@ -18,6 +18,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         rnd = new System.Random();
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -32,8 +33,8 @@ public class SpawnManager : MonoBehaviour
             spawnAngle = rnd.Next(0, 360);
 
             Vector3 spawnVec = new Vector3(Mathf.Cos(spawnAngle), Mathf.Sin(spawnAngle), 0) * spawnRadius;
-            Instantiate(treant, transform.position + spawnVec, Quaternion.Euler( 0f, 0f, 0f ));
-            AIDestinationSetter destinationSetter = treant.GetComponent<AIDestinationSetter>();
+            GameObject thisTreant = Instantiate(treant, transform.position + spawnVec, Quaternion.Euler( 0f, 0f, 0f ));
+            AIDestinationSetter destinationSetter = thisTreant.GetComponent<AIDestinationSetter>();
             destinationSetter.target = player.transform;
         }
     }
