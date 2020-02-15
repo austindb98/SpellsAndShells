@@ -72,6 +72,11 @@ public class BasePlayer : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (SaveManager.currentSave == null)
+        {
+            Debug.LogError("Cannot save files, are you in a test scene?");
+            return;
+        }
         SaveManager.currentSave.unassigned = (byte)skillpoints[0];
         SaveManager.currentSave.wind = (byte)skillpoints[1];
         SaveManager.currentSave.ice = (byte)skillpoints[2];
