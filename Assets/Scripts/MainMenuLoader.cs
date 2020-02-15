@@ -16,6 +16,11 @@ public class MainMenuLoader : MonoBehaviour
         
 
         SaveManager.LoadSaveFiles();
+        /*if (SaveManager.currentSave != null)
+        {
+            SaveManager.DebugSave();
+            SaveManager.SaveAllFiles();
+        }*/
     }
 
     // Update is called once per frame

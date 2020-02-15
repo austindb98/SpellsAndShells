@@ -69,4 +69,15 @@ public class BasePlayer : MonoBehaviour
             DebugUpdate();
         }
     }
+
+    private void OnDestroy()
+    {
+        SaveManager.currentSave.unassigned = (byte)skillpoints[0];
+        SaveManager.currentSave.wind = (byte)skillpoints[1];
+        SaveManager.currentSave.ice = (byte)skillpoints[2];
+        SaveManager.currentSave.fire = (byte)skillpoints[3];
+        SaveManager.SaveAllFiles();
+    }
+
+
 }

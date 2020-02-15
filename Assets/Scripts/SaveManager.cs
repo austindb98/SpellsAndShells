@@ -46,7 +46,7 @@ public class SaveManager
         public byte fire;
     }
 
-    public static Save currentSave;
+    public static Save currentSave = null;
 
     
     public static Save save1;
@@ -74,6 +74,7 @@ public class SaveManager
             string rawJSON = reader.ReadToEnd();
             save = JsonUtility.FromJson<Save>(rawJSON);
             aSaveExists = true;
+            reader.Close();
             return true;
         }
         return false;
@@ -81,9 +82,6 @@ public class SaveManager
 
     public static void LoadSaveFiles()
     {
-        save1 = null;
-        save2 = null;
-        save3 = null;
         aSaveExists = false;
         savesFull = true;
         savesFull &= LoadSaveFile("save1", ref save1);
@@ -121,6 +119,7 @@ public class SaveManager
 
     public static void SaveAllFiles()
     {
+        DebugSave();
         SaveAsJSON(save1, "save1");
         SaveAsJSON(save2, "save2");
         SaveAsJSON(save3, "save3");
@@ -130,10 +129,34 @@ public class SaveManager
     {
         if (toSave == null)
         {
+            Debug.Log("not a valid save aborting");
             return;
         }
+        DebugSpecificSave(toSave);
         string rawJSON = JsonUtility.ToJson(toSave);
-        File.WriteAllText(getFullPath(filename), rawJSON);
+
+        Debug.Log("writing tp path: " + getFullPath(filename));
+        
+        using (TextWriter writer = new StreamWriter(getFullPath(filename), false))
+        {
+            writer.WriteLine(rawJSON);
+            writer.Close();
+        }
+
+        
+        
+        //File.WriteAllText(getFullPath(filename), rawJSON);
+        
+    }
+
+    public static void DebugSave()
+    {
+        DebugSpecificSave(currentSave);
+    }
+
+    public static void DebugSpecificSave(Save save)
+    {
+        Debug.Log("current save: " + save.name + "\n\tunassigned=" + save.unassigned + "\n\twind=" + save.wind + "\n\tice=" + save.ice + "\n\tfire=" + save.fire);
     }
 
     public static string GenerateName()

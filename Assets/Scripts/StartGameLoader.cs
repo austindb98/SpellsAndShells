@@ -89,7 +89,7 @@ public class StartGameLoader : MonoBehaviour
     private void PlaySave(SaveManager.Save save)
     {
         SaveManager.currentSave = save;
-        SaveManager.SaveAllFiles();
+        //SaveManager.SaveAllFiles();
         SceneManager.LoadScene(SaveManager.currentSave.level);
     }
 
