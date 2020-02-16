@@ -27,6 +27,8 @@ public class BasePlayer : MonoBehaviour
 
     public uint[] skillpoints = new uint[4];
 
+    public int spellIndex = 0;
+
     protected void Start()
     {
         health = MaxHealth;
@@ -45,6 +47,24 @@ public class BasePlayer : MonoBehaviour
         {
             health = MaxHealth * .5f;
             mana = MaxMana * .75f;
+        }
+    }
+    
+    public void NextSpell()
+    {
+        spellIndex++;
+        if (spellIndex >= 3)
+        {
+            spellIndex = 0;
+        }
+    }
+
+    public void PreviousSpell()
+    {
+        spellIndex--;
+        if (spellIndex < 0)
+        {
+            spellIndex = 2;
         }
     }
 

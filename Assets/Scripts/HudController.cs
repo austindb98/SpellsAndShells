@@ -36,6 +36,7 @@ public class HudController : MonoBehaviour
     private float shootCooldownTimer;
     private float debugSkillTimer;
     private float debugShootTimer;
+    private int skillIndex = 0;
     
 
     public enum Slot
@@ -48,6 +49,7 @@ public class HudController : MonoBehaviour
         SetHealth(player.MaxHealth);
         SetMana(player.MaxMana);
         SetSlot(Slot.Slot1, skillActivated);
+        skillIndex = player.spellIndex;
     }
 
     public void SetMana(float uiAmt)
@@ -90,6 +92,22 @@ public class HudController : MonoBehaviour
                 break;
             case Slot.Slot3:
                 ActivateSlot(Slot.Slot2);
+                break;
+        }
+    }
+
+    public void SetSlot(int index)
+    {
+        switch (index)
+        {
+            case 2:
+                ActivateSlot(Slot.Slot3);
+                break;
+            case 1:
+                ActivateSlot(Slot.Slot2);
+                break;
+            case 0:
+                ActivateSlot(Slot.Slot1);
                 break;
         }
     }
@@ -213,6 +231,11 @@ public class HudController : MonoBehaviour
             SetMana(player.mana);
         }
         
+        if (skillIndex != player.spellIndex)
+        {
+            skillIndex = player.spellIndex;
+            SetSlot(skillIndex);
+        }
 
         
     }
