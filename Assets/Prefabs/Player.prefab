@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 386873839230528255}
   - component: {fileID: 386873839230528253}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,14 +126,21 @@ MonoBehaviour:
   skillpoints: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   speed: 450
   angle: 0
-  frontLeft: {fileID: 21300000, guid: 9f32e561148f4eb4abf8b92c3adb1c75, type: 3}
-  diagUpLeft: {fileID: 21300000, guid: a20d863480763d648888b5d3cc7bab2b, type: 3}
-  back: {fileID: 21300000, guid: 42bea026130287e499accff8e2ff9855, type: 3}
-  diagUpRight: {fileID: 21300000, guid: d4e4b4a6a5293644495e7fbe04d0da2b, type: 3}
-  frontRight: {fileID: 21300000, guid: 2da5a8da0c68b394cb999ad0e6ac3580, type: 3}
-  diagDownRight: {fileID: 21300000, guid: 9d86501317588c247a0ff65d6bba07e2, type: 3}
-  frontDown: {fileID: 21300000, guid: 71b72bf5461202645abb4c89bc31b9ac, type: 3}
-  diagDownLeft: {fileID: 21300000, guid: 43f0b2c1f57f36b4b84e840194960023, type: 3}
+  frontLeft: {fileID: 3558114288250971579, guid: 8dd306e193c1da44ea29567d1baaf362,
+    type: 3}
+  diagUpLeft: {fileID: -7897631283531959190, guid: 8dd306e193c1da44ea29567d1baaf362,
+    type: 3}
+  back: {fileID: 3422849895820167655, guid: 8dd306e193c1da44ea29567d1baaf362, type: 3}
+  diagUpRight: {fileID: -115505791638739589, guid: 8dd306e193c1da44ea29567d1baaf362,
+    type: 3}
+  frontRight: {fileID: 3196434482627152122, guid: 8dd306e193c1da44ea29567d1baaf362,
+    type: 3}
+  diagDownRight: {fileID: -4557307861747338638, guid: 8dd306e193c1da44ea29567d1baaf362,
+    type: 3}
+  frontDown: {fileID: -5232962937916053866, guid: 8dd306e193c1da44ea29567d1baaf362,
+    type: 3}
+  diagDownLeft: {fileID: 3447278909189480453, guid: 8dd306e193c1da44ea29567d1baaf362,
+    type: 3}
   shotgunBlast: {fileID: 2243452414512305580}
   soundManager: {fileID: 0}
   wallLayer:
