@@ -93,12 +93,8 @@ public class PlayerController : BasePlayer {
         float moveVertical = Input.GetAxis("Vertical");
         rb2d.velocity = new Vector2(moveHorizontal, moveVertical) * speed * Time.deltaTime;
 
-        if(Input.GetMouseButtonDown(0)) {
-            shotgunBlast.Play();
-            shoot();
-        }
-        if (Input.GetMouseButton(1))
-        {
+        if(Input.GetMouseButtonDown(0) && shotReady) {
+            
             shoot();
         }
     }
@@ -112,6 +108,7 @@ public class PlayerController : BasePlayer {
     private void shoot()
     {
         soundManager.GetComponent<SoundController>().playShotgunShootSound();
+        shotReady = false;
         mouseAngle = getMouseAngle();
         Vector2[] pelletDirections = new Vector2[10];
         for(int i = 0; i < pelletDirections.Length; ++i)

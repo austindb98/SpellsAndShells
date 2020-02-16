@@ -185,11 +185,23 @@ public class HudController : MonoBehaviour
             DebugUpdate();
         }
 
-        if (shootCooldownTimer < shootCooldownTime)
+       
+
+        if (!player.shotReady)
         {
-            shootCooldownTimer += Time.deltaTime;
-            bulletOverlay.localScale = new Vector3(1, 1 - (shootCooldownTimer / shootCooldownTime), 1);
+            if (shootCooldownTimer < shootCooldownTime)
+            {
+                shootCooldownTimer += Time.deltaTime;
+                bulletOverlay.localScale = new Vector3(1, 1 - (shootCooldownTimer / shootCooldownTime), 1);
+            }
+            else
+            {
+                shootCooldownTimer = 0;
+                player.shotReady = true;
+            }
         }
+
+        
 
         if (player.health != healthAmt)
         {
@@ -200,6 +212,7 @@ public class HudController : MonoBehaviour
         {
             SetMana(player.mana);
         }
+        
 
         
     }

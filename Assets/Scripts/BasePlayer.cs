@@ -31,6 +31,7 @@ public class BasePlayer : MonoBehaviour
     {
         health = MaxHealth;
         mana = MaxMana;
+        shotReady = true;
         if (SaveManager.currentSave != null)
         {
             skillpoints[0] = SaveManager.currentSave.unassigned;
