@@ -9,10 +9,10 @@ public class SkillsController : MonoBehaviour
 
 
     static readonly float MaxPoints = 15f;
-    static readonly uint LevelCutoff1 = 1;
-    static readonly uint LevelCutoff2 = 2;
-    static readonly uint LevelCutoff3 = 4;
-    static readonly uint LevelCutoff4 = 7;
+    public static readonly uint LevelCutoff1 = 1;
+    public static readonly uint LevelCutoff2 = 2;
+    public static readonly uint LevelCutoff3 = 4;
+    public static readonly uint LevelCutoff4 = 7;
 
 
     public BasePlayer player;

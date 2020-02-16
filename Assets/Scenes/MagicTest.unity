@@ -528,6 +528,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5f6ab2ebd59d9245929af584fbf48ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spells:
+  - manaCoolDown: 0
+    attackPrefab: {fileID: 0}
+  - manaCoolDown: 0
+    attackPrefab: {fileID: 0}
+  - manaCoolDown: 0
+    attackPrefab: {fileID: 0}
+  - manaCoolDown: 0
+    attackPrefab: {fileID: 0}
+  - manaCoolDown: 0
+    attackPrefab: {fileID: 0}
+  - manaCoolDown: 0
+    attackPrefab: {fileID: 0}
+  - manaCoolDown: 0
+    attackPrefab: {fileID: 0}
+  - manaCoolDown: 0
+    attackPrefab: {fileID: 0}
+  - manaCoolDown: 15
+    attackPrefab: {fileID: 8082342449724032719, guid: 49668eb1e3408a649a1601f6a708f3de,
+      type: 3}
+  - manaCoolDown: 0
+    attackPrefab: {fileID: 0}
+  - manaCoolDown: 0
+    attackPrefab: {fileID: 0}
+  - manaCoolDown: 0
+    attackPrefab: {fileID: 0}
 --- !u!82 &805859167
 AudioSource:
   m_ObjectHideFlags: 0

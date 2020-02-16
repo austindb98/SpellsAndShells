@@ -6,10 +6,7 @@ using System;
 public class BasePlayer : MonoBehaviour
 {
 
-    public enum Skill
-    {
-        Wind, Ice, Fire
-    }
+    public Spell currentSpell;
 
 
 
@@ -40,6 +37,9 @@ public class BasePlayer : MonoBehaviour
             skillpoints[1] = SaveManager.currentSave.wind;
             skillpoints[2] = SaveManager.currentSave.ice;
             skillpoints[3] = SaveManager.currentSave.fire;
+        } else
+        {
+            skillpoints[0] = 15;
         }
         
         Debug.Log("unassigned from save:" + skillpoints[0]);
@@ -47,6 +47,15 @@ public class BasePlayer : MonoBehaviour
         {
             health = MaxHealth * .5f;
             mana = MaxMana * .75f;
+        }
+    }
+
+    public void UseMana(uint amt)
+    {
+        mana -= amt;
+        if (mana < 0)
+        {
+            mana = 0;
         }
     }
     
