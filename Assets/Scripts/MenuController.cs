@@ -18,10 +18,10 @@ public class MenuController : MonoBehaviour
         
     }
 
-    public void LoadScene(string scneneName)
+    public void LoadScene(string sceneName)
     {
         soundManager.playMenuChange();
-        SceneManager.LoadScene(scneneName);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void QuitGame()

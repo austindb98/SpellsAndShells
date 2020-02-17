@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 7811763968179772830}
   - component: {fileID: 7811763968179772831}
   - component: {fileID: 7811763968179772829}
-  - component: {fileID: 7811763968179772828}
   - component: {fileID: 7811763968179772826}
   - component: {fileID: 7811763968179772827}
   - component: {fileID: 6036893933929776563}
+  - component: {fileID: 5037729871669628319}
   m_Layer: 13
   m_Name: Frost
   m_TagString: Untagged
@@ -101,18 +101,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
---- !u!114 &7811763968179772828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7811763968179772896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 403cc0471e2ba474daf8e968d696cc3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!198 &7811763968179772826
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4855,3 +4843,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5037729871669628319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7811763968179772896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b55f7541a3d3b424a9f75006f7ac8d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
