@@ -12,6 +12,7 @@ public class BasePlayer : MonoBehaviour
 
     static readonly bool debug = false;
     static readonly float DebugSpeed = 30f;
+    static readonly float ManaRegen = 3f;
 
     public float MaxHealth;
     public float MaxMana;
@@ -22,12 +23,15 @@ public class BasePlayer : MonoBehaviour
     // Use to tell if shot has cooled down, will be true if it has cooled fully
     public bool shotReady;
 
+    public bool skillsUpdated;
+
     public uint[] skillpoints = new uint[4];
 
     public int spellIndex = 0;
 
     protected void Start()
     {
+        skillsUpdated = true;
         health = MaxHealth;
         mana = MaxMana;
         shotReady = true;
@@ -42,7 +46,6 @@ public class BasePlayer : MonoBehaviour
             skillpoints[0] = 15;
         }
         
-        Debug.Log("unassigned from save:" + skillpoints[0]);
         if (debug)
         {
             health = MaxHealth * .5f;
@@ -92,11 +95,16 @@ public class BasePlayer : MonoBehaviour
         }
     }
     
-    void Update()
+    protected virtual void Update()
     {
         if (debug)
         {
             DebugUpdate();
+        }
+
+        if (mana < MaxMana)
+        {
+            mana += ManaRegen * Time.deltaTime;
         }
     }
 

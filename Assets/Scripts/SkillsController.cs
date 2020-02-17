@@ -93,6 +93,7 @@ public class SkillsController : MonoBehaviour
             }
         }
         counter.text = "" + elementPoints;
+        player.skillsUpdated = true;
     }
 
     private void SetUnassignedBar()

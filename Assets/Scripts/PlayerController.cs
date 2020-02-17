@@ -36,11 +36,12 @@ public class PlayerController : BasePlayer {
         speed = 0.8f;
     }
 
-    void Update() {
+    protected override void Update() {
         if (Time.timeScale == 0)
         {
             return;
         }
+        base.Update();
         if(isHit) {
             hitTimer += Time.deltaTime;
             if(hitTimer > hitTime) {

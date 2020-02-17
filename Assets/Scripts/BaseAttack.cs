@@ -18,13 +18,14 @@ public class BaseAttack : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected void Update()
+    protected virtual void Update()
     {
         transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void DefaultOnCollision()
     {
         Destroy(gameObject);
     }
+    
 }

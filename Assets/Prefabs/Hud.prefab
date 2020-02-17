@@ -358,14 +358,25 @@ MonoBehaviour:
     type: 3}
   shootCooldownTime: 0.75
   player: {fileID: 0}
-  skillIcons:
-  - {fileID: 21300000, guid: f285998c5c17a4147a4e6192f2b7ad9e, type: 3}
-  - {fileID: 21300000, guid: ac9ab5323f48b85429080741cb58da18, type: 3}
-  - {fileID: 21300000, guid: 95501a7691a1eae4589e268a222492db, type: 3}
-  - {fileID: 21300000, guid: 9d402e7935fe1f847b74102b2478c9fd, type: 3}
-  - {fileID: 21300000, guid: 53d170059bbd3034591a86b454cc93f7, type: 3}
-  - {fileID: 21300000, guid: 609aee2a6b660a3439e84c31732e3c6f, type: 3}
-  - {fileID: 21300000, guid: 51123007f93e04645986869678ea3ea7, type: 3}
+  windIcons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  iceIcons:
+  - {fileID: 21300000, guid: fb555b304cf91e44baf5f5b7c89f41c9, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fireIcons:
+  - {fileID: 21300000, guid: 295a8afd26f6a254fb5836fdad9d68d4, type: 3}
+  - {fileID: 21300000, guid: fa92566efa639674a8aacb58509c0f83, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  disabledIcons:
+  - {fileID: 21300000, guid: f78dc1e814b6b3a41aec09947c715782, type: 3}
+  - {fileID: 21300000, guid: bb4e0a2df1e38854395b10da08eea094, type: 3}
+  - {fileID: 21300000, guid: f78dc1e814b6b3a41aec09947c715782, type: 3}
 --- !u!1 &6849362707802100799
 GameObject:
   m_ObjectHideFlags: 0

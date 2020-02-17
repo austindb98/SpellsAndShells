@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackFireball : BaseAttack
+public class AttackFrost : BaseAttack
 {
     // Start is called before the first frame update
     void Start()
     {
-        speed = 3;
+        speed = 1.5f;
     }
 
     // Update is called once per frame
@@ -20,5 +20,4 @@ public class AttackFireball : BaseAttack
     {
         base.DefaultOnCollision();
     }
-
 }

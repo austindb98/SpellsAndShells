@@ -93,20 +93,25 @@ public class MagicController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
+            currentSpell = CalculateCurrentSpell();
             if (currentSpell == null || currentSpell.attackPrefab == null || currentSpell.manaCoolDown > player.mana)
             {
-                return;
+
+            } else
+            {
+                player.UseMana(currentSpell.manaCoolDown);
+                castSound.Play();
+                Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+                float angle = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg + 90;
+                //Vector2.Angle(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+                Debug.Log("cxast angle: " + angle);
+                spawnRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+                Instantiate(currentSpell.attackPrefab, transform.position, spawnRotation, transform.parent);
             }
-            player.UseMana(currentSpell.manaCoolDown);
-            castSound.Play();
-            Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            float angle = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg + 90;
-            //Vector2.Angle(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
-            Debug.Log("cxast angle: " + angle);
-            spawnRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            
-            Instantiate(currentSpell.attackPrefab, transform.position, spawnRotation, transform.parent);
+           
         }
+
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             mouseScrolls++;
@@ -115,7 +120,7 @@ public class MagicController : MonoBehaviour
                 player.NextSpell();
                 mouseScrolls = 0;
             }
-            currentSpell = CalculateCurrentSpell();
+            //currentSpell = CalculateCurrentSpell();
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
@@ -126,7 +131,7 @@ public class MagicController : MonoBehaviour
                 player.PreviousSpell();
                 mouseScrolls = 0;
             }
-            currentSpell = CalculateCurrentSpell();
+            //currentSpell = CalculateCurrentSpell();
         }
     }
 }

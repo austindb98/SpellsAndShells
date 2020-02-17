@@ -28,7 +28,10 @@ public class HudController : MonoBehaviour
     public Sprite skillInactive;
     public float shootCooldownTime = .75f;
     public BasePlayer player;
-    public Sprite[] skillIcons = new Sprite[7];
+    public Sprite[] windIcons = new Sprite[4];
+    public Sprite[] iceIcons = new Sprite[4];
+    public Sprite[] fireIcons = new Sprite[4];
+    public Sprite[] disabledIcons = new Sprite[3];
 
     private float healthAmt;
     private float manaAmt;
@@ -217,6 +220,72 @@ public class HudController : MonoBehaviour
                 shootCooldownTimer = 0;
                 player.shotReady = true;
             }
+        }
+
+        if (player.skillsUpdated)
+        {
+            if (player.skillpoints[1] == SkillsController.LevelCutoff4)
+            {
+
+            }
+            else if (player.skillpoints[1] >= SkillsController.LevelCutoff3)
+            {
+
+            }
+            else if (player.skillpoints[1] >= SkillsController.LevelCutoff2)
+            {
+
+            }
+            else if (player.skillpoints[1] >= SkillsController.LevelCutoff1)
+            {
+
+            } else
+            {
+                spell1Icon.sprite = disabledIcons[0];
+            }
+
+            if (player.skillpoints[2] == SkillsController.LevelCutoff4)
+            {
+                spell2Icon.sprite = iceIcons[3];
+            }
+            else if (player.skillpoints[2] >= SkillsController.LevelCutoff3)
+            {
+                spell2Icon.sprite = iceIcons[2];
+            }
+            else if (player.skillpoints[2] >= SkillsController.LevelCutoff2)
+            {
+                spell2Icon.sprite = iceIcons[1];
+            }
+            else if (player.skillpoints[2] >= SkillsController.LevelCutoff1)
+            {
+                spell2Icon.sprite = iceIcons[0];
+            }
+            else
+            {
+                spell2Icon.sprite = disabledIcons[1];
+            }
+
+            if (player.skillpoints[3] == SkillsController.LevelCutoff4)
+            {
+                spell3Icon.sprite = fireIcons[3];
+            }
+            else if (player.skillpoints[3] >= SkillsController.LevelCutoff3)
+            {
+                spell3Icon.sprite = fireIcons[2];
+            }
+            else if (player.skillpoints[3] >= SkillsController.LevelCutoff2)
+            {
+                spell3Icon.sprite = fireIcons[1];
+            }
+            else if (player.skillpoints[3] >= SkillsController.LevelCutoff1)
+            {
+                spell3Icon.sprite = fireIcons[0];
+            }
+            else
+            {
+                spell3Icon.sprite = disabledIcons[2];
+            }
+            player.skillsUpdated = false;
         }
 
         
