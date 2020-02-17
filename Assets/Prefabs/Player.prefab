@@ -150,6 +150,8 @@ MonoBehaviour:
   diagDownLeft: {fileID: 3447278909189480453, guid: 8dd306e193c1da44ea29567d1baaf362,
     type: 3}
   shotgunBlast: {fileID: 2243452414512305580}
+  shotgunPellets: {fileID: 1961109728042184740, guid: e28835d4a797740d1bb97f4376152daa,
+    type: 3}
   soundManager: {fileID: 0}
   wallLayer:
     serializedVersion: 2

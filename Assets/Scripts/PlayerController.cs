@@ -9,7 +9,7 @@ public class PlayerController : BasePlayer {
     public float speed;
     public double angle;
     public Sprite frontLeft, diagUpLeft, back, diagUpRight, frontRight, diagDownRight, frontDown, diagDownLeft;
-    public ParticleSystem shotgunBlast;
+    public ParticleSystem shotgunBlast, shotgunPellets;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2d;
     private bool isHit = false;
@@ -53,49 +53,56 @@ public class PlayerController : BasePlayer {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 position = new Vector2(transform.position.x, transform.position.y);
         Vector2 diff = (mousePos - position);
+        Quaternion particleRotation = new Quaternion();
+        Vector2 particlePosition = new Vector2();
         angle = Math.Atan(diff.y / diff.x) * 180/Math.PI;
 
         if((angle >= -22.5 && angle < 22.5) && diff.x > 0) {
             spriteRenderer.sprite = frontRight;
-            shotgunBlast.transform.rotation = new Quaternion(90,0,90,0);
-            shotgunBlast.transform.position = new Vector2(transform.position.x + 1.25f, transform.position.y - 0.8f);
+            particleRotation.eulerAngles = new Vector2(0,90);
+            particlePosition = new Vector2(transform.position.x + 1.25f, transform.position.y - 0.8f);
         } else if((angle >= 22.5 && angle < 67.5) && diff.x > 0) {
             spriteRenderer.sprite = diagUpRight;
-            shotgunBlast.transform.rotation = new Quaternion(-90,-42,-90,0);
-            shotgunBlast.transform.position = new Vector2(transform.position.x + 1.5f, transform.position.y + .1f);
+            particleRotation.eulerAngles = new Vector2(-30,90);
+            particlePosition = new Vector2(transform.position.x + 1.5f, transform.position.y + .1f);
         } else if((angle >= 67.5 || angle < -67.5) && diff.y > 0) {
             spriteRenderer.sprite = back;
-            shotgunBlast.transform.rotation = new Quaternion(0,-90,-90,0);
-            shotgunBlast.transform.position = new Vector2(transform.position.x + .53f, transform.position.y + -.1f);
+            particleRotation.eulerAngles = new Vector2(-90,90);
+            particlePosition = new Vector2(transform.position.x + .53f, transform.position.y + -.1f);
         } else if((angle >= -67.5 && angle < -22.5) && diff.x < 0) {
             spriteRenderer.sprite = diagUpLeft;
-            shotgunBlast.transform.rotation = new Quaternion(90,-42,-90,0);
-            shotgunBlast.transform.position = new Vector2(transform.position.x - 1.5f, transform.position.y + .1f);
+            particleRotation.eulerAngles = new Vector2(-150,90);
+            particlePosition = new Vector2(transform.position.x - 1.5f, transform.position.y + .1f);
         } else if((angle >= -22.5 && angle < 22.5) && diff.x < 0) {
             spriteRenderer.sprite = frontLeft;
-            shotgunBlast.transform.rotation = new Quaternion(90,0,-90,0);
-            shotgunBlast.transform.position = new Vector2(transform.position.x - 1.25f, transform.position.y - 0.8f);
+            particleRotation.eulerAngles = new Vector2(-180,90);
+            particlePosition = new Vector2(transform.position.x - 1.25f, transform.position.y - 0.8f);
         } else if((angle >= 22.5 && angle < 67.5) && diff.x < 0) {
             spriteRenderer.sprite = diagDownLeft;
-            shotgunBlast.transform.rotation = new Quaternion(90,40,-90,0);
-            shotgunBlast.transform.position = new Vector2(transform.position.x - 1.27f, transform.position.y - 1.4f);
+            particleRotation.eulerAngles = new Vector2(-210,90);
+            particlePosition = new Vector2(transform.position.x - 1.27f, transform.position.y - 1.4f);
         } else if((angle >= 67.5 || angle < -67.5) && diff.y < 0) {
             spriteRenderer.sprite = frontDown;
-            shotgunBlast.transform.rotation = new Quaternion(0,-90,90,0);
-            shotgunBlast.transform.position = new Vector2(transform.position.x - 0.4f, transform.position.y - 0.55f);
+            particleRotation.eulerAngles = new Vector2(-270,90);
+            particlePosition = new Vector2(transform.position.x - 0.4f, transform.position.y - 0.55f);
         } else if((angle >= -67.5 && angle < -22.5) && diff.x > 0) {
             spriteRenderer.sprite = diagDownRight;
-            shotgunBlast.transform.rotation = new Quaternion(-90,40,-90,0);
-            shotgunBlast.transform.position = new Vector2(transform.position.x + 1.27f, transform.position.y - 1.4f);
+            particleRotation.eulerAngles = new Vector2(-330,90);
+            particlePosition = new Vector2(transform.position.x + 1.27f, transform.position.y - 1.4f);
         }
-
+        shotgunBlast.transform.rotation = particleRotation;
+        shotgunBlast.transform.position = particlePosition;
+        shotgunPellets.transform.rotation = particleRotation;
+        shotgunPellets.transform.position = particlePosition;
 
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         rb2d.velocity = new Vector2(moveHorizontal, moveVertical) * speed * Time.deltaTime;
 
         if(Input.GetMouseButtonDown(0) && shotReady) {
-            
+            Debug.Log("Boom");
+            shotgunBlast.Play();
+            shotgunPellets.Play();
             shoot();
         }
     }
