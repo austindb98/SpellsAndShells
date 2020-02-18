@@ -57,7 +57,7 @@ public class EnemyTreantGraphics : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other == playerCollider) {
+        if(other == playerCollider && !isKnockback) {
             Vector2 unitVec = transform.position - player.transform.position;
             unitVec.Normalize();
             rb2d.AddForce(unitVec * 1f);

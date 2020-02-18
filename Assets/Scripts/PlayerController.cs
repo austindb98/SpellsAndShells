@@ -6,7 +6,7 @@ using System;
 
 public class PlayerController : BasePlayer {
 
-    public float speed;
+    public float speed = 10f;
     public double angle;
     public Sprite frontLeft, diagUpLeft, back, diagUpRight, frontRight, diagDownRight, frontDown, diagDownLeft;
     public ParticleSystem shotgunBlast;
@@ -14,7 +14,7 @@ public class PlayerController : BasePlayer {
     private Rigidbody2D rb2d;
     private bool isHit = false;
     private float hitTimer = 0f;
-    private float hitTime = 0.7f;
+    private float hitTime = 0.5f;
 
     public GameObject soundManager;
     public LayerMask wallLayer, obstacleLayer;
@@ -31,13 +31,8 @@ public class PlayerController : BasePlayer {
         interactsWithBullets = wallLayer | obstacleLayer;
     }
 
-    private void OnTriggerEnter2D(Collider2D collider) {
-        isHit = true;
-        speed = 0.8f;
-    }
-
     protected override void Update() {
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0f)
         {
             return;
         }
@@ -45,6 +40,7 @@ public class PlayerController : BasePlayer {
         if(isHit) {
             hitTimer += Time.deltaTime;
             if(hitTimer > hitTime) {
+                print("no longer stunned");
                 isHit = false;
                 hitTimer = 0f;
                 speed = 10f;
@@ -146,6 +142,7 @@ public class PlayerController : BasePlayer {
     }
 
     public void takeDamage(float damage) {
-
+        isHit = true;
+        speed = 0.8f;
     }
 }
