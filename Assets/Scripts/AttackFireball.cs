@@ -8,7 +8,7 @@ public class AttackFireball : BaseAttack
     // Start is called before the first frame update
     void Start()
     {
-        speed = 10;
+        speed = 15;
     }
 
     // Update is called once per frame
@@ -24,7 +24,5 @@ public class AttackFireball : BaseAttack
             EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
             enemyHealth.takeDamage(fireballDmg);
         }
-
     }
-
 }
