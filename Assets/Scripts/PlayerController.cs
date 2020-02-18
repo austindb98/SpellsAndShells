@@ -162,9 +162,8 @@ public class PlayerController : BasePlayer {
 
     public void takeDamage(float damage) {
         health -= damage;
-
         isHit = true;
-        speed = baseSpeed / 8;
+        speed = baseSpeed / 4;
     }
 
     private void handlePickup(GameObject item) {
