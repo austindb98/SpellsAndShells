@@ -146,7 +146,6 @@ public class PlayerController : BasePlayer {
                 }
                 else if(raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("Entities"))
                 {
-                    print("hit!");
                     EnemyHealth enemyHealth = raycastResult.collider.gameObject.GetComponent<EnemyHealth>();
                     enemyHealth.takeDamage(shotgunDmg);
                 }
