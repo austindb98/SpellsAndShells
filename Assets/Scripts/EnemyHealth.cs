@@ -34,6 +34,6 @@ public class EnemyHealth : MonoBehaviour
         if(currentHealth <= 0f)
             enemyController.handleEnemyDeath();
         else
-            enemyController.handleKnockback(0.4f);
+            enemyController.handleShotgunHit(0.4f);
     }
 }

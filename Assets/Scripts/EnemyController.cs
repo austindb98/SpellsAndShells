@@ -10,7 +10,7 @@ public abstract class EnemyController : MonoBehaviour
     // Update is called once per frame
     abstract public void Update();
 
-    abstract public void handleKnockback(float knockbackMagnitude);
+    abstract public void handleShotgunHit(float knockbackMagnitude);
 
     abstract public void handleEnemyDeath();
 }

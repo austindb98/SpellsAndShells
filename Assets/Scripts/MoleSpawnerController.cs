@@ -16,7 +16,7 @@ public class MoleSpawnerController : EnemyController
         
     }
 
-    public override void handleKnockback(float knockbackMagnitude) { }
+    public override void handleShotgunHit(float knockbackMagnitude) { }
 
     public override void handleEnemyDeath() {
         Destroy(gameObject);

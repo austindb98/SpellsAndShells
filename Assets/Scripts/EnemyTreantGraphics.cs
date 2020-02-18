@@ -58,12 +58,12 @@ public class EnemyTreantGraphics : EnemyController
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other == playerCollider && !isKnockback) {
-            handleKnockback(1f);
+            handleShotgunHit(1f);
             playerController.takeDamage(20f);
         }
     }
 
-    public override void handleKnockback(float knockbackMagnitude) {
+    public override void handleShotgunHit(float knockbackMagnitude) {
         Vector2 unitVec = transform.position - player.transform.position;
         unitVec.Normalize();
         rb2d.AddForce(unitVec * knockbackMagnitude);
