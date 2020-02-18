@@ -7,6 +7,7 @@ using System;
 public class PlayerController : BasePlayer {
 
     public float speed;
+    private float baseSpeed;
     public double angle;
     public Sprite frontLeft, diagUpLeft, back, diagUpRight, frontRight, diagDownRight, frontDown, diagDownLeft;
     public ParticleSystem shotgunBlast, shotgunPellets;
@@ -29,11 +30,20 @@ public class PlayerController : BasePlayer {
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         interactsWithBullets = wallLayer | obstacleLayer;
+        baseSpeed = speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        isHit = true;
-        speed = 0.8f;
+        if(collider.gameObject.tag == ("Enemy")) {
+            isHit = true;
+            speed *= 0.5f;
+        }
+
+        if(collider.gameObject.tag == ("Pickup"))
+        {
+            Destroy(collider.gameObject);
+        }
+
     }
 
     protected override void Update() {
@@ -47,7 +57,7 @@ public class PlayerController : BasePlayer {
             if(hitTimer > hitTime) {
                 isHit = false;
                 hitTimer = 0f;
-                speed = 10f;
+                speed = baseSpeed;
             }
         }
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
