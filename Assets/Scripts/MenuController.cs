@@ -8,7 +8,7 @@ public class MenuController : MonoBehaviour
 {
     public SoundController soundManager;
     // Start is called before the first frame update
-    protected void Start()
+    protected virtual void Start()
     {
     }
 

@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject skillUi;
     public GameObject pauseMenu;
+    public GameObject deathMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,10 @@ public class UIManager : MonoBehaviour
                 pauseMenu.SetActive(true);
                 Time.timeScale = 0;
             }
+        }
+        else if (Input.GetButtonDown("Die"))
+        {
+            deathMenu.SetActive(true);
         }
     }
 }

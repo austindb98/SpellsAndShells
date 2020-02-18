@@ -2,23 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class DeathMenuController : MenuController
+public class DeathMenuController : PauseMenuController
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        
+        Time.timeScale = 0;
     }
+
 
     public void Restart()
     {
+        soundManager.playMenuChange();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
