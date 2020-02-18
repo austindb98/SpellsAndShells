@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyTreantGraphics : MonoBehaviour
+public class EnemyTreantGraphics : EnemyController
 {
     private Animator an;
     private Collider2D playerCollider;
@@ -17,7 +17,7 @@ public class EnemyTreantGraphics : MonoBehaviour
     public GameObject player;
     public AIPath aiPath;
 
-    void Start()
+    public override void Start()
     {
         an = gameObject.GetComponent<Animator>();
         playerCollider = player.GetComponent<Collider2D>();
@@ -26,7 +26,7 @@ public class EnemyTreantGraphics : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         float x = aiPath.desiredVelocity.x;
         float y = aiPath.desiredVelocity.y;
@@ -58,18 +58,22 @@ public class EnemyTreantGraphics : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other == playerCollider && !isKnockback) {
-            handleKnockback();
+            handleKnockback(1f);
             playerController.takeDamage(20f);
         }
     }
 
-    public void handleKnockback() {
+    public override void handleKnockback(float knockbackMagnitude) {
         Vector2 unitVec = transform.position - player.transform.position;
         unitVec.Normalize();
-        rb2d.AddForce(unitVec * 1f);
+        rb2d.AddForce(unitVec * knockbackMagnitude);
         isKnockback = true;
         aiPath.canMove = false;
         an.SetBool("isTreantWalking", false);
+    }
+
+    public override void handleEnemyDeath() {
+        Destroy(gameObject);
     }
 
     private void WalkLeft() {

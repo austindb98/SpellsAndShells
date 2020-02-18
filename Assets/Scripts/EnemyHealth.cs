@@ -6,6 +6,8 @@ public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth;
     private float currentHealth;
+    public EnemyController enemyController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,16 +22,10 @@ public class EnemyHealth : MonoBehaviour
 
     public void takeDamage(float damage) {
         currentHealth -= damage;
-        print(currentHealth);
+
         if(currentHealth <= 0f)
-            Destroy(gameObject);
-        else {
-            EnemyArcherBoyGraphics eabg = gameObject.GetComponent<EnemyArcherBoyGraphics>();
-            if(eabg != null)
-                eabg.handleKnockback();
-            EnemyTreantGraphics etg = gameObject.GetComponent<EnemyTreantGraphics>();
-            if(etg != null)
-                etg.handleKnockback();
-        }
+            enemyController.handleEnemyDeath();
+        else
+            enemyController.handleKnockback(0.4f);
     }
 }

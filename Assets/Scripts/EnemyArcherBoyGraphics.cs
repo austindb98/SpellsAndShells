@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyArcherBoyGraphics : MonoBehaviour
+public class EnemyArcherBoyGraphics : EnemyController
 {
     private float maxArcherRange = 15f;     // range from which archer can attack
     private float shotAnimationTime = 0.3f;// this is 100% guesswork. How to actually check this value?
@@ -24,7 +24,7 @@ public class EnemyArcherBoyGraphics : MonoBehaviour
     public GameObject player;
     public GameObject arrow;
 
-    void Start()
+    public override void Start()
     {
         an = gameObject.GetComponent<Animator>();
         raycastLayerMask =  ((1 << LayerMask.NameToLayer("Obstacles")) |
@@ -36,7 +36,7 @@ public class EnemyArcherBoyGraphics : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         if(isKnockback) {
             knockbackTimer += Time.deltaTime;
@@ -119,11 +119,11 @@ public class EnemyArcherBoyGraphics : MonoBehaviour
         return false;
     }
 
-    public void handleKnockback() {
+    public override void handleKnockback(float knockbackMagnitude) {
         print("meep");
         Vector2 unitVec = transform.position - player.transform.position;
         unitVec.Normalize();
-        rb2d.AddForce(unitVec * 1f);
+        rb2d.AddForce(unitVec * knockbackMagnitude);
         isKnockback = true;
         aiPath.canMove = false;
         an.SetBool("isWalking", false);
@@ -132,5 +132,9 @@ public class EnemyArcherBoyGraphics : MonoBehaviour
         isPreppingShot = false;
         shotPrepTimer = 0f;
         shotAnimationTimer = 0f;
+    }
+
+    public override void handleEnemyDeath() {
+        Destroy(gameObject);
     }
 }
