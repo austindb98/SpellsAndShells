@@ -10,7 +10,7 @@ public class PauseMenuController : MenuController
 
     public Text levelText;
 
-    void Start()
+    protected override void Start()
     {
         base.Start();
         if (SaveManager.currentSave != null)
