@@ -119,7 +119,7 @@ public class EnemyArcherBoyGraphics : EnemyController
         return false;
     }
 
-    public override void handleKnockback(float knockbackMagnitude) {
+    public override void handleShotgunHit(float knockbackMagnitude) {
         print("meep");
         Vector2 unitVec = transform.position - player.transform.position;
         unitVec.Normalize();
