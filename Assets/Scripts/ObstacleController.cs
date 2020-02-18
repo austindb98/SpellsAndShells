@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Pathfinding;
 
 public class ObstacleController : MonoBehaviour
 {
@@ -9,16 +10,26 @@ public class ObstacleController : MonoBehaviour
     public AudioClip breakSound;
     public GameObject[] drops;
     public int dropChance;
+    public GridGraph graphToScan;
+    private bool isScan = false;
+
     // Start is called before the first frame update
     void Start()
     {
         soundManager = GameObject.Find("SoundManager");
+        graphToScan = AstarPath.active.data.gridGraph;
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    void FixedUpdate() {
+        if(isScan)
+            AstarPath.active.Scan(graphToScan);
+        isScan = false;
     }
 
     public void Break(Vector3 pos) {
@@ -30,5 +41,7 @@ public class ObstacleController : MonoBehaviour
         if(drop < drops.Length) {
             Instantiate(drops[(int)drop], pos, Quaternion.identity);
         }
+
+        isScan = true;
     }
 }
