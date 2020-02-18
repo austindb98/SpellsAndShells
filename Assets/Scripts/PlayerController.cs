@@ -6,7 +6,7 @@ using System;
 
 public class PlayerController : BasePlayer {
 
-    public float speed = 10f;
+    public float speed = 100f;
     public double angle;
     public Sprite frontLeft, diagUpLeft, back, diagUpRight, frontRight, diagDownRight, frontDown, diagDownLeft;
     public ParticleSystem shotgunBlast, shotgunPellets;
@@ -39,11 +39,12 @@ public class PlayerController : BasePlayer {
         base.Update();
         if(isHit) {
             hitTimer += Time.deltaTime;
+            print(hitTimer);
             if(hitTimer > hitTime) {
                 print("no longer stunned");
                 isHit = false;
                 hitTimer = 0f;
-                speed = 10f;
+                speed = 100f;
             }
         }
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -148,6 +149,6 @@ public class PlayerController : BasePlayer {
 
     public void takeDamage(float damage) {
         isHit = true;
-        speed = 0.8f;
+        speed = 8f;
     }
 }

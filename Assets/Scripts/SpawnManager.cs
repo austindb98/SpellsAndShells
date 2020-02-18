@@ -35,6 +35,7 @@ public class SpawnManager : MonoBehaviour
             Vector3 spawnVec = new Vector3(Mathf.Cos(spawnAngle), Mathf.Sin(spawnAngle), 0) * spawnRadius;
             GameObject thisTreant = Instantiate(treant, transform.position + spawnVec, Quaternion.Euler( 0f, 0f, 0f ));
             AIDestinationSetter destinationSetter = thisTreant.GetComponent<AIDestinationSetter>();
+            EnemyTreantGraphics etg = thisTreant.GetComponent<EnemyTreantGraphics>();
             destinationSetter.target = player.transform;
         }
     }
