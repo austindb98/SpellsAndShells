@@ -36,6 +36,7 @@ public class SpawnManager : MonoBehaviour
             GameObject thisTreant = Instantiate(treant, transform.position + spawnVec, Quaternion.Euler( 0f, 0f, 0f ));
             AIDestinationSetter destinationSetter = thisTreant.GetComponent<AIDestinationSetter>();
             EnemyTreantGraphics etg = thisTreant.GetComponent<EnemyTreantGraphics>();
+            etg.player = player.gameObject;
             destinationSetter.target = player.transform;
         }
     }

@@ -6,7 +6,8 @@ using System;
 
 public class PlayerController : BasePlayer {
 
-    public float speed = 100f;
+    public float speed;
+    private float baseSpeed;
     public double angle;
     public Sprite frontLeft, diagUpLeft, back, diagUpRight, frontRight, diagDownRight, frontDown, diagDownLeft;
     public ParticleSystem shotgunBlast, shotgunPellets;
@@ -23,12 +24,20 @@ public class PlayerController : BasePlayer {
     private float pelletAngleVariance = 0.05f; // in radians
     private float mouseAngle;
     private Vector2 mousePos;
+    private float shotgunDmg = 5f;
+    private float heartHealth = 30f;
 
     void Start() {
         base.Start();
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        interactsWithBullets = wallLayer | obstacleLayer;
+        interactsWithBullets = wallLayer | obstacleLayer | (1 << LayerMask.NameToLayer("Entities"));
+        baseSpeed = speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider) {
+        if(collider.gameObject.layer == LayerMask.NameToLayer("Pickup"))
+            handlePickup(collider.gameObject);
     }
 
     protected override void Update() {
@@ -39,12 +48,10 @@ public class PlayerController : BasePlayer {
         base.Update();
         if(isHit) {
             hitTimer += Time.deltaTime;
-            print(hitTimer);
             if(hitTimer > hitTime) {
-                print("no longer stunned");
                 isHit = false;
                 hitTimer = 0f;
-                speed = 100f;
+                speed = baseSpeed;
             }
         }
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -137,6 +144,12 @@ public class PlayerController : BasePlayer {
                     GameObject tileMapGameObject = raycastResult.collider.gameObject;
                     tileMapGameObject.GetComponent<ObstacleController>().Break(raycastResult.point);
                 }
+                else if(raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("Entities"))
+                {
+                    print("hit!");
+                    EnemyHealth enemyHealth = raycastResult.collider.gameObject.GetComponent<EnemyHealth>();
+                    enemyHealth.takeDamage(shotgunDmg);
+                }
             }
             else
             {
@@ -148,7 +161,20 @@ public class PlayerController : BasePlayer {
     }
 
     public void takeDamage(float damage) {
+        health -= damage;
+
         isHit = true;
-        speed = 8f;
+        speed = baseSpeed / 8;
+    }
+
+    private void handlePickup(GameObject item) {
+        if(item.tag == "Heart") {
+            if(health + heartHealth > MaxHealth)
+                health = MaxHealth;
+            else
+                health += heartHealth;
+            Destroy(item);
+        }
+
     }
 }

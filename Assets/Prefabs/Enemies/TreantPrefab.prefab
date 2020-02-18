@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6544395803861375136}
   - component: {fileID: 5154586552387546775}
   - component: {fileID: 3947438484902351323}
+  - component: {fileID: -8747668685066661012}
   m_Layer: 9
   m_Name: TreantPrefab
   m_TagString: Enemy
@@ -252,3 +253,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0016647156, y: -0.03049446}
   m_Size: {x: 0.03587703, y: 0.058753}
   m_Direction: 0
+--- !u!114 &-8747668685066661012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6544395803861375196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f260e31dc26ea49acc5cc05e6c379a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 80

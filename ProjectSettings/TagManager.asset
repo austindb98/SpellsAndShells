@@ -8,6 +8,8 @@ TagManager:
   - Pot
   - Ground
   - Enemy
+  - Pickup
+  - Heart
   layers:
   - Default
   - TransparentFX
@@ -23,8 +25,8 @@ TagManager:
   - Obstacles
   - Projectiles
   - Spells
-  - 
-  - 
+  - Player
+  - Pickup
   - 
   - 
   - 

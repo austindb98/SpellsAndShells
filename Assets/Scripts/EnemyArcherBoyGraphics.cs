@@ -14,6 +14,10 @@ public class EnemyArcherBoyGraphics : MonoBehaviour
     private float shotPrepTimer;            // cooldown timer for shooting arrow
     private bool isPreppingShot = false;    // indicates if shot is being prepped
     private int raycastLayerMask;
+    private bool isKnockback;
+    private float knockbackTimer = 0f;
+    private float knockbackTime = 0.8f;
+    private Rigidbody2D rb2d;
 
     private Animator an;
     public AIPath aiPath;
@@ -26,12 +30,23 @@ public class EnemyArcherBoyGraphics : MonoBehaviour
         raycastLayerMask =  ((1 << LayerMask.NameToLayer("Obstacles")) |
                              (1 << LayerMask.NameToLayer("Walls")) |
                              (1 << LayerMask.NameToLayer("Player")));
+        rb2d = gameObject.GetComponent<Rigidbody2D>();
+        player = GameObject.FindWithTag("Player");
+        gameObject.GetComponent<AIDestinationSetter>().target = player.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isFireShot) {    // increment timer only if in animation sequences
+        if(isKnockback) {
+            knockbackTimer += Time.deltaTime;
+            if(knockbackTimer > knockbackTime) {
+                isKnockback = false;
+                aiPath.canMove = true;
+                knockbackTimer = 0f;
+            }
+        }
+        else if(isFireShot) {    // increment timer only if in animation sequences
             SetOrientation(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y);
             shotAnimationTimer += Time.deltaTime;
             // check if shot animation sequence has completed and arrow can be fired
@@ -102,5 +117,20 @@ public class EnemyArcherBoyGraphics : MonoBehaviour
                 return hit.transform == player.transform;
         }
         return false;
+    }
+
+    public void handleKnockback() {
+        print("meep");
+        Vector2 unitVec = transform.position - player.transform.position;
+        unitVec.Normalize();
+        rb2d.AddForce(unitVec * 1f);
+        isKnockback = true;
+        aiPath.canMove = false;
+        an.SetBool("isWalking", false);
+
+        isFireShot = false;
+        isPreppingShot = false;
+        shotPrepTimer = 0f;
+        shotAnimationTimer = 0f;
     }
 }

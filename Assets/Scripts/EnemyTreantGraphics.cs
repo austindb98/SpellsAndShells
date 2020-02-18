@@ -58,15 +58,18 @@ public class EnemyTreantGraphics : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other == playerCollider && !isKnockback) {
-            Vector2 unitVec = transform.position - player.transform.position;
-            unitVec.Normalize();
-            rb2d.AddForce(unitVec * 1f);
-            isKnockback = true;
-            aiPath.canMove = false;
-            an.SetBool("isTreantWalking", false);
-
+            handleKnockback();
             playerController.takeDamage(20f);
         }
+    }
+
+    public void handleKnockback() {
+        Vector2 unitVec = transform.position - player.transform.position;
+        unitVec.Normalize();
+        rb2d.AddForce(unitVec * 1f);
+        isKnockback = true;
+        aiPath.canMove = false;
+        an.SetBool("isTreantWalking", false);
     }
 
     private void WalkLeft() {
