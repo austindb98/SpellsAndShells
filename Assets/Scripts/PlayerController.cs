@@ -92,6 +92,7 @@ public class PlayerController : BasePlayer {
         }
         shotgunBlast.transform.rotation = particleRotation;
         shotgunBlast.transform.position = particlePosition;
+
         shotgunPellets.transform.rotation = particleRotation;
         shotgunPellets.transform.position = particlePosition;
 
@@ -137,10 +138,7 @@ public class PlayerController : BasePlayer {
                 if(raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("Obstacles"))
                 {
                     GameObject tileMapGameObject = raycastResult.collider.gameObject;
-                    Tilemap map = tileMapGameObject.GetComponent<Tilemap>();
-                    var tilePos = tileMapGameObject.GetComponent<GridLayout>().WorldToCell(raycastResult.point);
-                    map.SetTile(tilePos, null);
-                    soundManager.GetComponent<SoundController>().playPotBreakSound();
+                    tileMapGameObject.GetComponent<ObstacleController>().Break(raycastResult.point);
                 }
             }
             else

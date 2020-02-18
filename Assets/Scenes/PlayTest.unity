@@ -8642,6 +8642,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107b8fd596d3cc2409b1863b28db5d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!198 &236074745 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4489030356604078629, guid: ab0302810d2befc8ab1f4b100a831c93,
+    type: 3}
+  m_PrefabInstance: {fileID: 386873839427674042}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &240848465 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4041182757959619589, guid: 5ef0bd7253a8ef547b2de8a65c79c5e4,
@@ -8786,6 +8792,7 @@ GameObject:
   - component: {fileID: 859286938}
   - component: {fileID: 859286937}
   - component: {fileID: 859286936}
+  - component: {fileID: 859286941}
   m_Layer: 11
   m_Name: Pots
   m_TagString: Pot
@@ -17613,6 +17620,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &859286941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859286934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f041543bdee07414cb4ac87c4f233af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breakSound: {fileID: 8300000, guid: 36efa7d81d74f6c4ba5034ad23326dc6, type: 3}
+  drops:
+  - {fileID: 5413576069672028623, guid: 3967c5ff242223a4fa211ee48b7f0e69, type: 3}
+  dropChance: 1
 --- !u!1001 &891233789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44307,6 +44330,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 386873839230528248, guid: ab0302810d2befc8ab1f4b100a831c93,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 386873839230528254, guid: ab0302810d2befc8ab1f4b100a831c93,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -44367,6 +44395,46 @@ PrefabInstance:
       propertyPath: soundManager
       value: 
       objectReference: {fileID: 240848465}
+    - target: {fileID: 386873839230528255, guid: ab0302810d2befc8ab1f4b100a831c93,
+        type: 3}
+      propertyPath: shotgunPellets
+      value: 
+      objectReference: {fileID: 236074745}
+    - target: {fileID: 4489030356604078629, guid: ab0302810d2befc8ab1f4b100a831c93,
+        type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489030356604078629, guid: ab0302810d2befc8ab1f4b100a831c93,
+        type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489030356604078629, guid: ab0302810d2befc8ab1f4b100a831c93,
+        type: 3}
+      propertyPath: CollisionModule.collisionMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489030356604078629, guid: ab0302810d2befc8ab1f4b100a831c93,
+        type: 3}
+      propertyPath: CollisionModule.m_Dampen.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489030356604078629, guid: ab0302810d2befc8ab1f4b100a831c93,
+        type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489030356604078629, guid: ab0302810d2befc8ab1f4b100a831c93,
+        type: 3}
+      propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489030356604078629, guid: ab0302810d2befc8ab1f4b100a831c93,
+        type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 3840
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab0302810d2befc8ab1f4b100a831c93, type: 3}
 --- !u!1001 &4041182757928753748
