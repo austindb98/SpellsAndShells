@@ -8636,6 +8636,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoleSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 1825370961986019088, guid: 30a8d5e28be7208428933b2575d815e6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825370961986019088, guid: 30a8d5e28be7208428933b2575d815e6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1825370961986019094, guid: 30a8d5e28be7208428933b2575d815e6,
         type: 3}
       propertyPath: m_LocalPosition.x

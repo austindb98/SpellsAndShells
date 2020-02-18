@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class AttackFireball : BaseAttack
 {
+    private float fireballDmg = 50f;
     // Start is called before the first frame update
     void Start()
     {
-        speed = 3;
+        speed = 10;
     }
 
     // Update is called once per frame
@@ -19,6 +20,11 @@ public class AttackFireball : BaseAttack
     private void OnTriggerEnter2D(Collider2D collision)
     {
         base.DefaultOnCollision();
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Entities")) {
+            EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+            enemyHealth.takeDamage(fireballDmg);
+        }
+
     }
 
 }
