@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 7271938109900050844}
   - component: {fileID: 7271938109900050914}
   - component: {fileID: 7271938109900050915}
+  - component: {fileID: -2139658457023461573}
+  - component: {fileID: 8127205393657728507}
   m_Layer: 9
   m_Name: TreantSpawner
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,3 +114,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treant: {fileID: 6544395803861375196, guid: 77c6d05c9499f7c45b51673a9c3dd845, type: 3}
   player: {fileID: 0}
+--- !u!114 &-2139658457023461573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7271938109900050847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f260e31dc26ea49acc5cc05e6c379a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 200
+  enemyController: {fileID: 8127205393657728507}
+--- !u!114 &8127205393657728507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7271938109900050847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d7bdce91c843e4fafc2a9dadad57bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

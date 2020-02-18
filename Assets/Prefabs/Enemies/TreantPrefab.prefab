@@ -266,3 +266,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 80
+  enemyController: {fileID: 6544395803861375140}

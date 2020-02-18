@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1825370961986019089}
   - component: {fileID: 1825370961986019095}
   - component: {fileID: 4567944497076264157}
+  - component: {fileID: 3667984809506765514}
+  - component: {fileID: -574897508413756484}
   m_Layer: 0
   m_Name: MoleSpawner
   m_TagString: Untagged
@@ -112,3 +114,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treant: {fileID: 4691094060803072611, guid: ab513cee777175d409ab16119af02eb9, type: 3}
   player: {fileID: 0}
+--- !u!114 &3667984809506765514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825370961986019088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f404887947f63a4fa4b56eaf312fa8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-574897508413756484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825370961986019088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f260e31dc26ea49acc5cc05e6c379a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 200
+  enemyController: {fileID: 3667984809506765514}
