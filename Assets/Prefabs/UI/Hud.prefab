@@ -377,6 +377,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b386b327cb4f8a5408b7ef1d1720ca56, type: 3}
   - {fileID: 21300000, guid: bb4e0a2df1e38854395b10da08eea094, type: 3}
   - {fileID: 21300000, guid: f78dc1e814b6b3a41aec09947c715782, type: 3}
+  bulletIcons:
+  - {fileID: 21300000, guid: 0f59f475910050b4c906296ef609b4cc, type: 3}
+  - {fileID: 21300000, guid: c117511cbe71cfb4b9995c718d9bad8e, type: 3}
+  - {fileID: 21300000, guid: 234cf28c9b8a2af449eb1b4230215c33, type: 3}
 --- !u!1 &6849362707802100799
 GameObject:
   m_ObjectHideFlags: 0

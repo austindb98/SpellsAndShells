@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.11
+  radius: 0.08
   height: 0.01
   repathRate: 0.5
   canSearch: 1
@@ -267,3 +267,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 80
   enemyController: {fileID: 6544395803861375140}
+  damageText: {fileID: 0}

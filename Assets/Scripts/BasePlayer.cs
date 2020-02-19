@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+
 public class BasePlayer : MonoBehaviour
 {
+    public enum Ammo {
+        RedShell = 1,
+        GreenShell = 2,
+        BlueShell = 3
+    }
 
     public Spell currentSpell;
-
-
+    public Ammo currentAmmo = Ammo.RedShell;
 
     static readonly bool debug = false;
     static readonly float DebugSpeed = 30f;

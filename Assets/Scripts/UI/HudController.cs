@@ -32,7 +32,9 @@ public class HudController : MonoBehaviour
     public Sprite[] iceIcons = new Sprite[4];
     public Sprite[] fireIcons = new Sprite[4];
     public Sprite[] disabledIcons = new Sprite[3];
+    public Sprite[] bulletIcons = new Sprite[3];
 
+    private BasePlayer.Ammo currentAmmo;
     private float healthAmt;
     private float manaAmt;
     private Slot activated;
@@ -163,6 +165,19 @@ public class HudController : MonoBehaviour
         }
     }
     
+    private void SetAmmoIcon(BasePlayer.Ammo ammo) {
+        switch(ammo) {
+            case BasePlayer.Ammo.RedShell:
+                bulletIcon.sprite = bulletIcons[0];
+                break;
+            case BasePlayer.Ammo.GreenShell:
+                bulletIcon.sprite = bulletIcons[1];
+                break;
+            case BasePlayer.Ammo.BlueShell:
+                bulletIcon.sprite = bulletIcons[2];
+                break;
+        }
+    }
 
     private void DebugUpdate()
     {
@@ -304,6 +319,12 @@ public class HudController : MonoBehaviour
         {
             skillIndex = player.spellIndex;
             SetSlot(skillIndex);
+        }
+
+        if (player.currentAmmo != currentAmmo)
+        {
+            currentAmmo = player.currentAmmo;
+            SetAmmoIcon(player.currentAmmo);
         }
 
         

@@ -13,6 +13,10 @@ public class MinotaurController : EnemyController
     private float knockbackTime = 0.8f;
     private PlayerController playerController;
 
+    private bool isSwingRest = false;
+    private float swingRestTime = 0.8f;
+    private float swingRestTimer = 0f;
+
     public GameObject player;
     private Animator an;
     public AIPath aiPath;
@@ -34,12 +38,23 @@ public class MinotaurController : EnemyController
         float x = aiPath.desiredVelocity.x;
         float y = aiPath.desiredVelocity.y;
 
-        if(isKnockback) {
-            knockbackTimer += Time.deltaTime;
-            if(knockbackTimer > knockbackTime) {
-                isKnockback = false;
+        if(isKnockback || isSwingRest) {
+            if(isSwingRest) {
+                swingRestTimer += Time.deltaTime;
+                if(swingRestTimer > swingRestTime) {
+                    isSwingRest = false;
+                    swingRestTimer = 0f;
+                }
+            }
+            if(isKnockback) {
+                knockbackTimer += Time.deltaTime;
+                if(knockbackTimer > knockbackTime) {
+                    isKnockback = false;
+                    knockbackTimer = 0f;
+                }
+            }
+            if(!isKnockback && !isSwingRest) {
                 aiPath.canMove = true;
-                knockbackTimer = 0f;
             }
         }
         else if (x == 0 && y == 0)
@@ -59,7 +74,8 @@ public class MinotaurController : EnemyController
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other == playerCollider && !isKnockback) {
-            an.SetBool("isAttack1", true);
+            if(!isSwingRest)
+                an.SetBool("isAttack1", true);
         }
     }
 
@@ -92,6 +108,9 @@ public class MinotaurController : EnemyController
     public void handleAttack() {
         playerController.takeDamage(10f);
         playerController.onHitKnockback(1500.0f, transform.position);
+        isSwingRest = true;
+        swingRestTimer = 0f;
+        aiPath.canMove = false;
         an.SetBool("isAttack1", false);
     }
 }
