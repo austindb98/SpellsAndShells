@@ -70,6 +70,7 @@ public class MinotaurController : EnemyController
         isKnockback = true;
         aiPath.canMove = false;
         an.SetBool("isWalking", false);
+        an.SetBool("isAttack1", false);
     }
 
     public override void handleEnemyDeath() {
