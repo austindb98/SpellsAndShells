@@ -106,7 +106,7 @@ public class MinotaurController : EnemyController
     }
 
     public void handleAttack() {
-        if (Vector3.Distance(transform.position, player.transform.position) < 5.0f)
+        if (Vector3.Distance(transform.position, player.transform.position) < 4.0f)
         {
             playerController.takeDamage(10f);
             playerController.onHitKnockback(1500.0f, transform.position);
