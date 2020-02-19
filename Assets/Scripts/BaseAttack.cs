@@ -10,7 +10,10 @@ public class BaseAttack : MonoBehaviour
         Wind, Ice, Fire
     };
 
+    
+
     protected float speed;
+    protected float damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +26,15 @@ public class BaseAttack : MonoBehaviour
         transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
 
-    protected void DefaultOnCollision()
+
+
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Entities"))
+        {
+            EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+            enemyHealth.takeDamage(damage);
+        }
         Destroy(gameObject);
     }
     

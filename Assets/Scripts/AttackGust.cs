@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackFrost : BaseAttack
+public class AttackGust : BaseAttack
 {
-    private float frostDmg = 50f;
     // Start is called before the first frame update
     void Start()
     {
-        speed = 8;
-        damage = 2;
+        speed = 14;
+        damage = 4;
     }
-
-    
 }

@@ -284,8 +284,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spells:
-  - manaCoolDown: 0
-    attackPrefab: {fileID: 0}
+  - manaCoolDown: 20
+    attackPrefab: {fileID: 6291169290021964515, guid: ed2694729d9bfd444a958e24369b0079,
+      type: 3}
   - manaCoolDown: 0
     attackPrefab: {fileID: 0}
   - manaCoolDown: 0
