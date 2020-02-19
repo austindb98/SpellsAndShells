@@ -7,11 +7,7 @@ TagManager:
   - Wall
   - Pot
   - Ground
-  - Enemy
-  - Pickup
-  - Heart
-  - BlueShell
-  - GreenShell
+  - Decor
   layers:
   - Default
   - TransparentFX
@@ -26,10 +22,10 @@ TagManager:
   - Ground
   - Obstacles
   - Projectiles
-  - Spells
-  - Player
-  - Pickup
-  - StationaryEntities
+  - Decor
+  - 
+  - 
+  - 
   - 
   - 
   - 
