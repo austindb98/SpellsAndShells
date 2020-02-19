@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 386873839230528253}
   - component: {fileID: 805859167}
   - component: {fileID: 805859166}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   skillsUpdated: 0
   skillpoints: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   spellIndex: 0
-  speed: 450
+  speed: 250
   angle: 0
   frontLeft: {fileID: 3558114288250971579, guid: 8dd306e193c1da44ea29567d1baaf362,
     type: 3}
@@ -150,8 +150,7 @@ MonoBehaviour:
   diagDownLeft: {fileID: 3447278909189480453, guid: 8dd306e193c1da44ea29567d1baaf362,
     type: 3}
   shotgunBlast: {fileID: 2243452414512305580}
-  shotgunPellets: {fileID: 1961109728042184740, guid: e28835d4a797740d1bb97f4376152daa,
-    type: 3}
+  shotgunPellets: {fileID: 4489030356604078629}
   soundManager: {fileID: 0}
   wallLayer:
     serializedVersion: 2
@@ -172,8 +171,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0067131757, y: -0.053652048}
-  m_Size: {x: 0.17742601, y: 0.19776419}
+  m_Offset: {x: 0, y: -0.02}
+  m_Size: {x: 0.09, y: 0.215}
   m_Direction: 0
 --- !u!82 &805859167
 AudioSource:
@@ -378,6 +377,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShotgunBlast
       objectReference: {fileID: 0}
+    - target: {fileID: 1908448311092396798, guid: 805fcf4a387034b25ae33dd252e565d5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 1908448311092396799, guid: 805fcf4a387034b25ae33dd252e565d5,
         type: 3}
       propertyPath: m_SortingOrder
@@ -414,6 +418,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 386873839230528254}
     m_Modifications:
+    - target: {fileID: 1961109728042184740, guid: e28835d4a797740d1bb97f4376152daa,
+        type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961109728042184740, guid: e28835d4a797740d1bb97f4376152daa,
+        type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961109728042184740, guid: e28835d4a797740d1bb97f4376152daa,
+        type: 3}
+      propertyPath: CollisionModule.collisionMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961109728042184740, guid: e28835d4a797740d1bb97f4376152daa,
+        type: 3}
+      propertyPath: CollisionModule.m_Dampen.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961109728042184740, guid: e28835d4a797740d1bb97f4376152daa,
+        type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961109728042184740, guid: e28835d4a797740d1bb97f4376152daa,
+        type: 3}
+      propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961109728042184740, guid: e28835d4a797740d1bb97f4376152daa,
+        type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 3840
+      objectReference: {fileID: 0}
     - target: {fileID: 1961109728042184741, guid: e28835d4a797740d1bb97f4376152daa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -474,11 +513,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShotgunPellets
       objectReference: {fileID: 0}
+    - target: {fileID: 1961109728042184746, guid: e28835d4a797740d1bb97f4376152daa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e28835d4a797740d1bb97f4376152daa, type: 3}
 --- !u!4 &4489030356604078628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1961109728042184741, guid: e28835d4a797740d1bb97f4376152daa,
+    type: 3}
+  m_PrefabInstance: {fileID: 2700892842922916353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4489030356604078629 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1961109728042184740, guid: e28835d4a797740d1bb97f4376152daa,
     type: 3}
   m_PrefabInstance: {fileID: 2700892842922916353}
   m_PrefabAsset: {fileID: 0}
