@@ -31,7 +31,10 @@ public class PlayerController : BasePlayer {
         base.Start();
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        interactsWithBullets = wallLayer | obstacleLayer | (1 << LayerMask.NameToLayer("Entities"));
+        interactsWithBullets =  wallLayer |
+                                obstacleLayer |
+                                (1 << LayerMask.NameToLayer("Entities")) |
+                                (1 << LayerMask.NameToLayer("StationaryEntities"));
         baseSpeed = speed;
     }
 
@@ -139,7 +142,8 @@ public class PlayerController : BasePlayer {
                     GameObject tileMapGameObject = raycastResult.collider.gameObject;
                     tileMapGameObject.GetComponent<ObstacleController>().Break(raycastResult.point);
                 }
-                else if(raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("Entities"))
+                else if(raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("Entities") ||
+                        raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("StationaryEntities"))
                 {
                     EnemyHealth enemyHealth = raycastResult.collider.gameObject.GetComponent<EnemyHealth>();
                     enemyHealth.takeDamage(shotgunDmg);

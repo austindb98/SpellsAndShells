@@ -11,7 +11,7 @@ public class ObstacleController : MonoBehaviour
     public GameObject[] drops;
     public int dropChance;
     public GridGraph graphToScan;
-    private bool isScan = false;
+    private bool isRescan = false;
     private List<Vector3Int> breakList;
 
     // Start is called before the first frame update
@@ -28,6 +28,10 @@ public class ObstacleController : MonoBehaviour
     }
 
     void FixedUpdate() {
+        if(isRescan) {
+            AstarPath.active.Scan(graphToScan);
+            isRescan = false;
+        }
         if(breakList.Count > 0) {
             foreach(Vector3 pos in breakList) {
                 Tilemap map = GetComponent<Tilemap>();
@@ -39,7 +43,7 @@ public class ObstacleController : MonoBehaviour
                     Instantiate(drops[(int)drop], pos, Quaternion.identity);
                 }
             }
-            AstarPath.active.Scan(graphToScan);
+            isRescan = true;
             breakList = new List<Vector3Int>();
         }
     }

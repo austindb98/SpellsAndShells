@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4567944497076264157}
   - component: {fileID: 3667984809506765514}
   - component: {fileID: -574897508413756484}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: MoleSpawner
   m_TagString: Enemy
   m_Icon: {fileID: 0}

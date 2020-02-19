@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7271938109900050915}
   - component: {fileID: -2139658457023461573}
   - component: {fileID: 8127205393657728507}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: TreantSpawner
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -128,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   enemyController: {fileID: 8127205393657728507}
+  damageText: {fileID: 0}
 --- !u!114 &8127205393657728507
 MonoBehaviour:
   m_ObjectHideFlags: 0

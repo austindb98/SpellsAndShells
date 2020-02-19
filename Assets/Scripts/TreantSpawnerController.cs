@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TreantSpawnerController : EnemyController
 {
+    public SpawnMaster spawnMaster;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -19,6 +20,8 @@ public class TreantSpawnerController : EnemyController
     public override void handleShotgunHit(float knockbackMagnitude) {}
 
     public override void handleEnemyDeath() {
+        spawnMaster.enemyList.Remove(this);
+        spawnMaster.isRescan = true;
         Destroy(gameObject);
     }
 }
