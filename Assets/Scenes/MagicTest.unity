@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &104144569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 386192711775307376, guid: dbde54beb30f5b343907f05423d6ac61,
+    type: 3}
+  m_PrefabInstance: {fileID: 453701514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &326976553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -186,11 +192,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Skills
-      objectReference: {fileID: 0}
-    - target: {fileID: 5126121722964789661, guid: 022f9d0fcb0586c4a8df7af8ee25c6bd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5126121722964790883, guid: 022f9d0fcb0586c4a8df7af8ee25c6bd,
         type: 3}
@@ -417,6 +418,16 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1330212431}
+    - target: {fileID: 357214436740487705, guid: e86fb606f936f08448381c82562a1dc5,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 805859165}
+    - target: {fileID: 357214436740487705, guid: e86fb606f936f08448381c82562a1dc5,
+        type: 3}
+      propertyPath: deathMenu
+      value: 
+      objectReference: {fileID: 104144569}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e86fb606f936f08448381c82562a1dc5, type: 3}
 --- !u!1001 &648755310

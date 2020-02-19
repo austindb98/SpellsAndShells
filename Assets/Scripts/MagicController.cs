@@ -26,67 +26,74 @@ public class MagicController : MonoBehaviour
         castSound = GetComponent<AudioSource>();
     }
 
+    //TODO implement
+    private Spell CalculateSpell(uint elementPoints, uint lowestIndex)
+    {
+        if (elementPoints == SkillsController.LevelCutoff4)
+        {
+            return spells[lowestIndex + 3];
+        }
+        else if (elementPoints >= SkillsController.LevelCutoff3)
+        {
+            return spells[lowestIndex + 2];
+        }
+        else if (elementPoints >= SkillsController.LevelCutoff2)
+        {
+            return spells[lowestIndex + 1];
+        }
+        else if (elementPoints >= SkillsController.LevelCutoff1)
+        {
+            return spells[lowestIndex];
+        }
+        return null;
+    }
+
+    private Spell CalculateSpell1()
+    {
+        return CalculateSpell(player.skillpoints[1], 0);
+    }
+
+    private Spell CalculateSpell2()
+    {
+        return CalculateSpell(player.skillpoints[2], 4);
+    }
+
+    private Spell CalculateSpell3()
+    {
+        return CalculateSpell(player.skillpoints[3], 8);
+    }
+
     public Spell CalculateCurrentSpell()
     {
         switch (player.spellIndex)
         {
             case 0:
-                if (player.skillpoints[1] == SkillsController.LevelCutoff4)
-                {
-                    return spells[3];
-                }
-                else if (player.skillpoints[1] >= SkillsController.LevelCutoff3)
-                {
-                    return spells[2];
-                }
-                else if (player.skillpoints[1] >= SkillsController.LevelCutoff2)
-                {
-                    return spells[1];
-                }
-                else if (player.skillpoints[1] >= SkillsController.LevelCutoff1)
-                {
-                    return spells[0];
-                }
-                break;
+                return CalculateSpell1();
             case 1:
-                if (player.skillpoints[2] == SkillsController.LevelCutoff4)
-                {
-                    return spells[7];
-                }
-                else if (player.skillpoints[2] >= SkillsController.LevelCutoff3)
-                {
-                    return spells[6];
-                }
-                else if (player.skillpoints[2] >= SkillsController.LevelCutoff2)
-                {
-                    return spells[5];
-                }
-                else if (player.skillpoints[2] >= SkillsController.LevelCutoff1)
-                {
-                    return spells[4];
-                }
-                break;
+                return CalculateSpell2();
             case 2:
-                if (player.skillpoints[3] == SkillsController.LevelCutoff4)
-                {
-                    return spells[11];
-                }
-                else if (player.skillpoints[3] >= SkillsController.LevelCutoff3)
-                {
-                    return spells[10];
-                }
-                else if (player.skillpoints[3] >= SkillsController.LevelCutoff2)
-                {
-                    return spells[9];
-                }
-                else if (player.skillpoints[3] >= SkillsController.LevelCutoff1)
-                {
-                    return spells[8];
-                }
-                break;
+                return CalculateSpell3();
         }
 
         return null;
+    }
+
+    private void CastSpell()
+    {
+        if (currentSpell == null || currentSpell.attackPrefab == null || currentSpell.manaCoolDown > player.mana)
+        {
+
+        }
+        else
+        {
+            player.UseMana(currentSpell.manaCoolDown);
+            castSound.Play();
+            Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            float angle = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg + 90;
+            spawnRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            Instantiate(currentSpell.attackPrefab, transform.position, spawnRotation, transform.parent);
+        }
     }
     
     void Update()
@@ -94,22 +101,23 @@ public class MagicController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             currentSpell = CalculateCurrentSpell();
-            if (currentSpell == null || currentSpell.attackPrefab == null || currentSpell.manaCoolDown > player.mana)
-            {
-
-            } else
-            {
-                player.UseMana(currentSpell.manaCoolDown);
-                castSound.Play();
-                Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-                float angle = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg + 90;
-                //Vector2.Angle(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
-                Debug.Log("cxast angle: " + angle);
-                spawnRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-                Instantiate(currentSpell.attackPrefab, transform.position, spawnRotation, transform.parent);
-            }
+            CastSpell();
            
+        }
+        else if (Input.GetButtonDown("Spell1"))
+        {
+            currentSpell = CalculateSpell1();
+            CastSpell();
+        }
+        else if (Input.GetButtonDown("Spell2"))
+        {
+            currentSpell = CalculateSpell2();
+            CastSpell();
+        }
+        else if (Input.GetButtonDown("Spell3"))
+        {
+            currentSpell = CalculateSpell3();
+            CastSpell();
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
