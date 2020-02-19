@@ -40,6 +40,10 @@ public class PlayerController : BasePlayer {
     private bool isHit = false;
     private float hitTimer = 0f;
     private float hitTime = 0.5f;
+    private float knockbackTimer = 0;
+    private float knockbackTime = 0.8f;
+    private bool isKnockback = false;
+
     private int currentShell = (int) ShellType.Red;
     public GameObject soundManager;
     public LayerMask wallLayer, obstacleLayer;
@@ -79,6 +83,17 @@ public class PlayerController : BasePlayer {
             if(hitTimer > hitTime) {
                 isHit = false;
                 hitTimer = 0f;
+                speed = baseSpeed;
+            }
+        }
+
+        if (isKnockback)
+        {
+            knockbackTimer += Time.deltaTime;
+            if (knockbackTimer > knockbackTime)
+            {
+                isKnockback = false;
+                knockbackTimer = 0f;
                 speed = baseSpeed;
             }
         }
@@ -124,7 +139,8 @@ public class PlayerController : BasePlayer {
 
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-        rb2d.velocity = new Vector2(moveHorizontal, moveVertical) * speed * Time.deltaTime;
+        if(!isKnockback)
+            rb2d.velocity = new Vector2(moveHorizontal, moveVertical) * speed * Time.deltaTime;
 
         if(Input.GetMouseButtonDown(0) && shotReady) {
             Debug.Log("Boom");
@@ -202,14 +218,26 @@ public class PlayerController : BasePlayer {
                 health += heartHealth;
             Destroy(item);
         }
-        else if(item.tag == "BlueShell") {
+        else if (item.tag == "BlueShell")
+        {
             base.currentAmmo = BasePlayer.Ammo.BlueShell;
+            currentShell = (int)ShellType.Blue;
             Destroy(item);
         }
-        else if(item.tag == "GreenShell") {
+        else if (item.tag == "GreenShell")
+        {
             base.currentAmmo = BasePlayer.Ammo.GreenShell;
+            currentShell = (int)ShellType.Green;
             Destroy(item);
         }
+    }
+
+    public void onHitKnockback(float knockbackMagnitude, Vector3 hitDirection)
+    {
+        Vector2 unitVec = transform.position - hitDirection;
+        unitVec.Normalize();
+        rb2d.AddForce(unitVec * knockbackMagnitude);
+        isKnockback = true;
     }
 
 }
