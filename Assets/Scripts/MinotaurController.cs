@@ -14,7 +14,7 @@ public class MinotaurController : EnemyController
     private PlayerController playerController;
 
     private bool isSwingRest = false;
-    private float swingRestTime = 0.8f;
+    private float swingRestTime = 1f;
     private float swingRestTimer = 0f;
 
     public GameObject player;
