@@ -66,10 +66,11 @@ public class MinotaurController : EnemyController
     public override void handleShotgunHit(float knockbackMagnitude) {
         Vector2 unitVec = transform.position - player.transform.position;
         unitVec.Normalize();
-        rb2d.AddForce(unitVec * knockbackMagnitude);
+        rb2d.AddForce(unitVec * knockbackMagnitude * 0.5f);
         isKnockback = true;
         aiPath.canMove = false;
         an.SetBool("isWalking", false);
+        an.SetBool("isAttack1", false);
     }
 
     public override void handleEnemyDeath() {
@@ -90,5 +91,7 @@ public class MinotaurController : EnemyController
 
     public void handleAttack() {
         playerController.takeDamage(10f);
+        playerController.onHitKnockback(1500.0f, transform.position);
+        an.SetBool("isAttack1", false);
     }
 }
