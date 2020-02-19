@@ -6,6 +6,8 @@ public class TextDamageController : MonoBehaviour
 {
     private int lifetime = 2;
     private float deathTime;
+
+    
     // Start is called before the first frame update
     void Start()
     {

@@ -17,7 +17,6 @@ public class SpawnMaster : MonoBehaviour
     void Update()
     {
         if(isRescan) {
-            print("rescanning");
             AstarPath.active.Scan(AstarPath.active.data.gridGraph);
             isRescan = false;
         }
