@@ -16,6 +16,7 @@ public class PlayerController : BasePlayer {
     private bool isHit = false;
     private float hitTimer = 0f;
     private float hitTime = 0.5f;
+    private float shotgunRange = 20f;
 
     public GameObject soundManager;
     public LayerMask wallLayer, obstacleLayer;
@@ -133,7 +134,7 @@ public class PlayerController : BasePlayer {
             pelletDirections[i] = new Vector2(Mathf.Cos(appliedAngle), Mathf.Sin(appliedAngle));
 
             RaycastHit2D raycastResult =
-                Physics2D.Raycast(this.transform.position, pelletDirections[i], Mathf.Infinity, interactsWithBullets);
+                Physics2D.Raycast(this.transform.position, pelletDirections[i], shotgunRange, interactsWithBullets);
             if(raycastResult.collider != null)
             {
                 Debug.DrawLine(this.transform.position, raycastResult.point, Color.red, 0.1f);
@@ -171,6 +172,14 @@ public class PlayerController : BasePlayer {
                 health = MaxHealth;
             else
                 health += heartHealth;
+            Destroy(item);
+        }
+        else if(item.tag == "BlueShell") {
+            base.currentAmmo = BasePlayer.Ammo.BlueShell;
+            Destroy(item);
+        }
+        else if(item.tag == "GreenShell") {
+            base.currentAmmo = BasePlayer.Ammo.GreenShell;
             Destroy(item);
         }
     }
