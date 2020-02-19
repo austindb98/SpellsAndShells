@@ -8,7 +8,7 @@ public class PlayerController : BasePlayer {
 
     public float speed;
     private float baseSpeed;
-    public double angle;
+    public float angle;
     public Sprite frontLeft, diagUpLeft, back, diagUpRight, frontRight, diagDownRight, frontDown, diagDownLeft;
     public ParticleSystem shotgunBlast, shotgunPellets;
     private SpriteRenderer spriteRenderer;
@@ -41,6 +41,7 @@ public class PlayerController : BasePlayer {
     }
 
     protected override void Update() {
+        Debug.Log("Mouse angle: " + getMouseAngle());
         if (Time.timeScale == 0f)
         {
             return;
@@ -59,40 +60,59 @@ public class PlayerController : BasePlayer {
         Vector2 diff = (mousePos - position);
         Quaternion particleRotation = new Quaternion();
         Vector2 particlePosition = new Vector2();
-        angle = Math.Atan(diff.y / diff.x) * 180/Math.PI;
+        angle = (float)(Math.Atan(diff.y / diff.x) * 180/Math.PI);
 
         if((angle >= -22.5 && angle < 22.5) && diff.x > 0) {
             spriteRenderer.sprite = frontRight;
-            particleRotation.eulerAngles = new Vector2(0,90);
+            //particleRotation.eulerAngles = new Vector2(0,90);
+            particleRotation.eulerAngles = new Vector2(-angle,90);
             particlePosition = new Vector2(transform.position.x + 1.25f, transform.position.y - 0.8f);
+
         } else if((angle >= 22.5 && angle < 67.5) && diff.x > 0) {
             spriteRenderer.sprite = diagUpRight;
-            particleRotation.eulerAngles = new Vector2(-30,90);
+            //particleRotation.eulerAngles = new Vector2(-30,90);
+            particleRotation.eulerAngles = new Vector2(-angle,90);
             particlePosition = new Vector2(transform.position.x + 1.5f, transform.position.y + .1f);
+
         } else if((angle >= 67.5 || angle < -67.5) && diff.y > 0) {
             spriteRenderer.sprite = back;
-            particleRotation.eulerAngles = new Vector2(-90,90);
+            //particleRotation.eulerAngles = new Vector2(-90,90);
+            angle = angle>0?-angle:-90-(90+angle);
+            particleRotation.eulerAngles = new Vector2(angle,90);
             particlePosition = new Vector2(transform.position.x + .53f, transform.position.y + -.1f);
+
         } else if((angle >= -67.5 && angle < -22.5) && diff.x < 0) {
             spriteRenderer.sprite = diagUpLeft;
-            particleRotation.eulerAngles = new Vector2(-150,90);
+            //particleRotation.eulerAngles = new Vector2(-150,90);
+            angle = -90f - (angle + 90);
+            particleRotation.eulerAngles = new Vector2(angle,90);
             particlePosition = new Vector2(transform.position.x - 1.5f, transform.position.y + .1f);
+
         } else if((angle >= -22.5 && angle < 22.5) && diff.x < 0) {
             spriteRenderer.sprite = frontLeft;
-            particleRotation.eulerAngles = new Vector2(-180,90);
+            //particleRotation.eulerAngles = new Vector2(-180,90);
+            particleRotation.eulerAngles = new Vector2(-180 - angle,90);
             particlePosition = new Vector2(transform.position.x - 1.25f, transform.position.y - 0.8f);
+
         } else if((angle >= 22.5 && angle < 67.5) && diff.x < 0) {
             spriteRenderer.sprite = diagDownLeft;
-            particleRotation.eulerAngles = new Vector2(-210,90);
+            //particleRotation.eulerAngles = new Vector2(-210,90);
+            particleRotation.eulerAngles = new Vector2(-180 - angle,90);
             particlePosition = new Vector2(transform.position.x - 1.27f, transform.position.y - 1.4f);
+
         } else if((angle >= 67.5 || angle < -67.5) && diff.y < 0) {
             spriteRenderer.sprite = frontDown;
-            particleRotation.eulerAngles = new Vector2(-270,90);
+            //particleRotation.eulerAngles = new Vector2(-270,90);
+            angle = angle>0?-180-angle:-270-(90+angle);
+            particleRotation.eulerAngles = new Vector2(angle,90);
             particlePosition = new Vector2(transform.position.x - 0.4f, transform.position.y - 0.55f);
+
         } else if((angle >= -67.5 && angle < -22.5) && diff.x > 0) {
             spriteRenderer.sprite = diagDownRight;
-            particleRotation.eulerAngles = new Vector2(-330,90);
+            //particleRotation.eulerAngles = new Vector2(-330,90);
+            particleRotation.eulerAngles = new Vector2(-270 - (90 + angle),90);
             particlePosition = new Vector2(transform.position.x + 1.27f, transform.position.y - 1.4f);
+
         }
         shotgunBlast.transform.rotation = particleRotation;
         shotgunBlast.transform.position = particlePosition;
