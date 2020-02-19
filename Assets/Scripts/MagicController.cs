@@ -50,65 +50,17 @@ public class MagicController : MonoBehaviour
 
     private Spell CalculateSpell1()
     {
-        if (player.skillpoints[1] == SkillsController.LevelCutoff4)
-        {
-            return spells[3];
-        }
-        else if (player.skillpoints[1] >= SkillsController.LevelCutoff3)
-        {
-            return spells[2];
-        }
-        else if (player.skillpoints[1] >= SkillsController.LevelCutoff2)
-        {
-            return spells[1];
-        }
-        else if (player.skillpoints[1] >= SkillsController.LevelCutoff1)
-        {
-            return spells[0];
-        }
-        return null;
+        return CalculateSpell(player.skillpoints[1], 0);
     }
 
     private Spell CalculateSpell2()
     {
-        if (player.skillpoints[1] == SkillsController.LevelCutoff4)
-        {
-            return spells[3];
-        }
-        else if (player.skillpoints[1] >= SkillsController.LevelCutoff3)
-        {
-            return spells[2];
-        }
-        else if (player.skillpoints[1] >= SkillsController.LevelCutoff2)
-        {
-            return spells[1];
-        }
-        else if (player.skillpoints[1] >= SkillsController.LevelCutoff1)
-        {
-            return spells[0];
-        }
-        return null;
+        return CalculateSpell(player.skillpoints[2], 4);
     }
 
     private Spell CalculateSpell3()
     {
-        if (player.skillpoints[3] == SkillsController.LevelCutoff4)
-        {
-            return spells[11];
-        }
-        else if (player.skillpoints[3] >= SkillsController.LevelCutoff3)
-        {
-            return spells[10];
-        }
-        else if (player.skillpoints[3] >= SkillsController.LevelCutoff2)
-        {
-            return spells[9];
-        }
-        else if (player.skillpoints[3] >= SkillsController.LevelCutoff1)
-        {
-            return spells[8];
-        }
-        return null;
+        return CalculateSpell(player.skillpoints[3], 8);
     }
 
     public Spell CalculateCurrentSpell()

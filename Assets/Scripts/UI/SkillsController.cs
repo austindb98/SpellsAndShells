@@ -27,6 +27,12 @@ public class SkillsController : MonoBehaviour
     public Text windCounter;
     public Text iceCounter;
     public Text fireCounter;
+    public Image[] windIcons = new Image[4];
+    public Image[] iceIcons = new Image[4];
+    public Image[] fireIcons = new Image[4];
+    public Sprite[] windUnlocked = new Sprite[4];
+    public Sprite[] iceUnlocked = new Sprite[4];
+    public Sprite[] fireUnlocked = new Sprite[4];
     public Text unassignedCounter;
 
     private uint UnassignedPoints {
@@ -65,12 +71,30 @@ public class SkillsController : MonoBehaviour
     private void SetBars()
     {
         SetUnassignedBar();
-        SetElementBar(windFluids, WindPoints, windCounter);
-        SetElementBar(iceFluids, IcePoints, iceCounter);
-        SetElementBar(fireFluids, FirePoints, fireCounter);
+        //SetElementBar(windFluids, windIcons, windUnlocked, WindPoints, windCounter);
+        //SetElementBar(iceFluids, iceIcons, iceUnlocked, IcePoints, iceCounter);
+        //SetElementBar(fireFluids, fireIcons, fireUnlocked, FirePoints, fireCounter);
+        SetWindBar(WindPoints);
+        SetIceBar(IcePoints);
+        SetFireBar(FirePoints);
     }
 
-    private void SetElementBar(GameObject[] fluids, uint elementPoints, Text counter)
+    private void SetWindBar(uint windPoints)
+    {
+        SetElementBar(windFluids, windIcons, windUnlocked, windPoints, windCounter);
+    }
+
+    private void SetIceBar(uint icePoints)
+    {
+        SetElementBar(iceFluids, iceIcons, iceUnlocked, icePoints, iceCounter);
+    }
+
+    private void SetFireBar(uint firePoints)
+    {
+        SetElementBar(fireFluids, fireIcons, fireUnlocked, firePoints, fireCounter);
+    }
+
+    private void SetElementBar(GameObject[] fluids, Image[] icons, Sprite[] enabled, uint elementPoints, Text counter)
     {
         fluids[0].SetActive(false);
         fluids[1].SetActive(false);
@@ -79,15 +103,19 @@ public class SkillsController : MonoBehaviour
         if (elementPoints >= LevelCutoff1)
         {
             fluids[0].SetActive(true);
+            icons[0].sprite = enabled[0];
             if (elementPoints >= LevelCutoff2)
             {
                 fluids[1].SetActive(true);
+                icons[1].sprite = enabled[1];
                 if (elementPoints >= LevelCutoff3)
                 {
                     fluids[2].SetActive(true);
+                    icons[2].sprite = enabled[2];
                     if (elementPoints >= LevelCutoff4)
                     {
                         fluids[3].SetActive(true);
+                        icons[3].sprite = enabled[3];
                     }
                 }
             }
@@ -116,7 +144,7 @@ public class SkillsController : MonoBehaviour
     {
         if (PlayErrorFalse(WindPoints > 0))
         {
-            SetElementBar(windFluids, --WindPoints, windCounter);
+            SetWindBar(--WindPoints);
             UnassignedPoints++;
             menuChange.Play();
             SetUnassignedBar();
@@ -127,7 +155,7 @@ public class SkillsController : MonoBehaviour
     {
         if (PlayErrorFalse(IcePoints > 0))
         {
-            SetElementBar(iceFluids, --IcePoints, iceCounter);
+            SetIceBar(--IcePoints);
             UnassignedPoints++;
             menuChange.Play();
             SetUnassignedBar();
@@ -138,7 +166,7 @@ public class SkillsController : MonoBehaviour
     {
         if (PlayErrorFalse(FirePoints > 0))
         {
-            SetElementBar(fireFluids, --FirePoints, fireCounter);
+            SetFireBar(--FirePoints);
             UnassignedPoints++;
             menuChange.Play();
             SetUnassignedBar();
@@ -149,7 +177,7 @@ public class SkillsController : MonoBehaviour
     {
         if (PlayErrorFalse(EnoughPoints() && WindPoints < LevelCutoff4))
         {
-            SetElementBar(windFluids, ++WindPoints, windCounter);
+            SetWindBar(++WindPoints);
             UnassignedPoints--;
             menuChange.Play();
             SetUnassignedBar();
@@ -160,7 +188,7 @@ public class SkillsController : MonoBehaviour
     {
         if (PlayErrorFalse(EnoughPoints() && IcePoints < LevelCutoff4))
         {
-            SetElementBar(iceFluids, ++IcePoints, iceCounter);
+            SetIceBar(++IcePoints);
             UnassignedPoints--;
             menuChange.Play();
             SetUnassignedBar();
@@ -171,7 +199,7 @@ public class SkillsController : MonoBehaviour
     {
         if (PlayErrorFalse(EnoughPoints() && FirePoints < LevelCutoff4))
         {
-            SetElementBar(fireFluids, ++FirePoints, fireCounter);
+            SetFireBar(++FirePoints);
             UnassignedPoints--;
             menuChange.Play();
             SetUnassignedBar();

@@ -41,8 +41,7 @@ public class PlayerController : BasePlayer {
     }
 
     protected override void Update() {
-
-        Debug.Log("Mouse angle: " + angle);
+        
         if (Time.timeScale == 0f)
         {
             return;
@@ -83,7 +82,7 @@ public class PlayerController : BasePlayer {
         } else if((angle >= -157.5 && angle < -112.5) && diff.x < 0) {
             spriteRenderer.sprite = diagDownLeft;
             particlePosition = new Vector2(transform.position.x - 1.27f, transform.position.y - 1.4f);
-        } else if((angle >= 112.5 && angle < -67.5) && diff.y < 0) {
+        } else if((angle >= -112.5 && angle < -67.5) && diff.y < 0) {
             spriteRenderer.sprite = frontDown;
             particlePosition = new Vector2(transform.position.x - 0.4f, transform.position.y - 0.55f);
         } else if((angle >= -67.5 && angle < -22.5) && diff.x > 0) {
