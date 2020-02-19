@@ -6,6 +6,30 @@ using System;
 
 public class PlayerController : BasePlayer {
 
+    public class Shot {
+        public int pellets, damage;
+        public float variance, range;
+        public Shot(int pellets, float variance, float range, int damage) {
+            this.pellets = pellets;
+            this.variance = variance;
+            this.range = range;
+            this.damage = damage;
+        }
+    }
+
+    public enum ShellType
+    {
+        Red,
+        Blue,
+        Green
+    };
+
+    public Shot[] Shells = {
+        new Shot(10,0.05f,20f,5),
+        new Shot(1,0f,30f,75),
+        new Shot(25,0.10f,15f,3),
+    };
+
     public float speed;
     private float baseSpeed;
     public float angle;
@@ -16,16 +40,15 @@ public class PlayerController : BasePlayer {
     private bool isHit = false;
     private float hitTimer = 0f;
     private float hitTime = 0.5f;
-    private float shotgunRange = 20f;
-
+    private int currentShell = (int) ShellType.Red;
     public GameObject soundManager;
     public LayerMask wallLayer, obstacleLayer;
     private LayerMask interactsWithBullets;
-    private int numberPellets = 10;
-    private float pelletAngleVariance = 0.05f; // in radians
-    private float mouseAngle;
+    //private int numberPellets = 10;
+    //private float pelletAngleVariance = 0.05f; // in radians
+    //private float mouseAngle;
     private Vector2 mousePos;
-    private float shotgunDmg = 5f;
+    //private float shotgunDmg = 5f;
     private float heartHealth = 30f;
 
     void Start() {
@@ -45,7 +68,7 @@ public class PlayerController : BasePlayer {
     }
 
     protected override void Update() {
-        
+
         if (Time.timeScale == 0f)
         {
             return;
@@ -107,7 +130,7 @@ public class PlayerController : BasePlayer {
             Debug.Log("Boom");
             shotgunBlast.Play();
             shotgunPellets.Play();
-            shoot();
+            shoot(Shells[currentShell]);
         }
     }
 
@@ -117,24 +140,29 @@ public class PlayerController : BasePlayer {
             this.mousePos.x - this.transform.position.x);
     }
 
-    private void shoot()
+    private void shoot(Shot shell)
     {
+        int pellets = shell.pellets;
+        float variance = shell.variance;
+        float range = shell.range;
+        int damage = shell.damage;
+
         soundManager.GetComponent<SoundController>().playShotgunShootSound();
         shotReady = false;
-        mouseAngle = getMouseAngle();
-        Vector2[] pelletDirections = new Vector2[10];
+        float mouseAngle = getMouseAngle();
+        Vector2[] pelletDirections = new Vector2[pellets];
         for(int i = 0; i < pelletDirections.Length; ++i)
         {
-            float appliedAngle = mouseAngle + pelletAngleVariance * (i / 2);
+            float appliedAngle = mouseAngle + variance * (i / 2);
             if (i % 2 == 0)
             {
-                appliedAngle = mouseAngle - pelletAngleVariance * (i / 2);
+                appliedAngle = mouseAngle - variance * (i / 2);
             }
 
             pelletDirections[i] = new Vector2(Mathf.Cos(appliedAngle), Mathf.Sin(appliedAngle));
 
             RaycastHit2D raycastResult =
-                Physics2D.Raycast(this.transform.position, pelletDirections[i], shotgunRange, interactsWithBullets);
+                Physics2D.Raycast(this.transform.position, pelletDirections[i], range, interactsWithBullets);
             if(raycastResult.collider != null)
             {
                 Debug.DrawLine(this.transform.position, raycastResult.point, Color.red, 0.1f);
@@ -147,7 +175,7 @@ public class PlayerController : BasePlayer {
                         raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("StationaryEntities"))
                 {
                     EnemyHealth enemyHealth = raycastResult.collider.gameObject.GetComponent<EnemyHealth>();
-                    enemyHealth.takeDamage(shotgunDmg);
+                    enemyHealth.takeDamage(damage);
                 }
             }
             else
@@ -183,5 +211,5 @@ public class PlayerController : BasePlayer {
             Destroy(item);
         }
     }
-    
+
 }
