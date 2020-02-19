@@ -106,8 +106,11 @@ public class MinotaurController : EnemyController
     }
 
     public void handleAttack() {
-        playerController.takeDamage(10f);
-        playerController.onHitKnockback(1500.0f, transform.position);
+        if (Vector3.Distance(transform.position, player.transform.position) < 5.0f)
+        {
+            playerController.takeDamage(10f);
+            playerController.onHitKnockback(1500.0f, transform.position);
+        }
         isSwingRest = true;
         swingRestTimer = 0f;
         aiPath.canMove = false;
