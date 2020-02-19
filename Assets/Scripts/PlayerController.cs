@@ -162,6 +162,7 @@ public class PlayerController : BasePlayer {
     }
 
     private void handlePickup(GameObject item) {
+        item.GetComponent<ItemController>().Pickup();
         if(item.tag == "Heart") {
             if(health + heartHealth > MaxHealth)
                 health = MaxHealth;
