@@ -288,7 +288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 609aee2a6b660a3439e84c31732e3c6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f78dc1e814b6b3a41aec09947c715782, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -359,7 +359,7 @@ MonoBehaviour:
   shootCooldownTime: 0.75
   player: {fileID: 0}
   windIcons:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: d1853467d0b1f184e8987c1f31948ba9, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -374,7 +374,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   disabledIcons:
-  - {fileID: 21300000, guid: f78dc1e814b6b3a41aec09947c715782, type: 3}
+  - {fileID: 21300000, guid: b386b327cb4f8a5408b7ef1d1720ca56, type: 3}
   - {fileID: 21300000, guid: bb4e0a2df1e38854395b10da08eea094, type: 3}
   - {fileID: 21300000, guid: f78dc1e814b6b3a41aec09947c715782, type: 3}
 --- !u!1 &6849362707802100799
@@ -588,7 +588,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 51123007f93e04645986869678ea3ea7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb4e0a2df1e38854395b10da08eea094, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1058,7 +1058,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f285998c5c17a4147a4e6192f2b7ad9e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b386b327cb4f8a5408b7ef1d1720ca56, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

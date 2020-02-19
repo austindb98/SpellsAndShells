@@ -226,19 +226,19 @@ public class HudController : MonoBehaviour
         {
             if (player.skillpoints[1] == SkillsController.LevelCutoff4)
             {
-
+                spell1Icon.sprite = windIcons[3];
             }
             else if (player.skillpoints[1] >= SkillsController.LevelCutoff3)
             {
-
+                spell1Icon.sprite = windIcons[2];
             }
             else if (player.skillpoints[1] >= SkillsController.LevelCutoff2)
             {
-
+                spell1Icon.sprite = windIcons[1];
             }
             else if (player.skillpoints[1] >= SkillsController.LevelCutoff1)
             {
-
+                spell1Icon.sprite = windIcons[0];
             } else
             {
                 spell1Icon.sprite = disabledIcons[0];
