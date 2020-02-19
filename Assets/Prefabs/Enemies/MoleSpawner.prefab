@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1825370961986019088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 24.528, y: 5.546, z: 0}
-  m_LocalScale: {x: 10.12708, y: 11.588264, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -140,3 +140,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   enemyController: {fileID: 3667984809506765514}
+  damageText: {fileID: 0}

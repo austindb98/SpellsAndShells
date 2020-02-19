@@ -132,7 +132,7 @@ MonoBehaviour:
   skillsUpdated: 0
   skillpoints: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   spellIndex: 0
-  speed: 250
+  speed: 350
   angle: 0
   frontLeft: {fileID: 3558114288250971579, guid: 8dd306e193c1da44ea29567d1baaf362,
     type: 3}
@@ -171,8 +171,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.02}
-  m_Size: {x: 0.09, y: 0.215}
+  m_Offset: {x: 0, y: -0.045693662}
+  m_Size: {x: 0.09, y: 0.16361272}
   m_Direction: 0
 --- !u!82 &805859167
 AudioSource:
