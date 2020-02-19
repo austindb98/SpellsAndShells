@@ -17799,6 +17799,11 @@ PrefabInstance:
       propertyPath: deathMenu
       value: 
       objectReference: {fileID: 1109794160}
+    - target: {fileID: 357214436740487705, guid: e86fb606f936f08448381c82562a1dc5,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 197162309}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e86fb606f936f08448381c82562a1dc5, type: 3}
 --- !u!1001 &1001884416
