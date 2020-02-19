@@ -218,6 +218,18 @@ public class PlayerController : BasePlayer {
                 health += heartHealth;
             Destroy(item);
         }
+        else if (item.tag == "BlueShell")
+        {
+            base.currentAmmo = BasePlayer.Ammo.BlueShell;
+            currentShell = (int)ShellType.Blue;
+            Destroy(item);
+        }
+        else if (item.tag == "GreenShell")
+        {
+            base.currentAmmo = BasePlayer.Ammo.GreenShell;
+            currentShell = (int)ShellType.Green;
+            Destroy(item);
+        }
     }
 
     public void onHitKnockback(float knockbackMagnitude, Vector3 hitDirection)
