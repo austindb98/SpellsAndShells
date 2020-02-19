@@ -204,10 +204,12 @@ public class PlayerController : BasePlayer {
         }
         else if(item.tag == "BlueShell") {
             base.currentAmmo = BasePlayer.Ammo.BlueShell;
+            currentShell = ShellType.Blue;
             Destroy(item);
         }
         else if(item.tag == "GreenShell") {
             base.currentAmmo = BasePlayer.Ammo.GreenShell;
+            currentShell = ShellType.Green;
             Destroy(item);
         }
     }
