@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class DeathMenuController : PauseMenuController
 {
 
+    public BasePlayer player;
+
     private void Awake()
     {
         Time.timeScale = 0;
@@ -18,5 +20,7 @@ public class DeathMenuController : PauseMenuController
         soundManager.playMenuChange();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
     
+
 }

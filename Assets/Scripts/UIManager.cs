@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public GameObject skillUi;
     public GameObject pauseMenu;
     public GameObject deathMenu;
+    public BasePlayer player;
 
     // Start is called before the first frame update
     void Start()
@@ -48,5 +49,12 @@ public class UIManager : MonoBehaviour
         {
             deathMenu.SetActive(true);
         }
+
+        
+        if (player.health <= 0)
+        {
+            deathMenu.SetActive(true);
+        }
+        
     }
 }
