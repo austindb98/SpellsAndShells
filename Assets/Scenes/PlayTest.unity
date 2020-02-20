@@ -16113,8 +16113,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WASD to move, mouse to aim, left-click to shoot. Esc to pause, K to open
-    skill menu. Scroll wheel select spell. Right click and 1, 2, 3 to cast spells.
+  m_Text: WASD to move, mouse to aim, left-click to shoot. Esc to pause, K unlock
+    spells. Scroll wheel select spell. Right-click and 1, 2, 3 to cast spells.
 --- !u!222 &1306954570
 CanvasRenderer:
   m_ObjectHideFlags: 0
