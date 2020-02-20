@@ -27,7 +27,7 @@ public class ObstacleController : MonoBehaviour
     {
     }
 
-    void FixedUpdate() {
+    void LateUpdate() {
         if(isRescan) {
             AstarPath.active.Scan(graphToScan);
             isRescan = false;
