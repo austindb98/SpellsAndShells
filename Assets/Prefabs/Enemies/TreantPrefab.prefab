@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8f91e3b3f3653343bafad586928b662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackStrength: 20
   player: {fileID: 0}
   aiPath: {fileID: 6544395803861375197}
 --- !u!114 &6544395803861375136

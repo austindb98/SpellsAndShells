@@ -175,7 +175,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 4
+  maxSpeed: 8
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -219,6 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8f91e3b3f3653343bafad586928b662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackStrength: 15
   player: {fileID: 0}
   aiPath: {fileID: 4691094060803072636}
 --- !u!70 &4691094060803072609

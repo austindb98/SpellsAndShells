@@ -59,7 +59,7 @@ public class EnemyTreantGraphics : EnemyController
     private void OnTriggerEnter2D(Collider2D other) {
         if(other == playerCollider && !isKnockback) {
             handleShotgunHit(1f);
-            playerController.takeDamage(20f);
+            playerController.takeDamage(attackStrength);
         }
     }
 

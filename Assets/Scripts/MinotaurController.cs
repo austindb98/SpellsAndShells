@@ -30,7 +30,7 @@ public class MinotaurController : EnemyController
         player = GameObject.FindWithTag("Player");
         gameObject.GetComponent<AIDestinationSetter>().target = player.transform;
         an = gameObject.GetComponent<Animator>();
-
+        attackStrength = 25;
         playerCollider = player.GetComponent<Collider2D>();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         playerController = player.GetComponent<PlayerController>();
@@ -104,6 +104,10 @@ public class MinotaurController : EnemyController
     }
 
     public override void handleEnemyDeath() {
+        if (isDead)
+        {
+            return; // so animation doesn't keep on playing
+        }
         aiPath.canMove = false;
         an.SetBool("isDead", true);
         isDead = true;
@@ -125,7 +129,7 @@ public class MinotaurController : EnemyController
     public void handleAttack() {
         if (Vector3.Distance(transform.position, player.transform.position) < 4.0f)
         {
-            playerController.takeDamage(10f);
+            playerController.takeDamage(attackStrength);
             playerController.onHitKnockback(1500.0f, transform.position);
         }
         isSwingRest = true;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class EnemyController : MonoBehaviour
 {
+
+    public float attackStrength;
     // Start is called before the first frame update
     abstract public void Start();
 
