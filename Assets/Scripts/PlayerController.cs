@@ -25,9 +25,9 @@ public class PlayerController : BasePlayer {
     };
 
     public Shot[] Shells = {
-        new Shot(10,0.05f,20f,5),
+        new Shot(10,0.5f,20f,5),
         new Shot(1,0f,30f,75),
-        new Shot(25,0.10f,15f,3),
+        new Shot(25,1f,15f,3),
     };
 
     public float speed;
@@ -153,11 +153,7 @@ public class PlayerController : BasePlayer {
         Vector2[] pelletDirections = new Vector2[pellets];
         for(int i = 0; i < pelletDirections.Length; ++i)
         {
-            float appliedAngle = mouseAngle + variance * (i / 2);
-            if (i % 2 == 0)
-            {
-                appliedAngle = mouseAngle - variance * (i / 2);
-            }
+            float appliedAngle = mouseAngle - variance/2f + (variance/(float)pellets)*i;
 
             pelletDirections[i] = new Vector2(Mathf.Cos(appliedAngle), Mathf.Sin(appliedAngle));
 
@@ -204,12 +200,12 @@ public class PlayerController : BasePlayer {
         }
         else if(item.tag == "BlueShell") {
             base.currentAmmo = BasePlayer.Ammo.BlueShell;
-            currentShell = ShellType.Blue;
+            currentShell = (int) ShellType.Blue;
             Destroy(item);
         }
         else if(item.tag == "GreenShell") {
             base.currentAmmo = BasePlayer.Ammo.GreenShell;
-            currentShell = ShellType.Green;
+            currentShell = (int) ShellType.Green;
             Destroy(item);
         }
     }
