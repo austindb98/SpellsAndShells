@@ -14,8 +14,12 @@ public class MinotaurController : EnemyController
     private PlayerController playerController;
 
     private bool isSwingRest = false;
-    private float swingRestTime = 0.8f;
+    private float swingRestTime = 1f;
     private float swingRestTimer = 0f;
+
+    private float deathTimer = 0f;
+    private float deathTime = 1.2f;
+    private bool isDead = false;
 
     public GameObject player;
     private Animator an;
@@ -53,7 +57,7 @@ public class MinotaurController : EnemyController
                     knockbackTimer = 0f;
                 }
             }
-            if(!isKnockback && !isSwingRest) {
+            if(!isKnockback && !isSwingRest && !isDead) {
                 aiPath.canMove = true;
             }
         }
@@ -70,6 +74,15 @@ public class MinotaurController : EnemyController
             an.SetBool("isWalking", true);
         }
         
+
+        if(isDead)
+        {
+            deathTimer += Time.deltaTime;
+            if(deathTimer > deathTime)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -82,7 +95,8 @@ public class MinotaurController : EnemyController
     public override void handleShotgunHit(float knockbackMagnitude) {
         Vector2 unitVec = transform.position - player.transform.position;
         unitVec.Normalize();
-        rb2d.AddForce(unitVec * knockbackMagnitude);
+        if(!isDead)
+            rb2d.AddForce(unitVec * knockbackMagnitude * 0.5f);
         isKnockback = true;
         aiPath.canMove = false;
         an.SetBool("isWalking", false);
@@ -90,7 +104,10 @@ public class MinotaurController : EnemyController
     }
 
     public override void handleEnemyDeath() {
-        Destroy(gameObject);
+        aiPath.canMove = false;
+        an.SetBool("isDead", true);
+        isDead = true;
+        //Destroy(gameObject);
     }
 
     private void WalkLeft()
@@ -106,7 +123,11 @@ public class MinotaurController : EnemyController
     }
 
     public void handleAttack() {
-        playerController.takeDamage(10f);
+        if (Vector3.Distance(transform.position, player.transform.position) < 4.0f)
+        {
+            playerController.takeDamage(10f);
+            playerController.onHitKnockback(1500.0f, transform.position);
+        }
         isSwingRest = true;
         swingRestTimer = 0f;
         aiPath.canMove = false;
