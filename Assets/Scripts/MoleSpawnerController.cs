@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MoleSpawnerController : EnemyController
 {
-    public SpawnMaster spawnMaster;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -20,8 +19,8 @@ public class MoleSpawnerController : EnemyController
     public override void handleShotgunHit(float knockbackMagnitude) { }
 
     public override void handleEnemyDeath() {
-        spawnMaster.enemyList.Remove(this);
-        spawnMaster.isRescan = true;
+        base.spawnMaster.enemyList.Remove(this);
+        base.spawnMaster.isRescan = true;
         Destroy(gameObject);
     }
 }

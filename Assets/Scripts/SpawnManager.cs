@@ -15,10 +15,13 @@ public class SpawnManager : MonoBehaviour
     public GameObject treant;
     public GameObject player;
 
+    private SpawnMaster spawnMaster;
+
     void Start()
     {
         rnd = new System.Random();
         player = GameObject.FindWithTag("Player");
+        spawnMaster = gameObject.GetComponent<EnemyController>().spawnMaster;
     }
 
     // Update is called once per frame
@@ -36,6 +39,8 @@ public class SpawnManager : MonoBehaviour
             GameObject thisTreant = Instantiate(treant, transform.position + spawnVec, Quaternion.Euler( 0f, 0f, 0f ));
             AIDestinationSetter destinationSetter = thisTreant.GetComponent<AIDestinationSetter>();
             EnemyTreantGraphics etg = thisTreant.GetComponent<EnemyTreantGraphics>();
+
+            spawnMaster.addEnemyToList(thisTreant.GetComponent<EnemyController>());
             etg.player = player.gameObject;
             destinationSetter.target = player.transform;
         }

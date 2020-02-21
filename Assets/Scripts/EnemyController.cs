@@ -43,7 +43,6 @@ public class EnemyController : MonoBehaviour
             if(knockbackTimer > knockbackTime) {
                 isKnockback = false;
                 aiPath.canMove = true;
-                print("can move");
                 knockbackTimer = 0f;
             }
         }

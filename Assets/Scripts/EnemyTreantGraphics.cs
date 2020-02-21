@@ -20,7 +20,7 @@ public class EnemyTreantGraphics : EnemyController
         float y = aiPath.desiredVelocity.y;
 
         base.Update();
-        
+
         if(isKnockback) {
             return;
         }
@@ -58,6 +58,7 @@ public class EnemyTreantGraphics : EnemyController
     }
 
     public override void handleEnemyDeath() {
+        base.handleEnemyDeath();
         Destroy(gameObject);
     }
 

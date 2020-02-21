@@ -31,8 +31,15 @@ public class SpawnMaster : MonoBehaviour
         enemyList.Remove(enemy);
         if(enemyList.Count == 0) {
             isRoomComplete = true;
+            print("AAABBAAHAHA");
             // add in logic to open gate
         }
+    }
+
+    public void addEnemyToList(EnemyController enemy) {
+        print("adding enemy");
+        enemy.spawnMaster = this;
+        enemyList.Add(enemy);
     }
 
     public void spawnEnemies() {
