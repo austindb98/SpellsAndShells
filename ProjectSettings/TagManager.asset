@@ -12,6 +12,7 @@ TagManager:
   - Heart
   - BlueShell
   - GreenShell
+  - Room
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Player
   - Pickup
   - StationaryEntities
-  - 
+  - Fog
   - 
   - 
   - 
@@ -58,9 +59,12 @@ TagManager:
   - name: Player
     uniqueID: 2004420239
     locked: 0
-  - name: Foreground
+  - name: Enemies
     uniqueID: 2266969117
     locked: 0
-  - name: Enemies
+  - name: Foreground
     uniqueID: 373782565
+    locked: 0
+  - name: FogOfWar
+    uniqueID: 2754802679
     locked: 0

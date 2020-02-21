@@ -46,7 +46,7 @@ public class PlayerController : BasePlayer {
 
     private int currentShell = (int) ShellType.Red;
     public GameObject soundManager;
-    public LayerMask wallLayer, obstacleLayer;
+    public LayerMask wallLayer, obstacleLayer, fogLayer;
     private LayerMask interactsWithBullets;
     //private int numberPellets = 10;
     //private float pelletAngleVariance = 0.05f; // in radians
@@ -67,8 +67,14 @@ public class PlayerController : BasePlayer {
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        if(collider.gameObject.layer == LayerMask.NameToLayer("Pickup"))
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Pickup"))
+        {
             handlePickup(collider.gameObject);
+        }
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Fog"))
+        {
+            collider.gameObject.GetComponent<TilemapRenderer>().enabled = false;
+        }
     }
 
     protected override void Update() {
