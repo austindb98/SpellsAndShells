@@ -6,13 +6,6 @@ using Pathfinding;
 
 public class MinotaurController : EnemyController
 {
-    private Collider2D playerCollider;
-    private Rigidbody2D rb2d;
-    private bool isKnockback = false;
-    private float knockbackTimer = 0f;
-    private float knockbackTime = 0.8f;
-    private PlayerController playerController;
-
     private bool isSwingRest = false;
     private float swingRestTime = 1f;
     private float swingRestTimer = 0f;
@@ -21,19 +14,13 @@ public class MinotaurController : EnemyController
     private float deathTime = 1.2f;
     private bool isDead = false;
 
-    public GameObject player;
-    private Animator an;
-    public AIPath aiPath;
     // Start is called before the first frame update
     public override void Start()
     {
-        player = GameObject.FindWithTag("Player");
-        gameObject.GetComponent<AIDestinationSetter>().target = player.transform;
-        an = gameObject.GetComponent<Animator>();
+        base.Start();
+
+        knockbackCoefficient = 0.5f;
         attackStrength = 25;
-        playerCollider = player.GetComponent<Collider2D>();
-        rb2d = gameObject.GetComponent<Rigidbody2D>();
-        playerController = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -42,24 +29,23 @@ public class MinotaurController : EnemyController
         float x = aiPath.desiredVelocity.x;
         float y = aiPath.desiredVelocity.y;
 
-        if(isKnockback || isSwingRest) {
-            if(isSwingRest) {
-                swingRestTimer += Time.deltaTime;
-                if(swingRestTimer > swingRestTime) {
-                    isSwingRest = false;
-                    swingRestTimer = 0f;
-                }
+        base.Update();
+
+        if(isSwingRest) {
+            swingRestTimer += Time.deltaTime;
+            if(swingRestTimer > swingRestTime) {
+                isSwingRest = false;
+                swingRestTimer = 0f;
             }
-            if(isKnockback) {
-                knockbackTimer += Time.deltaTime;
-                if(knockbackTimer > knockbackTime) {
-                    isKnockback = false;
-                    knockbackTimer = 0f;
-                }
-            }
-            if(!isKnockback && !isSwingRest && !isDead) {
-                aiPath.canMove = true;
-            }
+        }
+        
+        if(!base.isKnockback && !isSwingRest && !isDead)
+            aiPath.canMove = true;
+        else
+            aiPath.canMove = false;
+
+        if(base.isKnockback || isSwingRest) {
+            return;
         }
         else if (x == 0 && y == 0)
         {
@@ -70,13 +56,10 @@ public class MinotaurController : EnemyController
         else if (x < 0)
             WalkLeft();
         else
-        {
             an.SetBool("isWalking", true);
-        }
         
 
-        if(isDead)
-        {
+        if(isDead) {
             deathTimer += Time.deltaTime;
             if(deathTimer > deathTime)
             {
@@ -92,22 +75,19 @@ public class MinotaurController : EnemyController
         }
     }
 
-    public override void handleShotgunHit(float knockbackMagnitude) {
-        Vector2 unitVec = transform.position - player.transform.position;
-        unitVec.Normalize();
-        if(!isDead)
-            rb2d.AddForce(unitVec * knockbackMagnitude * 0.5f);
-        isKnockback = true;
-        aiPath.canMove = false;
+    public override void handleShotgunHit(float knockbackStrength) {
+        base.handleShotgunHit(knockbackStrength * knockbackCoefficient);
+        
+        base.isKnockback = true;
+        base.aiPath.canMove = false;
         an.SetBool("isWalking", false);
         an.SetBool("isAttack1", false);
     }
 
     public override void handleEnemyDeath() {
         if (isDead)
-        {
             return; // so animation doesn't keep on playing
-        }
+
         aiPath.canMove = false;
         an.SetBool("isDead", true);
         isDead = true;
