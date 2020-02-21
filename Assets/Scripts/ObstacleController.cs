@@ -35,12 +35,13 @@ public class ObstacleController : MonoBehaviour
         if(breakList.Count > 0) {
             foreach(Vector3 pos in breakList) {
                 Tilemap map = GetComponent<Tilemap>();
-                Vector3Int tilePos = GetComponent<GridLayout>().WorldToCell(pos);
+                Vector3Int tilePos = transform.parent.GetComponentInParent<GridLayout>().WorldToCell(pos);
                 map.SetTile(tilePos, null);
                 soundManager.GetComponent<AudioSource>().PlayOneShot(breakSound);
                 float drop = Random.Range(0, drops.Length * dropChance);
                 if(drop < drops.Length) {
-                    Instantiate(drops[(int)drop], pos, Quaternion.identity);
+                    // scale the drop position with the grid scale
+                    Instantiate(drops[(int)drop], pos * this.transform.localScale.z, Quaternion.identity);
                 }
             }
             isRescan = true;
