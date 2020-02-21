@@ -1,18 +1,60 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
-public abstract class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
 
+    public Animator an;
+    public Collider2D playerCollider;
+    public Rigidbody2D rb2d;
+    
     public float attackStrength;
-    // Start is called before the first frame update
-    abstract public void Start();
 
-    // Update is called once per frame
-    abstract public void Update();
+    public bool isKnockback = false;
+    private float knockbackTimer = 0f;
+    private float knockbackTime = 0.8f;
 
-    abstract public void handleShotgunHit(float knockbackMagnitude);
+    public PlayerController playerController;
 
-    abstract public void handleEnemyDeath();
+    public float knockbackCoefficient;
+
+    public GameObject player;
+    public AIPath aiPath;
+
+    virtual public void Start() {
+        if(!player)
+                player = GameObject.FindWithTag("Player");
+
+        an = gameObject.GetComponent<Animator>();
+        playerCollider = player.GetComponent<Collider2D>();
+        rb2d = gameObject.GetComponent<Rigidbody2D>();
+        playerController = player.GetComponent<PlayerController>();
+
+        gameObject.GetComponent<AIDestinationSetter>().target = player.transform;
+    }
+
+    virtual public void Update() {
+        if(isKnockback) {
+            knockbackTimer += Time.deltaTime;
+            if(knockbackTimer > knockbackTime) {
+                isKnockback = false;
+                aiPath.canMove = true;
+                print("can move");
+                knockbackTimer = 0f;
+            }
+        }
+
+    }
+    
+    virtual public void handleShotgunHit(float knockbackMagnitude) {
+        Vector2 unitVec = transform.position - player.transform.position;
+        unitVec.Normalize();
+        rb2d.AddForce(unitVec * knockbackMagnitude);
+    }
+
+    virtual public void handleEnemyDeath() {
+
+    }
 }

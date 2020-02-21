@@ -27,7 +27,7 @@ public class EnemyHealth : MonoBehaviour
 
     }
 
-    void FixedUpdate() {
+    void LateUpdate() {
         if(accumulatedDamage > 0)
         {
             ParticleSystem text = Instantiate(damageText);

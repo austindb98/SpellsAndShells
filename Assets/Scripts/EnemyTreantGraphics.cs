@@ -6,38 +6,23 @@ using Pathfinding;
 
 public class EnemyTreantGraphics : EnemyController
 {
-    private Animator an;
-    private Collider2D playerCollider;
-    private Rigidbody2D rb2d;
-    private bool isKnockback = false;
-    private float knockbackTimer = 0f;
-    private float knockbackTime = 0.8f;
-    private PlayerController playerController;
 
-    public GameObject player;
-    public AIPath aiPath;
-
-    public override void Start()
+    public void Start()
     {
-        an = gameObject.GetComponent<Animator>();
-        playerCollider = player.GetComponent<Collider2D>();
-        rb2d = gameObject.GetComponent<Rigidbody2D>();
-        playerController = player.GetComponent<PlayerController>();
+        base.Start();
+        base.knockbackCoefficient = 1f;
     }
 
     // Update is called once per frame
-    public override void Update()
+    public void Update()
     {
         float x = aiPath.desiredVelocity.x;
         float y = aiPath.desiredVelocity.y;
 
+        base.Update();
+        
         if(isKnockback) {
-            knockbackTimer += Time.deltaTime;
-            if(knockbackTimer > knockbackTime) {
-                isKnockback = false;
-                aiPath.canMove = true;
-                knockbackTimer = 0f;
-            }
+            return;
         }
         else if(x == 0 && y == 0) {
             an.SetBool("isTreantWalking", false);
@@ -63,13 +48,13 @@ public class EnemyTreantGraphics : EnemyController
         }
     }
 
-    public override void handleShotgunHit(float knockbackMagnitude) {
-        Vector2 unitVec = transform.position - player.transform.position;
-        unitVec.Normalize();
-        rb2d.AddForce(unitVec * knockbackMagnitude);
-        isKnockback = true;
-        aiPath.canMove = false;
-        an.SetBool("isTreantWalking", false);
+    public override void handleShotgunHit(float knockbackStrength) {
+        base.handleShotgunHit(knockbackStrength * knockbackCoefficient);
+        
+        base.isKnockback = true;
+        base.aiPath.canMove = false;
+        print("can't move");
+        base.an.SetBool("isTreantWalking", false);
     }
 
     public override void handleEnemyDeath() {

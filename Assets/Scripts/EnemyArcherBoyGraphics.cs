@@ -7,44 +7,30 @@ using Pathfinding;
 public class EnemyArcherBoyGraphics : EnemyController
 {
     private float maxArcherRange = 15f;     // range from which archer can attack
-    private float shotAnimationTime = 0.3f;// this is 100% guesswork. How to actually check this value?
-    private float shotAnimationTimer;      // timer for shot animation sequence
+    private float shotAnimationTime = 0.3f; // this is 100% guesswork. How to actually check this value?
+    private float shotAnimationTimer;       // timer for shot animation sequence
     private bool isFireShot = false;        // indicates if in shot animation sequences
     private float shotPrepTime = 1f;        // time needed for shot cooldown
     private float shotPrepTimer;            // cooldown timer for shooting arrow
     private bool isPreppingShot = false;    // indicates if shot is being prepped
     private int raycastLayerMask;
-    private bool isKnockback;
-    private float knockbackTimer = 0f;
-    private float knockbackTime = 0.8f;
-    private Rigidbody2D rb2d;
 
-    private Animator an;
-    public AIPath aiPath;
-    public GameObject player;
     public GameObject arrow;
 
     public override void Start()
     {
-        an = gameObject.GetComponent<Animator>();
+        base.Start();
         raycastLayerMask =  ((1 << LayerMask.NameToLayer("Obstacles")) |
                              (1 << LayerMask.NameToLayer("Walls")) |
                              (1 << LayerMask.NameToLayer("Player")));
-        rb2d = gameObject.GetComponent<Rigidbody2D>();
-        player = GameObject.FindWithTag("Player");
-        gameObject.GetComponent<AIDestinationSetter>().target = player.transform;
     }
 
     // Update is called once per frame
     public override void Update()
     {
+        base.Update();
         if(isKnockback) {
-            knockbackTimer += Time.deltaTime;
-            if(knockbackTimer > knockbackTime) {
-                isKnockback = false;
-                aiPath.canMove = true;
-                knockbackTimer = 0f;
-            }
+            return;
         }
         else if(isFireShot) {    // increment timer only if in animation sequences
             SetOrientation(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y);
@@ -120,12 +106,12 @@ public class EnemyArcherBoyGraphics : EnemyController
     }
 
     public override void handleShotgunHit(float knockbackMagnitude) {
-        print("meep");
         Vector2 unitVec = transform.position - player.transform.position;
         unitVec.Normalize();
         rb2d.AddForce(unitVec * knockbackMagnitude);
-        isKnockback = true;
-        aiPath.canMove = false;
+
+        base.isKnockback = true;
+        base.aiPath.canMove = false;
         an.SetBool("isWalking", false);
 
         isFireShot = false;
