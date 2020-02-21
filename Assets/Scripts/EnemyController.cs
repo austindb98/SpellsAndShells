@@ -23,6 +23,8 @@ public class EnemyController : MonoBehaviour
     public GameObject player;
     public AIPath aiPath;
 
+    public SpawnMaster spawnMaster;
+
     virtual public void Start() {
         if(!player)
                 player = GameObject.FindWithTag("Player");
@@ -55,6 +57,7 @@ public class EnemyController : MonoBehaviour
     }
 
     virtual public void handleEnemyDeath() {
-
+        if(spawnMaster)
+            spawnMaster.removeEnemyFromList(this);
     }
 }

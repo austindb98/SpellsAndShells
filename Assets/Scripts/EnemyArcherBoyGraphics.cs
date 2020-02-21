@@ -121,6 +121,7 @@ public class EnemyArcherBoyGraphics : EnemyController
     }
 
     public override void handleEnemyDeath() {
+        base.handleEnemyDeath();
         Destroy(gameObject);
     }
 }

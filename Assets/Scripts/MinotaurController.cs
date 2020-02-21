@@ -63,6 +63,7 @@ public class MinotaurController : EnemyController
             deathTimer += Time.deltaTime;
             if(deathTimer > deathTime)
             {
+                base.handleEnemyDeath();
                 Destroy(gameObject);
             }
         }
