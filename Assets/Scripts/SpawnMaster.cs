@@ -11,11 +11,12 @@ public class SpawnMaster : MonoBehaviour
     public List<GameObject> spawnPrefabList;    // the list of enemies to spawn
     public List<Vector3> spawnPositionList;
     public bool isRoomComplete = false;
+    public List<GameObject> doorList;
 
     // Start is called before the first frame update
     void Start()
     {
-        spawnEnemies();
+        //spawnEnemies();
     }
 
     // Update is called once per frame
@@ -31,7 +32,9 @@ public class SpawnMaster : MonoBehaviour
         enemyList.Remove(enemy);
         if(enemyList.Count == 0) {
             isRoomComplete = true;
-            print("AAABBAAHAHA");
+            foreach(GameObject door in doorList) {
+                Destroy(door);
+            }
             // add in logic to open gate
         }
     }

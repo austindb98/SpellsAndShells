@@ -55,6 +55,8 @@ public class PlayerController : BasePlayer {
     //private float shotgunDmg = 5f;
     private float heartHealth = 30f;
 
+    public SpawnMaster initialSpawnMaster; // this will not be necessary in the final design
+
     void Start() {
         base.Start();
         rb2d = GetComponent<Rigidbody2D>();
@@ -64,6 +66,7 @@ public class PlayerController : BasePlayer {
                                 (1 << LayerMask.NameToLayer("Entities")) |
                                 (1 << LayerMask.NameToLayer("StationaryEntities"));
         baseSpeed = speed;
+        initialSpawnMaster.spawnEnemies();
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -193,7 +196,7 @@ public class PlayerController : BasePlayer {
                         raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("StationaryEntities"))
                 {
                     EnemyHealth enemyHealth = raycastResult.collider.gameObject.GetComponent<EnemyHealth>();
-                    enemyHealth.takeDamage(damage);
+                    enemyHealth.takeDamage(damage * 5); // buff for testing
                 }
             }
             else

@@ -19,7 +19,7 @@ public class TreantSpawnerController : EnemyController
     public override void handleShotgunHit(float knockbackMagnitude) {}
 
     public override void handleEnemyDeath() {
-        base.spawnMaster.enemyList.Remove(this);
+        base.handleEnemyDeath();
         base.spawnMaster.isRescan = true;
         Destroy(gameObject);
     }

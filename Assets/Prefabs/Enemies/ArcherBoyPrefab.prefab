@@ -172,7 +172,7 @@ MonoBehaviour:
   version: 2
   radius: 0.15
   height: 0.01
-  repathRate: 0.05
+  repathRate: 1
   canSearch: 1
   canMove: 1
   maxSpeed: 4
@@ -219,9 +219,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38822729abcdb214f8e8d1d534d443f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  an: {fileID: 0}
+  playerCollider: {fileID: 0}
+  rb2d: {fileID: 0}
   attackStrength: 0
-  aiPath: {fileID: 2140380562467398986}
+  isKnockback: 0
+  playerController: {fileID: 0}
+  knockbackCoefficient: 0
   player: {fileID: 0}
+  aiPath: {fileID: 2140380562467398986}
+  spawnMaster: {fileID: 0}
   arrow: {fileID: 1398909096796971149, guid: f7dde1ea6183ce64593408442c46ae9f, type: 3}
 --- !u!70 &2140380562467399027
 CapsuleCollider2D:
