@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Skills") && !pauseMenu.activeInHierarchy)
         {
-            
+
             if (skillUi.activeInHierarchy)
             {
                 skillUi.SetActive(false);
@@ -30,8 +30,9 @@ public class UIManager : MonoBehaviour
             {
                 skillUi.SetActive(true);
                 Time.timeScale = 0;
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
             }
-            
+
         }
         else if (Input.GetButtonDown("Pause") && !skillUi.activeInHierarchy)
         {
@@ -44,18 +45,21 @@ public class UIManager : MonoBehaviour
             {
                 pauseMenu.SetActive(true);
                 Time.timeScale = 0;
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
             }
         }
         else if (Input.GetButtonDown("Die"))
         {
             deathMenu.SetActive(true);
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
 
-        
+
         if (player.health <= 0)
         {
             deathMenu.SetActive(true);
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
-        
+
     }
 }
