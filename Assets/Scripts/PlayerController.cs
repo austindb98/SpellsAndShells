@@ -55,6 +55,7 @@ public class PlayerController : BasePlayer {
     private Vector2 mousePos;
     //private float shotgunDmg = 5f;
     private float heartHealth = 30f;
+    private float potionMana = 30f;
 
     public SpawnMaster initialSpawnMaster; // this will not be necessary in the final design
 
@@ -224,6 +225,13 @@ public class PlayerController : BasePlayer {
                 health = MaxHealth;
             else
                 health += heartHealth;
+            Destroy(item);
+        }
+        else if(item.tag == "Potion") {
+            if(mana + potionMana > MaxMana)
+                mana = MaxMana;
+            else
+                mana += potionMana;
             Destroy(item);
         }
         else if (item.tag == "BlueShell")

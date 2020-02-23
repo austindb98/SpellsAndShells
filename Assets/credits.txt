@@ -10,6 +10,7 @@ Parallax/ - PWL (https://opengameart.org/users/pwl)
 Cielo pixelado.png - Santoniche (https://opengameart.org/users/santoniche)
 Pot.png - Pita (https://pita.itch.io/rpg-dungeon-tileset)
 dungeon tiles (Buch).png - Buch (https://opengameart.org/content/dungeon-tileset)
+Potion sprite - Bonsaiheldin(https://opengameart.org/content/rpg-potions-16x16)
 
 SOUND
 menuchange.wav - victorium183 (https://freesound.org/people/victorium183/)
@@ -17,6 +18,9 @@ minimalist-sci-fi-ui-error.flac - plasterbrain (https://freesound.org/people/pla
 PotBreak.wav - ??? (https://www.youtube.com/watch?v=A5zwcsVsVz0)
 ShotgunShoot.wav - ??? (https://www.youtube.com/watch?v=A5zwcsVsVz0)
 firespell1.wav - alonsotm (https://freesound.org/people/alonsotm/)
+ShotgunLoad.mp3 - Taofledermaus (https://www.youtube.com/watch?v=YbFH2i17goQ)
+PotionDrink.mp3 - (https://freesound.org/people/Jamius/sounds/41529/)
+
 
 DATA
 medieval names - (http://dmnes.org/names)
