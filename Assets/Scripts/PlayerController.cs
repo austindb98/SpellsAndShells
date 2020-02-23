@@ -34,6 +34,7 @@ public class PlayerController : BasePlayer {
     private float baseSpeed;
     public float angle;
     public Sprite frontLeft, diagUpLeft, back, diagUpRight, frontRight, diagDownRight, frontDown, diagDownLeft;
+    public Sprite cursor;
     public ParticleSystem shotgunBlast, shotgunPellets;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2d;
@@ -107,6 +108,8 @@ public class PlayerController : BasePlayer {
             }
         }
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Cursor.SetCursor(cursor.texture, Vector2.zero, CursorMode.Auto);
+
         Vector2 position = new Vector2(transform.position.x, transform.position.y);
         Vector2 diff = (mousePos - position);
         Quaternion particleRotation = new Quaternion();
