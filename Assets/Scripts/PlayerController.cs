@@ -108,9 +108,10 @@ public class PlayerController : BasePlayer {
                 speed = baseSpeed;
             }
         }
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Cursor.SetCursor(cursor.texture, Vector2.zero, CursorMode.Auto);
 
+        Cursor.SetCursor(cursor.texture, new Vector2(8,8), CursorMode.Auto);
+
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 position = new Vector2(transform.position.x, transform.position.y);
         Vector2 diff = (mousePos - position);
         Quaternion particleRotation = new Quaternion();
