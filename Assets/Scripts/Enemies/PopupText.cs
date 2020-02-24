@@ -20,6 +20,11 @@ public class PopupText : MonoBehaviour
         text.text = newText;
     }
 
+    public void SetColor(Color c)
+    {
+        text.color = c;
+    }
+
     // Update is called once per frame
     void Update()
     {

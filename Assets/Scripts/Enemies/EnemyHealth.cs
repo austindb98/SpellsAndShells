@@ -45,10 +45,9 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= intDamage;
         
         Vector3 popupPos = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
+        
 
-        string testDam = "" + Random.Range(-2, 30);
-
-        DamageController.CreatePopup(testDam, popupPos, dmgColor);
+        DamageController.CreatePopup(dmg, popupPos, dmgColor);
 
         if(currentHealth <= 0f)
             enemyController.handleEnemyDeath();

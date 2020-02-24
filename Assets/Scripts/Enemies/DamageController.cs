@@ -30,8 +30,9 @@ public class DamageController : MonoBehaviour
         PopupText instance = Instantiate(staticPopup);
         Vector2 screenPos = Camera.main.WorldToScreenPoint(position);
         instance.transform.SetParent(canvas.transform, false);
-        instance.transform.position = screenPos;
+        instance.transform.position = position;
         instance.SetText(text);
+        instance.SetColor(color);
     }
 
     // Update is called once per frame
