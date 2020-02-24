@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public BaseAttack.Element weakness;
     public BaseAttack.Element resistance;
-
+    private float weakMult = 2;
     public float maxHealth;
     private float currentHealth;
     public EnemyController enemyController;
@@ -45,9 +45,9 @@ public class EnemyHealth : MonoBehaviour
 
     public void takeDamage(float damage, BaseAttack.Element type) {
         if(type == weakness) {
-            damage *= 2;
+            damage *= weakMult;
         } else if (type == resistance) {
-            damage /= 2;
+            damage /= weakMult;
         }
         currentHealth -= damage;
         accumulatedDamage += damage;
