@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public BaseAttack.Element weakness;
+    public BaseAttack.Element resistance;
+
     public float maxHealth;
     private float currentHealth;
     public EnemyController enemyController;
@@ -12,6 +15,8 @@ public class EnemyHealth : MonoBehaviour
     private float damageUpdateTime;
     private static float deltaDamageTime;
     private float accumulatedDamage;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +43,12 @@ public class EnemyHealth : MonoBehaviour
         accumulatedDamage = 0;
     }
 
-    public void takeDamage(float damage) {
+    public void takeDamage(float damage, BaseAttack.Element type) {
+        if(type == weakness) {
+            damage *= 2;
+        } else if (type == resistance) {
+            damage /= 2;
+        }
         currentHealth -= damage;
         accumulatedDamage += damage;
         if(currentHealth <= 0f)

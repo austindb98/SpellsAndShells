@@ -196,7 +196,7 @@ public class PlayerController : BasePlayer {
                         raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("StationaryEntities"))
                 {
                     EnemyHealth enemyHealth = raycastResult.collider.gameObject.GetComponent<EnemyHealth>();
-                    enemyHealth.takeDamage(damage * 5); // buff for testing
+                    enemyHealth.takeDamage(damage * 5, BaseAttack.Element.Normal); // buff for testing
                 }
             }
             else
