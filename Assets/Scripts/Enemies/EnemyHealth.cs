@@ -32,25 +32,28 @@ public class EnemyHealth : MonoBehaviour
 
     }
 
-    void LateUpdate() {
-        if(accumulatedDamage > 0)
-        {
-            ParticleSystem text = Instantiate(damageText);
-            text.transform.position = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
-            text.GetComponentInChildren<UnityEngine.UI.Text>().text = accumulatedDamage.ToString();
-            text.Play();
-        }
-        accumulatedDamage = 0;
-    }
-
     public void takeDamage(float damage, BaseAttack.Element type) {
+        Color dmgColor = Color.yellow;
+        string dmg;
+        dmg = damage.ToString();
         if(type == weakness) {
             damage *= weakMult;
+            dmgColor = Color.red;
+            dmg = damage.ToString() + "!";
         } else if (type == resistance) {
             damage /= weakMult;
+            dmgColor = Color.black;
+            dmg = damage.ToString();
         }
         currentHealth -= damage;
-        accumulatedDamage += damage;
+        //accumulatedDamage += damage;
+
+        ParticleSystem text = Instantiate(damageText);
+        text.transform.position = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
+        text.GetComponentInChildren<UnityEngine.UI.Text>().text = dmg;
+        text.GetComponentInChildren<UnityEngine.UI.Text>().color = dmgColor;
+        text.Play();
+
         if(currentHealth <= 0f)
             enemyController.handleEnemyDeath();
         else
