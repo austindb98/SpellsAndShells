@@ -26,8 +26,7 @@ public class MinotaurController : EnemyController
     // Update is called once per frame
     public override void Update()
     {        
-        float x = aiPath.desiredVelocity.x;
-        float y = aiPath.desiredVelocity.y;
+        float x = player.transform.position.x - transform.position.x;
 
         base.Update();
 
@@ -44,17 +43,13 @@ public class MinotaurController : EnemyController
         else
             aiPath.canMove = false;
 
-        if(base.isKnockback || isSwingRest) {
-            print("not entering if");
+        if(base.isKnockback || isSwingRest)
             return;
-        }
-        else if (x == 0 && y == 0)
-        {
+        else if (aiPath.desiredVelocity.x == 0 && aiPath.desiredVelocity.y == 0)
             an.SetBool("isWalking", false);
-        }
-        else if (x > 0.5)
+        else if (x > 0)
             WalkRight();
-        else if (x < -0.5)
+        else if (x < 0)
             WalkLeft();
         else
             an.SetBool("isWalking", true);
@@ -62,8 +57,7 @@ public class MinotaurController : EnemyController
 
         if(isDead) {
             deathTimer += Time.deltaTime;
-            if(deathTimer > deathTime)
-            {
+            if(deathTimer > deathTime) {
                 base.handleEnemyDeath();
                 Destroy(gameObject);
             }
