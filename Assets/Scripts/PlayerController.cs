@@ -62,7 +62,11 @@ public class PlayerController : BasePlayer {
                                 (1 << LayerMask.NameToLayer("Entities")) |
                                 (1 << LayerMask.NameToLayer("StationaryEntities"));
         baseSpeed = speed;
-        initialSpawnMaster.spawnEnemies();
+        if (initialSpawnMaster != null)
+        {
+            initialSpawnMaster.spawnEnemies();
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
