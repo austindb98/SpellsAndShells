@@ -90,7 +90,7 @@ public class MinotaurController : EnemyController
         aiPath.canMove = false;
         an.SetBool("isDead", true);
         isDead = true;
-        base.handleEnemyDeath();
+        // base.handleEnemyDeath();
         //Destroy(gameObject);
     }
 
