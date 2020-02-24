@@ -33,7 +33,8 @@ public class SpawnMaster : MonoBehaviour
         if(enemyList.Count == 0) {
             isRoomComplete = true;
             foreach(GameObject door in doorList) {
-                Destroy(door);
+                //Destroy(door);
+                door.SetActive(false);
             }
             // add in logic to open gate
         }
