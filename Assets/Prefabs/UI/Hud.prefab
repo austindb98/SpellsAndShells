@@ -459,6 +459,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0f59f475910050b4c906296ef609b4cc, type: 3}
   - {fileID: 21300000, guid: c117511cbe71cfb4b9995c718d9bad8e, type: 3}
   - {fileID: 21300000, guid: 234cf28c9b8a2af449eb1b4230215c33, type: 3}
+  ammoCounter: {fileID: 1333773014}
 --- !u!1 &6849362707802100799
 GameObject:
   m_ObjectHideFlags: 0

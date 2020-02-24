@@ -39,7 +39,6 @@ public class PlayerController : BasePlayer {
     private float knockbackTime = 0.8f;
     private bool isKnockback = false;
 
-    private int currentShell = (int) Ammo.RedShell;
     public GameObject soundManager;
     public LayerMask wallLayer, obstacleLayer, fogLayer;
     private LayerMask interactsWithBullets;
@@ -62,7 +61,11 @@ public class PlayerController : BasePlayer {
                                 (1 << LayerMask.NameToLayer("Entities")) |
                                 (1 << LayerMask.NameToLayer("StationaryEntities"));
         baseSpeed = speed;
-        initialSpawnMaster.spawnEnemies();
+        if (initialSpawnMaster != null)
+        {
+            initialSpawnMaster.spawnEnemies();
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -153,7 +156,7 @@ public class PlayerController : BasePlayer {
         if(Input.GetMouseButtonDown(0) && shotReady) {
             shotgunBlast.Play();
             shotgunPellets.Play();
-            shoot(Shells[currentShell]);
+            shoot(Shells[(int)currentAmmo]);
             base.UseAmmo();
 
         }
@@ -196,7 +199,7 @@ public class PlayerController : BasePlayer {
                         raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("StationaryEntities"))
                 {
                     EnemyHealth enemyHealth = raycastResult.collider.gameObject.GetComponent<EnemyHealth>();
-                    enemyHealth.takeDamage(damage * 5); // buff for testing
+                    enemyHealth.takeDamage(damage, BaseAttack.Element.Normal);
                 }
             }
             else
@@ -232,12 +235,12 @@ public class PlayerController : BasePlayer {
         }
         else if (item.tag == "BlueShell")
         {
-            currentShell = PickupAmmo(Ammo.BlueShell);
+            PickupAmmo(Ammo.BlueShell);
             Destroy(item);
         }
         else if (item.tag == "GreenShell")
         {
-            currentShell = PickupAmmo(Ammo.GreenShell);
+            PickupAmmo(Ammo.GreenShell);
             Destroy(item);
         }
     }

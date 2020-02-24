@@ -8,8 +8,8 @@ public class BasePlayer : MonoBehaviour
 {
     public enum Ammo {
         RedShell,
-        GreenShell,
-        BlueShell
+        BlueShell,
+        GreenShell
     }
 
     public Spell currentSpell;
@@ -52,7 +52,7 @@ public class BasePlayer : MonoBehaviour
         {
             skillpoints[0] = 15;
         }
-        
+
         if (debug)
         {
             health = MaxHealth * .5f;
@@ -70,7 +70,7 @@ public class BasePlayer : MonoBehaviour
         }
         else
         {
-            if (--AmmoCount == 0)
+            if (--AmmoCount <= 0)
             {
                 currentAmmo = Ammo.RedShell;
             }
@@ -92,7 +92,7 @@ public class BasePlayer : MonoBehaviour
             mana = 0;
         }
     }
-    
+
     public void NextSpell()
     {
         spellIndex++;
@@ -125,7 +125,7 @@ public class BasePlayer : MonoBehaviour
             health = 0;
         }
     }
-    
+
     protected virtual void Update()
     {
         if (debug)
