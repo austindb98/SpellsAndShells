@@ -11,6 +11,7 @@ public class WitchController : EnemyController
     private float shotPrepTimer;            // cooldown timer for shooting arrow
     private bool isPreppingShot = false;    // indicates if shot is being prepped
     private int raycastLayerMask;
+    private float spellSpeed = 30f;
 
     private float deathTimer;
     private float deathTime = 1.2f;
@@ -65,20 +66,47 @@ public class WitchController : EnemyController
         }
     }
 
-    // shoots an arrow at where the player currently is. I think we should have a variation to this where
-    // the shot is fired at where the player will be when the arrow arrives
-    private void ShootArrow() {
-        Vector3 dir = player.transform.position - transform.position;
-        float angle = Mathf.Atan2( dir.y, dir.x )  * Mathf.Rad2Deg + 90;
+    private void triSpellCast() {
+        Vector3 atPlayerUnitVec = player.transform.position - transform.position;
+        Vector3 predictiveUnitVec = getUnitVec();//player.transform.position - transform.position;
+        predictiveUnitVec.Normalize();
+        atPlayerUnitVec.Normalize();
+
+        Vector3 betweenPlayerUnitVec = predictiveUnitVec + atPlayerUnitVec;
+        betweenPlayerUnitVec.Normalize();
+
+        castSpell(atPlayerUnitVec);
+        castSpell(predictiveUnitVec);
+        castSpell(betweenPlayerUnitVec);
+    }
+
+    private void castSpell(Vector3 unitVec) {
+        float angle = Mathf.Atan2( unitVec.y, unitVec.x )  * Mathf.Rad2Deg + 90;
         Quaternion q = Quaternion.Euler( 0f, 0f, angle );
-        Vector3 unitVec = player.transform.position - transform.position;
         unitVec.Normalize();
 
         GameObject thisArrow = Instantiate(spell, transform.position, q);
-        thisArrow.GetComponent<Rigidbody2D>().velocity = 30f * unitVec;
-        thisArrow.GetComponent<ArrowController>().player = player;
+        thisArrow.GetComponent<Rigidbody2D>().velocity = spellSpeed * unitVec;
+        thisArrow.GetComponent<WitchSpellController>().player = player;
         an.SetBool("isHexing", false);
         base.aiPath.canMove = true;
+    }
+
+    private Vector3 getUnitVec() {
+        float deltaX = player.transform.position.x - transform.position.x;
+        float deltaY = player.transform.position.y - transform.position.y;
+        float playerVX = player.GetComponent<Rigidbody2D>().velocity.x;
+        float playerVY = player.GetComponent<Rigidbody2D>().velocity.y;
+
+        float a = playerVX * playerVX + playerVY * playerVY - spellSpeed * spellSpeed;
+        float b = deltaX * playerVX + deltaY * playerVY;
+        float c = deltaX * deltaX + deltaY * deltaY;
+
+        double time = (-1 * b - Math.Sqrt(b * b - 4 * a * c)) / (2 * a);
+        // get qUaDraTiC
+
+        return new Vector3((float) (deltaX / time + playerVX), (float) (deltaY / time + playerVY), 0);
+
     }
 
     // returns whether the player is in LoS of the ArcherBoy
@@ -105,7 +133,7 @@ public class WitchController : EnemyController
 
     public void handleHex() {
         // hex was just cast
-        ShootArrow();
+        triSpellCast();
     }
 
     public override void handleEnemyDeath() {
