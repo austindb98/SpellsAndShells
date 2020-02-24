@@ -25,7 +25,7 @@ public class WitchSpellController : MonoBehaviour
         if(collider.gameObject.tag != "Enemy") {
             if(collider == playerCollider) {
                 playerController.takeDamage(10f);
-                playerController.onHitKnockback(1000.0f, transform.position);
+                playerController.onHitKnockback(300.0f, transform.position);
             }
             Destroy(gameObject);
         }
