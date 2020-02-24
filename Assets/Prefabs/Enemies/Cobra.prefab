@@ -16,9 +16,13 @@ GameObject:
   - component: {fileID: 7537176707517620245}
   - component: {fileID: 7537176707517620244}
   - component: {fileID: 7537176707517620255}
+  - component: {fileID: 2899209091582306917}
+  - component: {fileID: 1206609593829668588}
+  - component: {fileID: 6084448468899812623}
+  - component: {fileID: -5785170486629845913}
   m_Layer: 9
   m_Name: Cobra
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +134,7 @@ MonoBehaviour:
   version: 2
   radius: 0.15
   height: 0.01
-  repathRate: 0.5
+  repathRate: 1
   canSearch: 1
   canMove: 1
   maxSpeed: 5
@@ -175,7 +179,7 @@ Animator:
   m_GameObject: {fileID: 7537176707517620247}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: e09088e73336b9b47a221837db488c6f, type: 2}
+  m_Controller: {fileID: 22100000, guid: 8d39c63101f8e0447b2f37bd26e29f04, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -191,7 +195,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7537176707517620247}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a5e2f7bcc5676043a7bdbc79db445ed, type: 3}
   m_Name: 
@@ -209,12 +213,81 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 0.004
+  m_LinearDrag: 4
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!114 &2899209091582306917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537176707517620247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47758a0bf6fe09f44b5686225e418849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  an: {fileID: 0}
+  playerCollider: {fileID: 0}
+  rb2d: {fileID: 0}
+  attackStrength: 0
+  isKnockback: 0
+  playerController: {fileID: 0}
+  knockbackCoefficient: 0
+  player: {fileID: 0}
+  aiPath: {fileID: 7537176707517620243}
+  spawnMaster: {fileID: 0}
+--- !u!70 &1206609593829668588
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537176707517620247}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03735631, y: -0.09291195}
+  m_Size: {x: 0.16865928, y: 0.13417663}
+  m_Direction: 1
+--- !u!70 &6084448468899812623
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537176707517620247}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.028735613, y: -0.09291177}
+  m_Size: {x: 0.032643747, y: 0.057548143}
+  m_Direction: 0
+--- !u!114 &-5785170486629845913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537176707517620247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f260e31dc26ea49acc5cc05e6c379a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  enemyController: {fileID: 2899209091582306917}
+  damageText: {fileID: 0}
