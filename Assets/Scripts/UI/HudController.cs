@@ -33,6 +33,7 @@ public class HudController : MonoBehaviour
     public Sprite[] fireIcons = new Sprite[4];
     public Sprite[] disabledIcons = new Sprite[3];
     public Sprite[] bulletIcons = new Sprite[3];
+    public Text ammoCounter;
 
     private BasePlayer.Ammo currentAmmo;
     private float healthAmt;
@@ -55,6 +56,18 @@ public class HudController : MonoBehaviour
         SetMana(player.MaxMana);
         SetSlot(Slot.Slot1, skillActivated);
         skillIndex = player.spellIndex;
+    }
+
+    private void SetAmmoCount()
+    {
+        if (currentAmmo == BasePlayer.Ammo.RedShell)
+        {
+            ammoCounter.enabled = false;
+        } else
+        {
+            ammoCounter.enabled = true;
+            ammoCounter.text = "" + player.AmmoCount;
+        }
     }
 
     public void SetMana(float uiAmt)
@@ -326,6 +339,7 @@ public class HudController : MonoBehaviour
             currentAmmo = player.currentAmmo;
             SetAmmoIcon(player.currentAmmo);
         }
+        SetAmmoCount();
 
         
     }
