@@ -101,7 +101,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.1
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -124,7 +124,8 @@ MonoBehaviour:
   currentSpell:
     manaCoolDown: 0
     attackPrefab: {fileID: 0}
-  MaxHealth: 100
+  currentAmmo: 1
+  MaxHealth: 10000
   MaxMana: 70
   health: 100
   mana: 100
@@ -132,7 +133,7 @@ MonoBehaviour:
   skillsUpdated: 0
   skillpoints: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   spellIndex: 0
-  speed: 350
+  speed: 450
   angle: 0
   frontLeft: {fileID: 3558114288250971579, guid: 8dd306e193c1da44ea29567d1baaf362,
     type: 3}
@@ -149,6 +150,7 @@ MonoBehaviour:
     type: 3}
   diagDownLeft: {fileID: 3447278909189480453, guid: 8dd306e193c1da44ea29567d1baaf362,
     type: 3}
+  cursor: {fileID: 21300000, guid: 657e5210ae8611f4aaeaeefc6d9a97df, type: 3}
   shotgunBlast: {fileID: 2243452414512305580}
   shotgunPellets: {fileID: 4489030356604078629}
   soundManager: {fileID: 0}
@@ -158,6 +160,10 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 2048
+  fogLayer:
+    serializedVersion: 2
+    m_Bits: 131072
+  initialSpawnMaster: {fileID: 0}
 --- !u!70 &386873839230528253
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
