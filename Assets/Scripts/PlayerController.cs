@@ -66,7 +66,7 @@ public class PlayerController : BasePlayer {
         {
             initialSpawnMaster.spawnEnemies();
         }
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -200,7 +200,7 @@ public class PlayerController : BasePlayer {
                         raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("StationaryEntities"))
                 {
                     EnemyHealth enemyHealth = raycastResult.collider.gameObject.GetComponent<EnemyHealth>();
-                    enemyHealth.takeDamage(damage * 5, BaseAttack.Element.Normal); // buff for testing
+                    enemyHealth.takeDamage(damage, BaseAttack.Element.Normal);
                 }
             }
             else

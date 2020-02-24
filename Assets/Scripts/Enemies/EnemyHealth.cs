@@ -12,10 +12,6 @@ public class EnemyHealth : MonoBehaviour
     private float currentHealth;
     public EnemyController enemyController;
     public ParticleSystem damageText;
-    private float damageUpdateTime;
-    private static float deltaDamageTime;
-    private float accumulatedDamage;
-
 
 
     // Start is called before the first frame update
@@ -23,7 +19,6 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         damageText = Resources.Load<ParticleSystem>("ParticleSystems/TextParticles");
-        accumulatedDamage = 0;
     }
 
     // Update is called once per frame
@@ -35,18 +30,19 @@ public class EnemyHealth : MonoBehaviour
     public void takeDamage(float damage, BaseAttack.Element type) {
         Color dmgColor = Color.yellow;
         string dmg;
-        dmg = damage.ToString();
+        int intDamage = (int) damage * 5; //Buff for testing
         if(type == weakness) {
-            damage *= weakMult;
+            intDamage *= (int) weakMult;
             dmgColor = Color.red;
-            dmg = damage.ToString() + "!";
+            dmg = intDamage.ToString() + "!";
         } else if (type == resistance) {
-            damage /= weakMult;
+            intDamage /= (int) weakMult;
             dmgColor = Color.black;
-            dmg = damage.ToString();
+            dmg = intDamage.ToString();
+        } else {
+            dmg = intDamage.ToString();
         }
-        currentHealth -= damage;
-        //accumulatedDamage += damage;
+        currentHealth -= intDamage;
 
         ParticleSystem text = Instantiate(damageText);
         text.transform.position = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
