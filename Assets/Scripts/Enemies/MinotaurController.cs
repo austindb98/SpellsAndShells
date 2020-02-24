@@ -45,15 +45,16 @@ public class MinotaurController : EnemyController
             aiPath.canMove = false;
 
         if(base.isKnockback || isSwingRest) {
+            print("not entering if");
             return;
         }
         else if (x == 0 && y == 0)
         {
             an.SetBool("isWalking", false);
         }
-        else if (x > 0)
+        else if (x > 0.5)
             WalkRight();
-        else if (x < 0)
+        else if (x < -0.5)
             WalkLeft();
         else
             an.SetBool("isWalking", true);
@@ -89,6 +90,9 @@ public class MinotaurController : EnemyController
         if (isDead)
             return; // so animation doesn't keep on playing
 
+        Collider2D[] colliderAr = gameObject.GetComponents<Collider2D>();
+        colliderAr[0].enabled = false;
+        colliderAr[1].enabled = false;
         aiPath.canMove = false;
         an.SetBool("isDead", true);
         isDead = true;
