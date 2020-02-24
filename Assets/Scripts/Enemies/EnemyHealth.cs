@@ -43,12 +43,12 @@ public class EnemyHealth : MonoBehaviour
             dmg = intDamage.ToString();
         }
         currentHealth -= intDamage;
+        
+        Vector3 popupPos = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
 
-        ParticleSystem text = Instantiate(damageText);
-        text.transform.position = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
-        text.GetComponentInChildren<UnityEngine.UI.Text>().text = dmg;
-        text.GetComponentInChildren<UnityEngine.UI.Text>().color = dmgColor;
-        text.Play();
+        string testDam = "" + Random.Range(-2, 30);
+
+        DamageController.CreatePopup(testDam, popupPos, dmgColor);
 
         if(currentHealth <= 0f)
             enemyController.handleEnemyDeath();
