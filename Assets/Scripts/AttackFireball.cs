@@ -9,6 +9,7 @@ public class AttackFireball : BaseAttack
     {
         speed = 15;
         damage = 7;
+        element = (int) Element.Fire;
     }
 
     // Update is called once per frame

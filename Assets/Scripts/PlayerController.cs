@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 using System;
 
 public class PlayerController : BasePlayer {
@@ -46,6 +47,8 @@ public class PlayerController : BasePlayer {
     private bool isKnockback = false;
 
     private int currentShell = (int) ShellType.Red;
+    public int ammoCount;
+    public Text ammoNumber;
     public GameObject soundManager;
     public LayerMask wallLayer, obstacleLayer, fogLayer;
     private LayerMask interactsWithBullets;
@@ -69,6 +72,7 @@ public class PlayerController : BasePlayer {
                                 (1 << LayerMask.NameToLayer("StationaryEntities"));
         baseSpeed = speed;
         initialSpawnMaster.spawnEnemies();
+        ammoNumber.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -161,6 +165,13 @@ public class PlayerController : BasePlayer {
             shotgunBlast.Play();
             shotgunPellets.Play();
             shoot(Shells[currentShell]);
+            ammoNumber.text = (--ammoCount).ToString();
+            if(ammoCount <= 0) {
+                base.currentAmmo = BasePlayer.Ammo.RedShell;
+                currentShell = (int) ShellType.Red;
+                ammoNumber.enabled = false;
+            }
+
         }
     }
 
@@ -239,12 +250,18 @@ public class PlayerController : BasePlayer {
         {
             base.currentAmmo = BasePlayer.Ammo.BlueShell;
             currentShell = (int) ShellType.Blue;
+            ammoCount = 5;
+            ammoNumber.text = (ammoCount).ToString();
+            ammoNumber.enabled = true;
             Destroy(item);
         }
         else if (item.tag == "GreenShell")
         {
             base.currentAmmo = BasePlayer.Ammo.GreenShell;
             currentShell = (int) ShellType.Green;
+            ammoCount = 5;
+            ammoNumber.text = (ammoCount).ToString();
+            ammoNumber.enabled = true;
             Destroy(item);
         }
     }
