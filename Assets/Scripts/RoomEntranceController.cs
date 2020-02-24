@@ -22,6 +22,7 @@ public class RoomEntranceController : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
+        print("meep");
         if(isEntranceTriggered) {
             return;
         }
@@ -29,6 +30,7 @@ public class RoomEntranceController : MonoBehaviour
             entranceBlocker.enabled = true;
             entranceTrigger.enabled = false;
             spawnMaster.spawnEnemies();
+            print("meep");
             // clear fog of war? idk how that's done
         }
     }
