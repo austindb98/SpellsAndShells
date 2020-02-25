@@ -10,6 +10,8 @@ public class Runestone : EnemyHealth
     private SpriteRenderer sr;
     public GameObject prefabDrop;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -22,6 +24,7 @@ public class Runestone : EnemyHealth
     {
         sr.sprite = backgrounds[(uint)type];
         weakness = type;
+        animator.SetInteger("type", (int) type);
     }
 
     public override void takeDamage(float damage, BaseAttack.Element type)
@@ -41,5 +44,10 @@ public class Runestone : EnemyHealth
         }
     }
 
- 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        animator.SetTrigger("hit");
+    }
+
+
 }

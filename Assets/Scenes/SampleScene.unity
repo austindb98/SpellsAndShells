@@ -675,6 +675,7 @@ MonoBehaviour:
   - {fileID: 8746287442441023287, guid: 883cee60edd9c7e41a2dce95eb53daa6, type: 3}
   prefabDrop: {fileID: 5413576069672028623, guid: 3967c5ff242223a4fa211ee48b7f0e69,
     type: 3}
+  animator: {fileID: 218556244}
 --- !u!1 &1113058535
 GameObject:
   m_ObjectHideFlags: 0
