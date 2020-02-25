@@ -7,14 +7,14 @@ public class BaseAttack : MonoBehaviour
 
     public enum Element
     {
-        Normal, Wind, Ice, Fire
+        Wind, Ice, Fire
     };
 
 
 
     protected float speed;
     protected float damage;
-    protected Element element;
+    protected int element;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +34,7 @@ public class BaseAttack : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Entities"))
         {
             EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
-            enemyHealth.takeDamage(damage, element);
+            enemyHealth.takeDamage(damage);
         }
         Destroy(gameObject);
     }

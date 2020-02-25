@@ -18,7 +18,7 @@ public class ObstacleController : MonoBehaviour
     void Start()
     {
         soundManager = GameObject.Find("SoundManager");
-        graphToScan = AstarPath.active?.data.gridGraph;
+        graphToScan = AstarPath.active.data.gridGraph;
         breakList = new List<Vector3Int>();
     }
 
@@ -28,7 +28,7 @@ public class ObstacleController : MonoBehaviour
     }
 
     void LateUpdate() {
-        if(isRescan && graphToScan != null) {
+        if(isRescan) {
             AstarPath.active.Scan(graphToScan);
             isRescan = false;
         }

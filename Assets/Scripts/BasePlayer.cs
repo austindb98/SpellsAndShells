@@ -7,19 +7,17 @@ using System;
 public class BasePlayer : MonoBehaviour
 {
     public enum Ammo {
-        RedShell,
-        BlueShell,
-        GreenShell
+        RedShell = 1,
+        GreenShell = 2,
+        BlueShell = 3
     }
 
     public Spell currentSpell;
     public Ammo currentAmmo = Ammo.RedShell;
-    public int AmmoCount = -1;
 
     static readonly bool debug = false;
     static readonly float DebugSpeed = 30f;
     static readonly float ManaRegen = 3f;
-    static readonly int ClipSize = 9;
 
     public float MaxHealth;
     public float MaxMana;
@@ -52,36 +50,12 @@ public class BasePlayer : MonoBehaviour
         {
             skillpoints[0] = 15;
         }
-
+        
         if (debug)
         {
             health = MaxHealth * .5f;
             mana = MaxMana * .75f;
         }
-
-        currentAmmo = Ammo.RedShell;
-    }
-
-    protected void UseAmmo()
-    {
-        if (currentAmmo == Ammo.RedShell)
-        {
-            return;
-        }
-        else
-        {
-            if (--AmmoCount <= 0)
-            {
-                currentAmmo = Ammo.RedShell;
-            }
-        }
-    }
-
-    protected int PickupAmmo(Ammo type)
-    {
-        currentAmmo = type;
-        AmmoCount = ClipSize;
-        return (int)currentAmmo;
     }
 
     public void UseMana(uint amt)
@@ -92,7 +66,7 @@ public class BasePlayer : MonoBehaviour
             mana = 0;
         }
     }
-
+    
     public void NextSpell()
     {
         spellIndex++;
@@ -125,7 +99,7 @@ public class BasePlayer : MonoBehaviour
             health = 0;
         }
     }
-
+    
     protected virtual void Update()
     {
         if (debug)

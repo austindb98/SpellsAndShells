@@ -126,16 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f404887947f63a4fa4b56eaf312fa8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  an: {fileID: 0}
-  playerCollider: {fileID: 0}
-  rb2d: {fileID: 0}
-  attackStrength: 0
-  isKnockback: 0
-  playerController: {fileID: 0}
-  knockbackCoefficient: 0
-  player: {fileID: 0}
-  aiPath: {fileID: 0}
-  spawnMaster: {fileID: 0}
 --- !u!114 &-574897508413756484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,8 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f260e31dc26ea49acc5cc05e6c379a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weakness: 3
-  resistance: 0
   maxHealth: 200
   enemyController: {fileID: 3667984809506765514}
   damageText: {fileID: 0}

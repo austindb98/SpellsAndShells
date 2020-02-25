@@ -11,7 +11,6 @@ Cielo pixelado.png - Santoniche (https://opengameart.org/users/santoniche)
 Pot.png - Pita (https://pita.itch.io/rpg-dungeon-tileset)
 dungeon tiles (Buch).png - Buch (https://opengameart.org/content/dungeon-tileset)
 Potion sprite - Bonsaiheldin(https://opengameart.org/content/rpg-potions-16x16)
-tileset_dungeon.png - Stealthix (https://stealthix.itch.io/dungeon-tileset-32x32-px)
 
 SOUND
 menuchange.wav - victorium183 (https://freesound.org/people/victorium183/)
@@ -21,8 +20,6 @@ ShotgunShoot.wav - ??? (https://www.youtube.com/watch?v=A5zwcsVsVz0)
 firespell1.wav - alonsotm (https://freesound.org/people/alonsotm/)
 ShotgunLoad.mp3 - Taofledermaus (https://www.youtube.com/watch?v=YbFH2i17goQ)
 PotionDrink.mp3 - (https://freesound.org/people/Jamius/sounds/41529/)
-rune-destroy.mp3 - leejunip (https://freesound.org/people/leejunip/sounds/473910/)
-rune-hit.mp3 - CamoMano (https://freesound.org/people/CamoMano/sounds/431019/)
 
 
 DATA
