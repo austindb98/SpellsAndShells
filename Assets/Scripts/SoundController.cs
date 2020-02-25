@@ -53,4 +53,9 @@ public class SoundController : MonoBehaviour
     {
         soundSource.PlayOneShot(stoneDestroy, sfxVolume);
     }
+
+    public static void PlaySound(AudioClip clip)
+    {
+        soundSource.PlayOneShot(clip, sfxVolume);
+    }
 }

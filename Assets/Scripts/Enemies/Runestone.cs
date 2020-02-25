@@ -12,11 +12,14 @@ public class Runestone : EnemyHealth
 
     public Animator animator;
 
+    private AudioSource hitAudio;
+
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
         sr = GetComponent<SpriteRenderer>();
+        hitAudio = GetComponent<AudioSource>();
         SetType();
     }
 
@@ -33,10 +36,18 @@ public class Runestone : EnemyHealth
         {
             base.takeDamage(damage, type);
             animator.SetTrigger("hit");
+            if (!hitAudio.isPlaying)
+            {
+                hitAudio.Play();
+            }
+
         } else
         {
             base.takeDamage(0, type);
         }
+
+        
+        
 
         if (currentHealth <= 0f)
         {
