@@ -125,6 +125,7 @@ MonoBehaviour:
     manaCoolDown: 0
     attackPrefab: {fileID: 0}
   currentAmmo: 1
+  AmmoCount: -1
   MaxHealth: 10000
   MaxMana: 70
   health: 100
@@ -153,7 +154,6 @@ MonoBehaviour:
   cursor: {fileID: 21300000, guid: 657e5210ae8611f4aaeaeefc6d9a97df, type: 3}
   shotgunBlast: {fileID: 2243452414512305580}
   shotgunPellets: {fileID: 4489030356604078629}
-  soundManager: {fileID: 0}
   wallLayer:
     serializedVersion: 2
     m_Bits: 256
