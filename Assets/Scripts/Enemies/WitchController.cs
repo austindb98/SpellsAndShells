@@ -7,9 +7,6 @@ using Pathfinding;
 public class WitchController : EnemyController
 {
     private float maxHexRange = 25f;     // range from which archer can attack
-    private float shotPrepTime = 1f;        // time needed for shot cooldown
-    private float shotPrepTimer;            // cooldown timer for shooting arrow
-    private bool isPreppingShot = false;    // indicates if shot is being prepped
     private int raycastLayerMask;
     private float spellSpeed = 30f;
 

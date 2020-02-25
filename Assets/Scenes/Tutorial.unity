@@ -18900,19 +18900,6 @@ PrefabInstance:
       propertyPath: spawnPositionList.Array.data[0].y
       value: 35.7
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
-    - target: {fileID: 2527237651729366213, guid: f0537a0fea29a094f952c8d1661afa61,
-        type: 3}
-      propertyPath: spawnPrefabList.Array.data[0]
-      value: 
-      objectReference: {fileID: 6544395803861375196, guid: 77c6d05c9499f7c45b51673a9c3dd845,
-        type: 3}
-=======
->>>>>>> 126db8c7cb4f9cf7bcbe85326868256074ddc7c4
->>>>>>> 10c868ccd3cb184813d39aaacbddf743fd595d37
-=======
->>>>>>> c51a528ae3df793aa09193bb9bfc542fd21e66f5
     - target: {fileID: 2527237651729366214, guid: f0537a0fea29a094f952c8d1661afa61,
         type: 3}
       propertyPath: m_LocalPosition.x
