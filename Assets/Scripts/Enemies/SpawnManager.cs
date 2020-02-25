@@ -8,7 +8,6 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     private float spawnMinRadius = 1f;
     private float spawnMaxRadius = 2f;
-    private float spawnTimer = 0f;
     private float avgSpawnRate = 6f;
     private System.Random rnd;
 

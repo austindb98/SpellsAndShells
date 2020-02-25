@@ -7,14 +7,14 @@ using Pathfinding;
 public class TreantController : EnemyController
 {
 
-    public void Start()
+    public override void Start()
     {
         base.Start();
         base.knockbackCoefficient = 1f;
     }
 
     // Update is called once per frame
-    public void Update()
+    public override void Update()
     {
         float x = aiPath.desiredVelocity.x;
         float y = aiPath.desiredVelocity.y;

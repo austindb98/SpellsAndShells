@@ -6,13 +6,6 @@ using Pathfinding;
 
 public class CobraController : EnemyController
 {
-    private Collider2D playerCollider;
-    private Rigidbody2D rb2d;
-    private bool isKnockback = false;
-    private float knockbackTimer = 0f;
-    private float knockbackTime = 0.8f;
-    private PlayerController playerController;
-
     private bool isSwingRest = false;
     private float swingRestTime = 1f;
     private float swingRestTimer = 0f;
@@ -21,9 +14,6 @@ public class CobraController : EnemyController
     private float deathTime = 1.2f;
     private bool isDead = false;
 
-    public GameObject player;
-    private Animator an;
-    public AIPath aiPath;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -39,53 +29,39 @@ public class CobraController : EnemyController
     // Update is called once per frame
     public override void Update()
     {
-        float x = aiPath.desiredVelocity.x;
-        float y = aiPath.desiredVelocity.y;
+        float x = player.transform.position.x - transform.position.x;
 
-        if (isKnockback || isSwingRest)
-        {
-            if (isSwingRest)
-            {
-                swingRestTimer += Time.deltaTime;
-                if (swingRestTimer > swingRestTime)
-                {
-                    isSwingRest = false;
-                    swingRestTimer = 0f;
-                }
-            }
-            if (isKnockback)
-            {
-                knockbackTimer += Time.deltaTime;
-                if (knockbackTimer > knockbackTime)
-                {
-                    isKnockback = false;
-                    knockbackTimer = 0f;
-                }
-            }
-            if (!isKnockback && !isSwingRest && !isDead)
-            {
-                aiPath.canMove = true;
+        base.Update();
+
+        if(isSwingRest) {
+            swingRestTimer += Time.deltaTime;
+            if(swingRestTimer > swingRestTime) {
+                isSwingRest = false;
+                swingRestTimer = 0f;
             }
         }
-        else if (x == 0 && y == 0)
-        {
+        
+        if(!base.isKnockback && !isSwingRest && !isDead)
+            aiPath.canMove = true;
+        else
+            aiPath.canMove = false;
+
+        if(base.isKnockback || isSwingRest)
+            return;
+        else if (aiPath.desiredVelocity.x == 0 && aiPath.desiredVelocity.y == 0)
             an.SetBool("isWalking", false);
-        }
         else if (x > 0)
             WalkRight();
         else if (x < 0)
             WalkLeft();
         else
-        {
             an.SetBool("isWalking", true);
-        }
+        
 
-
-        if (isDead)
-        {
+        if(isDead) {
             deathTimer += Time.deltaTime;
-            if (deathTimer > deathTime)
-            {
+            if(deathTimer > deathTime) {
+                base.handleEnemyDeath();
                 Destroy(gameObject);
             }
         }
