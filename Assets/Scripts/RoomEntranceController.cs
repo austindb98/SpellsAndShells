@@ -12,7 +12,7 @@ public class RoomEntranceController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnMaster.doorList.Add(gameObject);
+        //spawnMaster.doorList.Add(gameObject);
     }
 
     // Update is called once per frame
@@ -29,6 +29,8 @@ public class RoomEntranceController : MonoBehaviour
             entranceBlocker.enabled = true;
             entranceTrigger.enabled = false;
             spawnMaster.spawnEnemies();
+            spawnMaster.doorsVisible();
+            Debug.Log("here");
             // clear fog of war? idk how that's done
         }
     }
