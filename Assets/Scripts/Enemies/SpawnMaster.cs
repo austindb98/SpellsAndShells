@@ -12,6 +12,7 @@ public class SpawnMaster : MonoBehaviour
     public List<Vector3> spawnPositionList;
     public bool isRoomComplete = false;
     public List<GameObject> doorList;
+    public GameObject fogTiles;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +64,7 @@ public class SpawnMaster : MonoBehaviour
         {
             door.SetActive(true);
         }
+        fogTiles.SetActive(false);
     }
 }
 
