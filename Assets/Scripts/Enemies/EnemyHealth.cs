@@ -15,6 +15,8 @@ public class EnemyHealth : MonoBehaviour
     static readonly Color redColor = new Color(.6353f, .1373f, .2000f);
     static readonly Color blackColor = new Color(.0941f, .0784f, .1451f);
     static readonly Color yellowColor = new Color(.9961f, .9059f, .3804f);
+    private Color dmgColor = yellowColor;
+    private float accumulatedDamage;
 
 
     // Start is called before the first frame update
@@ -29,38 +31,42 @@ public class EnemyHealth : MonoBehaviour
 
     }
 
+    void LateUpdate() {
+        if(accumulatedDamage > 0) {
+            int intDamage = (int) accumulatedDamage;
+            string dmg = intDamage.ToString();
+            if(dmgColor == redColor) {
+                dmg += "!";
+            }
+            Vector3 popupPos = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
+            DamageController.CreatePopup(dmg, popupPos, dmgColor);
+            currentHealth -= intDamage;
+        }
+
+        accumulatedDamage = 0;
+    }
+
     public virtual void takeDamage(float damage, BaseAttack.Element type) {
-        Color dmgColor = yellowColor;
         string dmg = "";
         if(type == weakness && weakness != BaseAttack.Element.Normal) {
             damage *= weakMult;
             dmgColor = redColor;
-            dmg = "!";
+
         } else if (type == resistance && resistance != BaseAttack.Element.Normal) {
             damage /= weakMult;
             dmgColor = blackColor;
-        } else {
         }
-        int intDamage = (int) damage;
-        dmg = intDamage.ToString() + dmg;
-        currentHealth -= intDamage;
-        
-        Vector3 popupPos = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
-        
 
-        DamageController.CreatePopup(dmg, popupPos, dmgColor);
+        accumulatedDamage += damage;
 
         if (!enemyController) // not moveable ignore, non moveable enemy will handle
         {
             return;
         }
 
-        if (currentHealth <= 0f)
-        {
+        if (currentHealth <= 0f) {
             enemyController.handleEnemyDeath();
-        }
-        else
-        {
+        } else {
             enemyController.handleShotgunHit(0.4f);
         }
     }
