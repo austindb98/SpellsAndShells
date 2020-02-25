@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(AudioSource))]
 public class MenuController : MonoBehaviour
 {
-    public SoundController soundManager;
     // Start is called before the first frame update
     protected virtual void Start()
     {

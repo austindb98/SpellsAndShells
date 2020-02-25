@@ -38,21 +38,16 @@ public class PlayerController : BasePlayer {
     private float knockbackTimer = 0;
     private float knockbackTime = 0.8f;
     private bool isKnockback = false;
-
-    public GameObject soundManager;
+    
     public LayerMask wallLayer, obstacleLayer, fogLayer;
     private LayerMask interactsWithBullets;
-    //private int numberPellets = 10;
-    //private float pelletAngleVariance = 0.05f; // in radians
-    //private float mouseAngle;
     private Vector2 mousePos;
-    //private float shotgunDmg = 5f;
     private float heartHealth = 30f;
     private float potionMana = 30f;
 
     public SpawnMaster initialSpawnMaster; // this will not be necessary in the final design
 
-    void Start() {
+    protected override void Start() {
         base.Start();
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();

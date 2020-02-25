@@ -36,7 +36,7 @@ public class BasePlayer : MonoBehaviour
 
     public int spellIndex = 0;
 
-    protected void Start()
+    protected virtual void Start()
     {
         skillsUpdated = true;
         health = MaxHealth;

@@ -6,8 +6,6 @@ using Pathfinding;
 
 public class ObstacleController : MonoBehaviour
 {
-    private GameObject soundManager;
-    public AudioClip breakSound;
     public GameObject[] drops;
     public int dropChance;
     public GridGraph graphToScan;
@@ -17,7 +15,6 @@ public class ObstacleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        soundManager = GameObject.Find("SoundManager");
         graphToScan = AstarPath.active?.data.gridGraph;
         breakList = new List<Vector3Int>();
     }
@@ -37,7 +34,7 @@ public class ObstacleController : MonoBehaviour
                 Tilemap map = GetComponent<Tilemap>();
                 Vector3Int tilePos = transform.parent.GetComponentInParent<GridLayout>().WorldToCell(pos);
                 map.SetTile(tilePos, null);
-                soundManager.GetComponent<AudioSource>().PlayOneShot(breakSound);
+                SoundController.playPotBreakSound();
                 float drop = Random.Range(0, drops.Length * dropChance);
                 if(drop < drops.Length) {
                     // scale the drop position with the grid scale
