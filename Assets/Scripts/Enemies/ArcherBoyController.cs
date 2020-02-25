@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyArcherBoyGraphics : EnemyController
+public class ArcherBoyController : EnemyController
 {
     private float maxArcherRange = 15f;     // range from which archer can attack
     private float shotAnimationTime = 0.3f; // this is 100% guesswork. How to actually check this value?

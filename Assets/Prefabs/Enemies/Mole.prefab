@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 4691094060803072608}
   - component: {fileID: -6631059191450023701}
   m_Layer: 9
-  m_Name: EnemyMole
+  m_Name: Mole
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,6 +223,10 @@ MonoBehaviour:
   playerCollider: {fileID: 0}
   rb2d: {fileID: 0}
   attackStrength: 15
+  drops:
+  - {fileID: 5413576069672028623, guid: 3967c5ff242223a4fa211ee48b7f0e69, type: 3}
+  - {fileID: 1052014806763810547, guid: 72a802a5c3d205b409ca7e2f8990e899, type: 3}
+  dropChance: 2
   isKnockback: 0
   playerController: {fileID: 0}
   knockbackCoefficient: 0

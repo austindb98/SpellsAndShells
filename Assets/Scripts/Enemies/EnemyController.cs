@@ -61,7 +61,6 @@ public class EnemyController : MonoBehaviour
     virtual public void handleEnemyDeath() {
         float drop = Random.Range(0, drops.Length * dropChance);
         if(drop < drops.Length) {
-            // scale the drop position with the grid scale
             Instantiate(drops[(int)drop], transform.position, Quaternion.identity);
         }
         if(spawnMaster)

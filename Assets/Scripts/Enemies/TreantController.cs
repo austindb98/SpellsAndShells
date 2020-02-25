@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyTreantGraphics : EnemyController
+public class TreantController : EnemyController
 {
 
     public void Start()
@@ -50,7 +50,7 @@ public class EnemyTreantGraphics : EnemyController
 
     public override void handleShotgunHit(float knockbackStrength) {
         base.handleShotgunHit(knockbackStrength * knockbackCoefficient);
-        
+
         base.isKnockback = true;
         base.aiPath.canMove = false;
         print("can't move");

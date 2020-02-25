@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 1655964648099686429}
   - component: {fileID: 3956141479987588919}
   m_Layer: 9
-  m_Name: ArcherBoyPrefab
+  m_Name: ArcherBoy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,6 +223,10 @@ MonoBehaviour:
   playerCollider: {fileID: 0}
   rb2d: {fileID: 0}
   attackStrength: 0
+  drops:
+  - {fileID: 5440717243906829691, guid: 50841bf6697d5844ebfbb349e8a0e01c, type: 3}
+  - {fileID: 1023436945559866100, guid: c3e5b728d6fba8d40895f39fafdcfd42, type: 3}
+  dropChance: 2
   isKnockback: 0
   playerController: {fileID: 0}
   knockbackCoefficient: 0
