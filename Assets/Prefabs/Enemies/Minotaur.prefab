@@ -129,7 +129,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &8154171984916762055
 MonoBehaviour:
@@ -266,8 +266,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47758a0bf6fe09f44b5686225e418849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  an: {fileID: 0}
+  playerCollider: {fileID: 0}
+  rb2d: {fileID: 0}
+  attackStrength: 0
+  isKnockback: 0
+  playerController: {fileID: 0}
+  knockbackCoefficient: 0
   player: {fileID: 0}
   aiPath: {fileID: 8154171984916762053}
+  spawnMaster: {fileID: 0}
 --- !u!114 &6409835115794811095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f260e31dc26ea49acc5cc05e6c379a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weakness: 2
+  resistance: 1
   maxHealth: 150
   enemyController: {fileID: 7164647606597274166}
   damageText: {fileID: 0}

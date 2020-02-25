@@ -22,6 +22,7 @@ public class RoomEntranceController : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
+        print("meep");
         if(isEntranceTriggered) {
             return;
         }
