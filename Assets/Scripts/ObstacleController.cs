@@ -11,6 +11,7 @@ public class ObstacleController : MonoBehaviour
     public GridGraph graphToScan;
     private bool isRescan = false;
     private List<Vector3Int> breakList;
+    public AudioClip breakSound;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,7 @@ public class ObstacleController : MonoBehaviour
                 Tilemap map = GetComponent<Tilemap>();
                 Vector3Int tilePos = transform.parent.GetComponentInParent<GridLayout>().WorldToCell(pos);
                 map.SetTile(tilePos, null);
-                SoundController.playPotBreakSound();
+                SoundController.playBreakSound(breakSound);
                 float drop = Random.Range(0, drops.Length * dropChance);
                 if(drop < drops.Length) {
                     // scale the drop position with the grid scale
@@ -50,7 +51,7 @@ public class ObstacleController : MonoBehaviour
         bool isContains = false;
         Tilemap map = GetComponent<Tilemap>();
         Vector3Int tilePos = GetComponent<GridLayout>().WorldToCell(pos);
-        
+
         foreach(Vector3Int point in breakList) {
             if(point.x == tilePos.x && point.y == tilePos.y)
                 isContains = true;

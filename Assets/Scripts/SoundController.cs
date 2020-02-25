@@ -39,9 +39,9 @@ public class SoundController : MonoBehaviour
         soundSource.PlayOneShot(shotgunShootSound, sfxVolume);
     }
 
-    public static void playPotBreakSound()
+    public static void playBreakSound(AudioClip breakSound)
     {
-        soundSource.PlayOneShot(potBreakSound, sfxVolume);
+        soundSource.PlayOneShot(breakSound, sfxVolume);
     }
 
     public static void playMenuChange()
