@@ -273,6 +273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f260e31dc26ea49acc5cc05e6c379a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weakness: 3
+  resistance: 2
   maxHealth: 80
   enemyController: {fileID: 6544395803861375140}
   damageText: {fileID: 0}

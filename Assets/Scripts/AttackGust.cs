@@ -9,5 +9,6 @@ public class AttackGust : BaseAttack
     {
         speed = 14;
         damage = 4;
+        element = Element.Wind;
     }
 }

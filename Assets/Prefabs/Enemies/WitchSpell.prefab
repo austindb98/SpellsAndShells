@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1682606766247959379}
   - component: {fileID: 1682606766247959378}
   - component: {fileID: 6857900693964556706}
-  - component: {fileID: 8647801726512915036}
+  - component: {fileID: -6666670746995846171}
   m_Layer: 12
   m_Name: WitchSpell
   m_TagString: Untagged
@@ -4843,7 +4843,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8647801726512915036
+--- !u!114 &-6666670746995846171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4852,7 +4852,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1682606766247959337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76d51a2021f28543953139c904a97a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a9474ddd94d75845b46120a76db9f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}

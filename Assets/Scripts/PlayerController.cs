@@ -18,13 +18,6 @@ public class PlayerController : BasePlayer {
         }
     }
 
-    public enum ShellType
-    {
-        Red,
-        Blue,
-        Green
-    };
-
     public Shot[] Shells = {
         new Shot(10,0.5f,20f,5),
         new Shot(1,0f,30f,75),
@@ -46,9 +39,6 @@ public class PlayerController : BasePlayer {
     private float knockbackTime = 0.8f;
     private bool isKnockback = false;
 
-    private int currentShell = (int) ShellType.Red;
-    public int ammoCount;
-    public Text ammoNumber;
     public GameObject soundManager;
     public LayerMask wallLayer, obstacleLayer, fogLayer;
     private LayerMask interactsWithBullets;
@@ -71,8 +61,11 @@ public class PlayerController : BasePlayer {
                                 (1 << LayerMask.NameToLayer("Entities")) |
                                 (1 << LayerMask.NameToLayer("StationaryEntities"));
         baseSpeed = speed;
-        initialSpawnMaster.spawnEnemies();
-        ammoNumber.enabled = false;
+        if (initialSpawnMaster != null)
+        {
+            initialSpawnMaster.spawnEnemies();
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -161,16 +154,10 @@ public class PlayerController : BasePlayer {
             rb2d.velocity = new Vector2(moveHorizontal, moveVertical) * speed * Time.deltaTime;
 
         if(Input.GetMouseButtonDown(0) && shotReady) {
-            Debug.Log("Boom");
             shotgunBlast.Play();
             shotgunPellets.Play();
-            shoot(Shells[currentShell]);
-            ammoNumber.text = (--ammoCount).ToString();
-            if(ammoCount <= 0) {
-                base.currentAmmo = BasePlayer.Ammo.RedShell;
-                currentShell = (int) ShellType.Red;
-                ammoNumber.enabled = false;
-            }
+            shoot(Shells[(int)currentAmmo]);
+            base.UseAmmo();
 
         }
     }
@@ -212,7 +199,7 @@ public class PlayerController : BasePlayer {
                         raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("StationaryEntities"))
                 {
                     EnemyHealth enemyHealth = raycastResult.collider.gameObject.GetComponent<EnemyHealth>();
-                    enemyHealth.takeDamage(damage * 5); // buff for testing
+                    enemyHealth.takeDamage(damage, BaseAttack.Element.Normal);
                 }
             }
             else
@@ -248,20 +235,12 @@ public class PlayerController : BasePlayer {
         }
         else if (item.tag == "BlueShell")
         {
-            base.currentAmmo = BasePlayer.Ammo.BlueShell;
-            currentShell = (int) ShellType.Blue;
-            ammoCount = 5;
-            ammoNumber.text = (ammoCount).ToString();
-            ammoNumber.enabled = true;
+            PickupAmmo(Ammo.BlueShell);
             Destroy(item);
         }
         else if (item.tag == "GreenShell")
         {
-            base.currentAmmo = BasePlayer.Ammo.GreenShell;
-            currentShell = (int) ShellType.Green;
-            ammoCount = 5;
-            ammoNumber.text = (ammoCount).ToString();
-            ammoNumber.enabled = true;
+            PickupAmmo(Ammo.GreenShell);
             Destroy(item);
         }
     }
