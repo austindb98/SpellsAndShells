@@ -53,6 +53,15 @@ public class SpawnMaster : MonoBehaviour
             enemyObj = Instantiate(entry.prefab, entry.position, Quaternion.Euler( 0f, 0f, 0f ));
             enemyObj.GetComponent<EnemyController>().spawnMaster = this;
             enemyList.Add(enemyObj.GetComponent<EnemyController>());
+            Debug.Log("Here");
+        }
+    }
+
+    public void doorsVisible()
+    {
+        foreach(GameObject door in doorList)
+        {
+            door.SetActive(true);
         }
     }
 }
