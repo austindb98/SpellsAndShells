@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8154171984916762055}
   - component: {fileID: 8154171984916762052}
   - component: {fileID: 8154171984916762053}
-  - component: {fileID: 8154171984916762054}
   - component: {fileID: 6699532424028136031}
   - component: {fileID: 1313518404161960047}
   - component: {fileID: 7164647606597274166}
@@ -209,19 +208,6 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
---- !u!114 &8154171984916762054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8154171984916762044}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5e2f7bcc5676043a7bdbc79db445ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aiPath: {fileID: 8154171984916762053}
 --- !u!70 &6699532424028136031
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -270,6 +256,8 @@ MonoBehaviour:
   playerCollider: {fileID: 0}
   rb2d: {fileID: 0}
   attackStrength: 0
+  drops: []
+  dropChance: 0
   isKnockback: 0
   playerController: {fileID: 0}
   knockbackCoefficient: 0
@@ -292,4 +280,3 @@ MonoBehaviour:
   resistance: 1
   maxHealth: 150
   enemyController: {fileID: 7164647606597274166}
-  damageText: {fileID: 0}

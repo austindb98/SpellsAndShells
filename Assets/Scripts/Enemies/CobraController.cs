@@ -17,13 +17,10 @@ public class CobraController : EnemyController
     // Start is called before the first frame update
     public override void Start()
     {
-        player = GameObject.FindWithTag("Player");
-        gameObject.GetComponent<AIDestinationSetter>().target = player.transform;
-        an = gameObject.GetComponent<Animator>();
-        attackStrength = 15;
-        playerCollider = player.GetComponent<Collider2D>();
-        rb2d = gameObject.GetComponent<Rigidbody2D>();
-        playerController = player.GetComponent<PlayerController>();
+        base.Start();
+
+        knockbackCoefficient = 0.5f;
+        attackStrength = 25;
     }
 
     // Update is called once per frame
@@ -33,20 +30,22 @@ public class CobraController : EnemyController
 
         base.Update();
 
-        if(isSwingRest) {
+        if (isSwingRest)
+        {
             swingRestTimer += Time.deltaTime;
-            if(swingRestTimer > swingRestTime) {
+            if (swingRestTimer > swingRestTime)
+            {
                 isSwingRest = false;
                 swingRestTimer = 0f;
             }
         }
-        
-        if(!base.isKnockback && !isSwingRest && !isDead)
+
+        if (!base.isKnockback && !isSwingRest && !isDead)
             aiPath.canMove = true;
         else
             aiPath.canMove = false;
 
-        if(base.isKnockback || isSwingRest)
+        if (base.isKnockback || isSwingRest)
             return;
         else if (aiPath.desiredVelocity.x == 0 && aiPath.desiredVelocity.y == 0)
             an.SetBool("isWalking", false);
@@ -56,11 +55,13 @@ public class CobraController : EnemyController
             WalkLeft();
         else
             an.SetBool("isWalking", true);
-        
 
-        if(isDead) {
+
+        if (isDead)
+        {
             deathTimer += Time.deltaTime;
-            if(deathTimer > deathTime) {
+            if (deathTimer > deathTime)
+            {
                 base.handleEnemyDeath();
                 Destroy(gameObject);
             }
@@ -76,14 +77,12 @@ public class CobraController : EnemyController
         }
     }
 
-    public override void handleShotgunHit(float knockbackMagnitude)
+    public override void handleShotgunHit(float knockbackStrength)
     {
-        Vector2 unitVec = transform.position - player.transform.position;
-        unitVec.Normalize();
-        if (!isDead)
-            rb2d.AddForce(unitVec * knockbackMagnitude * 0.7f);
-        isKnockback = true;
-        aiPath.canMove = false;
+        base.handleShotgunHit(knockbackStrength * knockbackCoefficient);
+
+        base.isKnockback = true;
+        base.aiPath.canMove = false;
         an.SetBool("isWalking", false);
         an.SetBool("isAttack1", false);
     }
@@ -91,12 +90,15 @@ public class CobraController : EnemyController
     public override void handleEnemyDeath()
     {
         if (isDead)
-        {
             return; // so animation doesn't keep on playing
-        }
+
+        Collider2D[] colliderAr = gameObject.GetComponents<Collider2D>();
+        colliderAr[0].enabled = false;
+        colliderAr[1].enabled = false;
         aiPath.canMove = false;
         an.SetBool("isDead", true);
         isDead = true;
+        // base.handleEnemyDeath();
         //Destroy(gameObject);
     }
 
@@ -114,10 +116,10 @@ public class CobraController : EnemyController
 
     public void handleAttack()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) < 2.0f)
+        if (Vector3.Distance(transform.position, player.transform.position) < 4.0f)
         {
             playerController.takeDamage(attackStrength);
-            playerController.onHitKnockback(800.0f, transform.position);
+            playerController.onHitKnockback(1500.0f, transform.position);
         }
         isSwingRest = true;
         swingRestTimer = 0f;

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7537176707517620243}
   - component: {fileID: 7537176707517620242}
   - component: {fileID: 7537176707517620245}
-  - component: {fileID: 7537176707517620244}
   - component: {fileID: 7537176707517620255}
   - component: {fileID: 2899209091582306917}
   - component: {fileID: 1206609593829668588}
@@ -137,7 +136,7 @@ MonoBehaviour:
   repathRate: 1
   canSearch: 1
   canMove: 1
-  maxSpeed: 5
+  maxSpeed: 8
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -188,19 +187,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7537176707517620244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7537176707517620247}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5e2f7bcc5676043a7bdbc79db445ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aiPath: {fileID: 7537176707517620243}
 --- !u!50 &7537176707517620255
 Rigidbody2D:
   serializedVersion: 4
@@ -238,6 +224,8 @@ MonoBehaviour:
   playerCollider: {fileID: 0}
   rb2d: {fileID: 0}
   attackStrength: 0
+  drops: []
+  dropChance: 0
   isKnockback: 0
   playerController: {fileID: 0}
   knockbackCoefficient: 0
@@ -290,6 +278,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weakness: 2
   resistance: 1
-  maxHealth: 0
+  maxHealth: 100
   enemyController: {fileID: 2899209091582306917}
-  damageText: {fileID: 0}
