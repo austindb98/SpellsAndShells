@@ -10,6 +10,7 @@ Parallax/ - PWL (https://opengameart.org/users/pwl)
 Cielo pixelado.png - Santoniche (https://opengameart.org/users/santoniche)
 Pot.png - Pita (https://pita.itch.io/rpg-dungeon-tileset)
 dungeon tiles (Buch).png - Buch (https://opengameart.org/content/dungeon-tileset)
+forest tiles (Buch).png - Buch (https://opengameart.org/content/outdoor-tiles-again)
 Potion sprite - Bonsaiheldin(https://opengameart.org/content/rpg-potions-16x16)
 tileset_dungeon.png - Stealthix (https://stealthix.itch.io/dungeon-tileset-32x32-px)
 

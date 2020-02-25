@@ -15,6 +15,9 @@ TagManager:
   - Room
   - EntranceTrigger
   - Potion
+  - SpawnMaster
+  - Door
+  - Fog
   layers:
   - Default
   - TransparentFX

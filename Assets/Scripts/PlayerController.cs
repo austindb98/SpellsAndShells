@@ -68,10 +68,6 @@ public class PlayerController : BasePlayer {
         {
             handlePickup(collider.gameObject);
         }
-        if (collider.gameObject.layer == LayerMask.NameToLayer("Fog"))
-        {
-            collider.gameObject.GetComponent<TilemapRenderer>().enabled = false;
-        }
     }
 
     protected override void Update() {
