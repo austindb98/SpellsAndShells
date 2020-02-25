@@ -175,7 +175,7 @@ public class PlayerController : BasePlayer {
         float range = shell.range;
         int damage = shell.damage;
 
-        soundManager.GetComponent<SoundController>().playShotgunShootSound();
+        SoundController.playShotgunShootSound();
         shotReady = false;
         float mouseAngle = getMouseAngle();
         Vector2[] pelletDirections = new Vector2[pellets];

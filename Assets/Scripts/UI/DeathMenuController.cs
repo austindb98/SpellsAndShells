@@ -17,7 +17,7 @@ public class DeathMenuController : PauseMenuController
 
     public void Restart()
     {
-        soundManager.playMenuChange();
+        SoundController.playMenuChange();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

@@ -20,7 +20,7 @@ public class MenuController : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
-        soundManager.playMenuChange();
+        SoundController.playMenuChange();
         SceneManager.LoadScene(sceneName);
     }
 

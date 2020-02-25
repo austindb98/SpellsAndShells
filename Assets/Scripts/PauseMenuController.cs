@@ -22,7 +22,7 @@ public class PauseMenuController : MenuController
 
     public void Resume()
     {
-        soundManager.playMenuChange();
+        SoundController.playMenuChange();
         Time.timeScale = 1;
         gameObject.SetActive(false);
     }
