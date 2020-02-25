@@ -665,9 +665,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weakness: 0
   resistance: 0
-  maxHealth: 20
+  maxHealth: 100
   enemyController: {fileID: 0}
-  type: 1
+  type: 3
   backgrounds:
   - {fileID: -821933614722808991, guid: 883cee60edd9c7e41a2dce95eb53daa6, type: 3}
   - {fileID: 7559591047739115010, guid: 883cee60edd9c7e41a2dce95eb53daa6, type: 3}

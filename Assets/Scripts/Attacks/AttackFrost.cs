@@ -9,7 +9,7 @@ public class AttackFrost : BaseAttack
     void Start()
     {
         speed = 8;
-        damage = 2;
+        damage = 20;
         element = Element.Ice;
     }
 

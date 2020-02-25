@@ -8,7 +8,7 @@ public class AttackFireball : BaseAttack
     void Start()
     {
         speed = 15;
-        damage = 7;
+        damage = 25;
         element = Element.Fire;
     }
 

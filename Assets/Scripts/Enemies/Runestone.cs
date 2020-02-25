@@ -31,7 +31,8 @@ public class Runestone : EnemyHealth
     {
         if (type == this.type)
         {
-            base.takeDamage(damage, type); // type doesn't matter, normal damage
+            base.takeDamage(damage, type);
+            animator.SetTrigger("hit");
         } else
         {
             base.takeDamage(0, type);
@@ -41,13 +42,12 @@ public class Runestone : EnemyHealth
         {
             Instantiate(prefabDrop, transform.position, Quaternion.identity);
             Destroy(gameObject);
+        } else
+        {
+            
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        animator.SetTrigger("hit");
-    }
+    
 
 
 }
