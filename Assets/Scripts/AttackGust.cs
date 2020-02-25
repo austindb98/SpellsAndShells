@@ -8,7 +8,7 @@ public class AttackGust : BaseAttack
     void Start()
     {
         speed = 14;
-        damage = 4;
+        damage = 15;
         element = Element.Wind;
     }
 }
