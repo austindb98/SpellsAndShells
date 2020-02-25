@@ -19035,6 +19035,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2527237651729366213, guid: f0537a0fea29a094f952c8d1661afa61,
         type: 3}
+      propertyPath: doorList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527237651729366213, guid: f0537a0fea29a094f952c8d1661afa61,
+        type: 3}
       propertyPath: spawnPositionList.Array.data[0].x
       value: 8.4
       objectReference: {fileID: 0}
