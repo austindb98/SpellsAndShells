@@ -9,8 +9,11 @@ public class EnemyController : MonoBehaviour
     public Animator an;
     public Collider2D playerCollider;
     public Rigidbody2D rb2d;
-    
+
     public float attackStrength;
+
+    public GameObject[] drops;
+    public int dropChance;
 
     public bool isKnockback = false;
     private float knockbackTimer = 0f;
@@ -48,7 +51,7 @@ public class EnemyController : MonoBehaviour
         }
 
     }
-    
+
     virtual public void handleShotgunHit(float knockbackMagnitude) {
         Vector2 unitVec = transform.position - player.transform.position;
         unitVec.Normalize();
@@ -56,6 +59,11 @@ public class EnemyController : MonoBehaviour
     }
 
     virtual public void handleEnemyDeath() {
+        float drop = Random.Range(0, drops.Length * dropChance);
+        if(drop < drops.Length) {
+            // scale the drop position with the grid scale
+            Instantiate(drops[(int)drop], transform.position, Quaternion.identity);
+        }
         if(spawnMaster)
             spawnMaster.removeEnemyFromList(this);
     }
