@@ -41,6 +41,7 @@ public class Runestone : EnemyHealth
         if (currentHealth <= 0f)
         {
             Instantiate(prefabDrop, transform.position, Quaternion.identity);
+            SoundController.playStoneDestroy();
             Destroy(gameObject);
         } else
         {

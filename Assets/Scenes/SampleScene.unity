@@ -667,7 +667,7 @@ MonoBehaviour:
   resistance: 0
   maxHealth: 100
   enemyController: {fileID: 0}
-  type: 3
+  type: 2
   backgrounds:
   - {fileID: -821933614722808991, guid: 883cee60edd9c7e41a2dce95eb53daa6, type: 3}
   - {fileID: 7559591047739115010, guid: 883cee60edd9c7e41a2dce95eb53daa6, type: 3}

@@ -7,10 +7,14 @@ public class SoundController : MonoBehaviour
     public static AudioClip shotgunShootSound;
     public static AudioClip potBreakSound;
     public static AudioClip menuChange;
+    static AudioClip stoneDestroy;
 
-    public AudioClip[] sfx = new AudioClip[3];
+    public AudioClip[] sfx = new AudioClip[4];
 
     private static AudioSource soundSource;
+
+    private static float sfxVolume;
+    private static float uiVolume;
 
     void Start()
     {
@@ -23,21 +27,30 @@ public class SoundController : MonoBehaviour
             shotgunShootSound = sfx[0];
             potBreakSound = sfx[1];
             menuChange = sfx[2];
+            stoneDestroy = sfx[3];
         }
+
+        sfxVolume = 1f; // later will get from playerprefs
+        uiVolume = 1f;
     }
 
     public static void playShotgunShootSound()
     {
-        soundSource.PlayOneShot(shotgunShootSound, 1.0f);
+        soundSource.PlayOneShot(shotgunShootSound, sfxVolume);
     }
 
     public static void playPotBreakSound()
     {
-        soundSource.PlayOneShot(potBreakSound, 1.0f);
+        soundSource.PlayOneShot(potBreakSound, sfxVolume);
     }
 
     public static void playMenuChange()
     {
-        soundSource.PlayOneShot(menuChange, 1.0f);
+        soundSource.PlayOneShot(menuChange, uiVolume);
+    }
+
+    public static void playStoneDestroy()
+    {
+        soundSource.PlayOneShot(stoneDestroy, sfxVolume);
     }
 }
