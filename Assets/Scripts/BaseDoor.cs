@@ -7,7 +7,7 @@ public abstract class BaseDoor : MonoBehaviour
 
     private bool InDoorway;
     private bool Locked = true;    
-    private SpriteRenderer sr;
+    protected SpriteRenderer sr;
     private AudioSource doorOpen;
 
     public DoorType doorType;
@@ -30,7 +30,7 @@ public abstract class BaseDoor : MonoBehaviour
 
     protected abstract void HandleUnlocked(); // child will need to implement this specifically
 
-    protected void HandleLocked()
+    protected virtual void HandleLocked()
     {
         Locked = false;
         doorOpen.Play();
