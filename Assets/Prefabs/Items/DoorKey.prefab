@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5039307810370009240}
   - component: {fileID: 5106987345836790235}
   - component: {fileID: 6833956861440128622}
-  - component: {fileID: 6026029898249969427}
+  - component: {fileID: 4282818995192034422}
   m_Layer: 15
   m_Name: DoorKey
   m_TagString: Heart
@@ -108,7 +108,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &6026029898249969427
+--- !u!114 &4282818995192034422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +117,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4137067952421969972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fcb7b7d16f19324784818082005db95, type: 3}
+  m_Script: {fileID: 11500000, guid: 63061a7d1273ec148b60689c72c34d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pickupSound: {fileID: 8300000, guid: ceb562edc790841449290b13462de1d2, type: 3}
+  doorType: 0

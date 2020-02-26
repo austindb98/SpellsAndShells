@@ -15,8 +15,10 @@ GameObject:
   - component: {fileID: 2359917974354776229}
   - component: {fileID: 2359917974354776228}
   - component: {fileID: 2359917974354776231}
-  - component: {fileID: 2359917974354776230}
   - component: {fileID: 2359917974354776414}
+  - component: {fileID: 563380607}
+  - component: {fileID: 563380606}
+  - component: {fileID: -190981493700776437}
   m_Layer: 9
   m_Name: Slime
   m_TagString: Untagged
@@ -33,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 2359917974354776225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 15, y: 15, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -195,25 +197,12 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.00000009536743, y: -0.11861592}
   m_Size: {x: 0.11371136, y: 0.11371165}
   m_Direction: 0
---- !u!114 &2359917974354776230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2359917974354776225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5e2f7bcc5676043a7bdbc79db445ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aiPath: {fileID: 2359917974354776229}
 --- !u!50 &2359917974354776414
 Rigidbody2D:
   serializedVersion: 4
@@ -229,9 +218,65 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &563380607
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359917974354776225}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0020604134, y: -0.12771861}
+  m_Size: {x: 0.060442924, y: 0.060442924}
+  m_Direction: 0
+--- !u!114 &563380606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359917974354776225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f260e31dc26ea49acc5cc05e6c379a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weakness: 0
+  resistance: 0
+  maxHealth: 50
+  enemyController: {fileID: -190981493700776437}
+--- !u!114 &-190981493700776437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359917974354776225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47758a0bf6fe09f44b5686225e418849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  an: {fileID: 0}
+  playerCollider: {fileID: 0}
+  rb2d: {fileID: 0}
+  attackStrength: 0
+  drops: []
+  dropChance: 0
+  isKnockback: 0
+  playerController: {fileID: 0}
+  knockbackCoefficient: 0
+  player: {fileID: 0}
+  aiPath: {fileID: 2359917974354776229}
+  spawnMaster: {fileID: 0}

@@ -27,11 +27,10 @@ public class RoomEntranceController : MonoBehaviour
             return;
         }
         else {
-            entranceBlocker.enabled = true;
+            //entranceBlocker.enabled = true;
             entranceTrigger.enabled = false;
             spawnMaster.spawnEnemies();
             spawnMaster.doorsVisible();
-            Debug.Log("here");
             // clear fog of war? idk how that's done
         }
     }
