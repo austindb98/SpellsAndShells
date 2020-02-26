@@ -16,7 +16,7 @@ public class ItemController : MonoBehaviour
 
     }
 
-    public void Pickup() {
+    public virtual void Pickup() {
         SoundController.PlaySound(pickupSound);
     }
 }
