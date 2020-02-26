@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 3947438484902351323}
   - component: {fileID: -8747668685066661012}
   m_Layer: 9
-  m_Name: TreantPrefab
+  m_Name: Treant
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 6544395803861375196}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 0.004
   m_LinearDrag: 4
@@ -281,4 +281,3 @@ MonoBehaviour:
   resistance: 2
   maxHealth: 80
   enemyController: {fileID: 6544395803861375140}
-  damageText: {fileID: 0}

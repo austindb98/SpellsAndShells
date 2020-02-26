@@ -99,16 +99,16 @@ Rigidbody2D:
   m_GameObject: {fileID: 2140380562467398980}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 0.004
   m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a87bc8db280caa74799e9a54109d5214, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &2140380562467398984
 Animator:
@@ -146,8 +146,8 @@ MonoBehaviour:
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 0
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.15
+  radius: 0.2
   height: 0.01
   repathRate: 1
   canSearch: 1
@@ -266,7 +266,6 @@ MonoBehaviour:
   resistance: 2
   maxHealth: 100
   enemyController: {fileID: 2140380562467398988}
-  damageText: {fileID: 0}
 --- !u!70 &3956141479987588919
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
