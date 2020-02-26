@@ -25,6 +25,7 @@ PotionDrink.mp3 - (https://freesound.org/people/Jamius/sounds/41529/)
 rune-destroy.mp3 - leejunip (https://freesound.org/people/leejunip/sounds/473910/)
 rune-hit.mp3 - CamoMano (https://freesound.org/people/CamoMano/sounds/431019/)
 key-pickup.aiff - sijam11 (https://freesound.org/people/sijam11/sounds/204854/)
+door-open.wav - GodofPH (https://freesound.org/people/GodofPH/sounds/114250/)
 
 DATA
 medieval names - (http://dmnes.org/names)
