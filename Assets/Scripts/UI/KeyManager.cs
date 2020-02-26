@@ -26,24 +26,45 @@ public class KeyManager : MonoBehaviour
         }
     }
 
+    public static bool HasKeyType(BaseDoor.DoorType type)
+    {
+        if (type == BaseDoor.DoorType.Scene)
+        {
+            return HasSceneKey();
+        }
+        else if (type == BaseDoor.DoorType.Wind)
+        {
+            return HasWindKey();
+        }
+        else if (type == BaseDoor.DoorType.Ice)
+        {
+            return HasIceKey();
+        }
+        else if (type == BaseDoor.DoorType.Fire)
+        {
+            return HasFireKey();
+        }
+        return false;
+    }
+
     public static bool HasSceneKey()
     {
-        return Instance.sceneKey;
+        return Instance.hasScene;
     }
 
     public static bool HasWindKey()
     {
-        return Instance.windKey;
+        return Instance.hasWind;
     }
 
     public static bool HasIceKey()
     {
-        return Instance.iceKey;
+        return Instance.hasIce;
     }
 
     public static bool HasFireKey()
     {
-        return Instance.fireKey;
+        return Instance.hasFire;
     }
 
     public static void AddSceneKey()
@@ -64,6 +85,26 @@ public class KeyManager : MonoBehaviour
     public static void AddFireKey()
     {
         AddKey(Instance.fireKey, ref Instance.hasFire);
+    }
+
+    public static void RemoveKeyType(BaseDoor.DoorType type)
+    {
+        if (type == BaseDoor.DoorType.Scene)
+        {
+            RemoveSceneKey();
+        }
+        else if (type == BaseDoor.DoorType.Wind)
+        {
+            RemoveWindKey();
+        }
+        else if (type == BaseDoor.DoorType.Ice)
+        {
+            RemoveIceKey();
+        }
+        else if (type == BaseDoor.DoorType.Fire)
+        {
+            RemoveFireKey();
+        }
     }
 
     public static void RemoveSceneKey()

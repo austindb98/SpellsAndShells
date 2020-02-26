@@ -6,7 +6,7 @@ public abstract class BaseDoor : MonoBehaviour
 {
 
     private bool InDoorway;
-    private bool Locked = true;    
+    protected bool Locked = true;    
     protected SpriteRenderer sr;
     private AudioSource doorOpen;
 

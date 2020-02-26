@@ -8,6 +8,9 @@ public class ElementalDoor : BaseDoor
     public Sprite overlayActive;
     public Sprite overlayInactive;
 
+    public GameObject grate;
+
+
     protected override void HandleUnlocked()
     {
         // do nothing, all work is done already
@@ -15,11 +18,14 @@ public class ElementalDoor : BaseDoor
 
     protected override void HandleLocked()
     {
+        if (!KeyManager.HasKeyType(doorType))
+        {
+            return;
+            //TODO play locked sound
+        }
+        KeyManager.RemoveKeyType(doorType);
         base.HandleLocked();
-        BoxCollider2D[] colliders = GetComponents<BoxCollider2D>();
-        //colliders[0].enabled = false;
-        sr.sortingLayerName = "Foreground";
-        colliders[1].enabled = false;
+        grate.SetActive(false);
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
@@ -31,6 +37,10 @@ public class ElementalDoor : BaseDoor
     protected override void OnTriggerExit2D(Collider2D collision)
     {
         base.OnTriggerExit2D(collision);
-        overlay.sprite = overlayInactive;
+        if (Locked)
+        {
+            overlay.sprite = overlayInactive;
+        }
+        
     }
 }
