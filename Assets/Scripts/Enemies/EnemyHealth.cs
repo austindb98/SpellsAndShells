@@ -16,7 +16,7 @@ public class EnemyHealth : MonoBehaviour
     static readonly Color blackColor = new Color(.0941f, .0784f, .1451f);
     static readonly Color yellowColor = new Color(.9961f, .9059f, .3804f);
     private Color dmgColor = yellowColor;
-    private float accumulatedDamage;
+    private float accumulatedDamage = -1; // so that 0 damage still gets a popup
 
 
     // Start is called before the first frame update
@@ -32,7 +32,8 @@ public class EnemyHealth : MonoBehaviour
     }
 
     void LateUpdate() {
-        if(accumulatedDamage > 0) {
+        
+        if(accumulatedDamage >= 0) {
             int intDamage = (int) accumulatedDamage;
             string dmg = intDamage.ToString();
             if(dmgColor == redColor) {
@@ -43,7 +44,7 @@ public class EnemyHealth : MonoBehaviour
             currentHealth -= intDamage;
         }
 
-        accumulatedDamage = 0;
+        accumulatedDamage = -1;
     }
 
     public virtual void takeDamage(float damage, BaseAttack.Element type) {
@@ -56,7 +57,10 @@ public class EnemyHealth : MonoBehaviour
             damage /= weakMult;
             dmgColor = blackColor;
         }
-
+        if (accumulatedDamage < 0)
+        {
+            accumulatedDamage = 0;
+        }
         accumulatedDamage += damage;
 
         if (!enemyController) // not moveable ignore, non moveable enemy will handle

@@ -15,6 +15,12 @@ public class SceneDoor : BaseDoor
 
     protected override void HandleUnlocked()
     {
+        if (SaveManager.currentSave != null)
+        {
+            SaveManager.currentSave.level++;
+            SaveManager.SaveAllFiles();
+        }
+        
         SceneManager.LoadScene(nextScene);
     }
 }
