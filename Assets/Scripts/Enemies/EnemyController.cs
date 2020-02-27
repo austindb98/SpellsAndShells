@@ -172,6 +172,7 @@ public class EnemyController : MonoBehaviour
 
     private void handleKnockback() {
         knockbackTimer += Time.deltaTime;
+        aiPath.canMove = false; // ?
         if(knockbackTimer > knockbackTime) {
             isKnockback = false;
             aiPath.canMove = true;

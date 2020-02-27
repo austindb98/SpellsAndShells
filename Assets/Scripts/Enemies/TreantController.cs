@@ -53,7 +53,6 @@ public class TreantController : EnemyController
 
         base.isKnockback = true;
         base.aiPath.canMove = false;
-        print("can't move");
         base.an.SetBool("isTreantWalking", false);
     }
 
