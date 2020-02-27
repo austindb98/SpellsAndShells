@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AttackFireball : BaseAttack
 {
+    private float dotDuration = 12f;
+    private float dotFrequency = 3f;    // how often to inflict damage
+    private float dotDamage = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,8 @@ public class AttackFireball : BaseAttack
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
+        enemyController.applyFireDotEffect(dotDuration, dotFrequency, dotDamage);
         base.OnTriggerEnter2D(collision);
     }
 }

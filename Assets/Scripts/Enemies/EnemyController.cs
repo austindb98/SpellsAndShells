@@ -23,6 +23,12 @@ public class EnemyController : MonoBehaviour
     private float frozenTimer;
     private float frozenTime;
 
+    private bool isFlaming;
+    private float flameTimer;
+    private float flameTime;
+    private float flameDamage;
+    private float flameFrequency;
+
     public PlayerController playerController;
 
     public float knockbackCoefficient;
@@ -36,6 +42,8 @@ public class EnemyController : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
+    public EnemyHealth enemyHealth;
+
     virtual public void Start() {
         if(!player)
             player = GameObject.FindWithTag("Player");
@@ -47,10 +55,14 @@ public class EnemyController : MonoBehaviour
         maxSpeed = aiPath.maxSpeed;
 
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        enemyHealth = gameObject.GetComponent<EnemyHealth>();
         gameObject.GetComponent<AIDestinationSetter>().target = player.transform;
     }
 
     virtual public void Update() {
+        if(isFlaming)
+            handleFlaming();
+
         if(isFrozen)
             handleFrozen();
 
@@ -79,16 +91,46 @@ public class EnemyController : MonoBehaviour
         isFrozen = true;
         frozenTime = time;
         frozenTimer = 0f;
-        spriteRenderer.color=new Color(0.5f, 0.5f, 1, 1);
+        spriteRenderer.color = new Color(0.5f, 0.5f, 1, 1);
+    }
+
+    public void applyFireDotEffect(float dotDuration, float dotFrequency, float dotDamage) {
+        isFlaming = true;
+        flameTime = dotDuration;
+        flameFrequency = dotFrequency;
+        flameDamage = dotDamage;
+        flameTimer = 0f;
+        spriteRenderer.color = new Color(1, 0.5f, 0.5f, 1);
+
+        if(isFrozen)
+            cancelFrozen();
     }
 
     private void handleFrozen() {
         frozenTimer += Time.deltaTime;
-        if(frozenTimer > frozenTime) {
-            isFrozen = false;
-            aiPath.maxSpeed = maxSpeed;
-            spriteRenderer.color=new Color(1, 1, 1, 1);
+        if(frozenTimer > frozenTime)
+            cancelFrozen();
+    }
+
+    private void handleFlaming() {
+        flameTimer += Time.deltaTime;
+        if(flameTimer > flameFrequency) {
+            enemyHealth.takeDamage(flameDamage, BaseAttack.Element.Fire);
+            flameFrequency += flameFrequency;
         }
+        if(flameTimer > flameTime)
+            cancelFlaming();
+    }
+
+    private void cancelFlaming() {
+        isFlaming = false;
+        spriteRenderer.color = new Color(1, 1, 1, 1);
+    }
+    
+    private void cancelFrozen() {
+        isFrozen = false;
+        aiPath.maxSpeed = maxSpeed;
+        spriteRenderer.color = new Color(1, 1, 1, 1);
     }
 
     private void handleKnockback() {
