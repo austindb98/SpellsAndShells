@@ -75,14 +75,16 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    public void handleKnockback(float knockbackMagnitude) {
+    public void applyKnockback(float knockbackMagnitude) {
         Vector2 unitVec = transform.position - player.transform.position;
         unitVec.Normalize();
         rb2d.AddForce(unitVec * knockbackMagnitude);
+        knockbackTimer = 0f;
+        isKnockback = true;
     }
 
     virtual public void handleShotgunAttack() {
-        handleKnockback(knockbackStrength);
+        applyKnockback(knockbackStrength);
         enemyHealth.takeDamage(shotgunDamage, BaseAttack.Element.Normal);
     }
 
@@ -96,6 +98,14 @@ public class EnemyController : MonoBehaviour
     }
 
     public void applyFrostSlowingEffect(float magnitude, float time) {
+        if(enemyHealth.weakness == BaseAttack.Element.Ice) {
+            magnitude *= 1.5f;
+            time *= 1.5f;
+        }
+        else if(enemyHealth.resistance == BaseAttack.Element.Ice) {
+            magnitude /= 1.5f;
+            time /= 1.5f;
+        }
         aiPath.maxSpeed *= magnitude;
         isFrozen = true;
         frozenTime = time;
@@ -104,6 +114,14 @@ public class EnemyController : MonoBehaviour
     }
 
     public void applyFireDotEffect(float dotDuration, float dotFrequency, float dotDamage) {
+        if(enemyHealth.weakness == BaseAttack.Element.Fire) {
+            dotDamage *= 1.5f;
+            dotDuration *= 1.5f;
+        }
+        else if(enemyHealth.resistance == BaseAttack.Element.Fire) {
+            dotDamage /= 1.5f;
+            dotDuration /= 1.5f;
+        }
         isFlaming = true;
         flameTime = dotDuration;
         flameFrequency = dotFrequency;
@@ -113,6 +131,16 @@ public class EnemyController : MonoBehaviour
 
         if(isFrozen)
             cancelFrozen();
+    }
+
+    public void applyWindKnockbackEffect(float knockbackMagnitude) {
+        if(enemyHealth.weakness == BaseAttack.Element.Wind) {
+            knockbackMagnitude *= 1.5f;
+        }
+        else if(enemyHealth.resistance == BaseAttack.Element.Wind) {
+            knockbackMagnitude /= 1.5f;
+        }
+        applyKnockback(knockbackMagnitude);
     }
 
     private void handleFrozen() {
