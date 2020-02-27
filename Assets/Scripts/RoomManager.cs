@@ -8,6 +8,7 @@ public class RoomManager : MonoBehaviour
 
     public SpawnMaster spawnMaster;
     public GameObject roomDoors;
+    public List<GameObject> doorList;
 
     private TilemapRenderer fog;
     private TilemapCollider2D trigger;
@@ -34,6 +35,13 @@ public class RoomManager : MonoBehaviour
         {
             roomDoors.SetActive(false);
         }
+        else if (spawnMaster != null && roomDoors == null && spawnMaster.isRoomComplete)
+        {
+            foreach (GameObject door in doorList)
+            {
+                door.SetActive(false);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -46,6 +54,13 @@ public class RoomManager : MonoBehaviour
                 if (roomDoors != null)
                 {
                     roomDoors.SetActive(true);
+                }
+                else
+                {
+                    foreach (GameObject door in doorList)
+                    {
+                        door.SetActive(true);
+                    }
                 }
             }
             fog.enabled = false;
