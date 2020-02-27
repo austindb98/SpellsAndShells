@@ -20,10 +20,10 @@ class Dialog
 public class DialogScheduler : MonoBehaviour
 {
     static readonly float DefaultReadTime = 3f;
-    private Transform dialogBox;
-    private Text dialogText;
-    private Queue<Dialog> dialogs;
-    private Dialog currentDialog;
+    private static Transform dialogBox;
+    private static Text dialogText;
+    private static Queue<Dialog> dialogs;
+    private static Dialog currentDialog;
 
     public string OnStartDialog;
     // Start is called before the first frame update
@@ -67,12 +67,12 @@ public class DialogScheduler : MonoBehaviour
         }
     }
 
-    public void addDialog(string text, float activeTime)
+    public static void addDialog(string text, float activeTime)
     {
         dialogs.Enqueue(new Dialog(text, activeTime));
     }
 
-    public void closeCurrentDialog()
+    public static void closeCurrentDialog()
     {
         dialogBox.gameObject.SetActive(false);
     }
