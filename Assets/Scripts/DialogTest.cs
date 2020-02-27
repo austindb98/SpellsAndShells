@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogTest : MonoBehaviour
 {
-    public DialogScheduler dialogScheduler;
+    //public DialogScheduler dialogScheduler;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +16,7 @@ public class DialogTest : MonoBehaviour
     {
         
     }
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("entered the red");
@@ -38,5 +39,5 @@ public class DialogTest : MonoBehaviour
             }
             Destroy(gameObject);
         }
-    }
+    }*/
 }
