@@ -74,6 +74,14 @@ public class EnemyController : MonoBehaviour
             handleKnockback();
 
     }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Obstacles")
+        {
+            
+        }
+    }
 
     public void applyKnockback(float knockbackMagnitude) {
         Vector2 unitVec = transform.position - player.transform.position;
