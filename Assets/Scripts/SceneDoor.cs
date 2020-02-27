@@ -13,6 +13,16 @@ public class SceneDoor : BaseDoor
         doorType = BaseDoor.DoorType.Scene;
     }
 
+    protected override void HandleLocked()
+    {
+        if (!KeyManager.HasSceneKey())
+        {
+            return;
+        }
+        KeyManager.RemoveSceneKey();
+        base.HandleLocked();
+    }
+
     protected override void HandleUnlocked()
     {
         if (SaveManager.currentSave != null)
