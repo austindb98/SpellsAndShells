@@ -71,8 +71,8 @@ public class MinotaurController : EnemyController
         }
     }
 
-    public override void handleShotgunHit(float knockbackStrength) {
-        base.handleShotgunHit(knockbackStrength * knockbackCoefficient);
+    public override void handleShotgunAttack() {
+        base.handleShotgunAttack();
         
         base.isKnockback = true;
         base.aiPath.canMove = false;

@@ -215,14 +215,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 0.004
+  m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &563380607
 CapsuleCollider2D:
@@ -272,11 +272,15 @@ MonoBehaviour:
   playerCollider: {fileID: 0}
   rb2d: {fileID: 0}
   attackStrength: 0
+  knockbackStrength: 1
   drops: []
   dropChance: 0
   isKnockback: 0
   playerController: {fileID: 0}
   knockbackCoefficient: 0
+  maxSpeed: 0
   player: {fileID: 0}
   aiPath: {fileID: 2359917974354776229}
   spawnMaster: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  enemyHealth: {fileID: 0}

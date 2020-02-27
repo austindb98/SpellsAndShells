@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
 
     public float attackStrength;
 
+    public float knockbackStrength = 0.3f;
+
     public GameObject[] drops;
     public int dropChance;
 
@@ -28,6 +30,8 @@ public class EnemyController : MonoBehaviour
     private float flameTime;
     private float flameDamage;
     private float flameFrequency;
+
+    private float shotgunDamage = 3f;    // the damage taken by a single pellet of the shotgun
 
     public PlayerController playerController;
 
@@ -71,10 +75,15 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    virtual public void handleShotgunHit(float knockbackMagnitude) {
+    public void handleKnockback(float knockbackMagnitude) {
         Vector2 unitVec = transform.position - player.transform.position;
         unitVec.Normalize();
         rb2d.AddForce(unitVec * knockbackMagnitude);
+    }
+
+    virtual public void handleShotgunAttack() {
+        handleKnockback(knockbackStrength);
+        enemyHealth.takeDamage(shotgunDamage, BaseAttack.Element.Normal);
     }
 
     virtual public void handleEnemyDeath() {

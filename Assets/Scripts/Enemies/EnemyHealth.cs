@@ -52,26 +52,20 @@ public class EnemyHealth : MonoBehaviour
         if(type == weakness && weakness != BaseAttack.Element.Normal) {
             damage *= weakMult;
             dmgColor = redColor;
-
         } else if (type == resistance && resistance != BaseAttack.Element.Normal) {
             damage /= weakMult;
             dmgColor = blackColor;
         }
-        if (accumulatedDamage < 0)
-        {
+        if (accumulatedDamage < 0){
             accumulatedDamage = 0;
         }
         accumulatedDamage += damage;
 
         if (!enemyController) // not moveable ignore, non moveable enemy will handle
-        {
             return;
-        }
 
         if (currentHealth <= 0f) {
             enemyController.handleEnemyDeath();
-        } else {
-            enemyController.handleShotgunHit(0.4f);
         }
     }
 }

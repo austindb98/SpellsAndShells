@@ -118,10 +118,8 @@ public class WitchController : EnemyController
         return false;
     }
 
-    public override void handleShotgunHit(float knockbackMagnitude) {
-        Vector2 unitVec = transform.position - player.transform.position;
-        unitVec.Normalize();
-        rb2d.AddForce(unitVec * knockbackMagnitude);
+    public override void handleShotgunAttack() {
+        base.handleShotgunAttack();
 
         base.isKnockback = true;
         base.aiPath.canMove = false;
