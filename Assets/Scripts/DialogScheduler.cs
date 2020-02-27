@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 class Dialog
 {
+    
+
     public string text;
-    public int activeTime;
+    public float activeTime;
     public float closeTime;
-    public Dialog(string text, int activeTime)
+    public Dialog(string text, float activeTime)
     {
         this.text = text;
         this.activeTime = activeTime;
@@ -17,10 +19,13 @@ class Dialog
 
 public class DialogScheduler : MonoBehaviour
 {
+    static readonly float DefaultReadTime = 3f;
     private Transform dialogBox;
     private Text dialogText;
     private Queue<Dialog> dialogs;
     private Dialog currentDialog;
+
+    public string OnStartDialog;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +33,10 @@ public class DialogScheduler : MonoBehaviour
         dialogBox = transform.Find("DialogBox");
         dialogText = dialogBox.GetComponentInChildren<Text>();
         dialogBox.gameObject.SetActive(false);
+        if (OnStartDialog != null)
+        {
+            addDialog(OnStartDialog, DefaultReadTime);
+        }
     }
 
     // Update is called once per frame
@@ -58,7 +67,7 @@ public class DialogScheduler : MonoBehaviour
         }
     }
 
-    public void addDialog(string text, int activeTime)
+    public void addDialog(string text, float activeTime)
     {
         dialogs.Enqueue(new Dialog(text, activeTime));
     }
