@@ -155,7 +155,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 5
+  maxSpeed: 3
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -271,12 +271,15 @@ MonoBehaviour:
   an: {fileID: 0}
   playerCollider: {fileID: 0}
   rb2d: {fileID: 0}
-  attackStrength: 0
+  attackStrength: 20
   drops: []
   dropChance: 0
   isKnockback: 0
   playerController: {fileID: 0}
-  knockbackCoefficient: 0
+  knockbackCoefficient: 5
+  maxSpeed: 0
   player: {fileID: 0}
   aiPath: {fileID: 2359917974354776229}
   spawnMaster: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  enemyHealth: {fileID: 0}
