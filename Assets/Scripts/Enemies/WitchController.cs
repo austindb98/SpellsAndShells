@@ -45,7 +45,6 @@ public class WitchController : EnemyController
             an.SetBool("isWalking", false);
             an.SetBool("isHexing", true);
             an.SetBool("isFacingRight", x > 0);
-            print(x > 0);
         }
         else if(aiPath.desiredVelocity.x == 0 && aiPath.desiredVelocity.y == 0) { // idle
             an.SetBool("isWalking", false);

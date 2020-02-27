@@ -9,7 +9,6 @@ public class ObstacleController : MonoBehaviour
     public GameObject[] drops;
     public int dropChance;
     public GridGraph graphToScan;
-    private bool isRescan = false;
     private List<Vector3Int> breakList;
     public AudioClip breakSound;
 
@@ -26,15 +25,11 @@ public class ObstacleController : MonoBehaviour
     }
 
     void LateUpdate() {
-        if(isRescan && graphToScan != null) {
-            AstarPath.active.Scan(graphToScan);
-            isRescan = false;
-        }
         if(breakList.Count > 0) {
             foreach(Vector3 pos in breakList) {
                 Tilemap map = GetComponent<Tilemap>();
                 Vector3Int tilePos = transform.parent.GetComponentInParent<GridLayout>().WorldToCell(pos);
-                map.SetTile(tilePos, null);
+                map.SetTile(tilePos, null); 
                 SoundController.playBreakSound(breakSound);
                 float drop = Random.Range(0, drops.Length * dropChance);
                 if(drop < drops.Length) {
@@ -42,7 +37,6 @@ public class ObstacleController : MonoBehaviour
                     Instantiate(drops[(int)drop], pos * this.transform.localScale.z, Quaternion.identity);
                 }
             }
-            isRescan = true;
             breakList = new List<Vector3Int>();
         }
     }
