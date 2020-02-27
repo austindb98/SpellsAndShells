@@ -43,13 +43,13 @@ public class TreantController : EnemyController
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other == playerCollider && !isKnockback) {
-            handleShotgunHit(1f);
+            handleKnockback(1f);
             playerController.takeDamage(attackStrength);
         }
     }
 
-    public override void handleShotgunHit(float knockbackStrength) {
-        base.handleShotgunHit(knockbackStrength * knockbackCoefficient);
+    public override void handleShotgunAttack() {
+        base.handleShotgunAttack();
 
         base.isKnockback = true;
         base.aiPath.canMove = false;

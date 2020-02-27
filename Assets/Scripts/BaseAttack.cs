@@ -10,8 +10,6 @@ public class BaseAttack : MonoBehaviour
         Normal, Wind, Ice, Fire
     };
 
-
-
     protected float speed;
     protected float damage;
     protected Element element;

@@ -189,8 +189,10 @@ public class PlayerController : BasePlayer {
                 else if(raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("Entities") ||
                         raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("StationaryEntities"))
                 {
-                    EnemyHealth enemyHealth = raycastResult.collider.gameObject.GetComponent<EnemyHealth>();
-                    enemyHealth.takeDamage(damage, BaseAttack.Element.Normal);
+                    //EnemyHealth enemyHealth = raycastResult.collider.gameObject.GetComponent<EnemyHealth>();
+                    //enemyHealth.takeDamage(damage, BaseAttack.Element.Normal);
+                    EnemyController enemyController = raycastResult.collider.gameObject.GetComponent<EnemyController>();
+                    enemyController.handleShotgunAttack();
                 }
             }
             else
