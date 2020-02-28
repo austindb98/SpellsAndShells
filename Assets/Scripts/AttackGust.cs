@@ -16,7 +16,8 @@ public class AttackGust : BaseAttack
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
-        enemyController.applyWindKnockbackEffect(knockbackMagnitude);
+        if(enemyController)
+            enemyController.applyWindKnockbackEffect(knockbackMagnitude);
         base.OnTriggerEnter2D(collision);
     }
 }

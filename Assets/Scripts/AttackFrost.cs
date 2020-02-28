@@ -19,7 +19,8 @@ public class AttackFrost : BaseAttack
 
     protected override void OnTriggerEnter2D(Collider2D collider) {
         EnemyController enemyController = collider.gameObject.GetComponent<EnemyController>();
-        enemyController.applyFrostSlowingEffect(slowMag, slowDur);
+        if(enemyController)
+            enemyController.applyFrostSlowingEffect(slowMag, slowDur);
         base.OnTriggerEnter2D(collider);
     }
 
