@@ -113,7 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c520cb6aa0fea404baf592d87def88a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treant: {fileID: 4691094060803072611, guid: ab513cee777175d409ab16119af02eb9, type: 3}
+  initialSpawnNum: 3
+  enemyPrefab: {fileID: 4691094060803072611, guid: ab513cee777175d409ab16119af02eb9,
+    type: 3}
   player: {fileID: 0}
 --- !u!114 &3667984809506765514
 MonoBehaviour:

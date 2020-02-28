@@ -57,7 +57,8 @@ public class EnemyController : MonoBehaviour
         playerCollider = player.GetComponent<Collider2D>();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         playerController = player.GetComponent<PlayerController>();
-        maxSpeed = aiPath.maxSpeed;
+        if(aiPath != null)
+            maxSpeed = aiPath.maxSpeed;
 
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         enemyHealth = gameObject.GetComponent<EnemyHealth>();
@@ -116,11 +117,11 @@ public class EnemyController : MonoBehaviour
 
     public void applyFrostSlowingEffect(float magnitude, float time) {
         if(enemyHealth.weakness == BaseAttack.Element.Ice) {
-            magnitude *= 1.5f;
+            magnitude /= 1.5f;
             time *= 1.5f;
         }
         else if(enemyHealth.resistance == BaseAttack.Element.Ice) {
-            magnitude /= 1.5f;
+            magnitude *= 1.5f;
             time /= 1.5f;
         }
         aiPath.maxSpeed *= magnitude;
