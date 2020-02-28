@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.Tilemaps;
 
 public class EnemyController : MonoBehaviour
 {
@@ -74,12 +75,20 @@ public class EnemyController : MonoBehaviour
             handleKnockback();
 
     }
-    
-    private void OnTriggerEnter2D(Collider2D other)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.gameObject.tag == "Obstacles")
+        if (collision.gameObject.tag == "Pot")
         {
-            
+
+            Tilemap tilemap = collision.gameObject.GetComponent<Tilemap>();
+            Vector3 hitPosition = Vector3.zero;
+            foreach (ContactPoint2D hit in collision.contacts)
+            {
+                hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
+                hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
+                tilemap.SetTile(tilemap.WorldToCell(hitPosition), null);
+            }
         }
     }
 

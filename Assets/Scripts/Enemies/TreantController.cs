@@ -41,8 +41,10 @@ public class TreantController : EnemyController
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other == playerCollider && !isKnockback) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other == playerCollider && !isKnockback)
+        {
             applyKnockback(1f);
             playerController.takeDamage(attackStrength);
         }
