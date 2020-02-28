@@ -9,29 +9,32 @@ public class RoomManager : MonoBehaviour
     public SpawnMaster spawnMaster;
     public GameObject roomDoors;
     public List<GameObject> doorList;
+    public TilemapRenderer fog;
 
-    private TilemapRenderer fog;
-    private TilemapCollider2D trigger;
+    private bool triggered;
 
     // Start is called before the first frame update
     void Start()
     {
-        fog = this.gameObject.GetComponent<TilemapRenderer>();
-        trigger = this.gameObject.GetComponent<TilemapCollider2D>();
+        if (spawnMaster != null)
+        {
+            spawnMaster.gameObject.SetActive(false);
+        }
         if (roomDoors != null)
         {
             roomDoors.SetActive(false);
         }
+        if (fog != null)
+        {
+            fog.enabled = true;
+        }
+        triggered = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawnMaster != null)
-        {
-            Debug.Log(spawnMaster.isRoomComplete);
-        }
-        if (spawnMaster != null && roomDoors != null && spawnMaster.isRoomComplete)
+        if (spawnMaster != null && roomDoors != null && triggered && spawnMaster.isRoomComplete)
         {
             roomDoors.SetActive(false);
         }
@@ -50,6 +53,7 @@ public class RoomManager : MonoBehaviour
         {
             if (spawnMaster != null && fog.enabled)
             {
+                spawnMaster.gameObject.SetActive(true);
                 spawnMaster.spawnEnemies();
                 if (roomDoors != null)
                 {
@@ -64,6 +68,7 @@ public class RoomManager : MonoBehaviour
                 }
             }
             fog.enabled = false;
+            triggered = true;
         }
     }
 

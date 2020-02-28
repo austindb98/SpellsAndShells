@@ -74,6 +74,14 @@ public class EnemyController : MonoBehaviour
             handleKnockback();
 
     }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Obstacles")
+        {
+            
+        }
+    }
 
     public void applyKnockback(float knockbackMagnitude) {
         Vector2 unitVec = transform.position - player.transform.position;
@@ -172,6 +180,7 @@ public class EnemyController : MonoBehaviour
 
     private void handleKnockback() {
         knockbackTimer += Time.deltaTime;
+        aiPath.canMove = false; // ?
         if(knockbackTimer > knockbackTime) {
             isKnockback = false;
             aiPath.canMove = true;
