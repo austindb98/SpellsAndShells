@@ -54,6 +54,7 @@ public class RoomManager : MonoBehaviour
             if (spawnMaster != null && fog.enabled)
             {
                 spawnMaster.gameObject.SetActive(true);
+                spawnMaster.isActive = true;
                 spawnMaster.spawnEnemies();
                 if (roomDoors != null)
                 {

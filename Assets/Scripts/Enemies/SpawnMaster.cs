@@ -11,6 +11,7 @@ public class SpawnMaster : MonoBehaviour
     public List<GameObject> spawnPrefabList;    // the list of enemies to spawn
     public List<Vector3> spawnPositionList;
     public bool isRoomComplete = false;
+    public bool isActive = false;
 
     // Start is called before the first frame update
     void Start()

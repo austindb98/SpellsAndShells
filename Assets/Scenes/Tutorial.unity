@@ -25124,6 +25124,7 @@ MonoBehaviour:
   doorList:
   - {fileID: 489798515}
   - {fileID: 1918243524}
+  fog: {fileID: 0}
 --- !u!1 &1067572879
 GameObject:
   m_ObjectHideFlags: 0
@@ -25240,7 +25241,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnPrefabList.Array.data[0]
       value: 
-      objectReference: {fileID: 2359917974354776225, guid: 821d41fabb3a9624595b35e37bb45aaf,
+      objectReference: {fileID: 8154171984916762044, guid: 0b011a69d7d84854e8e1d86b98630dbd,
         type: 3}
     - target: {fileID: 2527237651729366214, guid: f0537a0fea29a094f952c8d1661afa61,
         type: 3}
@@ -45049,6 +45050,7 @@ MonoBehaviour:
   spawnMaster: {fileID: 1212279455}
   roomDoors: {fileID: 489798515}
   doorList: []
+  fog: {fileID: 0}
 --- !u!1 &1825468259
 GameObject:
   m_ObjectHideFlags: 0

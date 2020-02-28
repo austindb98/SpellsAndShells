@@ -30,7 +30,7 @@ public class SpawnManager : MonoBehaviour
         float spawnRadius;
         float spawnAngle;
 
-        if(rnd.Next(0, 1000) < relativeTimePassed * 1000) {
+        if(rnd.Next(0, 1000) < relativeTimePassed * 1000 && spawnMaster.isActive) {
             spawnRadius = rnd.Next((int) (spawnMinRadius * 1000), (int) (spawnMaxRadius * 1000)) / 1000f;
             spawnAngle = rnd.Next(0, 360);
 
