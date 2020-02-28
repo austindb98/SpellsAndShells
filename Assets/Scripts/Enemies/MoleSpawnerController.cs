@@ -7,7 +7,7 @@ public class MoleSpawnerController : EnemyController
     // Start is called before the first frame update
     public override void Start()
     {
-        
+        base.Start();
     }
 
     // Update is called once per frame
@@ -16,7 +16,10 @@ public class MoleSpawnerController : EnemyController
         
     }
 
-    public override void handleShotgunAttack() { }
+    public override void handleShotgunAttack() 
+    {
+        base.handleShotgunAttack();
+    }
 
     public override void handleEnemyDeath() {
         base.handleEnemyDeath();

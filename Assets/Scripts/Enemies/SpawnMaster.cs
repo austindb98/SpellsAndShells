@@ -15,7 +15,7 @@ public class SpawnMaster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (spawnPrefabList.Count == 0)
+        if (spawnPrefabList.Count == 0 && enemyList.Count == 0)
         {
             isRoomComplete = true;
         }
