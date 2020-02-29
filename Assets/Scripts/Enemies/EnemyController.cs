@@ -57,12 +57,13 @@ public class EnemyController : MonoBehaviour
         playerCollider = player.GetComponent<Collider2D>();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         playerController = player.GetComponent<PlayerController>();
-        if(aiPath != null)
+        if(aiPath != null) {    /* for enemies with A* pathfinding */
             maxSpeed = aiPath.maxSpeed;
+            gameObject.GetComponent<AIDestinationSetter>().target = player.transform;
+        }
 
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         enemyHealth = gameObject.GetComponent<EnemyHealth>();
-        gameObject.GetComponent<AIDestinationSetter>().target = player.transform;
     }
 
     virtual public void Update() {
