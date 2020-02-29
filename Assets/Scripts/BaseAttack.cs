@@ -31,8 +31,10 @@ public class BaseAttack : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Entities") || collision.gameObject.layer == LayerMask.NameToLayer("StationaryEntities"))
         {
-            EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
-            enemyHealth.takeDamage(damage, element);
+            EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
+            enemyController.handleAttack(damage, element);
+            /*EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+            enemyHealth.takeDamage(damage, element);*/
         }
         Destroy(gameObject);
     }

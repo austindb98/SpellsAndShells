@@ -8,7 +8,7 @@ public class WitchController : EnemyController
 {
     private float maxHexRange = 25f;     // range from which archer can attack
     private int raycastLayerMask;
-    private float spellSpeed = 30f;
+    private float spellSpeed = 15f;
 
     private float deathTimer;
     private float deathTime = 1.2f;
@@ -62,7 +62,7 @@ public class WitchController : EnemyController
         }
     }
 
-    private void triSpellCast() {
+    /*private void triSpellCast() {
         Vector3 atPlayerUnitVec = player.transform.position - transform.position;
         Vector3 predictiveUnitVec = getUnitVec();//player.transform.position - transform.position;
         predictiveUnitVec.Normalize();
@@ -74,7 +74,7 @@ public class WitchController : EnemyController
         castSpell(atPlayerUnitVec);
         castSpell(predictiveUnitVec);
         castSpell(betweenPlayerUnitVec);
-    }
+    }*/
 
     private void castSpell(Vector3 unitVec) {
         float angle = Mathf.Atan2( unitVec.y, unitVec.x )  * Mathf.Rad2Deg + 90;
@@ -127,7 +127,9 @@ public class WitchController : EnemyController
 
     public void handleHex() {
         // hex was just cast
-        triSpellCast();
+        Vector3 playerPositionVector = player.transform.position - transform.position;
+        playerPositionVector.Normalize();
+        castSpell(getUnitVec() + playerPositionVector);
     }
 
     public override void handleEnemyDeath() {

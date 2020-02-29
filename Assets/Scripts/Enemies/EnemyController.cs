@@ -78,6 +78,10 @@ public class EnemyController : MonoBehaviour
 
     }
 
+    virtual public void handleAttack(float damage, BaseAttack.Element element) {
+        enemyHealth.takeDamage(damage, element);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Pot")
@@ -116,7 +120,7 @@ public class EnemyController : MonoBehaviour
             spawnMaster.removeEnemyFromList(this);
     }
 
-    public void applyFrostSlowingEffect(float magnitude, float time) {
+    public virtual void applyFrostSlowingEffect(float magnitude, float time) {
         if(enemyHealth.weakness == BaseAttack.Element.Ice) {
             magnitude /= 1.5f;
             time *= 1.5f;
@@ -132,7 +136,7 @@ public class EnemyController : MonoBehaviour
         spriteRenderer.color = new Color(0.5f, 0.5f, 1, 1);
     }
 
-    public void applyFireDotEffect(float dotDuration, float dotFrequency, float dotDamage) {
+    public virtual void applyFireDotEffect(float dotDuration, float dotFrequency, float dotDamage) {
         if(enemyHealth.weakness == BaseAttack.Element.Fire) {
             dotDamage *= 1.5f;
             dotDuration *= 1.5f;
@@ -152,7 +156,7 @@ public class EnemyController : MonoBehaviour
             cancelFrozen();
     }
 
-    public void applyWindKnockbackEffect(float knockbackMagnitude) {
+    public virtual void applyWindKnockbackEffect(float knockbackMagnitude) {
         if(enemyHealth.weakness == BaseAttack.Element.Wind) {
             knockbackMagnitude *= 1.5f;
         }
