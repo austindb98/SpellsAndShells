@@ -184,7 +184,7 @@ public class PlayerController : BasePlayer {
                 if(raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("Obstacles"))
                 {
                     GameObject tileMapGameObject = raycastResult.collider.gameObject;
-                    tileMapGameObject.GetComponent<ObstacleController>().Break(raycastResult.point);
+                    tileMapGameObject.GetComponent<ObstacleController>().PlayerBreak(raycastResult.point);
                 }
                 else if(raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("Entities") ||
                         raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("StationaryEntities"))

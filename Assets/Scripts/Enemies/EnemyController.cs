@@ -93,7 +93,8 @@ public class EnemyController : MonoBehaviour
             {
                 hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
                 hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
-                tilemap.SetTile(tilemap.WorldToCell(hitPosition), null);
+                //tilemap.SetTile(tilemap.WorldToCell(hitPosition), null);
+                collision.gameObject.GetComponent<ObstacleController>().Break(hitPosition);
             }
         }
     }
