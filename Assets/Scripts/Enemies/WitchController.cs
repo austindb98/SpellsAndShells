@@ -129,8 +129,8 @@ public class WitchController : EnemyController
         return false;
     }
 
-    public override void handleShotgunAttack() {
-        base.handleShotgunAttack();
+    public override void handleShotgunAttack(int dmg) {
+        base.handleShotgunAttack(dmg);
 
         base.isKnockback = true;
         base.aiPath.canMove = false;

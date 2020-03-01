@@ -77,9 +77,9 @@ public class CobraController : EnemyController
         }
     }
 
-    public override void handleShotgunAttack()
+    public override void handleShotgunAttack(int dmg)
     {
-        base.handleShotgunAttack();
+        base.handleShotgunAttack(dmg);
 
         base.isKnockback = true;
         base.aiPath.canMove = false;

@@ -29,7 +29,7 @@ public class Runestone : EnemyController
         animator.SetInteger("type", (int) type);
     }
 
-    public override void handleShotgunAttack() {
+    public override void handleShotgunAttack(int dmg) {
         base.enemyHealth.takeDamage(0, BaseAttack.Element.Normal);
     }
 
