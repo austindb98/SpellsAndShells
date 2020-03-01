@@ -105,10 +105,10 @@ Rigidbody2D:
   m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a87bc8db280caa74799e9a54109d5214, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &6544395803861375139
 Animator:
@@ -209,6 +209,7 @@ MonoBehaviour:
   playerCollider: {fileID: 0}
   rb2d: {fileID: 0}
   attackStrength: 20
+  knockbackStrength: 0.3
   drops:
   - {fileID: 5413576069672028623, guid: 3967c5ff242223a4fa211ee48b7f0e69, type: 3}
   - {fileID: 1052014806763810547, guid: 72a802a5c3d205b409ca7e2f8990e899, type: 3}
@@ -216,9 +217,12 @@ MonoBehaviour:
   isKnockback: 0
   playerController: {fileID: 0}
   knockbackCoefficient: 0
+  maxSpeed: 0
   player: {fileID: 0}
   aiPath: {fileID: 6544395803861375197}
   spawnMaster: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  enemyHealth: {fileID: 0}
 --- !u!114 &6544395803861375136
 MonoBehaviour:
   m_ObjectHideFlags: 0

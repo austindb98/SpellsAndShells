@@ -8,7 +8,7 @@ public class WitchController : EnemyController
 {
     private float maxHexRange = 25f;     // range from which archer can attack
     private int raycastLayerMask;
-    private float spellSpeed = 15f;
+    private float spellSpeed = 10f;
 
     private float deathTimer;
     private float deathTime = 1.2f;
@@ -84,6 +84,7 @@ public class WitchController : EnemyController
         GameObject thisArrow = Instantiate(spell, transform.position, q);
         thisArrow.GetComponent<Rigidbody2D>().velocity = spellSpeed * unitVec;
         thisArrow.GetComponent<WitchSpellController>().player = player;
+        thisArrow.GetComponent<WitchSpellController>().speed = spellSpeed;
         an.SetBool("isHexing", false);
         base.aiPath.canMove = true;
     }
@@ -107,12 +108,23 @@ public class WitchController : EnemyController
 
     // returns whether the player is in LoS of the ArcherBoy
     private bool CheckLineOfSight() {
-        if(Vector3.Distance(player.transform.position, transform.position) < maxHexRange) {
-            Vector3 rayDirection = player.transform.position - transform.position;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, maxHexRange, raycastLayerMask);
+        bool isAllHit = true;
 
-            if (hit)
-                return hit.transform == player.transform;
+        if(Vector3.Distance(player.transform.position, transform.position) < maxHexRange) {
+            Vector3[] rayStartingPoints = {
+                transform.position + new Vector3(0.5f, 0, 0),
+                transform.position + new Vector3(-0.5f, 0, 0),
+                transform.position + new Vector3(0, 0.5f, 0),
+                transform.position + new Vector3(0, -0.5f, 0)
+            };
+            foreach(Vector3 initialPos in rayStartingPoints) {
+                Vector3 rayDirection = player.transform.position - initialPos;
+                RaycastHit2D hit = Physics2D.Raycast(initialPos, rayDirection, maxHexRange, raycastLayerMask);
+                if(!hit || hit.transform != player.transform)
+                    isAllHit = false;
+            }
+
+            return isAllHit;
         }
         return false;
     }

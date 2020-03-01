@@ -129,7 +129,7 @@ public class EnemyController : MonoBehaviour
             magnitude *= 1.5f;
             time /= 1.5f;
         }
-        aiPath.maxSpeed *= magnitude;
+        aiPath.maxSpeed = maxSpeed * magnitude;
         isFrozen = true;
         frozenTime = time;
         frozenTimer = 0f;
