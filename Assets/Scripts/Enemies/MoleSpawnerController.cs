@@ -13,12 +13,12 @@ public class MoleSpawnerController : EnemyController
     // Update is called once per frame
     public override void Update()
     {
-        
+
     }
 
-    public override void handleShotgunAttack() 
+    public override void handleShotgunAttack(int dmg)
     {
-        base.handleShotgunAttack();
+        base.handleShotgunAttack(dmg);
     }
 
     public override void handleEnemyDeath() {

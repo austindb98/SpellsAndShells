@@ -32,7 +32,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
     void LateUpdate() {
-        
+
         if(accumulatedDamage >= 0) {
             int intDamage = (int) accumulatedDamage;
             string dmg = intDamage.ToString();
@@ -48,7 +48,6 @@ public class EnemyHealth : MonoBehaviour
     }
 
     public virtual void takeDamage(float damage, BaseAttack.Element type) {
-        string dmg = "";
         if(type == weakness && weakness != BaseAttack.Element.Normal) {
             damage *= weakMult;
             dmgColor = redColor;

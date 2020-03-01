@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     public bool isKnockback = false;
     private float knockbackTimer = 0f;
     private float knockbackTime = 0.8f;
-    
+
     private bool isFrozen;
     private float frozenTimer;
     private float frozenTime;
@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour
     private float flameDamage;
     private float flameFrequency;
 
-    private float shotgunDamage = 3f;    // the damage taken by a single pellet of the shotgun
+    //private float shotgunDamage = 3f;    // the damage taken by a single pellet of the shotgun
 
     public PlayerController playerController;
 
@@ -106,7 +106,7 @@ public class EnemyController : MonoBehaviour
         isKnockback = true;
     }
 
-    virtual public void handleShotgunAttack() {
+    virtual public void handleShotgunAttack(int shotgunDamage) {
         applyKnockback(knockbackStrength);
         enemyHealth.takeDamage(shotgunDamage, BaseAttack.Element.Normal);
     }
@@ -186,7 +186,7 @@ public class EnemyController : MonoBehaviour
         isFlaming = false;
         spriteRenderer.color = new Color(1, 1, 1, 1);
     }
-    
+
     private void cancelFrozen() {
         isFrozen = false;
         aiPath.maxSpeed = maxSpeed;

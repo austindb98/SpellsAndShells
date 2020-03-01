@@ -25,7 +25,7 @@ public class MinotaurController : EnemyController
 
     // Update is called once per frame
     public override void Update()
-    {        
+    {
         float x = player.transform.position.x - transform.position.x;
 
         base.Update();
@@ -37,7 +37,7 @@ public class MinotaurController : EnemyController
                 swingRestTimer = 0f;
             }
         }
-        
+
         if(!base.isKnockback && !isSwingRest && !isDead)
             aiPath.canMove = true;
         else
@@ -53,7 +53,7 @@ public class MinotaurController : EnemyController
             WalkLeft();
         else
             an.SetBool("isWalking", true);
-        
+
 
         if(isDead) {
             deathTimer += Time.deltaTime;
@@ -71,9 +71,9 @@ public class MinotaurController : EnemyController
         }
     }
 
-    public override void handleShotgunAttack() {
-        base.handleShotgunAttack();
-        
+    public override void handleShotgunAttack(int dmg) {
+        base.handleShotgunAttack(dmg);
+
         base.isKnockback = true;
         base.aiPath.canMove = false;
         an.SetBool("isWalking", false);

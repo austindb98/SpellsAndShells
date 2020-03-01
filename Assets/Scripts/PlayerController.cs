@@ -38,7 +38,7 @@ public class PlayerController : BasePlayer {
     private float knockbackTimer = 0;
     private float knockbackTime = 0.8f;
     private bool isKnockback = false;
-    
+
     public LayerMask wallLayer, obstacleLayer, fogLayer;
     private LayerMask interactsWithBullets;
     private Vector2 mousePos;
@@ -192,7 +192,7 @@ public class PlayerController : BasePlayer {
                     //EnemyHealth enemyHealth = raycastResult.collider.gameObject.GetComponent<EnemyHealth>();
                     //enemyHealth.takeDamage(damage, BaseAttack.Element.Normal);
                     EnemyController enemyController = raycastResult.collider.gameObject.GetComponent<EnemyController>();
-                    enemyController.handleShotgunAttack();
+                    enemyController.handleShotgunAttack(shell.damage);
                 }
             }
             else
