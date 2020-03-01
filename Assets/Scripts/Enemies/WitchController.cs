@@ -8,7 +8,7 @@ public class WitchController : EnemyController
 {
     private float maxHexRange = 25f;     // range from which archer can attack
     private int raycastLayerMask;
-    private float spellSpeed = 10f;
+    private float spellSpeed = 15f;
 
     private float deathTimer;
     private float deathTime = 1.2f;
