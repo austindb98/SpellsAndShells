@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Pathfinding;
 
@@ -11,9 +12,13 @@ public class SpawnManager : MonoBehaviour
     private float avgSpawnRate = 6f;
     private bool isActive = false;
 
+    private int numSpawnedEnemies = 0;
+
     public int initialSpawnNum = 3;
 
     private System.Random rnd;
+    public float spawnSlope = -.13f;
+    public float spawnIntercept = 1f;
 
     public GameObject enemyPrefab;
     public GameObject player;
@@ -40,7 +45,7 @@ public class SpawnManager : MonoBehaviour
             }
         }
 
-        if(rnd.Next(0, 1000) < relativeTimePassed * 1000 && isActive) {
+        if(isActive && rnd.NextDouble() < Time.deltaTime * (spawnIntercept + spawnSlope * numSpawnedEnemies)) {
             SpawnEnemy();
         }
     }
@@ -59,7 +64,13 @@ public class SpawnManager : MonoBehaviour
 
         spawnMaster.addEnemyToList(enemyController);
         enemyController.player = player.gameObject;
+        enemyController.spawnManager = this;
         destinationSetter.target = player.transform;
+        numSpawnedEnemies++;
+    }
+
+    public void decrementEnemyCounter() {
+        numSpawnedEnemies--;
     }
 
 }

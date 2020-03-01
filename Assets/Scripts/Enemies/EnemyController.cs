@@ -44,6 +44,7 @@ public class EnemyController : MonoBehaviour
     public AIPath aiPath;
 
     public SpawnMaster spawnMaster;
+    public SpawnManager spawnManager;
 
     public SpriteRenderer spriteRenderer;
 
@@ -119,6 +120,8 @@ public class EnemyController : MonoBehaviour
         }
         if(spawnMaster)
             spawnMaster.removeEnemyFromList(this);
+        if(spawnManager)
+            spawnManager.decrementEnemyCounter();
     }
 
     public virtual void applyFrostSlowingEffect(float magnitude, float time) {
