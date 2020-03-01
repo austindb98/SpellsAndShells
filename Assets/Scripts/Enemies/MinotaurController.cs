@@ -42,17 +42,19 @@ public class MinotaurController : EnemyController
             aiPath.canMove = true;
         else
             aiPath.canMove = false;
-
-        if(base.isKnockback || isSwingRest)
-            return;
-        else if (aiPath.desiredVelocity.x == 0 && aiPath.desiredVelocity.y == 0)
-            an.SetBool("isWalking", false);
-        else if (x > 0)
-            WalkRight();
-        else if (x < 0)
-            WalkLeft();
-        else
-            an.SetBool("isWalking", true);
+        if (!isDead)
+        {
+            if (base.isKnockback || isSwingRest)
+                return;
+            else if (aiPath.desiredVelocity.x == 0 && aiPath.desiredVelocity.y == 0)
+                an.SetBool("isWalking", false);
+            else if (x > 0)
+                WalkRight();
+            else if (x < 0)
+                WalkLeft();
+            else
+                an.SetBool("isWalking", true);
+        }
 
 
         if(isDead) {

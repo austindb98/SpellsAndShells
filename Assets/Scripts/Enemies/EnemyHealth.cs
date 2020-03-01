@@ -48,6 +48,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
     public virtual void takeDamage(float damage, BaseAttack.Element type) {
+        dmgColor = yellowColor;
         if(type == weakness && weakness != BaseAttack.Element.Normal) {
             damage *= weakMult;
             dmgColor = redColor;
