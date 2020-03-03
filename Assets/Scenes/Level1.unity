@@ -391,6 +391,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreantSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 7271938109900050915, guid: fe93f033cedbabf489dad9d57eb867e7,
+        type: 3}
+      propertyPath: spawnIntercept
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271938109900050915, guid: fe93f033cedbabf489dad9d57eb867e7,
+        type: 3}
+      propertyPath: spawnSlope
+      value: -0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 8127205393657728507, guid: fe93f033cedbabf489dad9d57eb867e7,
         type: 3}
       propertyPath: spawnMaster
@@ -60975,6 +60985,16 @@ PrefabInstance:
       propertyPath: spawnMaster
       value: 
       objectReference: {fileID: 1839069630}
+    - target: {fileID: 4567944497076264157, guid: 30a8d5e28be7208428933b2575d815e6,
+        type: 3}
+      propertyPath: spawnIntercept
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567944497076264157, guid: 30a8d5e28be7208428933b2575d815e6,
+        type: 3}
+      propertyPath: spawnSlope
+      value: -0.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30a8d5e28be7208428933b2575d815e6, type: 3}
 --- !u!114 &2070350319 stripped

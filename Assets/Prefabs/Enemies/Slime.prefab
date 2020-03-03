@@ -219,10 +219,10 @@ Rigidbody2D:
   m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a87bc8db280caa74799e9a54109d5214, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &563380607
 CapsuleCollider2D:
@@ -272,6 +272,7 @@ MonoBehaviour:
   playerCollider: {fileID: 0}
   rb2d: {fileID: 0}
   attackStrength: 20
+  knockbackStrength: 0.3
   drops: []
   dropChance: 0
   isKnockback: 0
@@ -281,5 +282,6 @@ MonoBehaviour:
   player: {fileID: 0}
   aiPath: {fileID: 2359917974354776229}
   spawnMaster: {fileID: 0}
+  spawnManager: {fileID: 0}
   spriteRenderer: {fileID: 0}
   enemyHealth: {fileID: 0}
