@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.15
+  radius: 0.25
   height: 0.01
   repathRate: 0.5
   canSearch: 1
@@ -287,4 +287,4 @@ MonoBehaviour:
   spawnMaster: {fileID: 0}
   spawnManager: {fileID: 0}
   spriteRenderer: {fileID: 0}
-  enemyHealth: {fileID: 0}
+  enemyHealth: {fileID: 563380606}

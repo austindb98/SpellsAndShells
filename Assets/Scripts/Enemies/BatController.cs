@@ -14,7 +14,7 @@ public class BatController : EnemyController
     private float pauseTimer;
     private float pauseTime = 2f;
     private float moveTimer;
-    private float moveTime = 2f;
+    private float moveTime = 1f;
 
     private Vector3 moveLeftVector;
     private Vector3 moveRightVector;
@@ -27,10 +27,11 @@ public class BatController : EnemyController
     {
         base.Start();
 
+        attackStrength = 15f;
         aiPath.canMove = false;
 
-        moveLeftVector = new Vector3(-5f, 0, 0);
-        moveRightVector = new Vector3(5f, 0, 0);
+        moveLeftVector = new Vector3(-4f, 0, 0);
+        moveRightVector = new Vector3(4f, 0, 0);
         stationaryVector = new Vector3(0, 0, 0);
 
         batIdleState = BatIdleStates.PauseLeft;
@@ -53,6 +54,11 @@ public class BatController : EnemyController
             }
         }
         else {
+            if(isSeePlayer) {  /* bat doesn't see player and did on last update */
+                isSeePlayer = false;
+                an.SetBool("isAngry", false);
+                aiPath.canMove = false;
+            }
             BatIdle();
         }
     }
@@ -60,8 +66,8 @@ public class BatController : EnemyController
     private void BatIdle() {
         if(batIdleState == BatIdleStates.PauseLeft || batIdleState == BatIdleStates.PauseRight) {
             pauseTimer += Time.deltaTime;
+            print("pauseTimer: " + pauseTimer);
             if(pauseTimer > pauseTime) {
-                print("to Move");
                 if(batIdleState == BatIdleStates.PauseLeft)
                     transitionBatMoveRight();
                 else
@@ -69,14 +75,27 @@ public class BatController : EnemyController
             }
         }
         else {
+            if(batIdleState == BatIdleStates.MoveRight)
+                rb2d.velocity = moveRightVector;
+            else if(batIdleState == BatIdleStates.MoveLeft)
+                rb2d.velocity = moveLeftVector;
             moveTimer += Time.deltaTime;
+            print("moveTimer: " + moveTimer);
             if(moveTimer > moveTime) {
-                print("to idle");
                 if(batIdleState == BatIdleStates.MoveLeft)
                     transitionBatIdleLeft();
                 else
                     transitionBatIdleRight();
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other == playerCollider && !isKnockback)
+        {
+            applyKnockback(1f);
+            playerController.takeDamage(attackStrength);
         }
     }
 
@@ -106,7 +125,7 @@ public class BatController : EnemyController
 
     // returns whether the player is in LoS of the ArcherBoy
     private bool CheckLineOfSight() {
-        bool isAllHit = true;
+        bool isHit = false;
 
         if(Vector3.Distance(player.transform.position, transform.position) < batMaxRange) {
             Vector3[] rayStartingPoints = {
@@ -118,11 +137,11 @@ public class BatController : EnemyController
             foreach(Vector3 initialPos in rayStartingPoints) {
                 Vector3 rayDirection = player.transform.position - initialPos;
                 RaycastHit2D hit = Physics2D.Raycast(initialPos, rayDirection, batMaxRange, raycastLayerMask);
-                if(!hit || hit.transform != player.transform)
-                    isAllHit = false;
+                if(hit && hit.transform == player.transform)
+                    isHit = true;
             }
 
-            return isAllHit;
+            return isHit;
         }
         return false;
     }
