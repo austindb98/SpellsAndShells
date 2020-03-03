@@ -45,6 +45,8 @@ public class PlayerController : BasePlayer {
     private float heartHealth = 30f;
     private float potionMana = 30f;
 
+    static readonly float slowdownMult = .35f;
+
     public SpawnMaster initialSpawnMaster; // this will not be necessary in the final design
 
     protected override void Start() {
@@ -207,7 +209,7 @@ public class PlayerController : BasePlayer {
     public void takeDamage(float damage) {
         health -= damage;
         isHit = true;
-        speed = baseSpeed / 4; // no magic numbers TODO
+        speed = baseSpeed * slowdownMult;
         SoundController.PlayPlayerHurt();
     }
 
