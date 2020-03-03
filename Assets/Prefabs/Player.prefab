@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 386873839230528253}
   - component: {fileID: 805859167}
   - component: {fileID: 805859166}
+  - component: {fileID: 7750016933970606389}
   m_Layer: 14
   m_Name: Player
   m_TagString: Player
@@ -316,6 +317,20 @@ MonoBehaviour:
     attackPrefab: {fileID: 0}
   - manaCoolDown: 0
     attackPrefab: {fileID: 0}
+--- !u!114 &7750016933970606389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386873839230528248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9879a4776a0c7a84b9e1267aaf5d1d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footprintPrefab: {fileID: 8694011562221650946, guid: a1051ee806ec8b34b9d88dc9758b6a30,
+    type: 3}
 --- !u!1001 &386873839422068572
 PrefabInstance:
   m_ObjectHideFlags: 0
