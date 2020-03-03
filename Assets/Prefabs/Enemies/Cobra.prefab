@@ -136,7 +136,7 @@ MonoBehaviour:
   repathRate: 1
   canSearch: 1
   canMove: 1
-  maxSpeed: 8
+  maxSpeed: 5
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -203,7 +203,7 @@ Rigidbody2D:
   m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a87bc8db280caa74799e9a54109d5214, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -224,14 +224,18 @@ MonoBehaviour:
   playerCollider: {fileID: 0}
   rb2d: {fileID: 0}
   attackStrength: 0
+  knockbackStrength: 0.3
   drops: []
   dropChance: 0
   isKnockback: 0
   playerController: {fileID: 0}
   knockbackCoefficient: 0
+  maxSpeed: 0
   player: {fileID: 0}
   aiPath: {fileID: 7537176707517620243}
   spawnMaster: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  enemyHealth: {fileID: 0}
 --- !u!70 &1206609593829668588
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

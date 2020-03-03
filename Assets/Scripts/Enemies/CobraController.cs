@@ -44,17 +44,19 @@ public class CobraController : EnemyController
             aiPath.canMove = true;
         else
             aiPath.canMove = false;
-
-        if (base.isKnockback || isSwingRest)
-            return;
-        else if (aiPath.desiredVelocity.x == 0 && aiPath.desiredVelocity.y == 0)
-            an.SetBool("isWalking", false);
-        else if (x > 0)
-            WalkRight();
-        else if (x < 0)
-            WalkLeft();
-        else
-            an.SetBool("isWalking", true);
+        if (!isDead)
+        {
+            if (base.isKnockback || isSwingRest)
+                return;
+            else if (aiPath.desiredVelocity.x == 0 && aiPath.desiredVelocity.y == 0)
+                an.SetBool("isWalking", false);
+            else if (x > 0)
+                WalkRight();
+            else if (x < 0)
+                WalkLeft();
+            else
+                an.SetBool("isWalking", true);
+        }
 
 
         if (isDead)
@@ -77,9 +79,9 @@ public class CobraController : EnemyController
         }
     }
 
-    public override void handleShotgunHit(float knockbackStrength)
+    public override void handleShotgunAttack(int dmg)
     {
-        base.handleShotgunHit(knockbackStrength * knockbackCoefficient);
+        base.handleShotgunAttack(dmg);
 
         base.isKnockback = true;
         base.aiPath.canMove = false;
@@ -119,7 +121,7 @@ public class CobraController : EnemyController
         if (Vector3.Distance(transform.position, player.transform.position) < 4.0f)
         {
             playerController.takeDamage(attackStrength);
-            playerController.onHitKnockback(1500.0f, transform.position);
+            playerController.onHitKnockback(250.0f, transform.position);
         }
         isSwingRest = true;
         swingRestTimer = 0f;

@@ -38,7 +38,7 @@ public class PlayerController : BasePlayer {
     private float knockbackTimer = 0;
     private float knockbackTime = 0.8f;
     private bool isKnockback = false;
-    
+
     public LayerMask wallLayer, obstacleLayer, fogLayer;
     private LayerMask interactsWithBullets;
     private Vector2 mousePos;
@@ -184,13 +184,15 @@ public class PlayerController : BasePlayer {
                 if(raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("Obstacles"))
                 {
                     GameObject tileMapGameObject = raycastResult.collider.gameObject;
-                    tileMapGameObject.GetComponent<ObstacleController>().Break(raycastResult.point);
+                    tileMapGameObject.GetComponent<ObstacleController>().PlayerBreak(raycastResult.point);
                 }
                 else if(raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("Entities") ||
                         raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("StationaryEntities"))
                 {
-                    EnemyHealth enemyHealth = raycastResult.collider.gameObject.GetComponent<EnemyHealth>();
-                    enemyHealth.takeDamage(damage, BaseAttack.Element.Normal);
+                    //EnemyHealth enemyHealth = raycastResult.collider.gameObject.GetComponent<EnemyHealth>();
+                    //enemyHealth.takeDamage(damage, BaseAttack.Element.Normal);
+                    EnemyController enemyController = raycastResult.collider.gameObject.GetComponent<EnemyController>();
+                    enemyController.handleShotgunAttack(shell.damage);
                 }
             }
             else

@@ -32,7 +32,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
     void LateUpdate() {
-        
+
         if(accumulatedDamage >= 0) {
             int intDamage = (int) accumulatedDamage;
             string dmg = intDamage.ToString();
@@ -48,30 +48,24 @@ public class EnemyHealth : MonoBehaviour
     }
 
     public virtual void takeDamage(float damage, BaseAttack.Element type) {
-        string dmg = "";
+        dmgColor = yellowColor;
         if(type == weakness && weakness != BaseAttack.Element.Normal) {
             damage *= weakMult;
             dmgColor = redColor;
-
         } else if (type == resistance && resistance != BaseAttack.Element.Normal) {
             damage /= weakMult;
             dmgColor = blackColor;
         }
-        if (accumulatedDamage < 0)
-        {
+        if (accumulatedDamage < 0){
             accumulatedDamage = 0;
         }
         accumulatedDamage += damage;
 
         if (!enemyController) // not moveable ignore, non moveable enemy will handle
-        {
             return;
-        }
 
         if (currentHealth <= 0f) {
             enemyController.handleEnemyDeath();
-        } else {
-            enemyController.handleShotgunHit(0.4f);
         }
     }
 }

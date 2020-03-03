@@ -25,7 +25,7 @@ public class MinotaurController : EnemyController
 
     // Update is called once per frame
     public override void Update()
-    {        
+    {
         float x = player.transform.position.x - transform.position.x;
 
         base.Update();
@@ -37,23 +37,25 @@ public class MinotaurController : EnemyController
                 swingRestTimer = 0f;
             }
         }
-        
+
         if(!base.isKnockback && !isSwingRest && !isDead)
             aiPath.canMove = true;
         else
             aiPath.canMove = false;
+        if (!isDead)
+        {
+            if (base.isKnockback || isSwingRest)
+                return;
+            else if (aiPath.desiredVelocity.x == 0 && aiPath.desiredVelocity.y == 0)
+                an.SetBool("isWalking", false);
+            else if (x > 0)
+                WalkRight();
+            else if (x < 0)
+                WalkLeft();
+            else
+                an.SetBool("isWalking", true);
+        }
 
-        if(base.isKnockback || isSwingRest)
-            return;
-        else if (aiPath.desiredVelocity.x == 0 && aiPath.desiredVelocity.y == 0)
-            an.SetBool("isWalking", false);
-        else if (x > 0)
-            WalkRight();
-        else if (x < 0)
-            WalkLeft();
-        else
-            an.SetBool("isWalking", true);
-        
 
         if(isDead) {
             deathTimer += Time.deltaTime;
@@ -71,9 +73,9 @@ public class MinotaurController : EnemyController
         }
     }
 
-    public override void handleShotgunHit(float knockbackStrength) {
-        base.handleShotgunHit(knockbackStrength * knockbackCoefficient);
-        
+    public override void handleShotgunAttack(int dmg) {
+        base.handleShotgunAttack(dmg);
+
         base.isKnockback = true;
         base.aiPath.canMove = false;
         an.SetBool("isWalking", false);

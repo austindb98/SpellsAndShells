@@ -8,7 +8,7 @@ public class WitchController : EnemyController
 {
     private float maxHexRange = 25f;     // range from which archer can attack
     private int raycastLayerMask;
-    private float spellSpeed = 30f;
+    private float spellSpeed = 15f;
 
     private float deathTimer;
     private float deathTime = 1.2f;
@@ -45,7 +45,6 @@ public class WitchController : EnemyController
             an.SetBool("isWalking", false);
             an.SetBool("isHexing", true);
             an.SetBool("isFacingRight", x > 0);
-            print(x > 0);
         }
         else if(aiPath.desiredVelocity.x == 0 && aiPath.desiredVelocity.y == 0) { // idle
             an.SetBool("isWalking", false);
@@ -63,7 +62,7 @@ public class WitchController : EnemyController
         }
     }
 
-    private void triSpellCast() {
+    /*private void triSpellCast() {
         Vector3 atPlayerUnitVec = player.transform.position - transform.position;
         Vector3 predictiveUnitVec = getUnitVec();//player.transform.position - transform.position;
         predictiveUnitVec.Normalize();
@@ -75,7 +74,7 @@ public class WitchController : EnemyController
         castSpell(atPlayerUnitVec);
         castSpell(predictiveUnitVec);
         castSpell(betweenPlayerUnitVec);
-    }
+    }*/
 
     private void castSpell(Vector3 unitVec) {
         float angle = Mathf.Atan2( unitVec.y, unitVec.x )  * Mathf.Rad2Deg + 90;
@@ -85,6 +84,7 @@ public class WitchController : EnemyController
         GameObject thisArrow = Instantiate(spell, transform.position, q);
         thisArrow.GetComponent<Rigidbody2D>().velocity = spellSpeed * unitVec;
         thisArrow.GetComponent<WitchSpellController>().player = player;
+        thisArrow.GetComponent<WitchSpellController>().speed = spellSpeed;
         an.SetBool("isHexing", false);
         base.aiPath.canMove = true;
     }
@@ -108,20 +108,29 @@ public class WitchController : EnemyController
 
     // returns whether the player is in LoS of the ArcherBoy
     private bool CheckLineOfSight() {
-        if(Vector3.Distance(player.transform.position, transform.position) < maxHexRange) {
-            Vector3 rayDirection = player.transform.position - transform.position;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, maxHexRange, raycastLayerMask);
+        bool isAllHit = true;
 
-            if (hit)
-                return hit.transform == player.transform;
+        if(Vector3.Distance(player.transform.position, transform.position) < maxHexRange) {
+            Vector3[] rayStartingPoints = {
+                transform.position + new Vector3(0.5f, 0, 0),
+                transform.position + new Vector3(-0.5f, 0, 0),
+                transform.position + new Vector3(0, 0.5f, 0),
+                transform.position + new Vector3(0, -0.5f, 0)
+            };
+            foreach(Vector3 initialPos in rayStartingPoints) {
+                Vector3 rayDirection = player.transform.position - initialPos;
+                RaycastHit2D hit = Physics2D.Raycast(initialPos, rayDirection, maxHexRange, raycastLayerMask);
+                if(!hit || hit.transform != player.transform)
+                    isAllHit = false;
+            }
+
+            return isAllHit;
         }
         return false;
     }
 
-    public override void handleShotgunHit(float knockbackMagnitude) {
-        Vector2 unitVec = transform.position - player.transform.position;
-        unitVec.Normalize();
-        rb2d.AddForce(unitVec * knockbackMagnitude);
+    public override void handleShotgunAttack(int dmg) {
+        base.handleShotgunAttack(dmg);
 
         base.isKnockback = true;
         base.aiPath.canMove = false;
@@ -130,7 +139,9 @@ public class WitchController : EnemyController
 
     public void handleHex() {
         // hex was just cast
-        triSpellCast();
+        Vector3 playerPositionVector = player.transform.position - transform.position;
+        playerPositionVector.Normalize();
+        castSpell(getUnitVec() + playerPositionVector);
     }
 
     public override void handleEnemyDeath() {

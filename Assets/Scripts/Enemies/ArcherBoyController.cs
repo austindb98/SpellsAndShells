@@ -95,20 +95,29 @@ public class ArcherBoyController : EnemyController
 
     // returns whether the player is in LoS of the ArcherBoy
     private bool CheckLineOfSight() {
-        if(Vector3.Distance(player.transform.position, transform.position) < maxArcherRange) {
-            Vector3 rayDirection = player.transform.position - transform.position;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, maxArcherRange, raycastLayerMask);
+        bool isAllHit = true;
 
-            if (hit)
-                return hit.transform == player.transform;
+        if(Vector3.Distance(player.transform.position, transform.position) < maxArcherRange) {
+            Vector3[] rayStartingPoints = {
+                transform.position + new Vector3(0.5f, 0, 0),
+                transform.position + new Vector3(-0.5f, 0, 0),
+                transform.position + new Vector3(0, 0.5f, 0),
+                transform.position + new Vector3(0, -0.5f, 0)
+            };
+            foreach(Vector3 initialPos in rayStartingPoints) {
+                Vector3 rayDirection = player.transform.position - initialPos;
+                RaycastHit2D hit = Physics2D.Raycast(initialPos, rayDirection, maxArcherRange, raycastLayerMask);
+                if(!hit || hit.transform != player.transform)
+                    isAllHit = false;
+            }
+
+            return isAllHit;
         }
         return false;
     }
 
-    public override void handleShotgunHit(float knockbackMagnitude) {
-        Vector2 unitVec = transform.position - player.transform.position;
-        unitVec.Normalize();
-        rb2d.AddForce(unitVec * knockbackMagnitude);
+    public override void handleShotgunAttack(int dmg) {
+        base.handleShotgunAttack(dmg);
 
         base.isKnockback = true;
         base.aiPath.canMove = false;

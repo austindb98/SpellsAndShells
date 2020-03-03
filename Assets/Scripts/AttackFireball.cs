@@ -25,7 +25,8 @@ public class AttackFireball : BaseAttack
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
-        enemyController.applyFireDotEffect(dotDuration, dotFrequency, dotDamage);
+        if(enemyController)
+            enemyController.applyFireDotEffect(dotDuration, dotFrequency, dotDamage);
         base.OnTriggerEnter2D(collision);
     }
 }

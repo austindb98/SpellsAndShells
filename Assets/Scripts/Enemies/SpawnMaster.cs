@@ -11,26 +11,30 @@ public class SpawnMaster : MonoBehaviour
     public List<GameObject> spawnPrefabList;    // the list of enemies to spawn
     public List<Vector3> spawnPositionList;
     public bool isRoomComplete = false;
-    public List<GameObject> doorList;
-    public GameObject fogTiles;
+    public bool isActive = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (spawnPrefabList.Count == 0 && enemyList.Count == 0)
+        {
+            isRoomComplete = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         if(isRescan) {
-            AstarPath.active.Scan(AstarPath.active.data.gridGraph);
+            // AstarPath.active.Scan(AstarPath.active.data.gridGraph); TODO
             isRescan = false;
         }
     }
 
     public void removeEnemyFromList(EnemyController enemy) {
         enemyList.Remove(enemy);
-        if(enemyList.Count == 0) {
+        if (enemyList.Count == 0)
+        {
             isRoomComplete = true;
         }
     }
@@ -44,21 +48,11 @@ public class SpawnMaster : MonoBehaviour
     public void spawnEnemies() {
         GameObject enemyObj;
 
-        foreach(EnemyEntry entry in spawnPrefabList.Zip(spawnPositionList, (prefab, pos) => new EnemyEntry(prefab, pos))) {
+        foreach (EnemyEntry entry in spawnPrefabList.Zip(spawnPositionList, (prefab, pos) => new EnemyEntry(prefab, pos))) {
             enemyObj = Instantiate(entry.prefab, entry.position, Quaternion.Euler( 0f, 0f, 0f ));
             enemyObj.GetComponent<EnemyController>().spawnMaster = this;
             enemyList.Add(enemyObj.GetComponent<EnemyController>());
-            Debug.Log("Here");
         }
-    }
-
-    public void doorsVisible()
-    {
-        foreach(GameObject door in doorList)
-        {
-            door.SetActive(true);
-        }
-        fogTiles.SetActive(false);
     }
 }
 

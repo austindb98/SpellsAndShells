@@ -41,19 +41,20 @@ public class TreantController : EnemyController
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other == playerCollider && !isKnockback) {
-            handleShotgunHit(1f);
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other == playerCollider && !isKnockback)
+        {
+            applyKnockback(1f);
             playerController.takeDamage(attackStrength);
         }
     }
 
-    public override void handleShotgunHit(float knockbackStrength) {
-        base.handleShotgunHit(knockbackStrength * knockbackCoefficient);
+    public override void handleShotgunAttack(int dmg) {
+        base.handleShotgunAttack(dmg);
 
         base.isKnockback = true;
         base.aiPath.canMove = false;
-        print("can't move");
         base.an.SetBool("isTreantWalking", false);
     }
 
