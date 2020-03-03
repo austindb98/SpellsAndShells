@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
 
     public bool isKnockback = false;
     private float knockbackTimer = 0f;
-    private float knockbackTime = 0.8f;
+    public float knockbackTime = 0.8f;
 
     private bool isFrozen;
     private float frozenTimer;
