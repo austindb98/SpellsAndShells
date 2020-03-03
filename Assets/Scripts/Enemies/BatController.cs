@@ -8,13 +8,16 @@ public class BatController : EnemyController
         PauseLeft, MoveLeft, PauseRight, MoveRight
     }
     private BatIdleStates batIdleState;
-    private float batMaxRange = 12f;
+    private float batMaxRange = 15f;
     private bool isSeePlayer;
+    private bool isPermanentlyAngry;
 
     private float pauseTimer;
-    private float pauseTime = 2f;
+    private float pauseTime = 1f;
     private float moveTimer;
     private float moveTime = 1f;
+
+    private float attackStrength = 15f;
 
     private Vector3 moveLeftVector;
     private Vector3 moveRightVector;
@@ -36,8 +39,7 @@ public class BatController : EnemyController
 
         batIdleState = BatIdleStates.PauseLeft;
 
-        raycastLayerMask =  ((1 << LayerMask.NameToLayer("Obstacles")) |
-                             (1 << LayerMask.NameToLayer("Walls")) |
+        raycastLayerMask =  ((1 << LayerMask.NameToLayer("Walls")) |
                              (1 << LayerMask.NameToLayer("Player")));
     }
 
@@ -46,7 +48,9 @@ public class BatController : EnemyController
     {
         base.Update();
 
-        if(CheckLineOfSight()) {
+        if(isPermanentlyAngry)
+            return;
+        else if(CheckLineOfSight()) {
             if(!isSeePlayer) {  /* bat sees player and didn't on last update */
                 isSeePlayer = true;
                 an.SetBool("isAngry", true);
@@ -61,6 +65,22 @@ public class BatController : EnemyController
             }
             BatIdle();
         }
+    }
+
+    public override void handleAttack(float damage, BaseAttack.Element element) {
+        setPermanentlyAngry();
+        base.handleAttack(damage, element);
+    }
+
+    public override void handleShotgunAttack(int shotgunDamage) {
+        setPermanentlyAngry();
+        base.handleShotgunAttack(shotgunDamage);
+    }
+
+    private void setPermanentlyAngry() {
+        an.SetBool("isAngry", true);
+        aiPath.canMove = true;
+        isPermanentlyAngry = true;
     }
 
     private void BatIdle() {
@@ -129,10 +149,10 @@ public class BatController : EnemyController
 
         if(Vector3.Distance(player.transform.position, transform.position) < batMaxRange) {
             Vector3[] rayStartingPoints = {
-                transform.position + new Vector3(0.5f, 0, 0),
-                transform.position + new Vector3(-0.5f, 0, 0),
-                transform.position + new Vector3(0, 0.5f, 0),
-                transform.position + new Vector3(0, -0.5f, 0)
+                transform.position + new Vector3(0.25f, 0, 0),
+                transform.position + new Vector3(-0.25f, 0, 0),
+                transform.position + new Vector3(0, 0.25f, 0),
+                transform.position + new Vector3(0, -0.25f, 0)
             };
             foreach(Vector3 initialPos in rayStartingPoints) {
                 Vector3 rayDirection = player.transform.position - initialPos;
