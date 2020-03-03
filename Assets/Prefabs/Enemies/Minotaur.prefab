@@ -257,8 +257,9 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   attackStrength: 0
   knockbackStrength: 0.3
-  drops: []
-  dropChance: 0
+  drops:
+  - {fileID: 4137067952421969972, guid: f5a39cdad4c474c4d95f9566064eebe7, type: 3}
+  dropChance: 1
   isKnockback: 0
   playerController: {fileID: 0}
   knockbackCoefficient: 0
@@ -266,6 +267,7 @@ MonoBehaviour:
   player: {fileID: 0}
   aiPath: {fileID: 8154171984916762053}
   spawnMaster: {fileID: 0}
+  spawnManager: {fileID: 0}
   spriteRenderer: {fileID: 0}
   enemyHealth: {fileID: 0}
 --- !u!114 &6409835115794811095
@@ -282,5 +284,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weakness: 2
   resistance: 1
-  maxHealth: 150
+  maxHealth: 500
   enemyController: {fileID: 7164647606597274166}
