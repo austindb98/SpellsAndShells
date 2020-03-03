@@ -273,9 +273,12 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   attackStrength: 20
   knockbackStrength: 0.3
-  drops: []
-  dropChance: 0
+  drops:
+  - {fileID: 5440717243906829691, guid: 50841bf6697d5844ebfbb349e8a0e01c, type: 3}
+  - {fileID: 1052014806763810547, guid: 72a802a5c3d205b409ca7e2f8990e899, type: 3}
+  dropChance: 0.55
   isKnockback: 0
+  knockbackTime: 0.8
   playerController: {fileID: 0}
   knockbackCoefficient: 5
   maxSpeed: 0

@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialSpawnNum: 3
+  spawnSlope: -0.13
+  spawnIntercept: 1
   enemyPrefab: {fileID: 4691094060803072611, guid: ab513cee777175d409ab16119af02eb9,
     type: 3}
   player: {fileID: 0}
@@ -134,15 +136,18 @@ MonoBehaviour:
   rb2d: {fileID: 7608629425357573705}
   attackStrength: 0
   knockbackStrength: 0
-  drops: []
-  dropChance: 0
+  drops:
+  - {fileID: 5413576069672028623, guid: 3967c5ff242223a4fa211ee48b7f0e69, type: 3}
+  dropChance: 0.85
   isKnockback: 0
+  knockbackTime: 0.8
   playerController: {fileID: 0}
   knockbackCoefficient: 0
   maxSpeed: 0
   player: {fileID: 0}
   aiPath: {fileID: 0}
   spawnMaster: {fileID: 0}
+  spawnManager: {fileID: 0}
   spriteRenderer: {fileID: 1825370961986019089}
   enemyHealth: {fileID: -574897508413756484}
 --- !u!114 &-574897508413756484

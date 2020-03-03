@@ -223,16 +223,22 @@ MonoBehaviour:
   playerCollider: {fileID: 0}
   rb2d: {fileID: 0}
   attackStrength: 0
+  knockbackStrength: 0.3
   drops:
   - {fileID: 5440717243906829691, guid: 50841bf6697d5844ebfbb349e8a0e01c, type: 3}
   - {fileID: 1023436945559866100, guid: c3e5b728d6fba8d40895f39fafdcfd42, type: 3}
-  dropChance: 2
+  dropChance: 0.75
   isKnockback: 0
+  knockbackTime: 0.8
   playerController: {fileID: 0}
   knockbackCoefficient: 0
+  maxSpeed: 0
   player: {fileID: 0}
   aiPath: {fileID: 2140380562467398986}
   spawnMaster: {fileID: 0}
+  spawnManager: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  enemyHealth: {fileID: 0}
   arrow: {fileID: 1398909096796971149, guid: f7dde1ea6183ce64593408442c46ae9f, type: 3}
 --- !u!70 &2140380562467399027
 CapsuleCollider2D:

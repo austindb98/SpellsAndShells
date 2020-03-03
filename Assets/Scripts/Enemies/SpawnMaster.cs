@@ -51,6 +51,7 @@ public class SpawnMaster : MonoBehaviour
         foreach (EnemyEntry entry in spawnPrefabList.Zip(spawnPositionList, (prefab, pos) => new EnemyEntry(prefab, pos))) {
             enemyObj = Instantiate(entry.prefab, entry.position, Quaternion.Euler( 0f, 0f, 0f ));
             enemyObj.GetComponent<EnemyController>().spawnMaster = this;
+            enemyObj.SetActive(true);
             enemyList.Add(enemyObj.GetComponent<EnemyController>());
         }
     }

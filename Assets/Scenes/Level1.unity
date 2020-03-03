@@ -10304,6 +10304,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skills
       objectReference: {fileID: 0}
+    - target: {fileID: 5126121722964789661, guid: 022f9d0fcb0586c4a8df7af8ee25c6bd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5126121722964790883, guid: 022f9d0fcb0586c4a8df7af8ee25c6bd,
         type: 3}
       propertyPath: player
