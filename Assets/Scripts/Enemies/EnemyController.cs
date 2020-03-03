@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     public float knockbackStrength = 0.3f;
 
     public GameObject[] drops;
-    public int dropChance;
+    public float dropChance;
 
     public bool isKnockback = false;
     private float knockbackTimer = 0f;
@@ -114,7 +114,8 @@ public class EnemyController : MonoBehaviour
     }
 
     virtual public void handleEnemyDeath() {
-        float drop = Random.Range(0, drops.Length * dropChance);
+        dropChance = Mathf.Clamp(dropChance,0,1);
+        float drop = Random.Range(0, drops.Length / dropChance);
         if(drop < drops.Length) {
             Instantiate(drops[(int)drop], transform.position, Quaternion.identity);
         }
