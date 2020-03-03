@@ -8,7 +8,7 @@ using Pathfinding;
 public class ObstacleController : MonoBehaviour
 {
     public GameObject[] drops;
-    public int dropChance;
+    public float dropChance;
     public GridGraph graphToScan;
     private HashSet<Tuple<Vector3,bool>> breakList;
     public AudioClip breakSound;
@@ -37,7 +37,8 @@ public class ObstacleController : MonoBehaviour
 
                 SoundController.playBreakSound(breakSound);
                 if(tile.Item2) {
-                    float drop = UnityEngine.Random.Range(0, drops.Length * dropChance);
+                    dropChance = Mathf.Clamp(dropChance,0,1);
+                    float drop = UnityEngine.Random.Range(0, drops.Length / dropChance);
                     if(drop < drops.Length) {
                         // scale the drop position with the grid scale
                         Instantiate(drops[(int)drop], tile.Item1 * this.transform.localScale.z, Quaternion.identity);
