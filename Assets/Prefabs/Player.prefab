@@ -127,7 +127,7 @@ MonoBehaviour:
     attackPrefab: {fileID: 0}
   currentAmmo: 1
   AmmoCount: -1
-  MaxHealth: 10000
+  MaxHealth: 100
   MaxMana: 70
   health: 100
   mana: 100

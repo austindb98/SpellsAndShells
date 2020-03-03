@@ -10,6 +10,7 @@ public class FootprintSpawner : MonoBehaviour
     private static float deltaTime = 1f;
     public GameObject footprintPrefab;
     private Vector2 mousePos;
+    private static readonly float temporalSpacing = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class FootprintSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, lastPosition) > 1 || (Time.time - lastTime) > 1)
+        if (Vector3.Distance(transform.position, lastPosition) > 1 || (Time.time - lastTime) > temporalSpacing)
         {
             CreateFootprint();
         }

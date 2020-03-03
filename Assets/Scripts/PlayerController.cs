@@ -207,7 +207,8 @@ public class PlayerController : BasePlayer {
     public void takeDamage(float damage) {
         health -= damage;
         isHit = true;
-        speed = baseSpeed / 4;
+        speed = baseSpeed / 4; // no magic numbers TODO
+        SoundController.PlayPlayerHurt();
     }
 
     private void handlePickup(GameObject item) {
