@@ -26452,7 +26452,7 @@ Transform:
   - {fileID: 1504483188}
   - {fileID: 2017530428}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &455458811
 Grid:
@@ -42326,7 +42326,7 @@ PrefabInstance:
     - target: {fileID: 1836679666434734229, guid: cdace632696d4284db706f1235f60287,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1836679666434734229, guid: cdace632696d4284db706f1235f60287,
         type: 3}
@@ -42785,6 +42785,12 @@ PrefabInstance:
       propertyPath: nextScene
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8493456893349559328, guid: fef40af1aee405d43bfd40749d493512,
+        type: 3}
+      propertyPath: skillPointPrefab
+      value: 
+      objectReference: {fileID: 6816411548315846261, guid: 85236b60b0c3ad042916e8756934c9de,
+        type: 3}
     - target: {fileID: 8493456893349559329, guid: fef40af1aee405d43bfd40749d493512,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneDoor : BaseDoor
 {
     public int nextScene = 0;
+    public GameObject skillPointPrefab;
 
     protected override void Start()
     {
@@ -19,6 +20,7 @@ public class SceneDoor : BaseDoor
         {
             return;
         }
+        dropSkillPoint();
         KeyManager.RemoveSceneKey();
         base.HandleLocked();
     }
@@ -32,5 +34,15 @@ public class SceneDoor : BaseDoor
         }
         
         SceneManager.LoadScene(nextScene);
+    }
+    private void dropSkillPoint()
+    {
+        if(skillPointPrefab != null)
+        {
+            GameObject skillPoint = Instantiate(skillPointPrefab);
+            Vector3 position = transform.position;
+            position.y = position.y - 10;
+            skillPoint.transform.position = position;
+        }
     }
 }

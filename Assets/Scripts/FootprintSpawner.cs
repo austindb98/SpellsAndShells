@@ -10,7 +10,8 @@ public class FootprintSpawner : MonoBehaviour
     private static float deltaTime = 1f;
     public GameObject footprintPrefab;
     private Vector2 mousePos;
-    private static readonly float temporalSpacing = 1.5f;
+    private static readonly float temporalSpacing = .25f;
+    private static readonly float displacement = 1.25f;
     private static readonly float yOffset = 1.1f;
 
     // Start is called before the first frame update
@@ -22,7 +23,7 @@ public class FootprintSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, lastPosition) > 1 || (Time.time - lastTime) > temporalSpacing)
+        if (Vector3.Distance(transform.position, lastPosition) > displacement && (Time.time - lastTime) > temporalSpacing)
         {
             CreateFootprint();
         }
@@ -32,7 +33,7 @@ public class FootprintSpawner : MonoBehaviour
         return Mathf.Atan2(mousePos.y - transform.position.y,
             mousePos.x - transform.position.x);
     }
-    
+
     private float getFootprintAngle()
     {
         float angle = (float)(getMouseAngle() / Math.PI * 180);
@@ -86,7 +87,7 @@ public class FootprintSpawner : MonoBehaviour
 
         return angle;
     }
-    
+
 
     void CreateFootprint()
     {
