@@ -143,8 +143,12 @@ public class PlayerController : BasePlayer {
 
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
+        Vector2 moveVector = new Vector2(moveHorizontal, moveVertical);
+        if(moveVector.magnitude > 1) {
+            moveVector = moveVector.normalized;
+        }
         if(!isKnockback)
-            rb2d.velocity = new Vector2(moveHorizontal, moveVertical) * speed * Time.deltaTime;
+            rb2d.velocity =  moveVector * speed * Time.deltaTime;
 
         if(Input.GetMouseButtonDown(0) && shotReady) {
             shotgunBlast.Play();
