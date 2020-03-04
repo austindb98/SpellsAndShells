@@ -254,9 +254,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weakness: 2
   resistance: 3
-  maxHealth: 50
-  enemyController: {fileID: 4691094060803072638, guid: ab513cee777175d409ab16119af02eb9,
-    type: 3}
+  maxHealth: 30
+  enemyController: {fileID: 8936060374133879105}
 --- !u!114 &8936060374133879105
 MonoBehaviour:
   m_ObjectHideFlags: 0

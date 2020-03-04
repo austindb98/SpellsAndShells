@@ -67,6 +67,12 @@ public class BatController : EnemyController
         }
     }
 
+    public override void handleEnemyDeath()
+    {
+        base.handleEnemyDeath();
+        Destroy(gameObject);
+    }
+
     public override void handleAttack(float damage, BaseAttack.Element element) {
         setPermanentlyAngry();
         base.handleAttack(damage, element);
