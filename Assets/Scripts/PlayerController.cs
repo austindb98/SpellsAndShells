@@ -140,6 +140,8 @@ public class PlayerController : BasePlayer {
 
         shotgunPellets.transform.rotation = particleRotation;
         shotgunPellets.transform.position = particlePosition;
+        var pelletShape = shotgunPellets.shape;
+        pelletShape.angle = Shells[(int) base.currentAmmo].variance * (float) (180/Math.PI)/2;
 
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
