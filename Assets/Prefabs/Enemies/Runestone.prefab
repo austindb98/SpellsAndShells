@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 5962791150960387577}
   - component: {fileID: 5962791150960387575}
   - component: {fileID: 5962791150960387572}
+  - component: {fileID: 2125986564}
   m_Layer: 9
   m_Name: Runestone
   m_TagString: Untagged
@@ -231,17 +232,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1257560c79e13584799c900ba81722c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weakness: 0
-  resistance: 0
-  maxHealth: 100
-  enemyController: {fileID: 0}
+  an: {fileID: 0}
+  playerCollider: {fileID: 0}
+  rb2d: {fileID: 0}
+  attackStrength: 0
+  knockbackStrength: 0.3
+  drops: []
+  dropChance: 0
+  isKnockback: 0
+  knockbackTime: 0.8
+  playerController: {fileID: 0}
+  knockbackCoefficient: 0
+  maxSpeed: 0
+  player: {fileID: 0}
+  aiPath: {fileID: 0}
+  spawnMaster: {fileID: 0}
+  spawnManager: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  enemyHealth: {fileID: 2125986564}
   type: 2
   backgrounds:
   - {fileID: -821933614722808991, guid: 883cee60edd9c7e41a2dce95eb53daa6, type: 3}
   - {fileID: 7559591047739115010, guid: 883cee60edd9c7e41a2dce95eb53daa6, type: 3}
   - {fileID: 4629994098147680071, guid: 883cee60edd9c7e41a2dce95eb53daa6, type: 3}
   - {fileID: 8746287442441023287, guid: 883cee60edd9c7e41a2dce95eb53daa6, type: 3}
-  prefabDrop: {fileID: 4137067952421969972, guid: f5a39cdad4c474c4d95f9566064eebe7,
+  prefabDrop: {fileID: 5242020174537532478, guid: 5b498dd8b3bc25646aea4e19b9d5158c,
     type: 3}
   animator: {fileID: 5962791150648866298}
 --- !u!82 &5962791150960387572
@@ -340,3 +355,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2125986564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5962791150960387578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f260e31dc26ea49acc5cc05e6c379a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weakness: 0
+  resistance: 0
+  maxHealth: 100
+  enemyController: {fileID: 5962791150960387575}

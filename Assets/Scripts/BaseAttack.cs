@@ -10,8 +10,8 @@ public class BaseAttack : MonoBehaviour
         Normal, Wind, Ice, Fire
     };
 
-    protected float speed;
-    protected float damage;
+    public float speed;
+    public float damage;
     protected Element element;
     // Start is called before the first frame update
     void Start()
@@ -35,6 +35,12 @@ public class BaseAttack : MonoBehaviour
             enemyController.handleAttack(damage, element);
             /*EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
             enemyHealth.takeDamage(damage, element);*/
+        }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacles"))
+        {
+            List<ContactPoint2D> points = new List<ContactPoint2D>();
+
+            collision.gameObject.GetComponent<ObstacleController>().PlayerBreak(transform.position);
         }
         Destroy(gameObject);
     }

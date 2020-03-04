@@ -11,6 +11,7 @@ public class FootprintSpawner : MonoBehaviour
     public GameObject footprintPrefab;
     private Vector2 mousePos;
     private static readonly float temporalSpacing = 1.5f;
+    private static readonly float yOffset = 1.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -94,7 +95,7 @@ public class FootprintSpawner : MonoBehaviour
         lastPosition = transform.position;
         GameObject footprint = Instantiate(footprintPrefab);
         Vector3 placement = transform.position;
-        placement.y = placement.y - 0.7f;
+        placement.y = placement.y - yOffset;
         Quaternion rot = Quaternion.Euler(0, 0, getFootprintAngle());
         footprint.transform.SetPositionAndRotation(placement, rot);
     }

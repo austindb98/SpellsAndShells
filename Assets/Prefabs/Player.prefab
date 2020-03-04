@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spells:
-  - manaCoolDown: 20
+  - manaCoolDown: 15
     attackPrefab: {fileID: 6291169290021964515, guid: ed2694729d9bfd444a958e24369b0079,
       type: 3}
   - manaCoolDown: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
     attackPrefab: {fileID: 0}
   - manaCoolDown: 0
     attackPrefab: {fileID: 0}
-  - manaCoolDown: 10
+  - manaCoolDown: 8
     attackPrefab: {fileID: 7811763968179772896, guid: ca73ecddc74bcd64584bc8a2e18c69d0,
       type: 3}
   - manaCoolDown: 0
@@ -308,11 +308,12 @@ MonoBehaviour:
     attackPrefab: {fileID: 0}
   - manaCoolDown: 0
     attackPrefab: {fileID: 0}
-  - manaCoolDown: 15
+  - manaCoolDown: 10
     attackPrefab: {fileID: 8082342449724032719, guid: 49668eb1e3408a649a1601f6a708f3de,
       type: 3}
-  - manaCoolDown: 0
-    attackPrefab: {fileID: 0}
+  - manaCoolDown: 18
+    attackPrefab: {fileID: 8775874958578999031, guid: 8f52aa45574bb61459cc5a4ac4d6eaf6,
+      type: 3}
   - manaCoolDown: 0
     attackPrefab: {fileID: 0}
   - manaCoolDown: 0

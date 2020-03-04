@@ -8,11 +8,16 @@ public class AttackFireball : BaseAttack
     private float dotFrequency = 3f;    // how often to inflict damage
     private float dotDamage = 2f;
 
+    public FireType fireType;
+
+    public enum FireType
+    {
+        Fireball, Meteorite, MeteorShower, Armageddon
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        speed = 15;
-        damage = 25;
         element = Element.Fire;
     }
 
@@ -27,6 +32,10 @@ public class AttackFireball : BaseAttack
         EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
         if(enemyController)
             enemyController.applyFireDotEffect(dotDuration, dotFrequency, dotDamage);
+        if (fireType >= FireType.Meteorite)
+        {
+            //spawn fire articles
+        }
         base.OnTriggerEnter2D(collision);
     }
 }
