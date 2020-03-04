@@ -27,6 +27,14 @@ public class RoomManager : MonoBehaviour
         if (fog != null)
         {
             fog.enabled = true;
+            fog.gameObject.SetActive(true);
+        }
+        if (doorList != null)
+        {
+            foreach (GameObject door in doorList)
+            {
+                door.SetActive(false);
+            }
         }
         triggered = false;
     }

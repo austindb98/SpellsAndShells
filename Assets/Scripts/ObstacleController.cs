@@ -35,6 +35,8 @@ public class ObstacleController : MonoBehaviour
                 Vector3Int tilePos = transform.parent.GetComponentInParent<GridLayout>().WorldToCell(tile.Item1);
                 map.SetTile(tilePos, null);
 
+                Debug.Log("Destroying obstacle at: " + tilePos.x + ", " + tilePos.y);
+
                 SoundController.playBreakSound(breakSound);
                 if(tile.Item2) {
                     dropChance = Mathf.Clamp(dropChance,0,1);
