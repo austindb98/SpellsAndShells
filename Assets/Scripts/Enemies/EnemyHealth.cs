@@ -68,4 +68,8 @@ public class EnemyHealth : MonoBehaviour
             enemyController.handleEnemyDeath();
         }
     }
+
+    public void setCurrentHealth(float healthVal) {
+        currentHealth = healthVal;
+    }
 }

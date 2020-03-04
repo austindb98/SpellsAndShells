@@ -15,10 +15,10 @@ GameObject:
   - component: {fileID: 4660666363620251719}
   - component: {fileID: 4660666363620251712}
   - component: {fileID: 4660666363620251722}
-  - component: {fileID: 3204370032579120}
   - component: {fileID: 4074016161813384889}
   - component: {fileID: 8955162324909206874}
   - component: {fileID: 540888263809256498}
+  - component: {fileID: 2021880649734087396}
   m_Layer: 9
   m_Name: SkeletonWarrior
   m_TagString: Enemy
@@ -133,10 +133,10 @@ MonoBehaviour:
   version: 2
   radius: 0.15
   height: 0.01
-  repathRate: 1
+  repathRate: 0.75
   canSearch: 1
   canMove: 1
-  maxSpeed: 5
+  maxSpeed: 6
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -147,7 +147,7 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
+  slowdownDistance: 0.2
   pickNextWaypointDist: 2
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
@@ -178,7 +178,7 @@ Animator:
   m_GameObject: {fileID: 4660666363620251714}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 8838ef46ed9b8b34c82ab0b964d5335e, type: 2}
+  m_Controller: {fileID: 9100000, guid: a15396522fe2d4342b2ea3603801e7fa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -208,38 +208,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3204370032579120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4660666363620251714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47758a0bf6fe09f44b5686225e418849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  an: {fileID: 0}
-  playerCollider: {fileID: 0}
-  rb2d: {fileID: 0}
-  attackStrength: 0
-  knockbackStrength: 0.3
-  drops:
-  - {fileID: 1023436945559866100, guid: c3e5b728d6fba8d40895f39fafdcfd42, type: 3}
-  - {fileID: 1052014806763810547, guid: 72a802a5c3d205b409ca7e2f8990e899, type: 3}
-  dropChance: 0.4
-  isKnockback: 0
-  knockbackTime: 0.8
-  playerController: {fileID: 0}
-  knockbackCoefficient: 0
-  maxSpeed: 0
-  player: {fileID: 0}
-  aiPath: {fileID: 4660666363620251718}
-  spawnMaster: {fileID: 0}
-  spawnManager: {fileID: 0}
-  spriteRenderer: {fileID: 0}
-  enemyHealth: {fileID: 0}
 --- !u!70 &4074016161813384889
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -269,7 +237,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.028735613, y: -0.09291177}
+  m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.032643747, y: 0.057548143}
   m_Direction: 0
 --- !u!114 &540888263809256498
@@ -284,7 +252,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f260e31dc26ea49acc5cc05e6c379a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weakness: 2
-  resistance: 1
-  maxHealth: 100
-  enemyController: {fileID: 3204370032579120}
+  weakness: 1
+  resistance: 3
+  maxHealth: 150
+  enemyController: {fileID: 0}
+--- !u!114 &2021880649734087396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660666363620251714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fb2753ef5b2fb43be7bf765697530b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  an: {fileID: 0}
+  playerCollider: {fileID: 0}
+  rb2d: {fileID: 0}
+  attackStrength: 0
+  knockbackStrength: 0.3
+  drops: []
+  dropChance: 0
+  isKnockback: 0
+  knockbackTime: 0.8
+  playerController: {fileID: 0}
+  knockbackCoefficient: 0
+  maxSpeed: 0
+  player: {fileID: 0}
+  aiPath: {fileID: 4660666363620251718}
+  spawnMaster: {fileID: 0}
+  spawnManager: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  enemyHealth: {fileID: 540888263809256498}
