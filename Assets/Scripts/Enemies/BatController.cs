@@ -26,7 +26,7 @@ public class BatController : EnemyController
     private int raycastLayerMask;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         base.Start();
 
@@ -44,7 +44,7 @@ public class BatController : EnemyController
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         base.Update();
 

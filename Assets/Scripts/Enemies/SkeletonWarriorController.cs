@@ -29,7 +29,6 @@ public class SkeletonWarriorController : EnemyController
     public override void Update()
     {
         float x = player.transform.position.x - transform.position.x;
-
         base.Update();
 
         if(isSwingRest) {
@@ -112,7 +111,7 @@ public class SkeletonWarriorController : EnemyController
         isDead = true;
 
         rb2d.constraints |= RigidbodyConstraints2D.FreezePosition;
-        enemyHealth.setCurrentHealth(50f);
+        enemyHealth.setCurrentHealth(80f);
         // base.handleEnemyDeath();
         //Destroy(gameObject);
     }
