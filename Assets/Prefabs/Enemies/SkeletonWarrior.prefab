@@ -255,7 +255,7 @@ MonoBehaviour:
   weakness: 1
   resistance: 0
   maxHealth: 150
-  enemyController: {fileID: 0}
+  enemyController: {fileID: 2021880649734087396}
 --- !u!114 &2021880649734087396
 MonoBehaviour:
   m_ObjectHideFlags: 0
