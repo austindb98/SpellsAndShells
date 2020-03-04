@@ -42,6 +42,7 @@ public class PlayerController : BasePlayer {
     public LayerMask wallLayer, obstacleLayer, fogLayer;
     private LayerMask interactsWithBullets;
     private Vector2 mousePos;
+    private Vector2 rayPosition;
     private float heartHealth = 30f;
     private float potionMana = 30f;
 
@@ -107,8 +108,7 @@ public class PlayerController : BasePlayer {
         Quaternion particleRotation = new Quaternion();
         Vector2 particlePosition = new Vector2();
 
-        angle = (float)(getMouseAngle()/Math.PI * 180);
-        particleRotation.eulerAngles = new Vector2(-angle,90);
+        angle = (float)(getMouseAngle(transform.position)/Math.PI * 180);
 
         if((angle >= -22.5 && angle < 22.5) && diff.x > 0) {
             spriteRenderer.sprite = frontRight;
@@ -135,6 +135,10 @@ public class PlayerController : BasePlayer {
             spriteRenderer.sprite = diagDownRight;
             particlePosition = new Vector2(transform.position.x + 1.27f, transform.position.y - 1.4f);
         }
+
+        float particleAngle = (float) (getMouseAngle(particlePosition)/Math.PI * 180);
+        particleRotation.eulerAngles = new Vector2(-particleAngle,90);
+
         shotgunBlast.transform.rotation = particleRotation;
         shotgunBlast.transform.position = particlePosition;
 
@@ -142,6 +146,8 @@ public class PlayerController : BasePlayer {
         shotgunPellets.transform.position = particlePosition;
         var pelletShape = shotgunPellets.shape;
         pelletShape.angle = Shells[(int) base.currentAmmo].variance * (float) (180/Math.PI)/2;
+
+        rayPosition = new Vector2(transform.position.x, particlePosition.y);
 
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
@@ -161,10 +167,10 @@ public class PlayerController : BasePlayer {
         }
     }
 
-    private float getMouseAngle()
+    private float getMouseAngle(Vector2 position)
     {
-        return Mathf.Atan2(this.mousePos.y - this.transform.position.y,
-            this.mousePos.x - this.transform.position.x);
+        return Mathf.Atan2(this.mousePos.y - position.y,
+            this.mousePos.x - position.x);
     }
 
     private void shoot(Shot shell)
@@ -176,7 +182,7 @@ public class PlayerController : BasePlayer {
 
         SoundController.playShotgunShootSound();
         shotReady = false;
-        float mouseAngle = getMouseAngle();
+        float mouseAngle = getMouseAngle(rayPosition);
         Vector2[] pelletDirections = new Vector2[pellets];
         for(int i = 0; i < pelletDirections.Length; ++i)
         {
@@ -185,10 +191,10 @@ public class PlayerController : BasePlayer {
             pelletDirections[i] = new Vector2(Mathf.Cos(appliedAngle), Mathf.Sin(appliedAngle));
 
             RaycastHit2D raycastResult =
-                Physics2D.Raycast(this.transform.position, pelletDirections[i], range, interactsWithBullets);
+                Physics2D.Raycast(rayPosition, pelletDirections[i], range, interactsWithBullets);
             if(raycastResult.collider != null)
             {
-                Debug.DrawLine(this.transform.position, raycastResult.point, Color.red, 0.1f);
+                Debug.DrawLine(rayPosition, raycastResult.point, Color.red, 0.1f);
                 if(raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("Obstacles"))
                 {
                     GameObject tileMapGameObject = raycastResult.collider.gameObject;
@@ -205,7 +211,7 @@ public class PlayerController : BasePlayer {
             }
             else
             {
-                Debug.DrawRay(this.transform.position, pelletDirections[i] * 100, Color.yellow, 0.1f);
+                Debug.DrawRay(rayPosition, pelletDirections[i] * 100, Color.yellow, 0.1f);
             }
 
         }
