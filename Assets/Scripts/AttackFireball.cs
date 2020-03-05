@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AttackFireball : BaseAttack
 {
-    private float dotDuration = 12f;
-    private float dotFrequency = 3f;    // how often to inflict damage
-    private float dotDamage = 2f;
+    public float dotDuration = 12f;
+    public float dotFrequency = 3f;    // how often to inflict damage
+    public float dotDamage = 2f;
 
     public FireType fireType;
 
@@ -16,16 +16,11 @@ public class AttackFireball : BaseAttack
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
         element = Element.Fire;
     }
-
-    // Update is called once per frame
-    protected override void Update()
-    {
-        base.Update();
-    }
+    
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
