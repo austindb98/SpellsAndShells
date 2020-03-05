@@ -77,15 +77,12 @@ public class MinotaurBossController : EnemyController
                 rb2d.drag = 4;
             }
             else {
-                print("1");
                 if(rb2d.velocity.magnitude < 25f) {
-                    print("4");
                     rb2d.velocity = new Vector2(-25f, -12f);
                 }
             }
             return;
         }
-        print("3");
 
         base.Update();
 
@@ -152,8 +149,8 @@ public class MinotaurBossController : EnemyController
     private void OnTriggerStay2D(Collider2D other) {
         if(other == playerCollider && (!isKnockback || isBeyblade)) {
             if(isBeyblade) {
-                playerController.takeDamage(5f);
-                playerController.onHitKnockback(1500.0f, transform.position);
+                playerController.takeDamage(3f);
+                playerController.onHitKnockback(800.0f, transform.position);
             }
             else if(!isSwingRest)
                 an.SetBool("isAttack1", true);
@@ -164,7 +161,7 @@ public class MinotaurBossController : EnemyController
         if(other == playerCollider && (!isKnockback || isBeyblade)) {
             if(isBeyblade) {
                 playerController.takeDamage(5f);
-                playerController.onHitKnockback(1500.0f, transform.position);
+                playerController.onHitKnockback(800.0f, transform.position);
             }
             else if(!isSwingRest)
                 an.SetBool("isAttack1", true);
