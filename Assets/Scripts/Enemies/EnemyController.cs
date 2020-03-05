@@ -27,10 +27,10 @@ public class EnemyController : MonoBehaviour
     private float frozenTime;
 
     private bool isFlaming;
-    private float flameTimer;
-    private float flameTime;
-    private float flameDamage;
-    private float flameFrequency;
+    private float flameTimer; //Current time on fire
+    private float flameTimeLeft; //Length of the DOT
+    private float flameDamage; //Damage per DOT tick
+    private float flameFrequency; //Time between DOT ticks
 
     //private float shotgunDamage = 3f;    // the damage taken by a single pellet of the shotgun
 
@@ -151,7 +151,7 @@ public class EnemyController : MonoBehaviour
             dotDuration /= 1.5f;
         }
         isFlaming = true;
-        flameTime = dotDuration;
+        flameTimeLeft = dotDuration;
         flameFrequency = dotFrequency;
         flameDamage = dotDamage;
         flameTimer = 0f;
@@ -179,11 +179,12 @@ public class EnemyController : MonoBehaviour
 
     private void handleFlaming() {
         flameTimer += Time.deltaTime;
-        if(flameTimer > flameFrequency) {
+        if(flameTimer >= flameFrequency) {
             enemyHealth.takeDamage(flameDamage, BaseAttack.Element.Fire);
-            flameFrequency += flameFrequency;
+            flameTimer = 0;
+            flameTimeLeft -= flameFrequency;
         }
-        if(flameTimer > flameTime)
+        if(flameTimeLeft <= 0)
             cancelFlaming();
     }
 

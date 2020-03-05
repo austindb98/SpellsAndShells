@@ -6,10 +6,8 @@ public class AttackGust : BaseAttack
 {
     private float knockbackMagnitude = 10f;
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        speed = 14;
-        damage = 15;
         element = Element.Wind;
     }
 

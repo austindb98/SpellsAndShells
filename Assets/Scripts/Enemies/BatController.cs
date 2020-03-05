@@ -17,7 +17,6 @@ public class BatController : EnemyController
     private float moveTimer;
     private float moveTime = 1f;
 
-    private float attackStrength = 15f;
 
     private Vector3 moveLeftVector;
     private Vector3 moveRightVector;
@@ -65,6 +64,12 @@ public class BatController : EnemyController
             }
             BatIdle();
         }
+    }
+
+    public override void handleEnemyDeath()
+    {
+        base.handleEnemyDeath();
+        Destroy(gameObject);
     }
 
     public override void handleAttack(float damage, BaseAttack.Element element) {

@@ -18,7 +18,7 @@ public class BasePlayer : MonoBehaviour
 
     static readonly bool debug = false;
     static readonly float DebugSpeed = 30f;
-    static readonly float ManaRegen = 3f;
+    static readonly float ManaRegen = 4.5f;
     static readonly int ClipSize = 9;
 
     public float MaxHealth;
@@ -139,7 +139,20 @@ public class BasePlayer : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    protected void OnDeath()
+    {
+        if (SaveManager.currentSave == null)
+        {
+            Debug.Log("Team 10 Log: Cannot save files, are you in a test scene?");
+            return;
+        }
+        skillpoints[0] = SaveManager.currentSave.unassigned;
+        skillpoints[1] = SaveManager.currentSave.wind;
+        skillpoints[2] = SaveManager.currentSave.ice;
+        skillpoints[3] = SaveManager.currentSave.fire;
+    }
+
+    public void OnLevelCompleted()
     {
         if (SaveManager.currentSave == null)
         {
