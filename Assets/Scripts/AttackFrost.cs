@@ -9,11 +9,16 @@ public class AttackFrost : BaseAttack
     private float slowMag = 0.6f;
     private float slowDur = 10f;
 
-    // Start is called before the first frame update
-    void Start()
+    public IceType iceType;
+
+    public enum IceType
     {
-        speed = 8;
-        damage = 20;
+        Frost, Freeze, Blizzard, IceAge
+    }
+
+    // Start is called before the first frame update
+    protected override void Start()
+    {
         element = Element.Ice;
     }
 

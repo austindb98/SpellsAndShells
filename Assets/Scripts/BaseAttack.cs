@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseAttack : MonoBehaviour
+public abstract class BaseAttack : MonoBehaviour
 {
 
     public enum Element
@@ -14,10 +14,7 @@ public class BaseAttack : MonoBehaviour
     public float damage;
     protected Element element;
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    protected abstract void Start();
 
     // Update is called once per frame
     protected virtual void Update()
@@ -33,14 +30,6 @@ public class BaseAttack : MonoBehaviour
         {
             EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
             enemyController.handleAttack(damage, element);
-            /*EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
-            enemyHealth.takeDamage(damage, element);*/
-        }
-        else if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacles"))
-        {
-            List<ContactPoint2D> points = new List<ContactPoint2D>();
-
-            collision.gameObject.GetComponent<ObstacleController>().PlayerBreak(transform.position);
         }
         Destroy(gameObject);
     }
