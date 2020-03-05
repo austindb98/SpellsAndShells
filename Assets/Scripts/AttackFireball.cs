@@ -19,7 +19,7 @@ public class AttackFireball : BaseAttack
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
         element = Element.Fire;
     }
@@ -41,10 +41,9 @@ public class AttackFireball : BaseAttack
             enemyController.applyFireDotEffect(dotDuration, dotFrequency, dotDamage);
         if (fireType >= FireType.Meteorite)
         {
-            if(explosionLocation != Vector2.negativeInfinity) {
                 explosionLocation = collision.gameObject.transform.position;
                 Debug.Log("HIT enemy at " + explosionLocation);
-            }
+
         }
         base.OnTriggerEnter2D(collision);
     }

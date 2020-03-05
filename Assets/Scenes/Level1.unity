@@ -920,8 +920,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1156.6, y: 10.6}
-  m_SizeDelta: {x: 278, y: 61.1}
+  m_AnchoredPosition: {x: 454.47, y: -414.77}
+  m_SizeDelta: {x: 430.6, y: 85.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &351948399
 MonoBehaviour:
@@ -954,7 +954,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Use the (+) icons to invest skill points to unlock spells
+  m_Text: Use the (+) icons to invest skill points to unlock spells. You need to unlock
+    spells before you can cast them.
 --- !u!222 &351948400
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -997,7 +998,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 420, y: -420}
+  m_AnchoredPosition: {x: 429, y: -952.26}
   m_SizeDelta: {x: 336.3, y: 65.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &392344363
@@ -6555,7 +6556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1122, y: 89}
+  m_AnchoredPosition: {x: 400, y: -346}
   m_SizeDelta: {x: 208.91, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &563326852
@@ -7019,8 +7020,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.8, y: -960.3}
-  m_SizeDelta: {x: 390.7, y: 65.3}
+  m_AnchoredPosition: {x: -228.6, y: -954.36}
+  m_SizeDelta: {x: 437.5, y: 65.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &934808859
 MonoBehaviour:
@@ -7053,7 +7054,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Destroy a rune with a spell to unlock (F) one of the elemental gates
+  m_Text: Destroy a runestone with a SPELL to unlock one of the elemental gates (F)
 --- !u!222 &934808860
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10356,7 +10357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1214.52, y: -537}
+  m_AnchoredPosition: {x: 582, y: -637}
   m_SizeDelta: {x: 225.95, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1215999073
@@ -60701,7 +60702,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Get the key from the chest to unlock (F) the door to the next level
+  m_Text: Get the key from the chest, to unlock the door (F) to the next level
 --- !u!222 &1865524515
 CanvasRenderer:
   m_ObjectHideFlags: 0

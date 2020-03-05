@@ -115,6 +115,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   damage: 20
+  dotDuration: 6
+  dotFrequency: 3
+  dotDamage: 2
   fireType: 0
 --- !u!198 &8082342449724032693
 ParticleSystem:

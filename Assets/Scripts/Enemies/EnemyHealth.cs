@@ -36,9 +36,9 @@ public class EnemyHealth : MonoBehaviour
         if(accumulatedDamage >= 0) {
             int intDamage = (int) accumulatedDamage;
             string dmg = intDamage.ToString();
-            if(dmgColor == redColor) {
+            /*if(dmgColor == redColor) {
                 dmg += "!";
-            }
+            }*/// REMOVED because it looks like 301 when 30! confusing to play-testers
             Vector3 popupPos = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
             DamageController.CreatePopup(dmg, popupPos, dmgColor);
             currentHealth -= intDamage;
