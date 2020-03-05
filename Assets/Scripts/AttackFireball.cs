@@ -1,3 +1,4 @@
+using System;
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,8 @@ public class AttackFireball : BaseAttack
     private float dotFrequency = .5f;    // how often to inflict damage
     private float dotDamage = 2f;
 
-    Vector2 explosionLocation = Vector2.negativeInfinity;
-    private float explosionRadius = 10f;
+    private float explosionRadius = 1f;
+    public AudioClip explosionSound;
 
     public FireType fireType;
 
@@ -22,16 +23,18 @@ public class AttackFireball : BaseAttack
     protected override void Start()
     {
         element = Element.Fire;
+
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-        if(explosionLocation != Vector2.negativeInfinity) {
-            TriggerExplosion(explosionLocation);
-            explosionLocation = Vector2.negativeInfinity;
-        }
         base.Update();
+    }
+
+    protected void OnDisable() {
+        TriggerExplosion(transform.position);
+        Debug.Log("Trigger explosion at " + transform.position);
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
@@ -41,16 +44,17 @@ public class AttackFireball : BaseAttack
             enemyController.applyFireDotEffect(dotDuration, dotFrequency, dotDamage);
         if (fireType >= FireType.Meteorite)
         {
-                explosionLocation = collision.gameObject.transform.position;
-                Debug.Log("HIT enemy at " + explosionLocation);
+            Debug.Log("HIT at " + transform.position);
 
         }
         base.OnTriggerEnter2D(collision);
     }
 
     void TriggerExplosion(Vector2 center) {
-        Collider[] hitColliders = Physics.OverlapSphere(center, explosionRadius);
+        SoundController.PlaySound(explosionSound);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(center, explosionRadius);
         for(int i = 0; i < hitColliders.Length; i++) {
+            Debug.Log("Hit object " + hitColliders[i].gameObject.name + " at " + hitColliders[i].gameObject.transform.position);
             EnemyController enemyController = hitColliders[i].gameObject.GetComponent<EnemyController>();
             if(enemyController != null) {
                 Debug.Log("DOT enemy at " + hitColliders[i].gameObject.transform.position);
