@@ -30,6 +30,7 @@ public class MinotaurController : EnemyController
 
         base.Update();
 
+        an.SetBool("isAttack2", true);
         if(isSwingRest) {
             swingRestTimer += Time.deltaTime;
             if(swingRestTimer > swingRestTime) {

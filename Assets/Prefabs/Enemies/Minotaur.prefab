@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 8154171984916762053}
   - component: {fileID: 6699532424028136031}
   - component: {fileID: 1313518404161960047}
-  - component: {fileID: 7164647606597274166}
   - component: {fileID: 6409835115794811095}
+  - component: {fileID: -952186269354187593}
   m_Layer: 9
   m_Name: Minotaur
   m_TagString: Enemy
@@ -100,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 8154171984916762044}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e85c2818643e866428aa86b1912f50cc, type: 2}
+  m_Controller: {fileID: 9100000, guid: b37784e1acac39b41b89b0d3aa5c243f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -125,7 +125,7 @@ Rigidbody2D:
   m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: a87bc8db280caa74799e9a54109d5214, type: 2}
+  m_Material: {fileID: 6200000, guid: 958614e9626704d468e41a55516b0604, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -185,12 +185,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.14
+  radius: 0.25
   height: 0.01
-  repathRate: 0.5
+  repathRate: 0.25
   canSearch: 1
   canMove: 1
-  maxSpeed: 15
+  maxSpeed: 10
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -201,9 +201,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 3
-  pickNextWaypointDist: 2
-  endReachedDistance: 1
+  slowdownDistance: 0
+  pickNextWaypointDist: 1
+  endReachedDistance: 0
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -217,7 +217,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 8154171984916762044}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 958614e9626704d468e41a55516b0604, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -233,44 +233,13 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 8154171984916762044}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 958614e9626704d468e41a55516b0604, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.032961812, y: -0.015213494}
   m_Size: {x: 0.09284826, y: 0.12834516}
   m_Direction: 0
---- !u!114 &7164647606597274166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8154171984916762044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47758a0bf6fe09f44b5686225e418849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  an: {fileID: 0}
-  playerCollider: {fileID: 0}
-  rb2d: {fileID: 0}
-  attackStrength: 0
-  knockbackStrength: 0.05
-  drops:
-  - {fileID: 4137067952421969972, guid: f5a39cdad4c474c4d95f9566064eebe7, type: 3}
-  dropChance: 1
-  isKnockback: 0
-  knockbackTime: 0.3
-  playerController: {fileID: 0}
-  knockbackCoefficient: 0
-  maxSpeed: 0
-  player: {fileID: 0}
-  aiPath: {fileID: 8154171984916762053}
-  spawnMaster: {fileID: 0}
-  spawnManager: {fileID: 0}
-  spriteRenderer: {fileID: 0}
-  enemyHealth: {fileID: 0}
 --- !u!114 &6409835115794811095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,4 +255,34 @@ MonoBehaviour:
   weakness: 2
   resistance: 1
   maxHealth: 750
-  enemyController: {fileID: 7164647606597274166}
+  enemyController: {fileID: -952186269354187593}
+--- !u!114 &-952186269354187593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8154171984916762044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a47d717c7e7724384a75995390f390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  an: {fileID: 0}
+  playerCollider: {fileID: 0}
+  rb2d: {fileID: 0}
+  attackStrength: 0
+  knockbackStrength: 0.3
+  drops: []
+  dropChance: 0
+  isKnockback: 0
+  knockbackTime: 0.8
+  playerController: {fileID: 0}
+  knockbackCoefficient: 0
+  maxSpeed: 0
+  player: {fileID: 0}
+  aiPath: {fileID: 8154171984916762053}
+  spawnMaster: {fileID: 0}
+  spawnManager: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  enemyHealth: {fileID: 0}

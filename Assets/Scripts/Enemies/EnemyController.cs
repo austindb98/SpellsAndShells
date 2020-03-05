@@ -100,7 +100,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void applyKnockback(float knockbackMagnitude) {
+    public virtual void applyKnockback(float knockbackMagnitude) {
         Vector2 unitVec = transform.position - player.transform.position;
         unitVec.Normalize();
         rb2d.AddForce(unitVec * knockbackMagnitude);
