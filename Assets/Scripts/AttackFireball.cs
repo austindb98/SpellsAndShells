@@ -9,7 +9,7 @@ public class AttackFireball : BaseAttack
     private float dotFrequency = .5f;    // how often to inflict damage
     private float dotDamage = 2f;
 
-    private float explosionRadius = 1f;
+    private float explosionRadius = 2f;
     public AudioClip explosionSound;
 
     public FireType fireType;

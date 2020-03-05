@@ -18,7 +18,7 @@ public class SoundController : MonoBehaviour
     private static float sfxVolume;
     private static float uiVolume;
 
-    private static readonly float shotgunSfxMult = .125f;
+    private static readonly float shotgunSfxMult = .5f;
 
     void Start()
     {

@@ -86,23 +86,24 @@ public class MagicController : MonoBehaviour
         }
         else
         {
+            Vector2 magicPosition = (Vector2)transform.position - new Vector2(0,.5f);
             player.UseMana(currentSpell.manaCoolDown);
             castSound.Play();
-            Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            Vector2 difference = (Vector2) Camera.main.ScreenToWorldPoint(Input.mousePosition) - magicPosition;
             float angle = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg + 90;
             spawnRotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            Instantiate(currentSpell.attackPrefab, transform.position, spawnRotation, transform.parent);
+            Instantiate(currentSpell.attackPrefab, magicPosition, spawnRotation, transform.parent);
         }
     }
-    
+
     void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {
             currentSpell = CalculateCurrentSpell();
             CastSpell();
-           
+
         }
         else if (Input.GetButtonDown("Spell1"))
         {
@@ -132,7 +133,7 @@ public class MagicController : MonoBehaviour
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            
+
             mouseScrolls--;
             if (mouseScrolls <= -NumberOfScrolls)
             {
