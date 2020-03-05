@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class AttackFireball : BaseAttack
 {
-    private float dotDuration = 12f;
-    private float dotFrequency = 3f;    // how often to inflict damage
+    private float dotDuration = 5f;
+    private float dotFrequency = .5f;    // how often to inflict damage
     private float dotDamage = 2f;
+
+    Vector2 explosionLocation = Vector2.negativeInfinity;
+    private float explosionRadius = 10f;
 
     public FireType fireType;
 
@@ -24,6 +27,10 @@ public class AttackFireball : BaseAttack
     // Update is called once per frame
     protected override void Update()
     {
+        if(explosionLocation != Vector2.negativeInfinity) {
+            TriggerExplosion(explosionLocation);
+            explosionLocation = Vector2.negativeInfinity;
+        }
         base.Update();
     }
 
@@ -34,8 +41,22 @@ public class AttackFireball : BaseAttack
             enemyController.applyFireDotEffect(dotDuration, dotFrequency, dotDamage);
         if (fireType >= FireType.Meteorite)
         {
-            //spawn fire articles
+            if(explosionLocation != Vector2.negativeInfinity) {
+                explosionLocation = collision.gameObject.transform.position;
+                Debug.Log("HIT enemy at " + explosionLocation);
+            }
         }
         base.OnTriggerEnter2D(collision);
+    }
+
+    void TriggerExplosion(Vector2 center) {
+        Collider[] hitColliders = Physics.OverlapSphere(center, explosionRadius);
+        for(int i = 0; i < hitColliders.Length; i++) {
+            EnemyController enemyController = hitColliders[i].gameObject.GetComponent<EnemyController>();
+            if(enemyController != null) {
+                Debug.Log("DOT enemy at " + hitColliders[i].gameObject.transform.position);
+                enemyController.applyFireDotEffect(dotDuration, dotFrequency, dotDamage);
+            }
+        }
     }
 }
