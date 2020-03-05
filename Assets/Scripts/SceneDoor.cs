@@ -7,6 +7,7 @@ public class SceneDoor : BaseDoor
 {
     public int nextScene = 0;
     public GameObject skillPointPrefab;
+    public BasePlayer player;
 
     protected override void Start()
     {
@@ -29,6 +30,7 @@ public class SceneDoor : BaseDoor
     {
         if (SaveManager.currentSave != null)
         {
+            player.OnLevelCompleted();
             SaveManager.currentSave.level++;
             SaveManager.SaveAllFiles();
         }

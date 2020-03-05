@@ -30,6 +30,7 @@ public class SkillPointController : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
             if (distanceToPlayer < .5)
             {
+                SoundController.PlayLevelUp();
                 Destroy(gameObject);
             }
             float diffX = player.transform.position.x - transform.position.x;

@@ -10415,8 +10415,12 @@ PrefabInstance:
         type: 3}
       propertyPath: skillPointPrefab
       value: 
-      objectReference: {fileID: 6816411548315846261, guid: 85236b60b0c3ad042916e8756934c9de,
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493456893349559328, guid: fef40af1aee405d43bfd40749d493512,
         type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1754578807}
     - target: {fileID: 8493456893349559329, guid: fef40af1aee405d43bfd40749d493512,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -9,15 +9,16 @@ public class SoundController : MonoBehaviour
     public static AudioClip menuChange;
     static AudioClip stoneDestroy;
     static AudioClip playerHurt;
+    static AudioClip levelUp;
 
-    public AudioClip[] sfx = new AudioClip[5];
+    public AudioClip[] sfx = new AudioClip[6];
 
     private static AudioSource soundSource;
 
     private static float sfxVolume;
     private static float uiVolume;
 
-    private static readonly float shotgunSfxMult = .25f;
+    private static readonly float shotgunSfxMult = .125f;
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class SoundController : MonoBehaviour
             menuChange = sfx[2];
             stoneDestroy = sfx[3];
             playerHurt = sfx[4];
+            levelUp = sfx[5];
         }
 
         sfxVolume = 1f; // later will get from playerprefs
@@ -61,6 +63,11 @@ public class SoundController : MonoBehaviour
     public static void PlayPlayerHurt()
     {
         soundSource.PlayOneShot(playerHurt, sfxVolume);
+    }
+
+    public static void PlayLevelUp()
+    {
+        soundSource.PlayOneShot(levelUp, sfxVolume);
     }
 
     public static void PlaySound(AudioClip clip)
