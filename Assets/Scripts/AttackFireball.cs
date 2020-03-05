@@ -14,6 +14,8 @@ public class AttackFireball : BaseAttack
 
     public FireType fireType;
 
+    public GameObject fireArticlePrefab;
+
     public enum FireType
     {
         Fireball, Meteorite, MeteorShower, Armageddon
@@ -33,7 +35,7 @@ public class AttackFireball : BaseAttack
     }
 
     protected void OnDisable() {
-        TriggerExplosion(transform.position);
+        // disabling until layermask is done properly. TriggerExplosion(transform.position);
         Debug.Log("Trigger explosion at " + transform.position);
     }
 
@@ -52,7 +54,7 @@ public class AttackFireball : BaseAttack
 
     void TriggerExplosion(Vector2 center) {
         SoundController.PlaySound(explosionSound);
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(center, explosionRadius);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(center, explosionRadius);// needs a layermask
         for(int i = 0; i < hitColliders.Length; i++) {
             Debug.Log("Hit object " + hitColliders[i].gameObject.name + " at " + hitColliders[i].gameObject.transform.position);
             EnemyController enemyController = hitColliders[i].gameObject.GetComponent<EnemyController>();
@@ -60,6 +62,7 @@ public class AttackFireball : BaseAttack
                 Debug.Log("DOT enemy at " + hitColliders[i].gameObject.transform.position);
                 enemyController.applyFireDotEffect(dotDuration, dotFrequency, dotDamage);
             }
+            Instantiate(fireArticlePrefab, hitColliders[i].transform.position, hitColliders[i].transform.rotation, transform);
         }
     }
 }

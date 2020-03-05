@@ -117,6 +117,8 @@ MonoBehaviour:
   damage: 40
   explosionSound: {fileID: 8300000, guid: 53697f865b6b9324fa51d17d510c6278, type: 3}
   fireType: 1
+  fireArticlePrefab: {fileID: 5047246758544271316, guid: 942c3bf88f0fe914092bceb7f66ed788,
+    type: 3}
 --- !u!198 &8775874958578998925
 ParticleSystem:
   m_ObjectHideFlags: 0
