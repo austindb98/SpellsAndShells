@@ -131,8 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f260e31dc26ea49acc5cc05e6c379a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weakness: 0
-  resistance: 0
+  weakness: 3
+  resistance: 1
   maxHealth: 200
   enemyController: {fileID: 8127205393657728507}
 --- !u!114 &8127205393657728507

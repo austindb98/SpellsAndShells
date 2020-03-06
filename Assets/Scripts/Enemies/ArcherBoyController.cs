@@ -16,10 +16,12 @@ public class ArcherBoyController : EnemyController
     private int raycastLayerMask;
 
     public GameObject arrow;
+    private System.Random rnd;
 
     public override void Start()
     {
         base.Start();
+        rnd = new System.Random();
         raycastLayerMask =  ((1 << LayerMask.NameToLayer("Obstacles")) |
                              (1 << LayerMask.NameToLayer("Walls")) |
                              (1 << LayerMask.NameToLayer("Player")));
@@ -58,6 +60,7 @@ public class ArcherBoyController : EnemyController
             aiPath.canMove = false;
             an.SetBool("isWalking", false);
             shotPrepTimer = 0f;
+            shotPrepTime = (float) rnd.NextDouble() / 2f + .5f; // get random val between .5 and 1
         }
         else if(aiPath.desiredVelocity.x == 0 && aiPath.desiredVelocity.y == 0) { // idle
             an.SetBool("isWalking", false);

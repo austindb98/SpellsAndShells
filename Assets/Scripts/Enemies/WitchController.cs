@@ -22,6 +22,8 @@ public class WitchController : EnemyController
         raycastLayerMask =  ((1 << LayerMask.NameToLayer("Obstacles")) |
                              (1 << LayerMask.NameToLayer("Walls")) |
                              (1 << LayerMask.NameToLayer("Player")));
+        float x = player.transform.position.x - transform.position.x;
+        an.SetBool("isFacingRight", x > 0);
     }
 
     // Update is called once per frame
@@ -44,7 +46,7 @@ public class WitchController : EnemyController
             aiPath.canMove = false;
             an.SetBool("isWalking", false);
             an.SetBool("isHexing", true);
-            an.SetBool("isFacingRight", x > 0);
+            //an.SetBool("isFacingRight", x > 0);
         }
         else if(aiPath.desiredVelocity.x == 0 && aiPath.desiredVelocity.y == 0) { // idle
             an.SetBool("isWalking", false);
@@ -102,7 +104,9 @@ public class WitchController : EnemyController
         double time = (-1 * b - Math.Sqrt(b * b - 4 * a * c)) / (2 * a);
         // get qUaDraTiC
 
-        return new Vector3((float) (deltaX / time + playerVX), (float) (deltaY / time + playerVY), 0);
+        Vector3 vec = new Vector3((float) (deltaX / time + playerVX), (float) (deltaY / time + playerVY), 0);
+        vec.Normalize();
+        return vec;
 
     }
 
@@ -142,6 +146,8 @@ public class WitchController : EnemyController
         Vector3 playerPositionVector = player.transform.position - transform.position;
         playerPositionVector.Normalize();
         castSpell(getUnitVec() + playerPositionVector);
+        float x = player.transform.position.x - transform.position.x;
+        an.SetBool("isFacingRight", x > 0);
     }
 
     public override void handleEnemyDeath() {
