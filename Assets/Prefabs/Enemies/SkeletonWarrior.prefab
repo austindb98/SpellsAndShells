@@ -133,10 +133,10 @@ MonoBehaviour:
   version: 2
   radius: 0.15
   height: 0.01
-  repathRate: 0.75
+  repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 6
+  maxSpeed: 7
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

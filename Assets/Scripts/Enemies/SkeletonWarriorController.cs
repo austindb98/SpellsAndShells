@@ -61,8 +61,6 @@ public class SkeletonWarriorController : EnemyController
         if(isDead) {
             reviveTimer += Time.deltaTime;
             if(reviveTimer > reviveTime) {
-                /*base.handleEnemyDeath();
-                Destroy(gameObject);*/
                 StartRevival();
             }
         }
@@ -132,7 +130,7 @@ public class SkeletonWarriorController : EnemyController
         if (Vector3.Distance(transform.position, player.transform.position) < 4.0f)
         {
             playerController.takeDamage(attackStrength);
-            playerController.onHitKnockback(1500.0f, transform.position);
+            playerController.onHitKnockback(500.0f, transform.position);
         }
         isSwingRest = true;
         swingRestTimer = 0f;

@@ -65,6 +65,7 @@ public class MinotaurBossController : EnemyController
             if(deathTimer > deathTime) {
                 base.handleEnemyDeath();
                 isCompletelyDead = true;
+                Destroy(gameObject);
             }
         }
 
@@ -80,6 +81,10 @@ public class MinotaurBossController : EnemyController
             if(beybladeChangeDirectionTimer > beybladeChangeDirectionTime) {
                 rb2d.velocity = GetBeybladeVector();
                 beybladeChangeDirectionTimer = 0f;
+            }
+            else {
+                rb2d.velocity = rb2d.velocity + Time.deltaTime * new Vector2(player.transform.position.x - transform.position.x,
+                    player.transform.position.y - transform.position.y);
             }
             if(beybladeTimer > beybladeFinishTime) {
                 beybladeTimer = 0f;
