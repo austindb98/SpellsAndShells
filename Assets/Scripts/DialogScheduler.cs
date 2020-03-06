@@ -33,10 +33,16 @@ public class DialogScheduler : MonoBehaviour
         dialogBox = transform.Find("DialogBox");
         dialogText = dialogBox.GetComponentInChildren<Text>();
         dialogBox.gameObject.SetActive(false);
-        if (OnStartDialog != null)
+        if (OnStartDialog != null && OnStartDialog != "")
         {
+            dialogBox.gameObject.SetActive(false);
             addDialog(OnStartDialog, DefaultReadTime);
         }
+    }
+
+    public static bool HasDialog()
+    {
+        return dialogs.Count > 0;
     }
 
     // Update is called once per frame

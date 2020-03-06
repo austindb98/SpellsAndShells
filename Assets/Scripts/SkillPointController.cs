@@ -7,9 +7,9 @@ public class SkillPointController : MonoBehaviour
     private BasePlayer player;
     // Start is called before the first frame update
     private float startMoving;
-    private static float waitTime = 1f;
-    private static float maxSpeed = 20f;
-    private static float minSpeed = 5f;
+    private static float waitTime = .75f;
+    private static float maxSpeed = 50f;
+    private static float minSpeed = 10f;
     private float speed;
 
     void Start()

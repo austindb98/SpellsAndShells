@@ -98,9 +98,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.1}
+  m_Offset: {x: 0, y: -0.2}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.35
 --- !u!114 &8775874958578998923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +115,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   damage: 40
-  fireType: 0
+  explosionSound: {fileID: 8300000, guid: 53697f865b6b9324fa51d17d510c6278, type: 3}
+  fireType: 1
+  fireArticlePrefab: {fileID: 5047246758544271316, guid: 942c3bf88f0fe914092bceb7f66ed788,
+    type: 3}
 --- !u!198 &8775874958578998925
 ParticleSystem:
   m_ObjectHideFlags: 0

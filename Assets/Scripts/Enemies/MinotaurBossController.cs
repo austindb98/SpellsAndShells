@@ -28,7 +28,12 @@ public class MinotaurBossController : EnemyController
     private float beybladeTimer = 0f;
     private bool isBeyblade = false;
 
+    private float beybladeChangeDirectionTime = 3f;
+    private float beybladeChangeDirectionTimer = 0f;
+
     private bool isCompletelyDead = false;
+
+    private Vector2[] beybladeVectorAr;
 
     // Start is called before the first frame update
     public override void Start()
@@ -39,6 +44,13 @@ public class MinotaurBossController : EnemyController
         knockbackTime = 0.2f;
         knockbackCoefficient = 0.05f;
         attackStrength = 25;
+
+        beybladeVectorAr = new Vector2[] {
+            new Vector2(24f, 16f),
+            new Vector2(24f, -16f),
+            new Vector2(-24f, 16f),
+            new Vector2(-24f, -16f)
+        };
     }
 
     // Update is called once per frame
@@ -58,13 +70,17 @@ public class MinotaurBossController : EnemyController
 
         beybladeTimer += Time.deltaTime;
         if(!isBeyblade) {
-            print("2");
             if(beybladeTimer > beybladeStartTime && !isDead) {
                 BeybladeAttack();
                 return;
             }
         }
         else {
+            beybladeChangeDirectionTimer += Time.deltaTime;
+            if(beybladeChangeDirectionTimer > beybladeChangeDirectionTime) {
+                rb2d.velocity = GetBeybladeVector();
+                beybladeChangeDirectionTimer = 0f;
+            }
             if(beybladeTimer > beybladeFinishTime) {
                 beybladeTimer = 0f;
                 isBeyblade = false;
@@ -77,9 +93,8 @@ public class MinotaurBossController : EnemyController
                 rb2d.drag = 4;
             }
             else {
-                if(rb2d.velocity.magnitude < 25f) {
-                    rb2d.velocity = new Vector2(-25f, -12f);
-                }
+                if(rb2d.velocity.magnitude < 20f)
+                    rb2d.velocity = GetBeybladeVector();
             }
             return;
         }
@@ -108,11 +123,11 @@ public class MinotaurBossController : EnemyController
         if(!base.isKnockback && !isSwingRest && !isDead) {
             aiPath.canMove = true;
 
-            if(!isLunging && Vector3.Distance(player.transform.position, transform.position) < 8f) {
+            if(!isLunging && Vector3.Distance(player.transform.position, transform.position) < 6f) {
                 aiPath.canMove = false;
                 Vector2 playerVec = new Vector2(player.transform.position.x, player.transform.position.y);
                 Vector2 minotaurVec = new Vector2(transform.position.x, transform.position.y);
-
+                isLunging = true;
                 rb2d.velocity = 15f * (playerVec - minotaurVec).normalized;
             }
         }
@@ -136,7 +151,7 @@ public class MinotaurBossController : EnemyController
     public void BeybladeAttack() {
         an.SetBool("isAttack2", true);
         aiPath.canMove = false;
-        rb2d.velocity = new Vector2(25f, 12f);
+        rb2d.velocity = GetBeybladeVector();
         CapsuleCollider2D[] colliders = GetComponents<CapsuleCollider2D>();
         colliders[0].sharedMaterial.bounciness = 1;
         colliders[1].sharedMaterial.bounciness = 1;
@@ -219,5 +234,10 @@ public class MinotaurBossController : EnemyController
         aiPath.canMove = false;
         an.SetBool("isAttack1", false);
         an.SetBool("isWalking", false);
+    }
+
+    private Vector2 GetBeybladeVector() {
+        System.Random rnd = new System.Random();
+        return beybladeVectorAr[rnd.Next(0, 4)];
     }
 }

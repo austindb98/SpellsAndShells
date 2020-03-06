@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.25
+  radius: 0.3
   height: 0.01
   repathRate: 0.25
   canSearch: 1
@@ -237,8 +237,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.032961812, y: -0.015213494}
-  m_Size: {x: 0.09284826, y: 0.12834516}
+  m_Offset: {x: 0.004801121, y: 0.056830175}
+  m_Size: {x: 0.25648767, y: 0.29869395}
   m_Direction: 0
 --- !u!114 &6409835115794811095
 MonoBehaviour:
@@ -253,8 +253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weakness: 2
-  resistance: 1
-  maxHealth: 750
+  resistance: 3
+  maxHealth: 1250
   enemyController: {fileID: -952186269354187593}
 --- !u!114 &-952186269354187593
 MonoBehaviour:
@@ -273,8 +273,9 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   attackStrength: 0
   knockbackStrength: 0.3
-  drops: []
-  dropChance: 0
+  drops:
+  - {fileID: 4137067952421969972, guid: f5a39cdad4c474c4d95f9566064eebe7, type: 3}
+  dropChance: 1
   isKnockback: 0
   knockbackTime: 0.8
   playerController: {fileID: 0}
