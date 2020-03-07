@@ -63980,6 +63980,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4060399170292027603, guid: 5bd6c2be62f3fab46bdd4eb1a7dbdb92,
+        type: 3}
+      propertyPath: orthographic size
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4060399170292027605, guid: 5bd6c2be62f3fab46bdd4eb1a7dbdb92,
         type: 3}
       propertyPath: player
