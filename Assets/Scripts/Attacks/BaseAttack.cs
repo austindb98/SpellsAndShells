@@ -22,7 +22,10 @@ public abstract class BaseAttack : MonoBehaviour
         transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
 
-
+    protected virtual void OnDeath()
+    {
+        Destroy(gameObject);
+    }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
@@ -31,7 +34,7 @@ public abstract class BaseAttack : MonoBehaviour
             EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
             enemyController.handleAttack(damage, element);
         }
-        Destroy(gameObject);
+        OnDeath();
     }
 
 }
