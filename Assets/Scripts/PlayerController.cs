@@ -163,7 +163,12 @@ public class PlayerController : BasePlayer {
             shotgunPellets.Play();
             shoot(Shells[(int)currentAmmo]);
             base.UseAmmo();
+        }
 
+        if(Input.GetKeyDown("r") && base.AmmoCount >= 1) {
+            SoundController.playDropSound();
+            base.currentAmmo = BasePlayer.Ammo.RedShell;
+            base.AmmoCount = -1;
         }
     }
 
