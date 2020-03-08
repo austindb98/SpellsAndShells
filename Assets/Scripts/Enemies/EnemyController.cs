@@ -126,6 +126,7 @@ public class EnemyController : MonoBehaviour
     }
 
     public virtual void applyFrostSlowingEffect(float magnitude, float time) {
+
         if(enemyHealth.weakness == BaseAttack.Element.Ice) {
             magnitude /= 1.5f;
             time *= 1.5f;
@@ -143,7 +144,7 @@ public class EnemyController : MonoBehaviour
 
     public virtual void applyFireDotEffect(float dotDuration, float dotFrequency, float dotDamage) {
         if(enemyHealth.weakness == BaseAttack.Element.Fire) {
-            dotDamage *= 1.5f;
+            dotDamage *= 1.5f; // TODO: no magic numbers
             dotDuration *= 1.5f;
         }
         else if(enemyHealth.resistance == BaseAttack.Element.Fire) {

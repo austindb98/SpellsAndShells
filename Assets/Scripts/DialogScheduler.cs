@@ -3,60 +3,62 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-class Dialog
+class ManagerObject
 {
     
+}
 
+class Prefab : ManagerObject
+{
+    public GameObject prefab;
+    public Vector3 position;
+    public Prefab(GameObject prefab, Vector3 position)
+    {
+        this.prefab = prefab;
+        this.position = position;
+    }
+}
+
+class Dialog : ManagerObject
+{
     public string text;
-    public float activeTime;
-    public float closeTime;
-    public Dialog(string text, float activeTime)
+    public Dialog(string text)
     {
         this.text = text;
-        this.activeTime = activeTime;
     }
 }
 
 public class DialogScheduler : MonoBehaviour
 {
-    static readonly float DefaultReadTime = 3f;
     private static Transform dialogBox;
     private static Text dialogText;
-    private static Queue<Dialog> dialogs;
+    private static Queue<ManagerObject> objects;
     private static Dialog currentDialog;
 
     public string OnStartDialog;
     // Start is called before the first frame update
     void Start()
     {
-        dialogs = new Queue<Dialog>();
+        objects = new Queue<ManagerObject>();
         dialogBox = transform.Find("DialogBox");
         dialogText = dialogBox.GetComponentInChildren<Text>();
         dialogBox.gameObject.SetActive(false);
         if (OnStartDialog != null && OnStartDialog != "")
         {
             dialogBox.gameObject.SetActive(false);
-            addDialog(OnStartDialog, DefaultReadTime);
+            addDialog(OnStartDialog);
         }
     }
 
     public static bool HasDialog()
     {
-        return dialogs.Count > 0;
+        return objects.Count > 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (dialogBox.gameObject.activeSelf)
-        {
-            if (Time.time > currentDialog.closeTime && currentDialog.activeTime > 0)
-            {
-                dialogBox.gameObject.SetActive(false);
-                updateDialog();
-            }
-        }
-        else
+        if (!dialogBox.gameObject.activeSelf)
         {
             updateDialog();
         }
@@ -64,22 +66,38 @@ public class DialogScheduler : MonoBehaviour
 
     void updateDialog()
     {
-        if (dialogs.Count > 0)
+        while (objects.Count > 0 && !dialogBox.gameObject.activeSelf)
         {
-            dialogBox.gameObject.SetActive(true);
-            currentDialog = dialogs.Dequeue();
-            currentDialog.closeTime = Time.time + currentDialog.activeTime;
-            dialogText.text = currentDialog.text;
+            ManagerObject newSpawningObject = objects.Dequeue();
+            if (newSpawningObject.GetType().Name.Equals("Dialog"))
+            {
+                dialogBox.gameObject.SetActive(true);
+                currentDialog = (Dialog)newSpawningObject;
+                dialogText.text = currentDialog.text;
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                Prefab dequeuedPrefab = (Prefab)newSpawningObject;
+                GameObject spawnedPrefab = Instantiate(dequeuedPrefab.prefab);
+                spawnedPrefab.transform.position = dequeuedPrefab.position;
+            }
         }
     }
 
-    public static void addDialog(string text, float activeTime)
+    public static void addDialog(string text)
     {
-        dialogs.Enqueue(new Dialog(text, activeTime));
+        objects.Enqueue(new Dialog(text));
+    }
+    public static void addPrefab(GameObject prefab, Vector3 position)
+    {
+        objects.Enqueue(new Prefab(prefab, position));
     }
 
-    public static void closeCurrentDialog()
+    public void closeCurrentDialog()
     {
         dialogBox.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+        updateDialog();
     }
 }

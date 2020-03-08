@@ -28,6 +28,8 @@ key-pickup.aiff - sijam11 (https://freesound.org/people/sijam11/sounds/204854/)
 door-open.wav - GodofPH (https://freesound.org/people/GodofPH/sounds/114250/)
 player-hurt.wav - MATTIX (https://freesound.org/people/MATTIX/sounds/486943/)
 level-up.wav - Benboncan (https://freesound.org/people/Benboncan/sounds/90633/)
+ShellDrop.mp3 - ThompsonMan (https://freesound.org/people/ThompsonMan/sounds/107342/)
+WoodBreak.mp3 - Deathscyp (https://freesound.org/people/Deathscyp/sounds/443293/)
 
 DATA
 medieval names - (http://dmnes.org/names)

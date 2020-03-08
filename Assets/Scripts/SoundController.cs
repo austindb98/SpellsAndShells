@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
-    public static AudioClip shotgunShootSound;
+    public static AudioClip shotgunDropSound;
     public static AudioClip potBreakSound;
     public static AudioClip menuChange;
     static AudioClip stoneDestroy;
     static AudioClip playerHurt;
     static AudioClip levelUp;
+    static AudioClip shotgunShootSound;
 
     public AudioClip[] sfx = new AudioClip[6];
 
@@ -34,6 +35,7 @@ public class SoundController : MonoBehaviour
             stoneDestroy = sfx[3];
             playerHurt = sfx[4];
             levelUp = sfx[5];
+            shotgunDropSound = sfx[6];
         }
 
         sfxVolume = 1f; // later will get from playerprefs
@@ -48,6 +50,11 @@ public class SoundController : MonoBehaviour
     public static void playBreakSound(AudioClip breakSound)
     {
         soundSource.PlayOneShot(breakSound, sfxVolume);
+    }
+
+    public static void playDropSound()
+    {
+        soundSource.PlayOneShot(shotgunDropSound, sfxVolume);
     }
 
     public static void playMenuChange()
