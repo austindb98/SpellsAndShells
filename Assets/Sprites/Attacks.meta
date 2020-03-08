@@ -1,13 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: d6838b42887051d449f9e9c97e6dec92
-=======
-<<<<<<< HEAD:Assets/Sprites/Attacks.meta
-guid: 83aa6135cb0fdfe408d8b9fb8be64f41
-=======
-guid: f4dcd13d9805fdb4e8c9869f194e263d
->>>>>>> a06aa3050e188a601dcd066c72099ca79578586f:Assets/Scripts/Sprites/Attacks.meta
->>>>>>> 2053022cbdf627f22b888784a8af0459c50631ad
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
