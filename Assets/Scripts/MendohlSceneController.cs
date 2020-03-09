@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class MendohlSceneController : MonoBehaviour
 {
-    public Vector3 portalSpawnLocation;
+    // assign these in prefab
     public GameObject portalPrefab;
-    public DialogScheduler dialogScheduler;
+    public GameObject skillPointPrefab;
 
+    // assign these in scene
+    public bool isGiveSkillPoint;
+    public Vector3 portalSpawnLocation;
+    public Vector3 skillPointSpawnLocation;
     public List<string> dialogList;
 
     private PlayerController playerController;
@@ -22,10 +26,7 @@ public class MendohlSceneController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Update() {}
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -46,6 +47,8 @@ public class MendohlSceneController : MonoBehaviour
 
     public void handlePortalClose() {
         playerController.canMove = true;
+        if(isGiveSkillPoint)
+            Instantiate(skillPointPrefab, skillPointSpawnLocation, new Quaternion(0, 0, 0, 0));
         Destroy(gameObject);
     }
 
