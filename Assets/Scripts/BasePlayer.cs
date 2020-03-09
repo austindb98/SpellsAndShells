@@ -20,6 +20,7 @@ public class BasePlayer : MonoBehaviour
     static readonly float DebugSpeed = 30f;
     static readonly float ManaRegen = 4.5f;
     static readonly int ClipSize = 9;
+    public static readonly float invulTime = .35f;
 
     public float MaxHealth;
     public float MaxMana;
@@ -35,6 +36,8 @@ public class BasePlayer : MonoBehaviour
     public uint[] skillpoints = new uint[4];
 
     public int spellIndex = 0;
+
+    protected float invulTimer;
 
     protected virtual void Start()
     {
@@ -60,6 +63,18 @@ public class BasePlayer : MonoBehaviour
         }
 
         currentAmmo = Ammo.RedShell;
+    }
+
+
+    // returns true if already invulnerable
+    protected bool MarkInvulnerable()
+    {
+        if (invulTimer >= 0)
+        {
+            return true;
+        }
+        invulTimer = invulTime;
+        return false;
     }
 
     protected void UseAmmo()
@@ -128,9 +143,9 @@ public class BasePlayer : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (debug)
+        if (invulTimer >= 0)
         {
-            DebugUpdate();
+            invulTimer -= Time.deltaTime;
         }
 
         if (mana < MaxMana)

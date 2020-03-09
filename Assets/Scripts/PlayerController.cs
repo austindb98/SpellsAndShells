@@ -225,6 +225,10 @@ public class PlayerController : BasePlayer {
     }
 
     public void takeDamage(float damage) {
+        if (base.MarkInvulnerable())
+        {
+            return;
+        }
         health -= damage;
         isHit = true;
         speed = baseSpeed * slowdownMult;
