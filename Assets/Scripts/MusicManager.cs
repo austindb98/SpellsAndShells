@@ -11,7 +11,7 @@ public class MusicManager : MonoBehaviour
     public AudioClip[] songs;
 
     private int currentIndex;
-    private AudioSource src;
+    protected AudioSource src;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,7 @@ public class MusicManager : MonoBehaviour
         PlayNext();
     }
 
-    private void PlayNext()
+    protected virtual void PlayNext()
     {
         int next;
         do
@@ -38,7 +38,7 @@ public class MusicManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if (!src.isPlaying)
         {
