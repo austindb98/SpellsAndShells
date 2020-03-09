@@ -110,18 +110,14 @@ public class SkeletonWarriorController : EnemyController
 
         rb2d.constraints |= RigidbodyConstraints2D.FreezePosition;
         enemyHealth.setCurrentHealth(80f);
-        // base.handleEnemyDeath();
-        //Destroy(gameObject);
     }
 
-    private void WalkLeft()
-    {
+    private void WalkLeft() {
         an.SetBool("isFacingRight", false);
         an.SetBool("isWalking", true);
     }
 
-    private void WalkRight()
-    {
+    private void WalkRight() {
         an.SetBool("isFacingRight", true);
         an.SetBool("isWalking", true);
     }

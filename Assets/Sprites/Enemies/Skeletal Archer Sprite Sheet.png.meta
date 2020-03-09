@@ -1,0 +1,1699 @@
+fileFormatVersion: 2
+guid: 9feb3fbf6c75e7846bd98b1a62e277b9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7917712778687700814
+    second: Skeletal Archer Sprite Sheet_0
+  - first:
+      213: 704981068872376399
+    second: Skeletal Archer Sprite Sheet_1
+  - first:
+      213: -230356832295594265
+    second: Skeletal Archer Sprite Sheet_2
+  - first:
+      213: -2303541516192829239
+    second: Skeletal Archer Sprite Sheet_3
+  - first:
+      213: -1573110293482917622
+    second: Skeletal Archer Sprite Sheet_4
+  - first:
+      213: 7844170308670976067
+    second: Skeletal Archer Sprite Sheet_5
+  - first:
+      213: -4318215031914437043
+    second: Skeletal Archer Sprite Sheet_6
+  - first:
+      213: -582038149004322899
+    second: Skeletal Archer Sprite Sheet_7
+  - first:
+      213: 2400363714869051958
+    second: Skeletal Archer Sprite Sheet_8
+  - first:
+      213: 5175197771274265371
+    second: Skeletal Archer Sprite Sheet_9
+  - first:
+      213: 3043615522236654868
+    second: Skeletal Archer Sprite Sheet_10
+  - first:
+      213: 5517658280554411743
+    second: Skeletal Archer Sprite Sheet_11
+  - first:
+      213: -4342443110349623808
+    second: Skeletal Archer Sprite Sheet_12
+  - first:
+      213: -7178288049950394988
+    second: Skeletal Archer Sprite Sheet_13
+  - first:
+      213: 9000767068127946115
+    second: Skeletal Archer Sprite Sheet_14
+  - first:
+      213: -4365056977604605526
+    second: Skeletal Archer Sprite Sheet_15
+  - first:
+      213: -4799690427374886854
+    second: Skeletal Archer Sprite Sheet_16
+  - first:
+      213: -3611614937485126404
+    second: Skeletal Archer Sprite Sheet_17
+  - first:
+      213: -4407915056226595492
+    second: Skeletal Archer Sprite Sheet_18
+  - first:
+      213: -2903607221016309676
+    second: Skeletal Archer Sprite Sheet_19
+  - first:
+      213: -3257598613919853193
+    second: Skeletal Archer Sprite Sheet_20
+  - first:
+      213: 2979415369607449462
+    second: Skeletal Archer Sprite Sheet_21
+  - first:
+      213: -8815473983884724909
+    second: Skeletal Archer Sprite Sheet_22
+  - first:
+      213: 8659874597665894664
+    second: Skeletal Archer Sprite Sheet_23
+  - first:
+      213: -5487593633761192763
+    second: Skeletal Archer Sprite Sheet_24
+  - first:
+      213: 2663423001382257167
+    second: Skeletal Archer Sprite Sheet_25
+  - first:
+      213: 171996210653290344
+    second: Skeletal Archer Sprite Sheet_26
+  - first:
+      213: -2941041129354060197
+    second: Skeletal Archer Sprite Sheet_27
+  - first:
+      213: 7111472681948094881
+    second: Skeletal Archer Sprite Sheet_28
+  - first:
+      213: 1798692349442994762
+    second: Skeletal Archer Sprite Sheet_29
+  - first:
+      213: -1962727067877960608
+    second: Skeletal Archer Sprite Sheet_30
+  - first:
+      213: 4441111020647605250
+    second: Skeletal Archer Sprite Sheet_31
+  - first:
+      213: 4706706094676888187
+    second: Skeletal Archer Sprite Sheet_32
+  - first:
+      213: -1510145112637739999
+    second: Skeletal Archer Sprite Sheet_33
+  - first:
+      213: 3444077672326820661
+    second: Skeletal Archer Sprite Sheet_34
+  - first:
+      213: -2599420263375461254
+    second: Skeletal Archer Sprite Sheet_35
+  - first:
+      213: -4474373118743510783
+    second: Skeletal Archer Sprite Sheet_36
+  - first:
+      213: -7868528025518110302
+    second: Skeletal Archer Sprite Sheet_37
+  - first:
+      213: 7406486127032260990
+    second: Skeletal Archer Sprite Sheet_38
+  - first:
+      213: -652457902454904505
+    second: Skeletal Archer Sprite Sheet_39
+  - first:
+      213: -9202835026053466672
+    second: Skeletal Archer Sprite Sheet_40
+  - first:
+      213: 5597735422051302732
+    second: Skeletal Archer Sprite Sheet_41
+  - first:
+      213: -6683007312920746429
+    second: Skeletal Archer Sprite Sheet_42
+  - first:
+      213: 3601286784225630229
+    second: Skeletal Archer Sprite Sheet_43
+  - first:
+      213: 649334757203852189
+    second: Skeletal Archer Sprite Sheet_44
+  - first:
+      213: -9094171744568873330
+    second: Skeletal Archer Sprite Sheet_45
+  - first:
+      213: 7496266294125123937
+    second: Skeletal Archer Sprite Sheet_46
+  - first:
+      213: -685621892446828833
+    second: Skeletal Archer Sprite Sheet_47
+  - first:
+      213: -8052131322079055152
+    second: Skeletal Archer Sprite Sheet_48
+  - first:
+      213: 7418395572980670688
+    second: Skeletal Archer Sprite Sheet_49
+  - first:
+      213: 5845733736634073225
+    second: Skeletal Archer Sprite Sheet_50
+  - first:
+      213: -2860960892462321243
+    second: Skeletal Archer Sprite Sheet_51
+  - first:
+      213: -4835823560323924622
+    second: Skeletal Archer Sprite Sheet_52
+  - first:
+      213: -2606966598056527644
+    second: Skeletal Archer Sprite Sheet_53
+  - first:
+      213: -4237108828388408594
+    second: Skeletal Archer Sprite Sheet_54
+  - first:
+      213: 7298177429315180140
+    second: Skeletal Archer Sprite Sheet_55
+  - first:
+      213: -6432365287989893846
+    second: Skeletal Archer Sprite Sheet_56
+  - first:
+      213: 2055646092742669350
+    second: Skeletal Archer Sprite Sheet_57
+  - first:
+      213: -8051648904910403485
+    second: Skeletal Archer Sprite Sheet_58
+  - first:
+      213: -7724067770095931168
+    second: Skeletal Archer Sprite Sheet_59
+  - first:
+      213: -1652061822103242060
+    second: Skeletal Archer Sprite Sheet_60
+  - first:
+      213: 543138427274312484
+    second: Skeletal Archer Sprite Sheet_61
+  - first:
+      213: -8712117182890844530
+    second: Skeletal Archer Sprite Sheet_62
+  - first:
+      213: -2412640261729443955
+    second: Skeletal Archer Sprite Sheet_63
+  - first:
+      213: 8169804699162161432
+    second: Skeletal Archer Sprite Sheet_64
+  - first:
+      213: -4706559425184681923
+    second: Skeletal Archer Sprite Sheet_65
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 288
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c5dc997cbc5e2c47a4fa56457cd0603
+      internalID: -7917712778687700814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 288
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 718dba33109df8e41ad37afe01b08a6e
+      internalID: 704981068872376399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 288
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 735f33a0512934d4e9245e19a81b78f7
+      internalID: -230356832295594265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 288
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1868b7143d3cb242923bc57f0b82894
+      internalID: -2303541516192829239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 288
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41e50db2894cc104299fb6e3ed48dad0
+      internalID: -1573110293482917622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 288
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8382f5e7f8755df42a74dd277d094fa1
+      internalID: 7844170308670976067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 288
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dabcbc7ac220666469bc4b76fd422b23
+      internalID: -4318215031914437043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 288
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 552eac3418a0cc04084761d4d1006d30
+      internalID: -582038149004322899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 288
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c1fd7a9b104cb4c8792e37c8f61887
+      internalID: 2400363714869051958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 288
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb90c911a88747d42b7fd5b4065fdda2
+      internalID: 5175197771274265371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 256
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f141073127c7fe48b4fb181db2c08a0
+      internalID: 3043615522236654868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 257
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b476ac696f3198842a1790f953e3370a
+      internalID: 5517658280554411743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 259
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 490310d5de373d14e81301a9efc76c3d
+      internalID: -4342443110349623808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 260
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a058f2fe3adb07e4ba59f5a4623f93f9
+      internalID: -7178288049950394988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 257
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 087c144a3c8ee834ea7718d24215ab12
+      internalID: 9000767068127946115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 224
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 966189fb91a13bf4fa8ee2a34823bb39
+      internalID: -4365056977604605526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 224
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 598464982b271a746be24dc86f80a1c4
+      internalID: -4799690427374886854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 224
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92c057526b36a2840a1cf6612eefabe4
+      internalID: -3611614937485126404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 224
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 469aa482e793b604190480e28d063d17
+      internalID: -4407915056226595492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 224
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35d9dedf609df794b9843d8486f80277
+      internalID: -2903607221016309676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 224
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14aab9045fcf3d745833e6f22f10018b
+      internalID: -3257598613919853193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 224
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc87561adc17ed947b047a9a3a70aac9
+      internalID: 2979415369607449462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 224
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7747b0ef2514f241b62679da79fdeb4
+      internalID: -8815473983884724909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 192
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2051a53a6af9c21439d0b94c9ab3b364
+      internalID: 8659874597665894664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 192
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9da5bde9678d32c4eb7b64b7c121458f
+      internalID: -5487593633761192763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 192
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e699cf796a7e1414bb601e0abcab8aba
+      internalID: 2663423001382257167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 160
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 267b8dddc43307a4aa749b72e77a4226
+      internalID: 171996210653290344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 160
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cb7b607c58158741a8a09bc817616ff
+      internalID: -2941041129354060197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 160
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2688fde39fa53e42b70c043fc1b9aed
+      internalID: 7111472681948094881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 160
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d50a4f024ecd9bf46a99ca54deb3d6fb
+      internalID: 1798692349442994762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 160
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a15eedaf6b0deba4498eaf54b705295f
+      internalID: -1962727067877960608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 160
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4c024487ae526c479ef0c0fd7bbd352
+      internalID: 4441111020647605250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 160
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8244d6b3d45e20b4fb2b803cdeb010de
+      internalID: 4706706094676888187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 128
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b87f5586a5cfe34ca611385a2d87b67
+      internalID: -1510145112637739999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 128
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef8a3fa210db626478f13d8f618a7e02
+      internalID: 3444077672326820661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 128
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f89da5f1f680581489b106f3ca61bc15
+      internalID: -2599420263375461254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 128
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f035bf598610b374da19ef3947998831
+      internalID: -4474373118743510783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 128
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dd95aad1c4f85c4cbc563e46164f2eb
+      internalID: -7868528025518110302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 128
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 222632c515d109348a113f9ce7548319
+      internalID: 7406486127032260990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 128
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88de6ed9fc5063b4aad62473c6ee11aa
+      internalID: -652457902454904505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 128
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f161370efbc4eb44a6fc8ae8671fca6
+      internalID: -9202835026053466672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 128
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df6de0a125bcc7c41b857446c345ee3f
+      internalID: 5597735422051302732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 128
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1c3f88e5fe9a0a418cf63ad2ea8d477
+      internalID: -6683007312920746429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 96
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2d200ece969554d943519a0ac3a0bc
+      internalID: 3601286784225630229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 97
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cd6078ea116794468d5580145baa494
+      internalID: 649334757203852189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 99
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 480184c030e2c914e81be7d1385b8047
+      internalID: -9094171744568873330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 100
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f7121d2834f04d45aa60b9504c76576
+      internalID: 7496266294125123937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 97
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 802f0c0539530bd43b3ed01701293e8b
+      internalID: -685621892446828833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 64
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4fcf45ce2dd7d242b3cd3a77c49c1fc
+      internalID: -8052131322079055152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 64
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acbe455e9c274cc428fddecdf55507ad
+      internalID: 7418395572980670688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 64
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 913b1d188f5f7784283682bd6aec35dd
+      internalID: 5845733736634073225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 64
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b935e7f5ec76339419291a3295d8bc41
+      internalID: -2860960892462321243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 64
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d4e3d306b5a1f042b3fac1a1bb2f32c
+      internalID: -4835823560323924622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 64
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8c2c602144cd90499cf38ac8354db3c
+      internalID: -2606966598056527644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 64
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 108a458d20630734ab8a01d51b3053cc
+      internalID: -4237108828388408594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 64
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfae8d26afaf06842b1633bbb4a2334d
+      internalID: 7298177429315180140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 32
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3221586aaf64ddd4d8eabf2d23a26d65
+      internalID: -6432365287989893846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 32
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a8d7daedb669e46b9068865f332c94
+      internalID: 2055646092742669350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd8f4af333c89c44e92460014d68ee5b
+      internalID: -8051648904910403485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d389c24c5fb3c6647bae0606c4f507b1
+      internalID: -7724067770095931168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 0
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 873d1b8e93fb24d499de07dd140f1f4c
+      internalID: -1652061822103242060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 0
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b70164be57d73c241855490842841570
+      internalID: 543138427274312484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 0
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 648ccfe81da2f7a4194b8b7d808b54eb
+      internalID: -8712117182890844530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 0
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c05c9dc14498a4fa55fd48a3e94471
+      internalID: -2412640261729443955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_64
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 0
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1c52f24fbc6ab4cad508f9e20a74f8
+      internalID: 8169804699162161432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeletal Archer Sprite Sheet_65
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 0
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90a4cbe008c353443aebae1cdb60e1ab
+      internalID: -4706559425184681923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
