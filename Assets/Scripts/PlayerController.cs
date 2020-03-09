@@ -50,6 +50,8 @@ public class PlayerController : BasePlayer {
 
     public SpawnMaster initialSpawnMaster; // this will not be necessary in the final design
 
+    public bool canMove = true;
+
     protected override void Start() {
         base.Start();
         rb2d = GetComponent<Rigidbody2D>();
@@ -74,8 +76,7 @@ public class PlayerController : BasePlayer {
     }
 
     protected override void Update() {
-
-        if (Time.timeScale == 0f)
+        if (Time.timeScale == 0f || !canMove)
         {
             return;
         }
