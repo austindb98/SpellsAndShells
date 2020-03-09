@@ -88,7 +88,7 @@ public class SkeletalArcherController : EnemyController
         Quaternion q = Quaternion.Euler( 0f, 0f, angle );
 
         GameObject thisArrow = Instantiate(arrow, transform.position, q);
-        thisArrow.GetComponent<Rigidbody2D>().velocity = 30f * dir;
+        thisArrow.GetComponent<Rigidbody2D>().velocity = arrowSpeed * dir;
         thisArrow.GetComponent<ArrowController>().player = player;
     }
 

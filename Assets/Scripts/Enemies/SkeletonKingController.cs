@@ -9,6 +9,8 @@ public class SkeletonKingController : EnemyController
     private int numSummons = 0;
     private int numDeaths = 0;
 
+    public RectTransform healthBar;
+
     public int numSpawnedSkeletons = 0;
 
     private bool isUsingAiPath = false;
@@ -32,7 +34,8 @@ public class SkeletonKingController : EnemyController
 
     private int raycastLayerMask;
 
-    public float bossHealth = 500f;
+    public float maxHealth = 1200f;
+    public float bossHealth = 1200f;
 
     private System.Random rnd;
 
@@ -45,6 +48,7 @@ public class SkeletonKingController : EnemyController
 
         knockbackStrength = 0.05f;
         knockbackTime = 0.3f;
+        attackStrength = 25f;
 
         rnd = new System.Random();
 
@@ -65,7 +69,22 @@ public class SkeletonKingController : EnemyController
     private void UpdateDirection() {
         float x;
 
-        if(isSwingRest) {
+        print("isKnockback: " + base.isKnockback);
+        print("isSwingRest: " + isSwingRest);
+        print("isDead: " + isDead);
+        print("isUnderground: " + isUnderground);
+        print("isLunge: " + isLunge);
+        print("isJumpAttack: " + isJumpAttack);
+
+        if(isUnderground)
+            return;
+        else if(isDead) {
+            reviveTimer += Time.deltaTime;
+            if(reviveTimer > reviveTime) {
+                StartRevival();
+            }
+        }
+        else if(isSwingRest) {
             aiPath.canMove = false;
             swingRestTimer += Time.deltaTime;
             if(swingRestTimer > swingRestTime) {
@@ -73,13 +92,7 @@ public class SkeletonKingController : EnemyController
                 swingRestTimer = 0f;
                 DisableAllAnimationVars();
                 an.SetBool("isWalk", true);
-            }
-        }
-
-        if(isDead) {
-            reviveTimer += Time.deltaTime;
-            if(reviveTimer > reviveTime) {
-                StartRevival();
+                aiPath.canMove = true;
             }
         }
         else if(!isLunge && numSummons < numDeaths && rnd.NextDouble() < 0.2f * Time.deltaTime) {
@@ -150,7 +163,7 @@ public class SkeletonKingController : EnemyController
 
     private void updateBossHealth(float damage, BaseAttack.Element element) {
         if(isDead) {
-            bossHealth -= base.enemyHealth.calculateDamageTaken(damage, element);
+            SetHealth(bossHealth - base.enemyHealth.calculateDamageTaken(damage, element));
             print(bossHealth);
             if(bossHealth <= 0)
                 handleFinishBossFight();
@@ -192,6 +205,8 @@ public class SkeletonKingController : EnemyController
 
     public void handleFinishRise() {
         enableColliders();
+        isJumpAttack = false;
+        isLunge = false;
         aiPath.canMove = true;
         an.SetBool("isWalk", true);
         isUsingAiPath = true;
@@ -314,6 +329,13 @@ public class SkeletonKingController : EnemyController
         an.SetBool("isAttack", false);
         an.SetBool("isJumpAttack", false);
         an.SetBool("isDig", false);
+    }
 
+    public void SetHealth(float newHealth)
+    {
+        if (newHealth < 0)
+            newHealth = 0;
+        bossHealth = newHealth;
+        healthBar.localScale = new Vector3(bossHealth / maxHealth, 1, 1);
     }
 }

@@ -21,6 +21,7 @@ public class SkeletonSpawner : MonoBehaviour
     void Start()
     {
         rnd = new System.Random();
+        spawnTime = 1.5f + 2.2f * (float) rnd.NextDouble();
     }
 
     // Update is called once per frame
@@ -28,11 +29,17 @@ public class SkeletonSpawner : MonoBehaviour
     {
         if(isSpawning) {
             spawnTimer += Time.deltaTime;
+            GameObject skel;
             if(spawnTimer > spawnInterval) {
-                if(rnd.Next(0, 3) == 0)
-                    Instantiate(skeletonArcher, transform.position + new Vector3(-1, 0, 0), new Quaternion(0, 0, 0, 0));
-                else
-                    Instantiate(skeletonWarrior, transform.position + new Vector3(-1, 0, 0), new Quaternion(0, 0, 0, 0));
+                if(rnd.Next(0, 3) == 0) {
+                    skel = Instantiate(skeletonArcher, transform.position + new Vector3(-1, 0, 0), new Quaternion(0, 0, 0, 0));
+                    skel.GetComponent<SkeletalArcherController>().skeletonKingController = skeletonKingController;
+                }
+                else {
+                    skel = Instantiate(skeletonWarrior, transform.position + new Vector3(-1, 0, 0), new Quaternion(0, 0, 0, 0));
+                    skel.GetComponent<SkeletonWarriorController>().skeletonKingController = skeletonKingController;
+                }
+
                 skeletonKingController.handleSpawnSkeleton();
                 spawnTimer -= spawnInterval;
                 spawnTime -= spawnInterval;
