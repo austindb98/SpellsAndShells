@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ParticleSystem))]
 public abstract class BaseAttack : MonoBehaviour
 {
 
@@ -13,8 +14,14 @@ public abstract class BaseAttack : MonoBehaviour
     public float speed;
     public float damage;
     protected Element element;
+
+    protected ParticleSystem particles;
     // Start is called before the first frame update
-    protected abstract void Start();
+    protected virtual void Start()
+    {
+        particles = GetComponent<ParticleSystem>();
+
+    }
 
     // Update is called once per frame
     protected virtual void Update()

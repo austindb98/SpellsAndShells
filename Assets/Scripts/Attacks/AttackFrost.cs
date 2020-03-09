@@ -22,6 +22,7 @@ public class AttackFrost : BaseAttack
     protected override void Start()
     {
         element = Element.Ice;
+        base.Start();
     }
 
     protected override void OnDeath()
@@ -29,6 +30,7 @@ public class AttackFrost : BaseAttack
 
         if (iceType >= IceType.Freeze)
         {
+            particles.Stop();
             Destroy(this);
         }
         else
