@@ -6,6 +6,7 @@ using Pathfinding;
 
 public class SkeletalArcherController : EnemyController
 {
+    public SkeletonKingController skeletonKingController;   // only used in skeleton king bossfight
     private float maxArcherRange = 20f;     // range from which archer can attack
     private int raycastLayerMask;
     private float arrowSpeed = 20f;
@@ -163,6 +164,8 @@ public class SkeletalArcherController : EnemyController
     public override void handleEnemyDeath() {
         if (isDead) {
             base.handleEnemyDeath();
+            if(skeletonKingController)
+                skeletonKingController.handleSkeletonDeath();
             Destroy(gameObject);
             return;
         }

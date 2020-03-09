@@ -189,7 +189,7 @@ MonoBehaviour:
   height: 0.01
   repathRate: 0.5
   canSearch: 1
-  canMove: 1
+  canMove: 0
   maxSpeed: 10
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
@@ -215,7 +215,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8154171984916762044}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -231,7 +231,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8154171984916762044}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -256,14 +256,20 @@ MonoBehaviour:
   playerCollider: {fileID: 0}
   rb2d: {fileID: 0}
   attackStrength: 0
+  knockbackStrength: 0.3
   drops: []
   dropChance: 0
   isKnockback: 0
+  knockbackTime: 0.8
   playerController: {fileID: 0}
   knockbackCoefficient: 0
+  maxSpeed: 0
   player: {fileID: 0}
   aiPath: {fileID: 8154171984916762053}
   spawnMaster: {fileID: 0}
+  spawnManager: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  enemyHealth: {fileID: 0}
 --- !u!114 &6409835115794811095
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ using Pathfinding;
 
 public class SkeletonWarriorController : EnemyController
 {
+    public SkeletonKingController skeletonKingController;   // only used in skeleton king bossfight
+
     private bool isSwingRest = false;
     private float swingRestTime = 1f;
     private float swingRestTimer = 0f;
@@ -100,6 +102,8 @@ public class SkeletonWarriorController : EnemyController
     public override void handleEnemyDeath() {
         if (isDead) {
             base.handleEnemyDeath();
+            if(skeletonKingController)
+                skeletonKingController.handleSkeletonDeath();
             Destroy(gameObject);
             return;
         }
@@ -133,4 +137,5 @@ public class SkeletonWarriorController : EnemyController
         aiPath.canMove = false;
         an.SetBool("isAttack1", false);
     }
+    
 }
