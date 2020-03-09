@@ -11,8 +11,9 @@ public class SoundController : MonoBehaviour
     static AudioClip playerHurt;
     static AudioClip levelUp;
     static AudioClip shotgunShootSound;
+    static AudioClip menuError;
 
-    public AudioClip[] sfx = new AudioClip[6];
+    public AudioClip[] sfx = new AudioClip[7];
 
     private static AudioSource soundSource;
 
@@ -36,10 +37,19 @@ public class SoundController : MonoBehaviour
             playerHurt = sfx[4];
             levelUp = sfx[5];
             shotgunDropSound = sfx[6];
+            menuError = sfx[7];
         }
 
         sfxVolume = 1f; // later will get from playerprefs
         uiVolume = 1f;
+        OnVolumesUpdated();
+    }
+
+    public static void OnVolumesUpdated()
+    {
+        sfxVolume = PlayerPrefs.GetFloat(VolumeController.Setting.VolumeSfx.ToString(), 1);
+        uiVolume = PlayerPrefs.GetFloat(VolumeController.Setting.VolumeUI.ToString(), 1);
+        Debug.Log("sfx = " + sfxVolume + ", ui = " + uiVolume);
     }
 
     public static void playShotgunShootSound()
@@ -80,5 +90,10 @@ public class SoundController : MonoBehaviour
     public static void PlaySound(AudioClip clip)
     {
         soundSource.PlayOneShot(clip, sfxVolume);
+    }
+
+    public static void PlayError()
+    {
+        soundSource.PlayOneShot(menuError, uiVolume);
     }
 }
