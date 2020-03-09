@@ -6,9 +6,10 @@ using Pathfinding;
 
 public class SkeletalArcherController : EnemyController
 {
+    public SkeletonKingController skeletonKingController;   // only used in skeleton king bossfight
     private float maxArcherRange = 20f;     // range from which archer can attack
     private int raycastLayerMask;
-    private float arrowSpeed = 20f;
+    private float arrowSpeed = 15f;
 
     private float reviveTimer = 0f;
     private float reviveTime = 5f;
@@ -87,7 +88,7 @@ public class SkeletalArcherController : EnemyController
         Quaternion q = Quaternion.Euler( 0f, 0f, angle );
 
         GameObject thisArrow = Instantiate(arrow, transform.position, q);
-        thisArrow.GetComponent<Rigidbody2D>().velocity = 30f * dir;
+        thisArrow.GetComponent<Rigidbody2D>().velocity = arrowSpeed * dir;
         thisArrow.GetComponent<ArrowController>().player = player;
     }
 
@@ -163,6 +164,8 @@ public class SkeletalArcherController : EnemyController
     public override void handleEnemyDeath() {
         if (isDead) {
             base.handleEnemyDeath();
+            if(skeletonKingController)
+                skeletonKingController.handleSkeletonDeath();
             Destroy(gameObject);
             return;
         }

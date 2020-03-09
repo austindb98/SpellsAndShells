@@ -60,8 +60,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f2ae12ddfa0d9488b2657814cc27ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalSpawnLocation: {x: -6, y: 5, z: 0}
   portalPrefab: {fileID: 7073895336986539699, guid: 59b51413651890b48aed6d5888c49609,
     type: 3}
-  dialogScheduler: {fileID: 0}
+  skillPointPrefab: {fileID: 6816411548315846261, guid: 85236b60b0c3ad042916e8756934c9de,
+    type: 3}
+  isGiveSkillPoint: 0
+  portalSpawnLocation: {x: -6, y: 5, z: 0}
+  skillPointSpawnLocation: {x: 0, y: 0, z: 0}
   dialogList: []

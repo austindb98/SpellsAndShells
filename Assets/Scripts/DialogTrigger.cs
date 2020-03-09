@@ -31,22 +31,26 @@ public class DialogTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int prefabIndex = 0;
-        int dialogIndex = 0;
-        for (int i = 0; i < ordering.Length; i++)
+        PlayerController player = collision.GetComponentInParent<PlayerController>();
+        if (player)
         {
-            if (ordering[i].Equals("dialog")) //add a dialog
+            int prefabIndex = 0;
+            int dialogIndex = 0;
+            for (int i = 0; i < ordering.Length; i++)
             {
-                DialogScheduler.addDialog(dialogs[dialogIndex]);
-                dialogIndex++;
+                if (ordering[i].Equals("dialog")) //add a dialog
+                {
+                    DialogScheduler.addDialog(dialogs[dialogIndex]);
+                    dialogIndex++;
+                }
+                else //add a prefab
+                {
+                    DialogScheduler.addPrefab(prefabs[prefabIndex], positions[prefabIndex]);
+                    prefabIndex++;
+                }
             }
-            else //add a prefab
-            {
-                DialogScheduler.addPrefab(prefabs[prefabIndex], positions[prefabIndex]);
-                prefabIndex++;
-            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 
 }

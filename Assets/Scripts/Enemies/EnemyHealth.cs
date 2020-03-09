@@ -47,6 +47,15 @@ public class EnemyHealth : MonoBehaviour
         accumulatedDamage = -1;
     }
 
+    public float calculateDamageTaken(float damage, BaseAttack.Element type) {
+        if(type == weakness) {
+            damage *= weakMult;
+        } else if (type == resistance) {
+            damage /= weakMult;
+        }
+        return damage;
+    }
+
     public virtual void takeDamage(float damage, BaseAttack.Element type) {
         dmgColor = yellowColor;
         if(type == weakness) {

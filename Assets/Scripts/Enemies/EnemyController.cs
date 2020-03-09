@@ -201,7 +201,7 @@ public class EnemyController : MonoBehaviour
         spriteRenderer.color = normalTint;
     }
 
-    private void cancelFrozen() {
+    protected void cancelFrozen() {
         isFrozen = false;
         aiPath.maxSpeed = maxSpeed;
         spriteRenderer.color = normalTint;

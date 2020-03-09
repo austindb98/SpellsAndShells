@@ -17,8 +17,8 @@ tileset_dungeon.png - Stealthix (https://stealthix.itch.io/dungeon-tileset-32x32
 SOUND
 menuchange.wav - victorium183 (https://freesound.org/people/victorium183/)
 minimalist-sci-fi-ui-error.flac - plasterbrain (https://freesound.org/people/plasterbrain/)
-PotBreak.wav - ??? (https://www.youtube.com/watch?v=A5zwcsVsVz0)
-ShotgunShoot.wav - ??? (https://www.youtube.com/watch?v=A5zwcsVsVz0)
+PotBreak.wav - ??? (NO LINK)
+ShotgunShoot.wav - megaboy729 (https://www.youtube.com/watch?v=A5zwcsVsVz0)
 firespell1.wav - alonsotm (https://freesound.org/people/alonsotm/)
 ShotgunLoad.mp3 - Taofledermaus (https://www.youtube.com/watch?v=YbFH2i17goQ)
 PotionDrink.mp3 - (https://freesound.org/people/Jamius/sounds/41529/)

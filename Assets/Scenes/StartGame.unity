@@ -1936,6 +1936,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: SaveSlot2
       objectReference: {fileID: 0}
+    - target: {fileID: 6871400381810144902, guid: 31515c0fb833f864ab6c20f6a92277a8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3259280753901902537, guid: a9e4a1fcdc381414bbc53eef13d8d862,
+        type: 3}
     - target: {fileID: 6871400381810144903, guid: 31515c0fb833f864ab6c20f6a92277a8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1966,6 +1972,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6871400381810144903, guid: 31515c0fb833f864ab6c20f6a92277a8,
+        type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -4365978070274106389, guid: a9e4a1fcdc381414bbc53eef13d8d862,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31515c0fb833f864ab6c20f6a92277a8, type: 3}
 --- !u!224 &2059099724 stripped

@@ -30,8 +30,11 @@ public class CyclopsBossController : EnemyController
             new Vector3(0, -2f, 0)
         };
 
-        state = CyclopsState.Laser;
-        an.SetBool("isLaser", true);
+        /*state = CyclopsState.Laser;
+        an.SetBool("isLaser", true);*/
+
+        //state = CyclopsState.Summon;
+        an.SetBool("isSummon", true);
     }
 
     // Update is called once per frame
