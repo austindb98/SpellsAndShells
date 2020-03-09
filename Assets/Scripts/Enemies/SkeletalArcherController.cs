@@ -9,7 +9,7 @@ public class SkeletalArcherController : EnemyController
     public SkeletonKingController skeletonKingController;   // only used in skeleton king bossfight
     private float maxArcherRange = 20f;     // range from which archer can attack
     private int raycastLayerMask;
-    private float arrowSpeed = 20f;
+    private float arrowSpeed = 15f;
 
     private float reviveTimer = 0f;
     private float reviveTime = 5f;

@@ -92,7 +92,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.33333334
-    functionName: handleAttack
+    functionName: handleNormalAttack
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: c276b63b637a02f4498054601c5cce51,
       type: 3}
