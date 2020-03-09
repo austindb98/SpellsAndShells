@@ -31,21 +31,21 @@ public class StartGameLoader : MonoBehaviour
             slot1.text = SaveManager.save1.name;
             delete1.SetActive(true);
             play1.SetActive(true);
-            button1.enabled = false;
+            button1.interactable = false;
         }
         if (SaveManager.save2 != null)
         {
             slot2.text = SaveManager.save2.name;
             delete2.SetActive(true);
             play2.SetActive(true);
-            button2.enabled = false;
+            button2.interactable = false;
         }
         if (SaveManager.save3 != null)
         {
             slot3.text = SaveManager.save3.name;
             delete3.SetActive(true);
             play3.SetActive(true);
-            button3.enabled = false;
+            button3.interactable = false;
         }
 
         nameField.text = SaveManager.GenerateName();
@@ -112,7 +112,7 @@ public class StartGameLoader : MonoBehaviour
     {
         slot.text = "Empty";
         save = null;
-        button.enabled = true;
+        button.interactable = true;
         play.SetActive(false);
         delete.SetActive(false);
     }

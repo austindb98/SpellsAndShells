@@ -165,6 +165,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 131072
   initialSpawnMaster: {fileID: 0}
+  canMove: 1
 --- !u!70 &386873839230528253
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -302,8 +303,9 @@ MonoBehaviour:
   - manaCoolDown: 8
     attackPrefab: {fileID: 7811763968179772896, guid: ca73ecddc74bcd64584bc8a2e18c69d0,
       type: 3}
-  - manaCoolDown: 0
-    attackPrefab: {fileID: 0}
+  - manaCoolDown: 15
+    attackPrefab: {fileID: 7922605340741504046, guid: 4868d74e4ded7ab4390f4b965e773e7b,
+      type: 3}
   - manaCoolDown: 0
     attackPrefab: {fileID: 0}
   - manaCoolDown: 0

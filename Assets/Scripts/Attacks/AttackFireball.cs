@@ -23,7 +23,7 @@ public class AttackFireball : BaseAttack
     protected override void Start()
     {
         element = Element.Fire;
-
+        base.Start();
     }
 
     // Update is called once per frame
@@ -37,6 +37,7 @@ public class AttackFireball : BaseAttack
        
         if (fireType >= FireType.Meteorite)
         {
+            particles.Stop();
             Destroy(this);
         } else
         {
