@@ -32,6 +32,12 @@ public class EnemyController : MonoBehaviour
     private float flameDamage; //Damage per DOT tick
     private float flameFrequency; //Time between DOT ticks
 
+    private float typeEffectivenessMultiplier = 1.5f;
+
+    private Color blueTint = new Color(0.5f, 0.5f, 1, 1);
+    private Color redTint = new Color(1, 0.5f, 0.5f, 1);
+    private Color normalTint = new Color(1, 1, 1, 1);
+
     //private float shotgunDamage = 3f;    // the damage taken by a single pellet of the shotgun
 
     public PlayerController playerController;
@@ -92,6 +98,7 @@ public class EnemyController : MonoBehaviour
             Vector3 hitPosition = Vector3.zero;
             foreach (ContactPoint2D hit in collision.contacts)
             {
+                // adjust for tile size
                 hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
                 hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
                 //tilemap.SetTile(tilemap.WorldToCell(hitPosition), null);
@@ -128,35 +135,35 @@ public class EnemyController : MonoBehaviour
     public virtual void applyFrostSlowingEffect(float magnitude, float time) {
 
         if(enemyHealth.weakness == BaseAttack.Element.Ice) {
-            magnitude /= 1.5f;
-            time *= 1.5f;
+            magnitude /= typeEffectivenessMultiplier;
+            time *= typeEffectivenessMultiplier;
         }
         else if(enemyHealth.resistance == BaseAttack.Element.Ice) {
-            magnitude *= 1.5f;
-            time /= 1.5f;
+            magnitude *= typeEffectivenessMultiplier;
+            time /= typeEffectivenessMultiplier;
         }
         aiPath.maxSpeed = maxSpeed * magnitude;
         isFrozen = true;
         frozenTime = time;
         frozenTimer = 0f;
-        spriteRenderer.color = new Color(0.5f, 0.5f, 1, 1);
+        spriteRenderer.color = blueTint;
     }
 
     public virtual void applyFireDotEffect(float dotDuration, float dotFrequency, float dotDamage) {
         if(enemyHealth.weakness == BaseAttack.Element.Fire) {
-            dotDamage *= 1.5f; // TODO: no magic numbers
-            dotDuration *= 1.5f;
+            dotDamage *= typeEffectivenessMultiplier; // TODO: no magic numbers
+            dotDuration *= typeEffectivenessMultiplier;
         }
         else if(enemyHealth.resistance == BaseAttack.Element.Fire) {
-            dotDamage /= 1.5f;
-            dotDuration /= 1.5f;
+            dotDamage /= typeEffectivenessMultiplier;
+            dotDuration /= typeEffectivenessMultiplier;
         }
         isFlaming = true;
         flameTimeLeft = dotDuration;
         flameFrequency = dotFrequency;
         flameDamage = dotDamage;
         flameTimer = 0f;
-        spriteRenderer.color = new Color(1, 0.5f, 0.5f, 1);
+        spriteRenderer.color = redTint;
 
         if(isFrozen)
             cancelFrozen();
@@ -164,10 +171,10 @@ public class EnemyController : MonoBehaviour
 
     public virtual void applyWindKnockbackEffect(float knockbackMagnitude) {
         if(enemyHealth.weakness == BaseAttack.Element.Wind) {
-            knockbackMagnitude *= 1.5f;
+            knockbackMagnitude *= typeEffectivenessMultiplier;
         }
         else if(enemyHealth.resistance == BaseAttack.Element.Wind) {
-            knockbackMagnitude /= 1.5f;
+            knockbackMagnitude /= typeEffectivenessMultiplier;
         }
         applyKnockback(knockbackMagnitude);
     }
@@ -191,18 +198,18 @@ public class EnemyController : MonoBehaviour
 
     private void cancelFlaming() {
         isFlaming = false;
-        spriteRenderer.color = new Color(1, 1, 1, 1);
+        spriteRenderer.color = normalTint;
     }
 
     private void cancelFrozen() {
         isFrozen = false;
         aiPath.maxSpeed = maxSpeed;
-        spriteRenderer.color = new Color(1, 1, 1, 1);
+        spriteRenderer.color = normalTint;
     }
 
     private void handleKnockback() {
         knockbackTimer += Time.deltaTime;
-        aiPath.canMove = false; // ?
+        aiPath.canMove = false;
         if(knockbackTimer > knockbackTime) {
             isKnockback = false;
             aiPath.canMove = true;
