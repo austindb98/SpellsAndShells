@@ -30,6 +30,7 @@ player-hurt.wav - MATTIX (https://freesound.org/people/MATTIX/sounds/486943/)
 level-up.wav - Benboncan (https://freesound.org/people/Benboncan/sounds/90633/)
 ShellDrop.mp3 - ThompsonMan (https://freesound.org/people/ThompsonMan/sounds/107342/)
 WoodBreak.mp3 - Deathscyp (https://freesound.org/people/Deathscyp/sounds/443293/)
+ice-break.wav - Roovy (https://freesound.org/people/Roovy/sounds/426672/)
 
 DATA
 medieval names - (http://dmnes.org/names)

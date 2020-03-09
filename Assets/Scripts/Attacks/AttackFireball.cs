@@ -37,6 +37,7 @@ public class AttackFireball : BaseAttack
        
         if (fireType >= FireType.Meteorite)
         {
+
             Destroy(this);
         } else
         {
