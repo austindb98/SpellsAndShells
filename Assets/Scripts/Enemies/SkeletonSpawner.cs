@@ -12,7 +12,7 @@ public class SkeletonSpawner : MonoBehaviour
 
     private bool isSpawning = false;
     private float spawnInterval = 0.7f;
-    private float spawnTime = 4.5f;
+    private float spawnTime = 3.7f;
     private float spawnTimer = 0f;
 
     private System.Random rnd;
