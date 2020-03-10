@@ -20,7 +20,7 @@ public class SpecialMusicManager : MusicManager
         {
             base.PlayNext();
         }
-        
+
     }
 
     protected override void Update()
@@ -34,7 +34,7 @@ public class SpecialMusicManager : MusicManager
         {
             base.Update();
         }
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,6 +43,7 @@ public class SpecialMusicManager : MusicManager
         {
             return;
         }
+        GetComponent<BoxCollider2D>().enabled = false;
         activated = true;
         src.Stop();
         PlayNext();
