@@ -154,11 +154,13 @@ public class SkeletonKingController : EnemyController
     override public void handleAttack(float damage, BaseAttack.Element element) {
         base.handleAttack(damage, element);
         updateBossHealth(damage, element);
+        isJumpAttack = false;
     }
 
     override public void handleShotgunAttack(int shotgunDamage) {
         base.handleShotgunAttack(shotgunDamage);
         updateBossHealth(shotgunDamage, BaseAttack.Element.Normal);
+        isJumpAttack = false;
     }
 
     private void updateBossHealth(float damage, BaseAttack.Element element) {
