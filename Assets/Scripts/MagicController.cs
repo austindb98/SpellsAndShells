@@ -9,7 +9,7 @@ public class MagicController : MonoBehaviour
     public Spell[] spells = new Spell[12];
 
     static readonly float MouseScrollSensitivity = .001f;
-    static readonly float NumberOfScrolls = 2;
+    static readonly float NumberOfScrolls = 1;
 
     private int mouseScrolls;
 
@@ -82,7 +82,7 @@ public class MagicController : MonoBehaviour
     {
         if (currentSpell == null || currentSpell.attackPrefab == null || currentSpell.manaCoolDown > player.mana)
         {
-
+            SoundController.PlayError();
         }
         else
         {
