@@ -41,7 +41,7 @@ public class VolumeController : MonoBehaviour
 
     public void UpdatePercent()
     {
-        value.text = (setting * 100) + "%";
+        value.text = ((int)(setting * 100)) + "%";
     }
 
     public void ClickMinus()
