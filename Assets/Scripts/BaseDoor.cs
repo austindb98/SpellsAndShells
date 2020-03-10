@@ -28,7 +28,7 @@ public abstract class BaseDoor : MonoBehaviour
     }
 
 
-    protected abstract void HandleUnlocked(); // child will need to implement this specifically
+    public abstract void HandleUnlocked(); // child will need to implement this specifically
 
     protected virtual void HandleLocked()
     {
