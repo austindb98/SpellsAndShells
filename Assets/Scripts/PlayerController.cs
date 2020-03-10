@@ -290,15 +290,23 @@ public class PlayerController : BasePlayer {
             }
         }
 
-        if (Input.GetKeyDown("n") && haungsMode)
+        if (haungsMode)
         {
-            haungsSkipToNextLevel();
+            base.health = base.MaxHealth;
+            base.mana = base.MaxMana;
+
+            if (Input.GetKeyDown("n") )
+            {
+                haungsSkipToNextLevel();
+            }
+
+            if (Input.GetKeyDown("m"))
+            {
+                haungsAddSkillPoints();
+            }
         }
 
-        if (Input.GetKeyDown("m") && haungsMode)
-        {
-            haungsAddSkillPoints();
-        }
+       
     }
 
     private void haungsSkipToNextLevel()
