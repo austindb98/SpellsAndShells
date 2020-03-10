@@ -169,7 +169,7 @@ public class MinotaurBossController : EnemyController
     private void OnTriggerStay2D(Collider2D other) {
         if(other == playerCollider && (!isKnockback || isBeyblade)) {
             if(isBeyblade) {
-                playerController.takeDamage(3f);
+                playerController.takeDamage(20f);
                 playerController.onHitKnockback(800.0f, transform.position);
             }
             else if(!isSwingRest)
@@ -180,7 +180,7 @@ public class MinotaurBossController : EnemyController
     private void OnTriggerEnter2D(Collider2D other) {
         if(other == playerCollider && (!isKnockback || isBeyblade)) {
             if(isBeyblade) {
-                playerController.takeDamage(5f);
+                playerController.takeDamage(20f);
                 playerController.onHitKnockback(800.0f, transform.position);
             }
             else if(!isSwingRest)
