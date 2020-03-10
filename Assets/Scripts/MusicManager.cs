@@ -13,7 +13,7 @@ public class MusicManager : MonoBehaviour
     private int currentIndex;
     protected AudioSource src;
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         src = GetComponent<AudioSource>();
         src.volume = musicVolume;

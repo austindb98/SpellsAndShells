@@ -65,6 +65,7 @@ public class MinotaurBossController : EnemyController
             if(deathTimer > deathTime) {
                 base.handleEnemyDeath();
                 isCompletelyDead = true;
+                SpecialMusicManager.EndSpecialMusic(); // needs special music prefab in scene
                 Destroy(gameObject);
             }
         }
