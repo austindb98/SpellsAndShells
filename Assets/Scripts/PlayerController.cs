@@ -53,6 +53,7 @@ public class PlayerController : BasePlayer {
     public bool canMove = true;
 
     public bool haungsMode = false;
+    Color haungsRendererColor = new Color(255, 172, 0);
 
     protected override void Start() {
         base.Start();
@@ -67,7 +68,6 @@ public class PlayerController : BasePlayer {
         {
             initialSpawnMaster.spawnEnemies();
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -174,29 +174,8 @@ public class PlayerController : BasePlayer {
             base.AmmoCount = -1;
         }
 
-
-        if(Input.GetKeyDown("h"))
-        {
-            haungsMode = !haungsMode;
-        }
-
-        if(Input.GetKeyDown("n") && haungsMode)
-        {
-            haungsSkipToNextLevel();
-        }
+        manageHaungsMode();
     }
-
-    private void haungsSkipToNextLevel()
-    {
-        GameObject[] lookingForSceneDoor = GameObject.FindGameObjectsWithTag("SceneDoor");
-        GameObject sceneDoor;
-        if (lookingForSceneDoor.Length > 0)
-        {
-            sceneDoor = lookingForSceneDoor[0];
-            sceneDoor.GetComponent<SceneDoor>().HandleUnlocked();
-        }
-    }
-
 
     private float getMouseAngle(Vector2 position)
     {
@@ -296,4 +275,45 @@ public class PlayerController : BasePlayer {
         isKnockback = true;
     }
 
+    private void manageHaungsMode()
+    {
+        if (Input.GetKeyDown("h"))
+        {
+            haungsMode = !haungsMode;
+            if (haungsMode)
+            {
+                spriteRenderer.color = haungsRendererColor;
+            }
+            else
+            {
+                spriteRenderer.color = Color.white;
+            }
+        }
+
+        if (Input.GetKeyDown("n") && haungsMode)
+        {
+            haungsSkipToNextLevel();
+        }
+
+        if (Input.GetKeyDown("m") && haungsMode)
+        {
+            haungsAddSkillPoints();
+        }
+    }
+
+    private void haungsSkipToNextLevel()
+    {
+        GameObject[] lookingForSceneDoor = GameObject.FindGameObjectsWithTag("SceneDoor");
+        GameObject sceneDoor;
+        if (lookingForSceneDoor.Length > 0)
+        {
+            sceneDoor = lookingForSceneDoor[0];
+            sceneDoor.GetComponent<SceneDoor>().HandleUnlocked();
+        }
+    }
+
+    private void haungsAddSkillPoints()
+    {
+        base.skillpoints[0] += 1;
+    }
 }

@@ -166,6 +166,7 @@ MonoBehaviour:
     m_Bits: 131072
   initialSpawnMaster: {fileID: 0}
   canMove: 1
+  haungsMode: 0
 --- !u!70 &386873839230528253
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

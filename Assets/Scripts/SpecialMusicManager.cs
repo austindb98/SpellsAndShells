@@ -11,6 +11,17 @@ public class SpecialMusicManager : MusicManager
 
     public GameObject destroyEndsSong;//like a boss for instance
 
+    public static SpecialMusicManager Instance;
+
+    protected override void Start()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        base.Start();
+    }
+
     protected override void PlayNext()
     {
         if (activated)
@@ -23,13 +34,23 @@ public class SpecialMusicManager : MusicManager
 
     }
 
+    public static void EndSpecialMusic()
+    {
+        Instance.StopSpecial();
+    }
+
+    private void StopSpecial()
+    {
+        activated = false;
+        src.Stop();
+        PlayNext();
+    }
+
     protected override void Update()
     {
         if (activated && destroyEndsSong == null)
         {
-            activated = false;
-            src.Stop();
-            PlayNext();
+            StopSpecial();
         } else
         {
             base.Update();
