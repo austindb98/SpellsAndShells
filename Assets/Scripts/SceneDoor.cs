@@ -26,7 +26,7 @@ public class SceneDoor : BaseDoor
         base.HandleLocked();
     }
 
-    protected override void HandleUnlocked()
+    public override void HandleUnlocked()
     {
         if (SaveManager.currentSave != null)
         {

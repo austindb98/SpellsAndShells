@@ -18,6 +18,7 @@ TagManager:
   - SpawnMaster
   - Door
   - Fog
+  - SceneDoor
   layers:
   - Default
   - TransparentFX

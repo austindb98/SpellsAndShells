@@ -52,6 +52,8 @@ public class PlayerController : BasePlayer {
 
     public bool canMove = true;
 
+    public bool haungsMode = false;
+
     protected override void Start() {
         base.Start();
         rb2d = GetComponent<Rigidbody2D>();
@@ -171,7 +173,30 @@ public class PlayerController : BasePlayer {
             base.currentAmmo = BasePlayer.Ammo.RedShell;
             base.AmmoCount = -1;
         }
+
+
+        if(Input.GetKeyDown("h"))
+        {
+            haungsMode = !haungsMode;
+        }
+
+        if(Input.GetKeyDown("n") && haungsMode)
+        {
+            haungsSkipToNextLevel();
+        }
     }
+
+    private void haungsSkipToNextLevel()
+    {
+        GameObject[] lookingForSceneDoor = GameObject.FindGameObjectsWithTag("SceneDoor");
+        GameObject sceneDoor;
+        if (lookingForSceneDoor.Length > 0)
+        {
+            sceneDoor = lookingForSceneDoor[0];
+            sceneDoor.GetComponent<SceneDoor>().HandleUnlocked();
+        }
+    }
+
 
     private float getMouseAngle(Vector2 position)
     {

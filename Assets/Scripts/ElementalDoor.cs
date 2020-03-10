@@ -11,7 +11,7 @@ public class ElementalDoor : BaseDoor
     public GameObject grate;
 
 
-    protected override void HandleUnlocked()
+    public override void HandleUnlocked()
     {
         // do nothing, all work is done already
     }
