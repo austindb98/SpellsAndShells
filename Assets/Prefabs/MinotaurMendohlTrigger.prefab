@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2191156192359473388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2191156192359473394}
+  - component: {fileID: 2191156192359473395}
+  - component: {fileID: 2191156192359473393}
+  m_Layer: 0
+  m_Name: MinotaurMendohlTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2191156192359473394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2191156192359473388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6, y: -23, z: -1139.0275}
+  m_LocalScale: {x: 1, y: 2.8799999, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &2191156192359473395
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2191156192359473388}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.12733851, y: 0.25055024}
+  m_Size: {x: 3.8138204, y: 0.73471236}
+  m_Direction: 1
+--- !u!114 &2191156192359473393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2191156192359473388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f2ae12ddfa0d9488b2657814cc27ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portalPrefab: {fileID: 7073895336986539699, guid: 59b51413651890b48aed6d5888c49609,
+    type: 3}
+  skillPointPrefab: {fileID: 6816411548315846261, guid: 85236b60b0c3ad042916e8756934c9de,
+    type: 3}
+  isGiveSkillPoint: 1
+  portalSpawnLocation: {x: -4.5, y: -14, z: 0}
+  skillPointSpawnLocation: {x: 0, y: -14, z: 0}
+  dialogList:
+  - Great job, [Player Name].
+  - You have already grown so much, but you still have much to grow before you are
+    ready to face Malphos.
+  - You will soon find yourself out in the wild, and I won't be able to assist you
+    for some time for fear of being seen.
+  - Take this skill point, it just might be the difference between life and death
+    out there.
+  - I will watch your career with great interest.

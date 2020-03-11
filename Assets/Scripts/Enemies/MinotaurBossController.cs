@@ -10,6 +10,8 @@ public class MinotaurBossController : EnemyController
         Beyblade, Normal, Charge, Stunned
     }
 
+    public GameObject mendohlScreenTrigger;
+
     private MinotaurState minotaurState;
     private bool isSwingRest = false;
     private float swingRestTime = 1.5f;
@@ -66,6 +68,7 @@ public class MinotaurBossController : EnemyController
                 base.handleEnemyDeath();
                 isCompletelyDead = true;
                 SpecialMusicManager.EndSpecialMusic(); // needs special music prefab in scene
+                Instantiate(mendohlScreenTrigger);
                 Destroy(gameObject);
             }
         }

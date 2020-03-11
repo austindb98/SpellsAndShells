@@ -287,3 +287,5 @@ MonoBehaviour:
   spawnManager: {fileID: 0}
   spriteRenderer: {fileID: 0}
   enemyHealth: {fileID: 0}
+  mendohlScreenTrigger: {fileID: 2191156192359473388, guid: a2a6f97e87b754248a89568d8f9f5797,
+    type: 3}
