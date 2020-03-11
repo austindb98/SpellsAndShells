@@ -273,8 +273,9 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   attackStrength: 0
   knockbackStrength: 0.3
-  drops: []
-  dropChance: 0
+  drops:
+  - {fileID: 5413576069672028623, guid: 3967c5ff242223a4fa211ee48b7f0e69, type: 3}
+  dropChance: 2
   isKnockback: 0
   knockbackTime: 0.8
   playerController: {fileID: 0}
@@ -286,4 +287,5 @@ MonoBehaviour:
   spawnManager: {fileID: 0}
   spriteRenderer: {fileID: 0}
   enemyHealth: {fileID: 5148541125263898012}
+  skeletonKingController: {fileID: 0}
   arrow: {fileID: 1398909096796971149, guid: f7dde1ea6183ce64593408442c46ae9f, type: 3}
