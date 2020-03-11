@@ -30,7 +30,7 @@ public class MinotaurBossController : EnemyController
     private float beybladeTimer = 0f;
     private bool isBeyblade = false;
 
-    private float beybladeChangeDirectionTime = 3f;
+    private float beybladeChangeDirectionTime = 5f;
     private float beybladeChangeDirectionTimer = 0f;
 
     private bool isCompletelyDead = false;
@@ -48,10 +48,10 @@ public class MinotaurBossController : EnemyController
         attackStrength = 25;
 
         beybladeVectorAr = new Vector2[] {
-            new Vector2(24f, 16f),
-            new Vector2(24f, -16f),
-            new Vector2(-24f, 16f),
-            new Vector2(-24f, -16f)
+            new Vector2(20f, 20f),
+            new Vector2(20f, -20f),
+            new Vector2(-20f, 20f),
+            new Vector2(-20f, -20f)
         };
     }
 
@@ -87,7 +87,7 @@ public class MinotaurBossController : EnemyController
                 beybladeChangeDirectionTimer = 0f;
             }
             else {
-                rb2d.velocity = rb2d.velocity + Time.deltaTime * new Vector2(player.transform.position.x - transform.position.x,
+                rb2d.velocity = rb2d.velocity + 2f * Time.deltaTime * new Vector2(player.transform.position.x - transform.position.x,
                     player.transform.position.y - transform.position.y);
             }
             if(beybladeTimer > beybladeFinishTime) {

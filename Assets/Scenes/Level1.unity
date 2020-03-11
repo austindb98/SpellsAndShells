@@ -180,7 +180,7 @@ PrefabInstance:
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
       propertyPath: ordering.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
@@ -190,12 +190,12 @@ PrefabInstance:
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
       propertyPath: dialogs.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
       propertyPath: dialogs.Array.data[0]
-      value: Press K to enter skills menu.
+      value: Press K to enter skills menu. Use the (+) icon to invest a skill point.
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
@@ -11326,7 +11326,7 @@ PrefabInstance:
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
       propertyPath: ordering.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
@@ -11340,8 +11340,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
+      propertyPath: dialogs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
+        type: 3}
       propertyPath: dialogs.Array.data[0]
-      value: Each spell has different effectiveness depending on the kind of enemy.
+      value: Press F to unlock the door with the corresponding key.
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
@@ -12028,12 +12033,12 @@ PrefabInstance:
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
       propertyPath: dialogs.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
       propertyPath: ordering.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
@@ -12048,12 +12053,12 @@ PrefabInstance:
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
       propertyPath: dialogs.Array.data[0]
-      value: Destroy a runestone with a SPELL to unlock one of the elemental gates.
+      value: Select a spell with the scroll wheel, and right-click to cast.
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
       propertyPath: dialogs.Array.data[1]
-      value: Each runestone can only take damage from one kind of spell.
+      value: You can also use 1, 2, or 3 to cast spells.
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
@@ -36307,7 +36312,7 @@ PrefabInstance:
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
       propertyPath: dialogs.Array.data[0]
-      value: Press the arrow button advance through dialogs
+      value: Press the arrow button to advance through dialogs
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
@@ -36317,7 +36322,7 @@ PrefabInstance:
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
       propertyPath: dialogs.Array.data[2]
-      value: Shoot with left-click
+      value: Left-click to fire shotgun
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
