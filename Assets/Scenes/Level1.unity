@@ -710,6 +710,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 128714798}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &171461440 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6391336242074469056, guid: 5ebb0d77294893648bc944995c6d21bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1002342862}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &196135362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11302,6 +11308,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ElementalDoorsHelp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391336242074469056, guid: 5ebb0d77294893648bc944995c6d21bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469058, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
@@ -36049,6 +36060,11 @@ PrefabInstance:
       propertyPath: enemyHealth
       value: 
       objectReference: {fileID: 1549563281}
+    - target: {fileID: 5962791150960387575, guid: ff23246024fa5564ab9178a61452338e,
+        type: 3}
+      propertyPath: dialogTrigger
+      value: 
+      objectReference: {fileID: 171461440}
     - target: {fileID: 5962791150960387576, guid: ff23246024fa5564ab9178a61452338e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37001,6 +37017,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5962791150960387575, guid: ff23246024fa5564ab9178a61452338e,
+        type: 3}
+      propertyPath: dialogTrigger
+      value: 
+      objectReference: {fileID: 171461440}
     - target: {fileID: 5962791150960387576, guid: ff23246024fa5564ab9178a61452338e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -63945,6 +63966,11 @@ PrefabInstance:
       propertyPath: enemyHealth
       value: 
       objectReference: {fileID: 898415743}
+    - target: {fileID: 5962791150960387575, guid: ff23246024fa5564ab9178a61452338e,
+        type: 3}
+      propertyPath: dialogTrigger
+      value: 
+      objectReference: {fileID: 171461440}
     - target: {fileID: 5962791150960387576, guid: ff23246024fa5564ab9178a61452338e,
         type: 3}
       propertyPath: m_LocalPosition.x
