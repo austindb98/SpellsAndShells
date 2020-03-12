@@ -8,6 +8,7 @@ public class Runestone : EnemyController
     public Sprite[] backgrounds = new Sprite[4];
     private SpriteRenderer sr;
     public GameObject prefabDrop;
+    public GameObject dialogTrigger;
 
     public Animator animator;
 
@@ -53,6 +54,10 @@ public class Runestone : EnemyController
     public override void handleEnemyDeath() {
         Instantiate(prefabDrop, transform.position, Quaternion.identity);
         SoundController.playStoneDestroy();
+        if (dialogTrigger)
+        {
+            dialogTrigger.SetActive(true);
+        }
         Destroy(gameObject);
     }
 
