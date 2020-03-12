@@ -6,7 +6,7 @@ using Pathfinding;
 public class CyclopsBossController : EnemyController
 {
     private enum CyclopsState {
-        Idle, Summon, Laser, Flee
+        Idle, Summon, Laser, Flee, FireCircle
     }
     private float summonTimer = 0f;
     private float summonTime = 4.5f;
@@ -30,8 +30,8 @@ public class CyclopsBossController : EnemyController
             new Vector3(0, -2f, 0)
         };
 
-        /*state = CyclopsState.Laser;
-        an.SetBool("isLaser", true);*/
+        //state = CyclopsState.Laser;
+        //an.SetBool("isLaser", true);
 
         //state = CyclopsState.Summon;
         an.SetBool("isSummon", true);
@@ -53,6 +53,7 @@ public class CyclopsBossController : EnemyController
                 summonTimer += Time.deltaTime;
                 if(summonTimer > summonInterval) {
                     SummonEnemies();
+                    StartFireCircle();
                     summonTimer -= summonInterval;
                     summonTime -= summonInterval;
                 }
@@ -83,11 +84,10 @@ public class CyclopsBossController : EnemyController
     }
 
     public void handleLaunchExplosiveAttack() {
-        Vector3 explosiveLaunchPos = transform.position + new Vector3(-.2f, 1.4f, 0);
-        Quaternion q = Quaternion.Euler( 0f, 0f, 0f );
-
-        GameObject thisAttack = Instantiate(explosiveAttackPrefab, explosiveLaunchPos, q);
-        thisAttack.GetComponent<EnemyController>().player = player;
+        float[] angles = {-10f, -5f, 0f, 5f, 10f};
+        foreach(float angle in angles) {
+            SpawnFireball(angle, 0f, 0f);
+        }
     }
 
     public void handleStomp() {
@@ -96,10 +96,36 @@ public class CyclopsBossController : EnemyController
 
     public void handleSummon() {
         state = CyclopsState.Summon;
+        StartFireCircle();
     }
 
     public void handleFinishSummon() {
         state = CyclopsState.Idle;
         an.SetBool("isIdle", true);
+    }
+
+    public void StartFireCircle() {
+        int numFireballs = 30;
+        int fireballIndex = numFireballs;
+        float stoppingTime = 0.85f;
+        float relaunchMin = 1f;
+        float relaunchMax = 2f;
+
+        while(fireballIndex-- > 0) {
+            SpawnFireball((float) fireballIndex * 360f / numFireballs, stoppingTime,
+                    (float) fireballIndex / (float) numFireballs * (relaunchMax - relaunchMin) + relaunchMin);
+        }
+    }
+
+    private void SpawnFireball(float angle, float stoppingTime, float relaunchTime) {
+        Vector3 explosiveLaunchPos = transform.position + new Vector3(-.2f, 1.4f, 0);
+        Quaternion q = Quaternion.Euler( 0f, 0f, 0f );
+
+        GameObject thisAttack = Instantiate(explosiveAttackPrefab, explosiveLaunchPos, q);
+        thisAttack.GetComponent<EnemyController>().player = player;
+        CyclopsExplosiveAttackController ctrl = thisAttack.GetComponent<CyclopsExplosiveAttackController>();
+        ctrl.angle = angle;
+        ctrl.stoppingTime = stoppingTime;
+        ctrl.relaunchTime = relaunchTime;
     }
 }

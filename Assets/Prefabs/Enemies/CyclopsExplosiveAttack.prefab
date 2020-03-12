@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 2394487869090070510}
   - component: {fileID: 2394487869090070511}
   - component: {fileID: 2394487869090070508}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: CyclopsExplosiveAttack
-  m_TagString: Untagged
+  m_TagString: DestructibleSpell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

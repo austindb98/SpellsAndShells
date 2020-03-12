@@ -14,7 +14,7 @@ public class AttackGust : BaseAttack
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
-        if(enemyController)
+        if(enemyController && enemyController.gameObject.tag != "DestructibleSpell")
             enemyController.applyWindKnockbackEffect(knockbackMagnitude);
         base.OnTriggerEnter2D(collision);
     }
