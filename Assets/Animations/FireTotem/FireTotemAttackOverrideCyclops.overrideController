@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FireTotemAttackOverrideCyclops
+  m_Controller: {fileID: 9100000, guid: 4837128d4e5f51949b573a06f0d29bba, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c481190da29500e49abaf22ba29bfde6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 112320b9de492ba4386756eb73cf292e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 48aa2f12df7c2514e9a4f62921f9f06f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ff41d440cb8e89943806558220087a0f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4b55469d2942163488f74768f9150ee7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 78c62d01903285c47a16719424c9e66f, type: 2}

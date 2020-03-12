@@ -11465,7 +11465,7 @@ PrefabInstance:
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
       propertyPath: dialogs.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
@@ -11480,12 +11480,12 @@ PrefabInstance:
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
       propertyPath: ordering.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
       propertyPath: dialogs.Array.data[0]
-      value: Break the chest to get the key to the next level.
+      value: Chests can be broken with the shotgun.
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
