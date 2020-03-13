@@ -6,7 +6,7 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour
 {
 
-    public static readonly float musicVolume = .2f;
+    public static float musicVolume = .2f;
 
     public AudioClip[] songs;
 
@@ -18,6 +18,11 @@ public class MusicManager : MonoBehaviour
         src = GetComponent<AudioSource>();
         src.volume = musicVolume;
         PlayNext();
+    }
+
+    public static void OnVolumesUpdated(VolumeController.Setting setting)
+    {
+        musicVolume = PlayerPrefs.GetFloat(setting.ToString(), 1);
     }
 
     protected virtual void PlayNext()
