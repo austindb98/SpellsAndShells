@@ -56,7 +56,6 @@ public class FireTotemController : EnemyController
 
     public override void handleEnemyDeath() {
         base.handleEnemyDeath();
-        base.spawnMaster.isRescan = true;
         Destroy(gameObject);
     }
 

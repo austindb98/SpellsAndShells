@@ -29,14 +29,14 @@ public class WitchSpellController : MonoBehaviour
         newVelocity = 1f / Time.deltaTime * origVelocity + toPlayerVec;
         newVelocity.Normalize();
         rb2d.velocity = speed * newVelocity;
-        
+
         float angle = Mathf.Atan2( rb2d.velocity.y, rb2d.velocity.x )  * Mathf.Rad2Deg + 90;
         transform.rotation = Quaternion.Euler( 0f, 0f, angle );
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
         string tag = collider.gameObject.tag;
-        if(tag != "Enemy" && tag != "Pickup" && tag != "Heart" && tag != "Potion" && tag != "BlueShell" && tag != "GreenShell")
+        if(tag != "Enemy" && tag != "Pickup" && tag != "Heart" && tag != "Potion" && tag != "BlueShell" && tag != "GreenShell" && tag != "Water")
         {
             if(collider == playerCollider) {
                 playerController.takeDamage(10f);
