@@ -6,7 +6,7 @@ using Pathfinding;
 public class CyclopsBossController : EnemyController
 {
     private enum CyclopsState {
-        Idle, Summon, Laser, Flee, FireCircle
+        Idle, Summon, Laser, Flee, FireCircle, PlantTotems
     }
     private float summonTimer = 0f;
     private float summonTime = 4.5f;
@@ -18,6 +18,11 @@ public class CyclopsBossController : EnemyController
     public GameObject explosiveAttackPrefab;
 
     private Vector3[] enemySpawnDirections;
+
+    public GameObject totemPrefab;
+    public List<GameObject> totemPlantList;
+    private int currentTotemPlantIndex = -1;
+    private bool isPlanting = false;
 
     // Start is called before the first frame update
     public override void Start()
@@ -35,6 +40,8 @@ public class CyclopsBossController : EnemyController
 
         //state = CyclopsState.Summon;
         an.SetBool("isSummon", true);
+        aiPath.canMove = false;
+        //PlantTotems();
     }
 
     // Update is called once per frame
@@ -64,13 +71,49 @@ public class CyclopsBossController : EnemyController
                     summonTime = 4.5f;
                 }
                 break;
+            case CyclopsState.PlantTotems:
+                if(currentTotemPlantIndex == -1) {
+                    currentTotemPlantIndex = 0;
+                    aiPath.target = totemPlantList[currentTotemPlantIndex].transform;
+                    aiPath.canMove = true;
+                }
+                else if(!isPlanting && (aiPath.target.position - transform.position).magnitude < 1f) {
+                    StartPlantTotem();
+                }
+                an.SetBool("isFacingRight", aiPath.desiredVelocity.x > 0);
+                break;
         }
+    }
+
+    private void StartPlantTotem() {
+        aiPath.canMove = false;
+        an.SetBool("isWalking", false);
+        an.SetBool("isPlantingTotem", true);
+        isPlanting = true;
+    }
+
+    public void handleFinishPlantTotem() {
+        an.SetBool("isWalking", true);
+        aiPath.canMove = true;
+        currentTotemPlantIndex++;
+        aiPath.target = totemPlantList[currentTotemPlantIndex].transform;
+        isPlanting = false;
+    }
+
+    public void PlantTotem() {
+        Instantiate(totemPrefab, aiPath.target.position, new Quaternion(0f, 0f, 0f, 0f));
+        an.SetBool("isPlantingTotem", false);
     }
 
     private void SummonEnemies() {
         foreach(Vector3 spawnVec in enemySpawnDirections) {
             SpawnMole(spawnVec);
         }
+    }
+
+    private void PlantTotems() {
+        state = CyclopsState.PlantTotems;
+        an.SetBool("isWalking", true);
     }
 
     private void SpawnMole(Vector3 spawnVec) {

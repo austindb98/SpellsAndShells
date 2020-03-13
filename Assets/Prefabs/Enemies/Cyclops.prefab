@@ -273,3 +273,6 @@ MonoBehaviour:
     type: 3}
   explosiveAttackPrefab: {fileID: 2394487869090070509, guid: 68493393fb4d9864ab6183da476842bc,
     type: 3}
+  totemPrefab: {fileID: 8397475099786073704, guid: 5365356320d109d45b232acab922bba8,
+    type: 3}
+  totemPlantList: []
