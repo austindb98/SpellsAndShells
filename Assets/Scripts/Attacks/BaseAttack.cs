@@ -29,7 +29,7 @@ public abstract class BaseAttack : MonoBehaviour
         transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
 
-    protected virtual void OnDeath()
+    public virtual void OnDeath()
     {
         Destroy(gameObject);
     }

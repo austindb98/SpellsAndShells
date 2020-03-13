@@ -32,11 +32,12 @@ public class AttackFireball : BaseAttack
         base.Update();
     }
 
-    protected override void OnDeath()
+    public override void OnDeath()
     {
        
         if (fireType >= FireType.Meteorite)
         {
+            ringOfFire.SetActive(true);
             particles.Stop();
             Destroy(this);
         } else
@@ -61,6 +62,6 @@ public class AttackFireball : BaseAttack
     void TriggerExplosion() {
         
         //gameObject.SetActive(false);
-        ringOfFire.SetActive(true);
+        
     }
 }
