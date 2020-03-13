@@ -36,7 +36,7 @@ public class WitchSpellController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider) {
         string tag = collider.gameObject.tag;
-        if(tag != "Enemy" && tag != "Pickup" && tag != "Heart" && tag != "Potion" && tag != "BlueShell" && tag != "GreenShell")
+        if(tag != "Enemy" && tag != "Pickup" && tag != "Heart" && tag != "Potion" && tag != "BlueShell" && tag != "GreenShell" && tag != "Water")
         {
             if(collider == playerCollider) {
                 playerController.takeDamage(10f);

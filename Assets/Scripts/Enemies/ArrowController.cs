@@ -22,7 +22,8 @@ public class ArrowController : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        if(collider.gameObject.tag != "Enemy") {
+        string tag = collider.gameObject.tag;
+        if (tag != "Enemy" && tag != "Pickup" && tag != "Heart" && tag != "Potion" && tag != "BlueShell" && tag != "GreenShell" && tag != "Water") {
             if(collider == playerCollider)
                 playerController.takeDamage(10f);
             Destroy(gameObject);
