@@ -25,7 +25,7 @@ public class AttackFireRing : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
-        if (enemyController) {
+        if (enemyController && enemyController.gameObject.tag != "DestructibleSpell") {
             enemyController.applyFireDotEffect(AttackFireball.dotDuration, AttackFireball.dotFrequency, AttackFireball.dotDamage);
         }
     }

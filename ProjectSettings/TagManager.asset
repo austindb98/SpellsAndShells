@@ -19,6 +19,7 @@ TagManager:
   - Door
   - Fog
   - SceneDoor
+  - DestructibleSpell
   layers:
   - Default
   - TransparentFX

@@ -117,7 +117,8 @@ public class EnemyController : MonoBehaviour
 
     virtual public void handleShotgunAttack(int shotgunDamage) {
         applyKnockback(knockbackStrength);
-        enemyHealth.takeDamage(shotgunDamage, BaseAttack.Element.Normal);
+        if(enemyHealth)
+            enemyHealth.takeDamage(shotgunDamage, BaseAttack.Element.Normal);
     }
 
     virtual public void handleEnemyDeath() {
@@ -208,6 +209,8 @@ public class EnemyController : MonoBehaviour
     }
 
     private void handleKnockback() {
+        if(!aiPath)
+            return;
         knockbackTimer += Time.deltaTime;
         aiPath.canMove = false;
         if(knockbackTimer > knockbackTime) {
