@@ -29,7 +29,7 @@ public class WitchSpellController : MonoBehaviour
         newVelocity = 1f / Time.deltaTime * origVelocity + toPlayerVec;
         newVelocity.Normalize();
         rb2d.velocity = speed * newVelocity;
-        
+
         float angle = Mathf.Atan2( rb2d.velocity.y, rb2d.velocity.x )  * Mathf.Rad2Deg + 90;
         transform.rotation = Quaternion.Euler( 0f, 0f, angle );
     }
