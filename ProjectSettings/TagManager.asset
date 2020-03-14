@@ -20,6 +20,7 @@ TagManager:
   - Fog
   - SceneDoor
   - DestructibleSpell
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -39,7 +40,7 @@ TagManager:
   - Pickup
   - StationaryEntities
   - Fog
-  - 
+  - Unwalkable
   - 
   - 
   - 

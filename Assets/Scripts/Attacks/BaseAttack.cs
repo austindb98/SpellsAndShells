@@ -29,21 +29,22 @@ public abstract class BaseAttack : MonoBehaviour
         transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
 
-    protected virtual void OnDeath()
+    public virtual void OnDeath()
     {
         Destroy(gameObject);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "DestructibleSpell")
+        if(collision.gameObject.tag == "DestructibleSpell" || collision.gameObject.layer == LayerMask.NameToLayer("Unwalkable"))
             return;
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Entities") || collision.gameObject.layer == LayerMask.NameToLayer("StationaryEntities"))
-        {
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Entities") ||
+                 collision.gameObject.layer == LayerMask.NameToLayer("StationaryEntities")) {
+            
             EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
             enemyController.handleAttack(damage, element);
+            OnDeath();
         }
-        OnDeath();
     }
 
 }

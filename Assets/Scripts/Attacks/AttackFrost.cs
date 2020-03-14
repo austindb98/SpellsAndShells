@@ -25,7 +25,7 @@ public class AttackFrost : BaseAttack
         base.Start();
     }
 
-    protected override void OnDeath()
+    public override void OnDeath()
     {
 
         if (iceType >= IceType.Freeze)
