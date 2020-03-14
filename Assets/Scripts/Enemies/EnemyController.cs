@@ -134,7 +134,6 @@ public class EnemyController : MonoBehaviour
     }
 
     public virtual void applyFrostSlowingEffect(float magnitude, float time) {
-
         if(enemyHealth.weakness == BaseAttack.Element.Ice) {
             magnitude /= typeEffectivenessMultiplier;
             time *= typeEffectivenessMultiplier;

@@ -18,6 +18,7 @@ public class CyclopsExplosiveAttackController : EnemyController
     // Start is called before the first frame update
     public override void Start()
     {
+        base.Start();
         transform.localScale = new Vector3(10f, 10f, 1f);
     }
 
@@ -43,7 +44,8 @@ public class CyclopsExplosiveAttackController : EnemyController
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        if(collider.gameObject.tag != "Enemy" && collider.gameObject.tag != "DestructibleSpell") {
+        print(playerCollider);
+        if(collider.gameObject.tag != "Enemy" && collider.gameObject.tag != "DestructibleSpell" && collider.gameObject.layer != LayerMask.NameToLayer("Spells")) {
             rb2d.velocity = new Vector2(0f, 0f);
             an.SetBool("isExplode", true);
             if(collider == playerCollider)

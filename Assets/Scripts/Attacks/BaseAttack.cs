@@ -36,6 +36,8 @@ public abstract class BaseAttack : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.tag == "DestructibleSpell")
+            return;
         if (collision.gameObject.layer == LayerMask.NameToLayer("Entities") || collision.gameObject.layer == LayerMask.NameToLayer("StationaryEntities"))
         {
             EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();

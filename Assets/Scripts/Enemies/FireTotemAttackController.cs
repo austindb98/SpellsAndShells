@@ -9,6 +9,7 @@ public class FireTotemAttackController : EnemyController
     // Start is called before the first frame update
     void Start()
     {
+        base.Start();
         transform.localScale = new Vector3(10f, 10f, 1f);
     }
 

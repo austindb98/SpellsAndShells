@@ -48,7 +48,7 @@ public class AttackFireball : BaseAttack
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
-        if(enemyController)
+        if(enemyController && enemyController.gameObject.tag != "DestructibleSpell")
             enemyController.applyFireDotEffect(dotDuration, dotFrequency, dotDamage);
         if (fireType >= FireType.Meteorite)
         {
