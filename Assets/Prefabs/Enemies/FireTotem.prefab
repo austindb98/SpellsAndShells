@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9207276038780672817}
   - component: {fileID: 6907099488246291483}
   - component: {fileID: 7583494237844075305}
-  m_Layer: 16
+  m_Layer: 9
   m_Name: FireTotem
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -140,7 +140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weakness: 2
   resistance: 3
-  maxHealth: 100
+  maxHealth: 70
+  currentHealth: 0
   enemyController: {fileID: 7583494237844075305}
 --- !u!70 &6907099488246291483
 CapsuleCollider2D:
@@ -155,8 +156,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.006350577, y: -0.029414728}
-  m_Size: {x: 0.08770883, y: 0.14481851}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.1639238, y: 0.1639238}
   m_Direction: 0
 --- !u!114 &7583494237844075305
 MonoBehaviour:

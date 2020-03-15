@@ -6,7 +6,7 @@ using Pathfinding;
 public class CyclopsBossController : EnemyController
 {
     private enum CyclopsState {
-        Idle, Summon, Laser, Flee, PlantTotems
+        Idle, Summon, Laser, Flee, PlantTotems, RunToCenter, LaserSnakes
     }
     private float summonTimer = 0f;
     private float summonTime = 4.5f;
@@ -21,21 +21,36 @@ public class CyclopsBossController : EnemyController
 
     private Vector3[] enemySpawnDirections;
 
+    private bool[] activeTotems = {false, false, false, false};
     public GameObject totemPrefab;
     public List<GameObject> totemPlantList;
     private int currentTotemPlantIndex = -1;
     private bool isPlanting = false;
 
+    public GameObject roomCenter;
+
     private float laserTimer = 0f;
     private float laserTime = 12f;
-    
+
+    private float laserSnakesTimer = 0f;
+    private float laserSnakesTime = 12f;
+    private float laserSnakesInterval = 0.12f;
+    private float laserSnakesAngleCounter = 0f;
+
+
     private int raycastLayerMask;
+
+    private System.Random rnd;
+
+    private int nextStateInt = 0;
+
+    private bool isLaserFinished;
 
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
-
+        rnd = new System.Random();
         raycastLayerMask =  ((1 << LayerMask.NameToLayer("Obstacles")) |
                         (1 << LayerMask.NameToLayer("Walls")) |
                         (1 << LayerMask.NameToLayer("Player")));
@@ -53,7 +68,7 @@ public class CyclopsBossController : EnemyController
     public override void Update()
     {
         base.Update();
-
+        print(enemyHealth.currentHealth);
         float deltaX = player.transform.position.x - transform.position.x;
 
         switch(state) {
@@ -61,6 +76,9 @@ public class CyclopsBossController : EnemyController
                 an.SetBool("isFacingRight", deltaX > 0);
                 break;
             case CyclopsState.Laser:
+                if(isLaserFinished)
+                    return;
+
                 if(CheckLineOfSight()) {
                     an.SetBool("isWalking", false);
                     an.SetBool("isLaser", true);
@@ -77,7 +95,17 @@ public class CyclopsBossController : EnemyController
                 if(laserTimer > laserTime) {
                     rb2d.constraints &= ~RigidbodyConstraints2D.FreezePosition;
                     an.SetBool("isLaser", false);
-                    transitionToPlantTotems();
+                    an.SetBool("isLaserSnakes", false);
+                    isLaserFinished = true;
+                    if(nextStateInt == 0)
+                        transitionToPlantTotems();
+                    else if(nextStateInt == 1)
+                        transitionToLaserSnakes();
+                    else
+                        transitionToSummonState();
+                    nextStateInt++;
+                    if(nextStateInt > 2)
+                        nextStateInt = 0;
                 }
                 break;
             case CyclopsState.Summon:
@@ -90,6 +118,7 @@ public class CyclopsBossController : EnemyController
                 }
                 if(summonTimer > summonTime) {
                     an.SetBool("isSummon", false);
+                    an.SetInteger("numStomps", 0);
                     rb2d.constraints &= ~(RigidbodyConstraints2D.FreezePosition);
                     transitionToLaserState();
                 }
@@ -97,18 +126,67 @@ public class CyclopsBossController : EnemyController
             case CyclopsState.PlantTotems:
                 if(currentTotemPlantIndex == -1) {
                     currentTotemPlantIndex = 0;
+
+                    while(currentTotemPlantIndex < totemPlantList.Count && activeTotems[currentTotemPlantIndex])
+                        currentTotemPlantIndex++;
+                    if(currentTotemPlantIndex < totemPlantList.Count)
+                        aiPath.target = totemPlantList[currentTotemPlantIndex].transform;
+                    else {
+                        currentTotemPlantIndex = -2;
+                        return;
+                    }
+
                     aiPath.target = totemPlantList[currentTotemPlantIndex].transform;
                     aiPath.canMove = true;
                 }
                 else if(currentTotemPlantIndex == -2) {
-                    transitionToLaserState();
+                    transitionToRunToCenter();
                 }
                 else if(!isPlanting && (aiPath.target.position - transform.position).magnitude < 1f) {
                     StartPlantTotem();
                 }
                 an.SetBool("isFacingRight", aiPath.desiredVelocity.x > 0);
                 break;
+            case CyclopsState.RunToCenter:
+                if((aiPath.target.position - transform.position).magnitude < 1f) {
+                    transitionToLaserState();
+                }
+                break;
+            case CyclopsState.LaserSnakes:
+                float[] angles = {0f, 120f, 240f};
+                float angleOffset;
+                laserSnakesTimer += Time.deltaTime;
+                laserSnakesAngleCounter += Time.deltaTime;
+                if(laserSnakesTimer < laserSnakesTime) {
+                    if(laserSnakesTimer > laserSnakesInterval) {
+                        angleOffset = laserSnakesAngleCounter / 3f * 360f;
+                        foreach(float angle in angles) {
+                            SpawnFireball(angle + angleOffset, 0f, 0f);
+                        }
+                        laserSnakesTimer -= laserSnakesInterval;
+                        laserSnakesTime -= laserSnakesInterval;
+                    }
+                }
+                else {
+                    an.SetBool("isLaserSnakes", false);
+                    transitionToLaserState();
+                }
+                break;
         }
+    }
+
+    private void transitionToLaserSnakes() {
+        an.SetBool("isLaserSnakes", true);
+        an.SetBool("isWalking", false);
+        aiPath.canMove = false;
+        laserSnakesTimer = 0f;
+        laserSnakesTime = 12f;
+        laserSnakesAngleCounter = 0f;
+        rb2d.constraints |= RigidbodyConstraints2D.FreezePosition;
+    }
+
+    public void handleLaserSnakes() {
+        state = CyclopsState.LaserSnakes;
     }
 
     // returns whether the player is in LoS of the ArcherBoy
@@ -141,6 +219,7 @@ public class CyclopsBossController : EnemyController
 
     private void transitionToSummonState() {
         an.SetBool("isSummon", true);
+        an.SetInteger("NumStomps", 0);
         aiPath.canMove = false;
         summonTimer = 0f;
         summonTime = 4.5f;
@@ -150,7 +229,15 @@ public class CyclopsBossController : EnemyController
     private void transitionToLaserState() {
         state = CyclopsState.Laser;
         laserTimer = 0f;
-        laserTime = 15f;
+        laserTime = 12f;
+        isLaserFinished = false;
+    }
+
+    private void transitionToRunToCenter() {
+        aiPath.canMove = true;
+        aiPath.target = roomCenter.transform;
+        rb2d.constraints &= ~RigidbodyConstraints2D.FreezePosition;
+        state = CyclopsState.RunToCenter;
     }
 
     private void StartPlantTotem() {
@@ -163,7 +250,9 @@ public class CyclopsBossController : EnemyController
     public void handleFinishPlantTotem() {
         an.SetBool("isWalking", true);
         aiPath.canMove = true;
-        currentTotemPlantIndex++;
+        // increment until next available
+        while(currentTotemPlantIndex < totemPlantList.Count && activeTotems[currentTotemPlantIndex])
+            currentTotemPlantIndex++;
         if(currentTotemPlantIndex < totemPlantList.Count)
             aiPath.target = totemPlantList[currentTotemPlantIndex].transform;
         else
@@ -172,8 +261,16 @@ public class CyclopsBossController : EnemyController
     }
 
     public void PlantTotem() {
-        Instantiate(totemPrefab, aiPath.target.position, new Quaternion(0f, 0f, 0f, 0f));
+        FireTotemController ftc = Instantiate(totemPrefab, aiPath.target.position, new Quaternion(0f, 0f, 0f, 0f))
+                                    .GetComponent<FireTotemController>();
+        ftc.cyclops = this;
+        ftc.totemNum = currentTotemPlantIndex;
+        activeTotems[currentTotemPlantIndex] = true;
         an.SetBool("isPlantingTotem", false);
+    }
+
+    public void handleTotemDeath(int totemNum) {
+        activeTotems[totemNum] = false;
     }
 
     private void SummonEnemies() {
@@ -183,6 +280,7 @@ public class CyclopsBossController : EnemyController
     }
 
     private void transitionToPlantTotems() {
+        currentTotemPlantIndex = -1;
         state = CyclopsState.PlantTotems;
         an.SetBool("isWalking", true);
     }

@@ -38,7 +38,8 @@ public class FireTotemAttackController : EnemyController
 
     private void OnTriggerEnter2D(Collider2D collider) {
         string tag = collider.gameObject.tag;
-        if (tag != "Enemy" && tag != "Pickup" && tag != "Heart" && tag != "Potion" && tag != "BlueShell" && tag != "GreenShell" && tag != "Water") {
+        if (tag != "Enemy" && collider.gameObject.layer != LayerMask.NameToLayer("Spells") && tag != "DestructibleSpell"
+            && tag != "Pickup" && tag != "Heart" && tag != "Potion" && tag != "BlueShell" && tag != "GreenShell" && tag != "Water") {
             isSeeking = false;
             rb2d.velocity = new Vector2(0f, 0f);
             an.SetBool("isExplode", true);

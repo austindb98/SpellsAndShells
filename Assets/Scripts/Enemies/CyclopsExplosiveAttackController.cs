@@ -44,7 +44,6 @@ public class CyclopsExplosiveAttackController : EnemyController
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        print(playerCollider);
         if(collider.gameObject.tag != "Enemy" && collider.gameObject.tag != "DestructibleSpell" && collider.gameObject.layer != LayerMask.NameToLayer("Spells")) {
             rb2d.velocity = new Vector2(0f, 0f);
             an.SetBool("isExplode", true);

@@ -8,6 +8,9 @@ public class FireTotemController : EnemyController
     private float cooldownTime = 2f;
     private bool isCooldown;
 
+    public CyclopsBossController cyclops;  // these are used only for cyclops fight
+    public int totemNum;
+
     private float maxTotemRange = 20f;
 
     private int raycastLayerMask;
@@ -56,6 +59,9 @@ public class FireTotemController : EnemyController
 
     public override void handleEnemyDeath() {
         base.handleEnemyDeath();
+        if(cyclops) {
+            cyclops.handleTotemDeath(totemNum);
+        }
         Destroy(gameObject);
     }
 

@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour
     public BaseAttack.Element resistance;
     private static readonly float weakMult = 1.5f;
     public float maxHealth;
-    protected float currentHealth;
+    public float currentHealth;
     public EnemyController enemyController;
 
     static readonly Color redColor = new Color(.6353f, .1373f, .2000f);
