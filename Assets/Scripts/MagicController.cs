@@ -89,11 +89,18 @@ public class MagicController : MonoBehaviour
             Vector2 magicPosition = (Vector2)transform.position - new Vector2(0,.5f);
             player.UseMana(currentSpell.manaCoolDown);
             castSound.Play();
-            Vector2 difference = (Vector2) Camera.main.ScreenToWorldPoint(Input.mousePosition) - magicPosition;
+            Vector2 camPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 difference = camPos - magicPosition;
             float angle = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg + 90;
             spawnRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-            Instantiate(currentSpell.attackPrefab, magicPosition, spawnRotation, transform.parent);
+            if (!currentSpell.targeted)
+            {
+                Instantiate(currentSpell.attackPrefab, magicPosition, spawnRotation, transform.parent);
+            } else
+            {
+                Instantiate(currentSpell.attackPrefab, camPos, Quaternion.Euler(0, 0, 0), transform.parent);
+            }
+            
         }
     }
 

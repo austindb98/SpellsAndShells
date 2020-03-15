@@ -10,5 +10,6 @@ public class Spell
 
     public uint manaCoolDown;
     public GameObject attackPrefab;
+    public bool targeted;
  
 }
