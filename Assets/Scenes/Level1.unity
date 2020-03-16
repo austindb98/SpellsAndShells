@@ -1243,6 +1243,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4041182757959619591, guid: 5ef0bd7253a8ef547b2de8a65c79c5e4,
+        type: 3}
+      propertyPath: sfx.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041182757959619591, guid: 5ef0bd7253a8ef547b2de8a65c79c5e4,
+        type: 3}
+      propertyPath: sfx.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: ceb562edc790841449290b13462de1d2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ef0bd7253a8ef547b2de8a65c79c5e4, type: 3}
 --- !u!1 &320791264 stripped
@@ -8307,6 +8317,7 @@ MonoBehaviour:
   weakness: 0
   resistance: 0
   maxHealth: 100
+  currentHealth: 0
   enemyController: {fileID: 898415744}
 --- !u!114 &898415744 stripped
 MonoBehaviour:
@@ -11913,11 +11924,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Skills
-      objectReference: {fileID: 0}
-    - target: {fileID: 5126121722964789661, guid: 022f9d0fcb0586c4a8df7af8ee25c6bd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5126121722964790883, guid: 022f9d0fcb0586c4a8df7af8ee25c6bd,
         type: 3}
@@ -36997,6 +37003,7 @@ MonoBehaviour:
   weakness: 0
   resistance: 0
   maxHealth: 50
+  currentHealth: 0
   enemyController: {fileID: 1549563282}
 --- !u!114 &1549563282 stripped
 MonoBehaviour:

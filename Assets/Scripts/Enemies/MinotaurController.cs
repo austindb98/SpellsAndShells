@@ -30,7 +30,7 @@ public class MinotaurController : EnemyController
 
         base.Update();
 
-        an.SetBool("isAttack2", true);
+        //an.SetBool("isAttack2", true); this is being called a bunch in level 1?
         if(isSwingRest) {
             swingRestTimer += Time.deltaTime;
             if(swingRestTimer > swingRestTime) {
