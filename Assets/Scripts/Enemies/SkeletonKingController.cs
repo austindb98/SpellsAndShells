@@ -34,8 +34,8 @@ public class SkeletonKingController : EnemyController
 
     private int raycastLayerMask;
 
-    public float maxHealth = 1200f;
-    public float bossHealth = 1200f;
+    public float maxHealth = 20f; //1200
+    public float bossHealth = 20f;
 
     private System.Random rnd;
 
