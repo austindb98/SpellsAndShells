@@ -98,7 +98,7 @@ public class MagicController : MonoBehaviour
                 Instantiate(currentSpell.attackPrefab, magicPosition, spawnRotation, transform.parent);
             } else
             {
-                Instantiate(currentSpell.attackPrefab, camPos, Quaternion.Euler(0, 0, 0), transform.parent);
+                Instantiate(currentSpell.attackPrefab, camPos, currentSpell.attackPrefab.transform.rotation, transform.parent);
             }
             
         }

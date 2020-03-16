@@ -35,7 +35,7 @@ public class VolumeController : MonoBehaviour
         setting = Mathf.Min(setting + delta, 1);
         PlayerPrefs.SetFloat(SettingName.ToString(), setting);
         SoundController.OnVolumesUpdated();
-        MusicManager.OnVolumesUpdated(SettingName);
+        MusicManager.OnVolumeUpdated();
         UpdatePercent();
         SoundController.playMenuChange();
     }
@@ -55,7 +55,7 @@ public class VolumeController : MonoBehaviour
         setting = Mathf.Max(setting - delta, 0);
         PlayerPrefs.SetFloat(SettingName.ToString(), setting);
         SoundController.OnVolumesUpdated();
-        MusicManager.OnVolumesUpdated(SettingName);
+        MusicManager.OnVolumeUpdated();
         UpdatePercent();
         SoundController.playMenuChange();
         

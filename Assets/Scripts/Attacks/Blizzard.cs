@@ -5,12 +5,15 @@ using UnityEngine;
 public class Blizzard : TargetedAttack
 {
 
-    public new GameObject toWatch;
+    public GameObject toWatchPublic;
+
+    private static readonly float lifetime = 2.5f;
 
 
     protected override void Start()
     {
-        base.toWatch = toWatch;
+        toWatch = toWatchPublic;
+        Destroy(gameObject, lifetime);
         base.Start();
     }
 
