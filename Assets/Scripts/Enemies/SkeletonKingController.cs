@@ -38,6 +38,8 @@ public class SkeletonKingController : EnemyController
     public float bossHealth = 20f;
 
     private System.Random rnd;
+    public FinalSceneController sceneController;
+    private bool isCompletelyDead = false;  
 
     // Start is called before the first frame update
     void Start()
@@ -55,11 +57,15 @@ public class SkeletonKingController : EnemyController
         raycastLayerMask =  ((1 << LayerMask.NameToLayer("Obstacles")) |
                              (1 << LayerMask.NameToLayer("Walls")) |
                              (1 << LayerMask.NameToLayer("Player")));
+
+        sceneController = GameObject.FindWithTag("BossRoom").GetComponent<FinalSceneController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(isCompletelyDead)
+            return;
         base.Update();
 
         UpdateDirection();
@@ -68,13 +74,6 @@ public class SkeletonKingController : EnemyController
 
     private void UpdateDirection() {
         float x;
-
-        print("isKnockback: " + base.isKnockback);
-        print("isSwingRest: " + isSwingRest);
-        print("isDead: " + isDead);
-        print("isUnderground: " + isUnderground);
-        print("isLunge: " + isLunge);
-        print("isJumpAttack: " + isJumpAttack);
 
         if(isUnderground)
             return;
@@ -158,9 +157,15 @@ public class SkeletonKingController : EnemyController
     }
 
     override public void handleShotgunAttack(int shotgunDamage) {
-        base.handleShotgunAttack(shotgunDamage);
-        updateBossHealth(shotgunDamage, BaseAttack.Element.Normal);
-        isJumpAttack = false;
+        if(isCompletelyDead) {
+            sceneController.handleShootSkeletonKing();
+            Destroy(gameObject);
+        }
+        else {
+            base.handleShotgunAttack(shotgunDamage);
+            updateBossHealth(shotgunDamage, BaseAttack.Element.Normal);
+            isJumpAttack = false;
+        }
     }
 
     private void updateBossHealth(float damage, BaseAttack.Element element) {
@@ -173,7 +178,11 @@ public class SkeletonKingController : EnemyController
     }
 
     private void handleFinishBossFight() {
-        return;
+        if(isCompletelyDead)
+            return;
+        sceneController.handleSkeletonKingDown(transform.position);
+        isCompletelyDead = true;
+        print("done!");
     }
 
     private void SummonSkeletons() {

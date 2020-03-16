@@ -37,8 +37,8 @@ public class GoldShellContoller : MonoBehaviour
             if (distanceToPlayer < .5)
             {
                 SoundController.PlaySound(pickupSound);
-                icon.sprite = goldShell;
-                Destroy(gameObject);
+                //icon.sprite = goldShell;
+                //Destroy(gameObject);
             }
             float diffX = player.transform.position.x - transform.position.x;
             float diffY = player.transform.position.y - transform.position.y;

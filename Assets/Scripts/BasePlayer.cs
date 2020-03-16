@@ -9,7 +9,8 @@ public class BasePlayer : MonoBehaviour
     public enum Ammo {
         RedShell,
         BlueShell,
-        GreenShell
+        GreenShell,
+        GoldShell
     }
 
     public Spell currentSpell;

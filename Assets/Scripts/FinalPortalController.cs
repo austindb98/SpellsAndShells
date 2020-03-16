@@ -20,7 +20,12 @@ public class FinalPortalController : MonoBehaviour
     private float destroyPortalTimer = 0f;
     private bool isPortalDestroyed = false;
 
-    private GameObject mendohl;
+    private bool isDialogFinished = false;
+
+    public bool isDisappear = false;
+    private bool isPortalClosed = false;
+
+    public GameObject mendohl;
 
     // Start is called before the first frame update
     void Start()
@@ -40,17 +45,23 @@ public class FinalPortalController : MonoBehaviour
                 isMendohlSpawn = true;
             }
         }
-        else if(!isMendohlDestroyed) {
-            if(!DialogScheduler.HasDialog() && !isMendohlDestroyed) {
+        else if(!isDisappear && !isMendohlDestroyed) {
+            if(!DialogScheduler.HasDialog() && !isMendohlDestroyed && !isDialogFinished) {
                 sceneController.handleFinishDialog();
-                /*destroyMendohlTimer += Time.deltaTime;
+                isDialogFinished = true;
+            }
+        }
+        else if(isDisappear) {
+            if(!DialogScheduler.HasDialog() && !isMendohlDestroyed) {
+                destroyMendohlTimer += Time.deltaTime;
                 if(destroyMendohlTimer > destroyMendohlTime) {
                     Destroy(mendohl);
                     isMendohlDestroyed = true;
-                }*/
+                    isDisappear = false;
+                }
             }
         }
-        else {
+        else if(!isPortalClosed) {
             destroyPortalTimer += Time.deltaTime;
             if(destroyPortalTimer > destroyPortalTime) {
                 closePortal();
@@ -69,6 +80,8 @@ public class FinalPortalController : MonoBehaviour
 
     public void closePortal() {
         an.SetBool("isPortalOpen", false);
+        sceneController.SpawnSkeletons();
+        isPortalClosed = true;
     }
 }
 
