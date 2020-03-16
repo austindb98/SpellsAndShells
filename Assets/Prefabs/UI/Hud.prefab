@@ -444,12 +444,12 @@ MonoBehaviour:
   iceIcons:
   - {fileID: 21300000, guid: fb555b304cf91e44baf5f5b7c89f41c9, type: 3}
   - {fileID: 21300000, guid: 9d4dbb4b93efc4346ba21066b1722d94, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 8587becae4712904a8e82c6ff4d5ff61, type: 3}
   - {fileID: 0}
   fireIcons:
   - {fileID: 21300000, guid: 295a8afd26f6a254fb5836fdad9d68d4, type: 3}
   - {fileID: 21300000, guid: fa92566efa639674a8aacb58509c0f83, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 490b50f3195f6a84fbd6b02b7ea021f1, type: 3}
   - {fileID: 0}
   disabledIcons:
   - {fileID: 21300000, guid: b386b327cb4f8a5408b7ef1d1720ca56, type: 3}

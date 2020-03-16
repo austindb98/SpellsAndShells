@@ -169,7 +169,7 @@ public class SkeletonKingController : EnemyController
     }
 
     private void updateBossHealth(float damage, BaseAttack.Element element) {
-        if(isDead) {
+        if(isDead && !isReviving) {
             SetHealth(bossHealth - base.enemyHealth.calculateDamageTaken(damage, element));
             print(bossHealth);
             if(bossHealth <= 0)

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8180088291947494171}
   - component: {fileID: 7605801961541311662}
   - component: {fileID: 1295023591552388773}
+  - component: {fileID: 162076703530986093}
   m_Layer: 15
   m_Name: GreenShell
   m_TagString: GreenShell
@@ -121,3 +122,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupSound: {fileID: 8300000, guid: 304e1c32fb932d44f8ec0f3e716b19cf, type: 3}
+--- !u!114 &162076703530986093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023436945559866100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f6990f62035f645b4b51b01d7a134d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

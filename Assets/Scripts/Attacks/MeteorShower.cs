@@ -2,27 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof (SpriteRenderer))]
-public class MeteorShower : MonoBehaviour
+public class MeteorShower : TargetedAttack
 {
-    public PhantomAttack toWatch;
-
-    private SpriteRenderer sr;
-
-    static readonly float distanceTriggerAt = .25f;
-    // Start is called before the first frame update
-    void Start()
+    public PhantomAttack phantomWatch;
+    
+    protected override void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        toWatch = phantomWatch.gameObject;
+        base.Start();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void OnWatchedEnter()
     {
-        if (toWatch != null && Vector3.Distance(transform.position, toWatch.transform.position) < distanceTriggerAt)
-        {
-            toWatch.Enable();
-            sr.enabled = false;
-        }
+        phantomWatch.Enable();
     }
 }

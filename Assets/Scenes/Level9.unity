@@ -20117,7 +20117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portalPrefab: {fileID: 7073895336986539699, guid: 0b99fa3b300039a4b91ec579e86d7b23,
     type: 3}
-  goldenShellPrefab: {fileID: 2847178863063844881, guid: db3360f5748a11040a9a7f4ac6aa271d,
+  goldenShellPrefab: {fileID: 5440717243906829691, guid: 3a65977f75e37a345a7d32bf03630050,
     type: 3}
   skelWarrior: {fileID: 4660666363620251714, guid: ffc3452779f77fa4fae89d422bd1d91a,
     type: 3}

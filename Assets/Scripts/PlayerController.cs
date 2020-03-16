@@ -20,7 +20,7 @@ public class PlayerController : BasePlayer {
 
     public Shot[] Shells = {
         new Shot(10,0.5f,20f,5),
-        new Shot(1,0f,30f,75),
+        new Shot(1,0f,30f,85),
         new Shot(25,1f,15f,3),
         new Shot(1,0f,30f,75),
     };
