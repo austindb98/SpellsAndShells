@@ -61,4 +61,9 @@ public class VolumeController : MonoBehaviour
         
     }
 
+    public static float GetPreferredVolume(Setting setting)
+    {
+        return PlayerPrefs.GetFloat(setting.ToString(), 1);
+    }
+
 }

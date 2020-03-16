@@ -31,6 +31,7 @@ public abstract class BaseAttack : MonoBehaviour
 
     public virtual void OnDeath()
     {
+        Debug.Log("destroying spell object");
         Destroy(gameObject);
     }
 
@@ -43,8 +44,9 @@ public abstract class BaseAttack : MonoBehaviour
             
             EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
             enemyController.handleAttack(damage, element);
-            OnDeath();
+            
         }
+        OnDeath();
     }
 
 }

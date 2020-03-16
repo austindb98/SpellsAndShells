@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeteorShower : TargetedAttack
+public class Blizzard : TargetedAttack
 {
-    public PhantomAttack phantomWatch;
-    
+
+    public new GameObject toWatch;
+
+
     protected override void Start()
     {
-        toWatch = phantomWatch.gameObject;
+        base.toWatch = toWatch;
         base.Start();
     }
 
     protected override void OnWatchedEnter()
     {
-        phantomWatch.Enable();
+        //do nothing
     }
 }
