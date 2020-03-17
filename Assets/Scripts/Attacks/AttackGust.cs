@@ -9,6 +9,7 @@ public class AttackGust : BaseAttack
     protected override void Start()
     {
         element = Element.Wind;
+        base.Start();
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
