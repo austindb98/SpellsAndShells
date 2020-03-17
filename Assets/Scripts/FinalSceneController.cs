@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinalSceneController : MonoBehaviour
 {
@@ -14,17 +15,31 @@ public class FinalSceneController : MonoBehaviour
 
     public GameObject skelWarrior;
     public GameObject skelArcher;
+    public GameObject endScreen;
+
+    bool isWaitingDisplayFinalScreen = false;
+    float finalTimer = 0f;
+    float finalTime = 4f;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        playerController = player.GetComponent<PlayerController>();   
+        playerController = player.GetComponent<PlayerController>();  
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(isWaitingDisplayFinalScreen && !DialogScheduler.HasDialog()) {
+            Time.timeScale = 1f;
+            endScreen.SetActive(true);
+            finalTimer += Time.deltaTime;
+            if(finalTimer > finalTime) {
+                SceneManager.LoadScene("Credits");
+                print("trying to load credits");
+            }
+        }
         
     }
 
@@ -68,6 +83,8 @@ public class FinalSceneController : MonoBehaviour
         DialogScheduler.addDialog("Thanks to you, the underworld is finally safe from that two-faced trickster.", false);
         DialogScheduler.addDialog("And I think I know exactly how to repay you.", false);
         DialogScheduler.addDialog("[Player Name], I think it's about time you go back to your own world.", false);
+        DialogScheduler.addDialog("What do you think?", false);
+        isWaitingDisplayFinalScreen = true;
     }
 
     public void handleFinishDialog() {
