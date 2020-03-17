@@ -502,6 +502,7 @@ MonoBehaviour:
   weakness: 1
   resistance: 0
   maxHealth: 500
+  currentHealth: 0
   enemyController: {fileID: 1546073388149136902}
 --- !u!114 &1546073388149136902
 MonoBehaviour:
@@ -539,3 +540,4 @@ MonoBehaviour:
   numSpawnedSkeletons: 0
   maxHealth: 1500
   bossHealth: 1500
+  sceneController: {fileID: 0}

@@ -55,6 +55,7 @@ public class EnemyController : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     public EnemyHealth enemyHealth;
+    private bool attackHandled;
 
     virtual public void Start() {
         if(!player)
@@ -84,6 +85,7 @@ public class EnemyController : MonoBehaviour
             handleKnockback();
 
     }
+
 
     virtual public void handleAttack(float damage, BaseAttack.Element element) {
         enemyHealth.takeDamage(damage, element);

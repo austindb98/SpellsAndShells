@@ -32,11 +32,15 @@ public class MendohlSceneController : MonoBehaviour
     {
         if (other == playerCollider)
         {
-            playerController.canMove = false;   // freeze player during dialogue
-            Quaternion q = Quaternion.Euler( 0f, 0f, 0f );
-            GameObject portal = Instantiate(portalPrefab, portalSpawnLocation, q);
-            (portal.GetComponent<PortalController>()).sceneController = this;
+            startMendohlScene();
         }
+    }
+
+    public void startMendohlScene() {
+        playerController.canMove = false;   // freeze player during dialogue
+        Quaternion q = Quaternion.Euler( 0f, 0f, 0f );
+        GameObject portal = Instantiate(portalPrefab, portalSpawnLocation, q);
+        (portal.GetComponent<PortalController>()).sceneController = this;
     }
 
     public void handleMendohlSpawn() {

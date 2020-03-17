@@ -20,8 +20,9 @@ public class PlayerController : BasePlayer {
 
     public Shot[] Shells = {
         new Shot(10,0.5f,20f,5),
-        new Shot(1,0f,30f,75),
+        new Shot(1,0f,30f,85),
         new Shot(25,1f,15f,3),
+        new Shot(1,0f,30f,75),
     };
 
     public float speed;
@@ -213,10 +214,13 @@ public class PlayerController : BasePlayer {
                 else if(raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("Entities") ||
                         raycastResult.collider.gameObject.layer == LayerMask.NameToLayer("StationaryEntities"))
                 {
-                    //EnemyHealth enemyHealth = raycastResult.collider.gameObject.GetComponent<EnemyHealth>();
-                    //enemyHealth.takeDamage(damage, BaseAttack.Element.Normal);
-                    EnemyController enemyController = raycastResult.collider.gameObject.GetComponent<EnemyController>();
-                    enemyController.handleShotgunAttack(shell.damage);
+                    if(raycastResult.collider.gameObject.tag == "mendohl") {
+                        GameObject.FindWithTag("BossRoom").GetComponent<FinalSceneController>().handleShootMendohl();
+                    }
+                    else {
+                        EnemyController enemyController = raycastResult.collider.gameObject.GetComponent<EnemyController>();
+                        enemyController.handleShotgunAttack(shell.damage);
+                    }
                 }
             }
             else
@@ -240,7 +244,9 @@ public class PlayerController : BasePlayer {
     }
 
     private void handlePickup(GameObject item) {
-        item.GetComponent<ItemController>().Pickup();
+        if(item.tag != "GoldShell")
+            item.GetComponent<ItemController>().Pickup();
+
         if(item.tag == "Heart") {
             if(health + heartHealth > MaxHealth)
                 health = MaxHealth;
@@ -263,6 +269,11 @@ public class PlayerController : BasePlayer {
         else if (item.tag == "GreenShell")
         {
             PickupAmmo(Ammo.GreenShell);
+            Destroy(item);
+        }
+        else if (item.tag == "GoldShell")
+        {
+            PickupAmmo(Ammo.GoldShell);
             Destroy(item);
         }
     }

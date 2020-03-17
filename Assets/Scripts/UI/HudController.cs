@@ -32,7 +32,7 @@ public class HudController : MonoBehaviour
     public Sprite[] iceIcons = new Sprite[4];
     public Sprite[] fireIcons = new Sprite[4];
     public Sprite[] disabledIcons = new Sprite[3];
-    public Sprite[] bulletIcons = new Sprite[3];
+    public Sprite[] bulletIcons = new Sprite[4];
     public Text ammoCounter;
 
     private BasePlayer.Ammo currentAmmo;
@@ -188,6 +188,9 @@ public class HudController : MonoBehaviour
                 break;
             case BasePlayer.Ammo.BlueShell:
                 bulletIcon.sprite = bulletIcons[2];
+                break;
+            case BasePlayer.Ammo.GoldShell:
+                bulletIcon.sprite = bulletIcons[3];
                 break;
         }
     }

@@ -17,12 +17,13 @@ public class MusicManager : MonoBehaviour
     {
         src = GetComponent<AudioSource>();
         src.volume = musicVolume;
+        OnVolumeUpdated();
         PlayNext();
     }
 
-    public static void OnVolumesUpdated(VolumeController.Setting setting)
+    public static void OnVolumeUpdated()
     {
-        musicVolume = PlayerPrefs.GetFloat(setting.ToString(), 1);
+        musicVolume = PlayerPrefs.GetFloat(VolumeController.Setting.VolumeMusic.ToString(), 1);
     }
 
     protected virtual void PlayNext()
@@ -39,7 +40,7 @@ public class MusicManager : MonoBehaviour
     private void PlayIndex(int index)
     {
         currentIndex = index;
-        src.PlayOneShot(songs[currentIndex]);
+        src.PlayOneShot(songs[currentIndex], musicVolume);
     }
 
     // Update is called once per frame

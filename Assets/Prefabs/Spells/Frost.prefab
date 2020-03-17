@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7811763968179772827}
   - component: {fileID: 6036893933929776563}
   - component: {fileID: 5037729871669628319}
+  - component: {fileID: 2896400212638936516}
   m_Layer: 13
   m_Name: Frost
   m_TagString: Untagged
@@ -4859,3 +4860,15 @@ MonoBehaviour:
   damage: 15
   iceType: 0
   ringOfIce: {fileID: 0}
+--- !u!114 &2896400212638936516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7811763968179772896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60cc380e0743fad448cc7b24060c1eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

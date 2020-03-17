@@ -22,9 +22,11 @@ class Prefab : ManagerObject
 class Dialog : ManagerObject
 {
     public string text;
-    public Dialog(string text)
+    public Color color;
+    public Dialog(string text, Color color)
     {
         this.text = text;
+        this.color = color;
     }
 }
 
@@ -34,6 +36,7 @@ public class DialogScheduler : MonoBehaviour
     private static Text dialogText;
     private static Queue<ManagerObject> objects;
     private static Dialog currentDialog;
+    private static Color blackColor = Color.black;
 
     public string OnStartDialog;
     // Start is called before the first frame update
@@ -74,6 +77,7 @@ public class DialogScheduler : MonoBehaviour
                 dialogBox.gameObject.SetActive(true);
                 currentDialog = (Dialog)newSpawningObject;
                 dialogText.text = currentDialog.text;
+                dialogText.color = currentDialog.color;
                 Time.timeScale = 0f;
             }
             else
@@ -85,9 +89,12 @@ public class DialogScheduler : MonoBehaviour
         }
     }
 
-    public static void addDialog(string text)
+    public static void addDialog(string text, bool isColorBlack=true)
     {
-        objects.Enqueue(new Dialog(text));
+        if(isColorBlack)
+            objects.Enqueue(new Dialog(text, Color.black));
+        else
+            objects.Enqueue(new Dialog(text, Color.red));
     }
     public static void addPrefab(GameObject prefab, Vector3 position)
     {

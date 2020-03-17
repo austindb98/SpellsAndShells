@@ -140,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weakness: 2
   resistance: 3
-  maxHealth: 70
+  maxHealth: 50
   currentHealth: 0
   enemyController: {fileID: 7583494237844075305}
 --- !u!70 &6907099488246291483
@@ -189,5 +189,7 @@ MonoBehaviour:
   spawnManager: {fileID: 0}
   spriteRenderer: {fileID: 0}
   enemyHealth: {fileID: 9207276038780672817}
+  cyclops: {fileID: 0}
+  totemNum: 0
   explosiveAttackPrefab: {fileID: 2394487869090070509, guid: f5b39123875cedf4f86c823a57280ad4,
     type: 3}

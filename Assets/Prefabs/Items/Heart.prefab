@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3789385788418734112}
   - component: {fileID: 3215046956307160981}
   - component: {fileID: -6779621814998239512}
+  - component: {fileID: 1488093999708368996}
   m_Layer: 15
   m_Name: Heart
   m_TagString: Heart
@@ -121,3 +122,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupSound: {fileID: 8300000, guid: 92ff7b00ffa05f64580ecb6f096763af, type: 3}
+--- !u!114 &1488093999708368996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413576069672028623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f6990f62035f645b4b51b01d7a134d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

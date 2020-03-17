@@ -98,7 +98,7 @@ public class MagicController : MonoBehaviour
                 Instantiate(currentSpell.attackPrefab, magicPosition, spawnRotation, transform.parent);
             } else
             {
-                Instantiate(currentSpell.attackPrefab, camPos, Quaternion.Euler(0, 0, 0), transform.parent);
+                Instantiate(currentSpell.attackPrefab, camPos, currentSpell.attackPrefab.transform.rotation, transform.parent);
             }
             
         }
@@ -127,8 +127,18 @@ public class MagicController : MonoBehaviour
             currentSpell = CalculateSpell3();
             CastSpell();
         }
+        else if (Input.GetButtonDown("PreviousSpell"))
+        {
+            player.PreviousSpell();
+            currentSpell = CalculateCurrentSpell();
+        }
+        else if (Input.GetButtonDown("NextSpell"))
+        {
+            player.NextSpell();
+            currentSpell = CalculateCurrentSpell();
+        }
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        /*if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             mouseScrolls++;
             if (mouseScrolls >= NumberOfScrolls)
@@ -148,6 +158,6 @@ public class MagicController : MonoBehaviour
                 mouseScrolls = 0;
             }
             //currentSpell = CalculateCurrentSpell();
-        }
+        }*/
     }
 }

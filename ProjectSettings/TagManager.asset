@@ -21,6 +21,9 @@ TagManager:
   - SceneDoor
   - DestructibleSpell
   - Water
+  - BossRoom
+  - GoldShell
+  - mendohl
   layers:
   - Default
   - TransparentFX
@@ -41,7 +44,7 @@ TagManager:
   - StationaryEntities
   - Fog
   - Unwalkable
-  - 
+  - PhantomSpells
   - 
   - 
   - 
