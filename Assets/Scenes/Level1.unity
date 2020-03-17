@@ -12070,7 +12070,7 @@ PrefabInstance:
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
       propertyPath: dialogs.Array.data[0]
-      value: Select a spell with the scroll wheel, and right-click to cast.
+      value: Select a spell with the Q and E keys, and right-click to cast.
       objectReference: {fileID: 0}
     - target: {fileID: 6391336242074469059, guid: 5ebb0d77294893648bc944995c6d21bb,
         type: 3}
