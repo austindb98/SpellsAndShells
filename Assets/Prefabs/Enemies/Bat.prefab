@@ -255,6 +255,7 @@ MonoBehaviour:
   weakness: 2
   resistance: 3
   maxHealth: 30
+  currentHealth: 0
   enemyController: {fileID: 8936060374133879105}
 --- !u!114 &8936060374133879105
 MonoBehaviour:
@@ -273,8 +274,9 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   attackStrength: 0
   knockbackStrength: 0.3
-  drops: []
-  dropChance: 0
+  drops:
+  - {fileID: 5413576069672028623, guid: 3967c5ff242223a4fa211ee48b7f0e69, type: 3}
+  dropChance: 0.33
   isKnockback: 0
   knockbackTime: 0.8
   playerController: {fileID: 0}
