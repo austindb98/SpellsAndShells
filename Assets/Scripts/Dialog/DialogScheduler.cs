@@ -55,7 +55,7 @@ public class DialogScheduler : MonoBehaviour
 
     public static bool HasDialog()
     {
-        return objects.Count > 0;
+        return dialogBox.gameObject.activeSelf || objects.Count > 0;
     }
 
     // Update is called once per frame
