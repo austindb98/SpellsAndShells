@@ -33,12 +33,12 @@ public class SkeletonSpawner : MonoBehaviour
             GameObject skel;
             if(spawnTimer > spawnInterval) {
                 if(numArchers < 2 && rnd.Next(0, 3) == 0) {
-                    skel = Instantiate(skeletonArcher, transform.position + new Vector3(-1, 0, 0), new Quaternion(0, 0, 0, 0));
+                    skel = Instantiate(skeletonArcher, transform.position + new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
                     skel.GetComponent<SkeletalArcherController>().skeletonKingController = skeletonKingController;
                     numArchers++;
                 }
                 else {
-                    skel = Instantiate(skeletonWarrior, transform.position + new Vector3(-1, 0, 0), new Quaternion(0, 0, 0, 0));
+                    skel = Instantiate(skeletonWarrior, transform.position + new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
                     skel.GetComponent<SkeletonWarriorController>().skeletonKingController = skeletonKingController;
                 }
 

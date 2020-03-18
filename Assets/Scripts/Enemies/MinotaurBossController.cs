@@ -37,6 +37,8 @@ public class MinotaurBossController : EnemyController
 
     private Vector2[] beybladeVectorAr;
 
+    public RectTransform healthBar;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -180,6 +182,11 @@ public class MinotaurBossController : EnemyController
                 an.SetBool("isAttack1", true);
         }
     }
+
+    public override void handleAttack(float damage, BaseAttack.Element element) {
+        base.handleAttack(damage, element);
+        SetHealth(enemyHealth.currentHealth);
+    }
         
     private void OnTriggerEnter2D(Collider2D other) {
         if(other == playerCollider && (!isKnockback || isBeyblade)) {
@@ -194,6 +201,7 @@ public class MinotaurBossController : EnemyController
 
     public override void handleShotgunAttack(int dmg) {
         base.handleShotgunAttack(dmg);
+        SetHealth(enemyHealth.currentHealth);
         base.isKnockback = true;
         base.aiPath.canMove = false;
         an.SetBool("isWalking", false);
@@ -232,7 +240,7 @@ public class MinotaurBossController : EnemyController
         an.SetBool("isWalking", true);
     }
 
-    public void handleAttack() {
+    public void handleMinotaurAttack() {
         if (Vector3.Distance(transform.position, player.transform.position) < 4.0f)
         {
             playerController.takeDamage(attackStrength);
@@ -248,5 +256,12 @@ public class MinotaurBossController : EnemyController
     private Vector2 GetBeybladeVector() {
         System.Random rnd = new System.Random();
         return beybladeVectorAr[rnd.Next(0, 4)];
+    }
+
+    public void SetHealth(float newHealth)
+    {
+        if (newHealth < 0)
+            newHealth = 0;
+        healthBar.localScale = new Vector3(newHealth / enemyHealth.maxHealth, 1, 1);
     }
 }

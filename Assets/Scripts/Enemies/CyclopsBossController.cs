@@ -37,6 +37,7 @@ public class CyclopsBossController : EnemyController
     private float laserSnakesInterval = 0.12f;
     private float laserSnakesAngleCounter = 0f;
 
+    public RectTransform healthBar;
 
     private int raycastLayerMask;
 
@@ -45,6 +46,8 @@ public class CyclopsBossController : EnemyController
     private int nextStateInt = 0;
 
     private bool isLaserFinished;
+
+    private float maxHealth;
 
     // Start is called before the first frame update
     public override void Start()
@@ -60,6 +63,7 @@ public class CyclopsBossController : EnemyController
             new Vector3(1.5f, 1f, 0),
             new Vector3(0, -2f, 0)
         };
+        maxHealth = enemyHealth.maxHealth;
 
         transitionToSummonState();
     }
@@ -68,7 +72,6 @@ public class CyclopsBossController : EnemyController
     public override void Update()
     {
         base.Update();
-        print(enemyHealth.currentHealth);
         float deltaX = player.transform.position.x - transform.position.x;
 
         switch(state) {
@@ -142,7 +145,7 @@ public class CyclopsBossController : EnemyController
                 else if(currentTotemPlantIndex == -2) {
                     transitionToRunToCenter();
                 }
-                else if(!isPlanting && (aiPath.target.position - transform.position).magnitude < 1f) {
+                else if(!isPlanting && (aiPath.target.position - transform.position).magnitude < 2.5f) {
                     StartPlantTotem();
                 }
                 an.SetBool("isFacingRight", aiPath.desiredVelocity.x > 0);
@@ -189,6 +192,11 @@ public class CyclopsBossController : EnemyController
         state = CyclopsState.LaserSnakes;
     }
 
+    public override void handleEnemyDeath() {
+        base.handleEnemyDeath();
+        Destroy(gameObject);
+    }
+
     // returns whether the player is in LoS of the ArcherBoy
     private bool CheckLineOfSight() {
         bool isAllHit = true;
@@ -213,13 +221,18 @@ public class CyclopsBossController : EnemyController
     }
 
     public override void handleShotgunAttack(int shotgunDamage) {
-        if(enemyHealth)
-            enemyHealth.takeDamage(shotgunDamage, BaseAttack.Element.Normal);
+        SetHealth(enemyHealth.currentHealth - enemyHealth.calculateDamageTaken(shotgunDamage, BaseAttack.Element.Normal));
+        enemyHealth.takeDamage(shotgunDamage, BaseAttack.Element.Normal);
+    }
+
+    public override void handleAttack(float damage, BaseAttack.Element element) {
+        SetHealth(enemyHealth.currentHealth - enemyHealth.calculateDamageTaken(damage, element));
+        enemyHealth.takeDamage(damage, element);
     }
 
     private void transitionToSummonState() {
         an.SetBool("isSummon", true);
-        an.SetInteger("NumStomps", 0);
+        an.SetInteger("numStomps", 0);
         aiPath.canMove = false;
         summonTimer = 0f;
         summonTime = 4.5f;
@@ -339,5 +352,12 @@ public class CyclopsBossController : EnemyController
         ctrl.angle = angle;
         ctrl.stoppingTime = stoppingTime;
         ctrl.relaunchTime = relaunchTime;
+    }
+
+    public void SetHealth(float newHealth)
+    {
+        if (newHealth < 0)
+            newHealth = 0;
+        healthBar.localScale = new Vector3(newHealth / maxHealth, 1, 1);
     }
 }
