@@ -603,7 +603,7 @@ MonoBehaviour:
   playerCollider: {fileID: 0}
   rb2d: {fileID: 7232131988802876776}
   attackStrength: 0
-  knockbackStrength: 0.3
+  knockbackStrength: 0.29
   drops: []
   dropChance: 0
   isKnockback: 0
