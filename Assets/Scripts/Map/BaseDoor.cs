@@ -52,6 +52,11 @@ public abstract class BaseDoor : MonoBehaviour
         }
     }
 
+    public bool IsLocked()
+    {
+        return Locked;
+    }
+
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         InDoorway = true;
