@@ -69,20 +69,26 @@ public class FinalSceneController : MonoBehaviour
     }
 
     public void handleShootSkeletonKing() {
+        string playerName = "[Player Name]";
+        if(SaveManager.currentSave)
+            playerName = SaveManager.currentSave.name;
         DialogScheduler.addDialog("Muahahahahaha", true);
         DialogScheduler.addDialog("The world shall finally meet its dark end.", true);
-        DialogScheduler.addDialog("So long, " + SaveManager.currentSave.name + ". Do try to enjoy your final moments. You've worked hard for this.", true);
+        DialogScheduler.addDialog("So long, " + playerName + ". Do try to enjoy your final moments. You've worked hard for this.", true);
         fpc.isDisappear = true;
         fpc.mendohl.GetComponent<Collider2D>().enabled = false;
     }
 
     public void handleShootMendohl() {
         Destroy(fpc.mendohl);
-        DialogScheduler.addDialog("You have done a brave thing, " + SaveManager.currentSave.name + ".", false);
+        string playerName = "[Player Name]";
+        if(SaveManager.currentSave)
+            playerName = SaveManager.currentSave.name;
+        DialogScheduler.addDialog("You have done a brave thing, " + playerName + ".", false);
         DialogScheduler.addDialog("It takes a wise and courageous soul to stand up to a being of his power.", false);
         DialogScheduler.addDialog("Thanks to you, the underworld is finally safe from that two-faced trickster.", false);
         DialogScheduler.addDialog("And I think I know exactly how to repay you.", false);
-        DialogScheduler.addDialog(SaveManager.currentSave.name + ", I think it's about time you go back to your own world.", false);
+        DialogScheduler.addDialog(playerName + ", I think it's about time you go back to your own world.", false);
         DialogScheduler.addDialog("What do you think?", false);
         isWaitingDisplayFinalScreen = true;
     }
@@ -93,6 +99,10 @@ public class FinalSceneController : MonoBehaviour
     }
 
     public void handleMendohlSpawn() {
+        string playerName = "[Player Name]";
+        if(SaveManager.currentSave)
+            playerName = SaveManager.currentSave.name;
+
         DialogScheduler.addDialog("Malphos is weakened, but a being of his power can't be killed so easily..", true);
         DialogScheduler.addDialog("NO! PLEASE!", false);
         DialogScheduler.addDialog("You have no idea what you're doing.", false);
@@ -100,7 +110,7 @@ public class FinalSceneController : MonoBehaviour
         DialogScheduler.addDialog("If you slay me, unknown evils will be unleashed on the world.", false);
         DialogScheduler.addDialog("LIES. You must not listen to him. Malphos protects the evil in this world, and he must be slain.", true);
         DialogScheduler.addDialog("Take this golden shell. It has special properties and has the power to kill gods.", true);
-        DialogScheduler.addDialog("End this, " + SaveManager.currentSave.name + ". Once and for all.", true);
+        DialogScheduler.addDialog("End this, " + playerName + ". Once and for all.", true);
         DialogScheduler.addDialog("Dewit.", true);
     }
 

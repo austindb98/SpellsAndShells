@@ -98,6 +98,7 @@ public class CyclopsBossController : EnemyController
                 if(laserTimer > laserTime) {
                     rb2d.constraints &= ~RigidbodyConstraints2D.FreezePosition;
                     an.SetBool("isLaser", false);
+                    an.SetBool("isWalking", true);
                     an.SetBool("isLaserSnakes", false);
                     isLaserFinished = true;
                     if(nextStateInt == 0)
@@ -232,6 +233,7 @@ public class CyclopsBossController : EnemyController
 
     private void transitionToSummonState() {
         an.SetBool("isSummon", true);
+        an.SetBool("isWalking", false);
         an.SetInteger("numStomps", 0);
         aiPath.canMove = false;
         summonTimer = 0f;
