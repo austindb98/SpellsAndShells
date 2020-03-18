@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Skills") && !pauseMenu.activeInHierarchy)
+        if (Input.GetButtonDown("Skills") && !pauseMenu.activeInHierarchy && !DialogScheduler.HasDialog())
         {
 
             if (skillUi.activeInHierarchy)
@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
             }
 
         }
-        else if (Input.GetButtonDown("Pause") && !skillUi.activeInHierarchy)
+        else if (Input.GetButtonDown("Pause") && !skillUi.activeInHierarchy && !DialogScheduler.HasDialog())
         {
             if (pauseMenu.activeInHierarchy)
             {
