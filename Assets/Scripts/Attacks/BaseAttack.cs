@@ -44,6 +44,7 @@ public abstract class BaseAttack : MonoBehaviour
     public virtual void DoneMoving()
     {
         canMove = false;
+        //gameObject.SetActive(true);
     }
 
     public virtual void OnDeath()

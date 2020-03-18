@@ -18,7 +18,6 @@ public class PhantomAttack : MonoBehaviour
 
     public void Enable()
     {
-        col.enabled = true;
         attack.DoneMoving();
     }
 }

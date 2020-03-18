@@ -11,7 +11,7 @@ public class AttackFireRing : MonoBehaviour
 
     private CircleCollider2D ring;
 
-    bool attackHappended;
+    bool attackHappened;
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +27,21 @@ public class AttackFireRing : MonoBehaviour
         
     }
 
+    /*private void LateUpdate()
+    {
+        if (attackHappened == true)
+        {
+            ring.enabled = false;
+        }
+    }*/
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
         if (enemyController && enemyController.gameObject.tag != "DestructibleSpell") {
             enemyController.applyFireDotEffect(AttackFireball.dotDuration, AttackFireball.dotFrequency, AttackFireball.dotDamage);
-            
+            enemyController.HandleMercyAttack(parent.damage, BaseAttack.Element.Fire);
+            attackHappened = true;
         }
     }
 }

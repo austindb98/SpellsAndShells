@@ -14,6 +14,8 @@ public class AttackFireball : BaseAttack
 
     public GameObject ringOfFire;
 
+    private SpriteRenderer sr;
+
     public enum FireType
     {
         Fireball, Meteorite, MeteorShower, Armageddon
@@ -23,6 +25,7 @@ public class AttackFireball : BaseAttack
     protected override void Start()
     {
         element = Element.Fire;
+        sr = GetComponent<SpriteRenderer>();
         base.Start();
     }
 
@@ -38,6 +41,7 @@ public class AttackFireball : BaseAttack
         {
             ringOfFire.SetActive(true);
             particles.Stop();
+            sr.enabled = false;
         }
         base.DoneMoving();
     }
