@@ -45,7 +45,10 @@ public class MendohlSceneController : MonoBehaviour
 
     public void handleMendohlSpawn() {
         foreach(string dialog in dialogList) {
-            DialogScheduler.addDialog(dialog.Replace("[Player Name]", SaveManager.currentSave.name));
+            if(SaveManager.currentSave != null)
+                DialogScheduler.addDialog(dialog.Replace("[Player Name]", SaveManager.currentSave.name));
+            else
+                DialogScheduler.addDialog(dialog);
         }
     }
 
