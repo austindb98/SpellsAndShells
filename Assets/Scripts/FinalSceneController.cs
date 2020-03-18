@@ -70,7 +70,7 @@ public class FinalSceneController : MonoBehaviour
 
     public void handleShootSkeletonKing() {
         string playerName = "[Player Name]";
-        if(SaveManager.currentSave)
+        if(SaveManager.currentSave != null)
             playerName = SaveManager.currentSave.name;
         DialogScheduler.addDialog("Muahahahahaha", true);
         DialogScheduler.addDialog("The world shall finally meet its dark end.", true);
@@ -82,7 +82,7 @@ public class FinalSceneController : MonoBehaviour
     public void handleShootMendohl() {
         Destroy(fpc.mendohl);
         string playerName = "[Player Name]";
-        if(SaveManager.currentSave)
+        if(SaveManager.currentSave != null)
             playerName = SaveManager.currentSave.name;
         DialogScheduler.addDialog("You have done a brave thing, " + playerName + ".", false);
         DialogScheduler.addDialog("It takes a wise and courageous soul to stand up to a being of his power.", false);
@@ -100,7 +100,7 @@ public class FinalSceneController : MonoBehaviour
 
     public void handleMendohlSpawn() {
         string playerName = "[Player Name]";
-        if(SaveManager.currentSave)
+        if(SaveManager.currentSave != null)
             playerName = SaveManager.currentSave.name;
 
         DialogScheduler.addDialog("Malphos is weakened, but a being of his power can't be killed so easily..", true);
