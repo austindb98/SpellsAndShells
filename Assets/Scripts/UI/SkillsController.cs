@@ -99,7 +99,7 @@ public class SkillsController : MonoBehaviour
         fluids[0].SetActive(false);
         fluids[1].SetActive(false);
         fluids[2].SetActive(false);
-        fluids[3].SetActive(false);
+        //fluids[3].SetActive(false);
         if (elementPoints >= LevelCutoff1)
         {
             fluids[0].SetActive(true);
@@ -112,11 +112,11 @@ public class SkillsController : MonoBehaviour
                 {
                     fluids[2].SetActive(true);
                     icons[2].sprite = enabled[2];
-                    if (elementPoints >= LevelCutoff4)
+                    /*if (elementPoints >= LevelCutoff4)
                     {
                         fluids[3].SetActive(true);
                         icons[3].sprite = enabled[3];
-                    }
+                    }*/
                 }
             }
         }
@@ -175,7 +175,7 @@ public class SkillsController : MonoBehaviour
 
     public void IncrementWind()
     {
-        if (PlayErrorFalse(EnoughPoints() && WindPoints < LevelCutoff4))
+        if (PlayErrorFalse(EnoughPoints() && WindPoints < LevelCutoff3))
         {
             SetWindBar(++WindPoints);
             UnassignedPoints--;
@@ -186,7 +186,7 @@ public class SkillsController : MonoBehaviour
 
     public void IncrementIce()
     {
-        if (PlayErrorFalse(EnoughPoints() && IcePoints < LevelCutoff4))
+        if (PlayErrorFalse(EnoughPoints() && IcePoints < LevelCutoff3))
         {
             SetIceBar(++IcePoints);
             UnassignedPoints--;
@@ -197,7 +197,7 @@ public class SkillsController : MonoBehaviour
 
     public void IncrementFire()
     {
-        if (PlayErrorFalse(EnoughPoints() && FirePoints < LevelCutoff4))
+        if (PlayErrorFalse(EnoughPoints() && FirePoints < LevelCutoff3))
         {
             SetFireBar(++FirePoints);
             UnassignedPoints--;
