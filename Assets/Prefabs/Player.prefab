@@ -314,7 +314,7 @@ MonoBehaviour:
     attackPrefab: {fileID: 7922605340741504046, guid: 4868d74e4ded7ab4390f4b965e773e7b,
       type: 3}
     targeted: 0
-  - manaCoolDown: 8
+  - manaCoolDown: 20
     attackPrefab: {fileID: 476542602513403578, guid: e76e1afadd4c33d479cfb0c77b9fb862,
       type: 3}
     targeted: 1
@@ -329,7 +329,7 @@ MonoBehaviour:
     attackPrefab: {fileID: 8775874958578999031, guid: 8f52aa45574bb61459cc5a4ac4d6eaf6,
       type: 3}
     targeted: 0
-  - manaCoolDown: 8
+  - manaCoolDown: 25
     attackPrefab: {fileID: 5971634531686348054, guid: 2b4ca2091c8301c41acaee2160985907,
       type: 3}
     targeted: 1

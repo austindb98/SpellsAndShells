@@ -16,6 +16,8 @@ public class AttackFireball : BaseAttack
 
     private SpriteRenderer sr;
 
+    public bool phantom;
+
     public enum FireType
     {
         Fireball, Meteorite, MeteorShower, Armageddon
@@ -48,6 +50,10 @@ public class AttackFireball : BaseAttack
 
     public override void OnDeath()
     {
+        if (phantom)
+        {
+            return;
+        }
        
         if (fireType >= FireType.Meteorite)
         {
@@ -60,7 +66,10 @@ public class AttackFireball : BaseAttack
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (!sr.enabled)
+        {
+            return;
+        }
         EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
         if(enemyController && enemyController.gameObject.tag != "DestructibleSpell")
             enemyController.applyFireDotEffect(dotDuration, dotFrequency, dotDamage);

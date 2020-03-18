@@ -13,18 +13,30 @@ public class AttackFireRing : MonoBehaviour
 
     bool attackHappened;
 
+    float scaler = 0;
+
+    static readonly float scaleSpeed = .75f;
+
     // Start is called before the first frame update
     void Start()
     {
         ring = GetComponent<CircleCollider2D>();
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        Destroy(parent.gameObject, Lifetime);
+        transform.localScale = Vector3.one * scaler;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (scaler < 1)
+        {
+            scaler += scaleSpeed * Time.deltaTime;
+            transform.localScale = Vector3.one * scaler;
+        }
+        else if (scaler > 1)
+        {
+            Destroy(parent.gameObject);
+        }
     }
 
     /*private void LateUpdate()
