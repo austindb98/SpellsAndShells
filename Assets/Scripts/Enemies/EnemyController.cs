@@ -57,6 +57,11 @@ public class EnemyController : MonoBehaviour
     public EnemyHealth enemyHealth;
     private bool attackHandled;
 
+    private bool mercyAttacked;
+
+    static readonly float MercyTime = .125f;
+    private float mercyTimer;
+
     virtual public void Start() {
         if(!player)
             player = GameObject.FindWithTag("Player");
@@ -84,8 +89,22 @@ public class EnemyController : MonoBehaviour
         if(isKnockback)
             handleKnockback();
 
+        mercyTimer += Time.deltaTime;
+
     }
 
+    /*
+     * Collisions are damage stacking with fire rings so this is a work around. use handleAttack otherwise
+     */
+    public virtual void HandleMercyAttack(float damage, BaseAttack.Element element)
+    {
+        if (mercyTimer > 0)
+        {
+            return;
+        }
+        mercyTimer = MercyTime;
+        enemyHealth.takeDamage(damage, element);
+    }
 
     virtual public void handleAttack(float damage, BaseAttack.Element element) {
         enemyHealth.takeDamage(damage, element);

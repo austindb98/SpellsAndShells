@@ -13,12 +13,11 @@ public class PhantomAttack : MonoBehaviour
     {
         col = GetComponent<CircleCollider2D>();
         attack = GetComponent<BaseAttack>();
-        col.enabled = false;
+        //col.enabled = false;
     }
 
     public void Enable()
     {
-        col.enabled = true;
         attack.DoneMoving();
     }
 }
