@@ -34,8 +34,8 @@ public class SkeletonKingController : EnemyController
 
     private int raycastLayerMask;
 
-    public float maxHealth = 20f; //1200
-    public float bossHealth = 20f;
+    public float maxHealth = 1200f; //1200
+    public float bossHealth = 1200f;
 
     private System.Random rnd;
     public FinalSceneController sceneController;
@@ -171,7 +171,6 @@ public class SkeletonKingController : EnemyController
     private void updateBossHealth(float damage, BaseAttack.Element element) {
         if(isDead && !isReviving) {
             SetHealth(bossHealth - base.enemyHealth.calculateDamageTaken(damage, element));
-            print(bossHealth);
             if(bossHealth <= 0)
                 handleFinishBossFight();
         }
