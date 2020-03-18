@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spells:
-  - manaCoolDown: 15
+  - manaCoolDown: 20
     attackPrefab: {fileID: 6291169290021964515, guid: ed2694729d9bfd444a958e24369b0079,
       type: 3}
     targeted: 0
@@ -306,30 +306,30 @@ MonoBehaviour:
   - manaCoolDown: 0
     attackPrefab: {fileID: 0}
     targeted: 0
-  - manaCoolDown: 8
+  - manaCoolDown: 20
     attackPrefab: {fileID: 7811763968179772896, guid: ca73ecddc74bcd64584bc8a2e18c69d0,
       type: 3}
     targeted: 0
-  - manaCoolDown: 15
+  - manaCoolDown: 17
     attackPrefab: {fileID: 7922605340741504046, guid: 4868d74e4ded7ab4390f4b965e773e7b,
       type: 3}
     targeted: 0
-  - manaCoolDown: 20
+  - manaCoolDown: 13
     attackPrefab: {fileID: 476542602513403578, guid: e76e1afadd4c33d479cfb0c77b9fb862,
       type: 3}
     targeted: 1
   - manaCoolDown: 0
     attackPrefab: {fileID: 0}
     targeted: 0
-  - manaCoolDown: 10
+  - manaCoolDown: 25
     attackPrefab: {fileID: 8082342449724032719, guid: 49668eb1e3408a649a1601f6a708f3de,
       type: 3}
     targeted: 0
-  - manaCoolDown: 18
+  - manaCoolDown: 20
     attackPrefab: {fileID: 8775874958578999031, guid: 8f52aa45574bb61459cc5a4ac4d6eaf6,
       type: 3}
     targeted: 0
-  - manaCoolDown: 25
+  - manaCoolDown: 17
     attackPrefab: {fileID: 5971634531686348054, guid: 2b4ca2091c8301c41acaee2160985907,
       type: 3}
     targeted: 1
