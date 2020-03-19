@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackGust : BaseAttack
 {
-    private float knockbackMagnitude = 10f;
+    private float knockbackMagnitude = 2.5f;
     // Start is called before the first frame update
     protected override void Start()
     {

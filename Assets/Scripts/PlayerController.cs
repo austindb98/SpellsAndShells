@@ -37,7 +37,7 @@ public class PlayerController : BasePlayer {
     private float hitTimer = 0f;
     private float hitTime = 0.5f;
     private float knockbackTimer = 0;
-    private float knockbackTime = 0.8f;
+    private float knockbackTime = 0.5f;
     private bool isKnockback = false;
 
     public LayerMask wallLayer, obstacleLayer, fogLayer;
