@@ -438,8 +438,8 @@ MonoBehaviour:
   player: {fileID: 0}
   windIcons:
   - {fileID: 21300000, guid: d1853467d0b1f184e8987c1f31948ba9, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 10ac51d9dd7f87746bfca5415e01e194, type: 3}
+  - {fileID: 21300000, guid: 4f3ef17f5da69864ba505e7aa3f56c0e, type: 3}
   - {fileID: 0}
   iceIcons:
   - {fileID: 21300000, guid: fb555b304cf91e44baf5f5b7c89f41c9, type: 3}
