@@ -19,4 +19,9 @@ public class AttackGust : BaseAttack
             enemyController.applyWindKnockbackEffect(knockbackMagnitude);
         base.OnTriggerEnter2D(collision);
     }
+
+    protected void OnTriggerEnter2DParent(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+    }
 }

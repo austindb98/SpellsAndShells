@@ -136,6 +136,12 @@ public class EnemyController : MonoBehaviour
         isKnockback = true;
     }
 
+    public virtual void ApplyStun(float stunTime)
+    {
+        knockbackTimer = knockbackTime - stunTime;
+        isKnockback = true;
+    }
+
     virtual public void handleShotgunAttack(int shotgunDamage) {
         applyKnockback(knockbackStrength);
         if(enemyHealth)
