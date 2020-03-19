@@ -179,7 +179,7 @@ public class SkeletonKingController : EnemyController
     private void handleFinishBossFight() {
         if(isCompletelyDead)
             return;
-        sceneController.handleSkeletonKingDown(transform.position);
+        sceneController.handleSkeletonKingDown(transform.position, gameObject);
         isCompletelyDead = true;
         print("done!");
     }

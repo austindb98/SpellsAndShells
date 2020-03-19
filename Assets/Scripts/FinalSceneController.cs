@@ -44,23 +44,25 @@ public class FinalSceneController : MonoBehaviour
         
     }
 
-    public void handleSkeletonKingDown(Vector3 skelPos) {
-        if(skelPos.x < 0f) {
+    public void handleSkeletonKingDown(Vector3 skelPos, GameObject skeletonKing) {
+        /*if(skelPos.x < 0f) {
             playerDestination = new Vector3(skelPos.x + 4f, skelPos.y, skelPos.z);
         }
         else {
             playerDestination = new Vector3(skelPos.x - 4f, skelPos.y, skelPos.z);
-        }
+        }*/
 
-        player.transform.position = playerDestination;
+        player.transform.position = new Vector3(0f, 37f, 0f);
+        skeletonKing.transform.position = new Vector3(5f, 37f, 0f);
+        Vector3 portalSpawnLocation = new Vector3(-8f, 37f, 0f);
 
-        Vector3 portalSpawnLocation;
+        /*Vector3 portalSpawnLocation;
         if(skelPos.y > 37f) {
             portalSpawnLocation = new Vector3(skelPos.x, skelPos.y - 4f, skelPos.z);
         }
         else {
             portalSpawnLocation = new Vector3(skelPos.x, skelPos.y + 4f, skelPos.z);
-        }
+        }*/
 
         playerController.canMove = false;   // freeze player during dialogue
         Quaternion q = Quaternion.Euler( 0f, 0f, 0f );

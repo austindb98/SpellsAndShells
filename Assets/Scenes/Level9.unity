@@ -157,6 +157,11 @@ PrefabInstance:
       propertyPath: dialogList.Array.data[2]
       value: At last, I will fulfill my destiny!
       objectReference: {fileID: 0}
+    - target: {fileID: 4914342255728377448, guid: 644fe737d88caba4c90369aaac9eb139,
+        type: 3}
+      propertyPath: isGiveSkillPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4914342255728377450, guid: 644fe737d88caba4c90369aaac9eb139,
         type: 3}
       propertyPath: m_Direction
@@ -20357,6 +20362,7 @@ MonoBehaviour:
   skelArcher: {fileID: 5493346163074218181, guid: bd8204a65fbf7fe49ab05e764fb9e21b,
     type: 3}
   endScreen: {fileID: 386878948}
+  isDialogFinished: 0
 --- !u!1001 &682404687
 PrefabInstance:
   m_ObjectHideFlags: 0
