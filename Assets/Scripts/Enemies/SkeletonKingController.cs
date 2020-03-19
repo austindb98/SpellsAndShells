@@ -157,7 +157,7 @@ public class SkeletonKingController : EnemyController
     }
 
     override public void handleShotgunAttack(int shotgunDamage) {
-        if(isCompletelyDead) {
+        if(isCompletelyDead && sceneController.isDialogFinished) {
             sceneController.handleShootSkeletonKing();
             Destroy(gameObject);
         }
