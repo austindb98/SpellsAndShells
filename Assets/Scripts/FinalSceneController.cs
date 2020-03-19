@@ -18,6 +18,7 @@ public class FinalSceneController : MonoBehaviour
     public GameObject endScreen;
 
     bool isWaitingDisplayFinalScreen = false;
+    public bool isDialogFinished = false;
     float finalTimer = 0f;
     float finalTime = 4f;
 
@@ -96,6 +97,7 @@ public class FinalSceneController : MonoBehaviour
     public void handleFinishDialog() {
         Instantiate(goldenShellPrefab, new Vector3(0f, 30f, 0f), Quaternion.Euler( 0f, 0f, 0f ));
         playerController.canMove = true;
+        isDialogFinished = true;
     }
 
     public void handleMendohlSpawn() {
