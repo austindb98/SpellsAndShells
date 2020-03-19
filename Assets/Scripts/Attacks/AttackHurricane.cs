@@ -12,8 +12,10 @@ public class AttackHurricane : AttackGust
     {
         EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
         if (enemyController && enemyController.gameObject.tag != "DestructibleSpell")
+        {
             enemyController.applyWindKnockbackEffect(knockMagnitude);
             enemyController.ApplyStun(stunTime);
+        }
         base.OnTriggerEnter2DParent(collision); // skips to baseattack
     }
 }
