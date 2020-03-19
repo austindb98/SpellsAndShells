@@ -7,7 +7,7 @@ public class AttackNoRotation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.localRotation = Quaternion.identity;
+        transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
     }
 
     // Update is called once per frame
