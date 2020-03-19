@@ -10,12 +10,15 @@ public class WitchSpellController : MonoBehaviour
     private Rigidbody2D rb2d;
     public float speed;
 
+    static readonly float lifeTime = 3f;
+
     // Start is called before the first frame update
     void Start()
     {
         playerCollider = player.GetComponent<Collider2D>();
         playerController = player.GetComponent<PlayerController>();
         rb2d = GetComponent<Rigidbody2D>();
+        Destroy(gameObject, lifeTime);
     }
 
     // Update is called once per frame
