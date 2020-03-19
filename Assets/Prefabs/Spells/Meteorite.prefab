@@ -324,10 +324,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403cc0471e2ba474daf8e968d696cc3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 17
   damage: 40
   fireType: 1
   ringOfFire: {fileID: 8716872071506323039}
+  phantom: 0
 --- !u!198 &8775874958578998925
 ParticleSystem:
   m_ObjectHideFlags: 0

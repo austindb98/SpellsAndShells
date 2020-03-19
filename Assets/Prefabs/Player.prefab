@@ -298,8 +298,9 @@ MonoBehaviour:
     attackPrefab: {fileID: 6291169290021964515, guid: ed2694729d9bfd444a958e24369b0079,
       type: 3}
     targeted: 0
-  - manaCoolDown: 0
-    attackPrefab: {fileID: 0}
+  - manaCoolDown: 17
+    attackPrefab: {fileID: 6904574768294431735, guid: aac7606ae7a14cc4b890f6a93f1ffc6a,
+      type: 3}
     targeted: 0
   - manaCoolDown: 0
     attackPrefab: {fileID: 0}
