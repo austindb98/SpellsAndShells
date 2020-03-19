@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1966595175fdf8645bc32d4dfffdfd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
+  moveSpeed: 20
   yMax: 1600
 --- !u!114 &81366782
 MonoBehaviour:
@@ -852,7 +852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1966595175fdf8645bc32d4dfffdfd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
+  moveSpeed: 20
   yMax: 1600
 --- !u!114 &1854207103 stripped
 MonoBehaviour:
@@ -982,7 +982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1966595175fdf8645bc32d4dfffdfd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
+  moveSpeed: 20
   yMax: 1600
 --- !u!114 &1911963528
 MonoBehaviour:
