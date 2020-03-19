@@ -16,6 +16,7 @@ public class AttackFireRing : MonoBehaviour
     float scaler = 0;
 
     static readonly float scaleSpeed = .75f;
+    static readonly float lingerTime = .55f;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,7 @@ public class AttackFireRing : MonoBehaviour
         }
         else if (scaler > 1)
         {
-            Destroy(parent.gameObject);
+            Destroy(parent.gameObject, lingerTime);
         }
     }
 
